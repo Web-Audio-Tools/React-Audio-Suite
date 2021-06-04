@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://jakearchibald.com/2016/sounds-fun/ -->
+<html lang="en" class="">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Sounds fun - JakeArchibald.com</title>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+  <link rel="icon" type="image/png" href="https://jakearchibald.com/c/favicon-67801369.png">
+  <link rel="stylesheet" href="./sounds-fun_files/all-3a5e50b1.css">
+  <script type="module" async="" src="./sounds-fun_files/analytics-40498d2a.js"></script>
+  <link rel="alternate" type="application/rss+xml" title="Jake Archibald&#39;s Blog"
+    href="https://jakearchibald.com/posts.rss">
+  <link rel="preload" as="font" href="https://jakearchibald.com/c/pt-serif-71b5d018.woff2" crossorigin="">
+  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://jakearchibald.com/c/icon-42537423.png">
+  <meta property="twitter:image" content="https://jakearchibald.com/c/icon-42537423.png">
+  <meta name="twitter:site" content="@jaffathecake">
+  <meta property="og:url" content="https://jakearchibald.com/2016/sounds-fun/">
+  <meta property="twitter:title" content="Sounds fun">
+  <meta property="og:title" content="Sounds fun">
+  <meta property="og:description" content="Queueing, synchronising, and looping audio using the web audio API.">
+  <style type="text/css">
+    .fancybox-margin {
+      margin-right: 0px;
+    }
+  </style>
+</head>
+
+<body data-gclp-initialized="true" data-gistbox-initialized="true">
+  <header class="site-header">
+    <div class="inner page-width"><a href="https://jakearchibald.com/" class="title">Jake Archibald<span
+          class="js-action"> wrote…</span></a><a href="https://jakearchibald.com/who/" class="who">who?</a></div>
+  </header>
+  <div class="container">
+    <div class="content-n-side">
+      <div class="content">
+        <div class="article-content">
+          <h1>Sounds fun</h1><time class="article-date" datetime="2016-11-29">Posted 29 November 2016 </time>
+          <div>
+            <p>I played with the <a href="https://webaudio.github.io/web-audio-api/">web audio API</a> for the first
+              time recently, so I thought I'd write up what I learned. I think that's my job or something.</p>
+            <h2 id="playing-a-sound">Playing a sound</h2>
+            <p>The simplest demonstrable thing we can do with web audio is "play a sound". But to do that, we first we
+              need to load &amp; decode something:</p>
+            <div class="code-example">
+              <pre class="language-js" data-initialized="true" data-gclp-id="0"
+                style="position: relative;"><code><span class="token comment">// The context is connected to the device speakers.</span>
+<span class="token comment">// You only need one of these per document.</span>
+<span class="token keyword">const</span> context <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AudioContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Fetch the file</span>
+<span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'sound.mp4'</span><span class="token punctuation">)</span>
+  <span class="token comment">// Read it into memory as an arrayBuffer</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">response</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> response<span class="token punctuation">.</span><span class="token function">arrayBuffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token comment">// Turn it from mp3/aac/whatever into raw audio data</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">arrayBuffer</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> context<span class="token punctuation">.</span><span class="token function">decodeAudioData</span><span class="token punctuation">(</span>arrayBuffer<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">audioBuffer</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Now we're ready to play!</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+            </div>
+            <p>Unfortunately we need to work around a few things in Safari. We need to use
+              <code>webkitAudioContext</code> - Safari doesn't support the unprefixed version. It doesn't support
+              <code>fetch</code> yet (it's <a href="https://webkit.org/status/#specification-fetch-api">in
+                development</a>) so we'll <a
+                href="https://gist.github.com/jakearchibald/b7d63a48db6484e1b5701331ed8c7a02">need to use XHR</a>). And
+              <code>decodeAudioData</code> doesn't support promises, so we'll <a
+                href="https://gist.github.com/jakearchibald/131d7101b134b6f7bed1d8320e4da599">need to polyfill that</a>.
+            </p>
+            <p>But once we've got our audio buffer, we can play it:</p>
+            <div class="code-example">
+              <pre class="language-js" data-initialized="true" data-gclp-id="1"
+                style="position: relative;"><code><span class="token comment">// Create a source:</span>
+<span class="token comment">// This represents a playback head.</span>
+<span class="token keyword">const</span> source <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token function">createBufferSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Give it the audio data we loaded:</span>
+source<span class="token punctuation">.</span>buffer <span class="token operator">=</span> audioBuffer<span class="token punctuation">;</span>
+<span class="token comment">// Plug it into the output:</span>
+source<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span>context<span class="token punctuation">.</span>destination<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// And off we go!</span>
+source<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+            </div>
+            <p>Job done!</p>
+            <style>
+              .audio-container {
+                position: relative;
+                margin: 0 -20px;
+              }
+
+              @media (min-width: 530px) {
+                .audio-container {
+                  margin-left: -32px;
+                  margin-right: 0;
+                }
+              }
+
+              .audio-output {
+                position: relative;
+                height: 200px;
+                background: #39775b;
+              }
+
+              .audio-output>* {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+              }
+
+              .loop {
+                background: rgba(255, 255, 255, 0.21);
+                width: 0;
+                border: 1px solid rgba(255, 255, 255, 0.41);
+                border-width: 0 1px;
+                box-sizing: border-box;
+                background-clip: content-box;
+              }
+
+              .play-head {
+                width: 1px;
+                background: #fff;
+                will-change: transform;
+                display: none;
+              }
+
+              .bwq-loops,
+              .aac-decode {
+                display: flex;
+              }
+
+              .bwq-loops .audio-output,
+              .aac-decode .audio-output {
+                flex: 1;
+              }
+
+              .bwq-loops .audio-output:nth-child(2) {
+                margin: 0 10px;
+              }
+
+              .bwq-loops .audio-output:nth-child(3) {
+                flex: 0.2;
+              }
+
+              .aac-decode .audio-output:first-child {
+                margin-right: 5px;
+              }
+
+              .aac-decode .audio-output:last-child {
+                margin-left: 5px;
+              }
+
+              .audio-buttons {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                padding: 16px 20px;
+              }
+
+              @media (min-width: 530px) {
+                .audio-buttons {
+                  padding-left: 32px;
+                }
+              }
+
+              .audio-container progress {
+                width: 100%;
+              }
+            </style>
+            <script>
+              function bufferFetch( url, progressCb ) {
+                return new Promise( ( resolve, reject ) => {
+                  const xhr = new XMLHttpRequest();
+                  xhr.responseType = 'arraybuffer';
+                  xhr.onload = () => resolve( xhr.response );
+                  xhr.onerror = () => reject( Error( 'Fetch failed' ) );
+                  if ( progressCb ) xhr.onprogress = event => progressCb( event.loaded / event.total );
+                  xhr.open( 'GET', url );
+                  xhr.send();
+                } );
+              }
+
+              const context = new( self.AudioContext || self.webkitAudioContext )();
+              const safetyOffset = 0.25;
+
+              function drawAudio( canvas, buffer, start, end ) {
+                const resolution = 10;
+                const rect = canvas.getBoundingClientRect();
+                canvas.width = Math.floor( rect.width * devicePixelRatio );
+                canvas.height = Math.floor( rect.height * devicePixelRatio );
+                const context = canvas.getContext( '2d' );
+                let data = buffer.getChannelData( 0 );
+
+                if ( start || end ) {
+                  data = data.slice( start || 0, end || data.length );
+                }
+
+                context.fillStyle = '#12d67d';
+
+                for ( let i = 0; i < canvas.width; i++ ) {
+                  let max = -Infinity;
+                  let min = Infinity;
+                  const start = Math.floor( i / canvas.width * data.length );
+                  const end = Math.floor( ( i + 1 ) / canvas.width * data.length );
+                  const interval = Math.floor( ( end - start ) / resolution ) || 1;
+
+                  for ( let j = start; j <= end; j += interval ) {
+                    const item = data[ j ];
+                    if ( max < item ) max = item;
+                    if ( min > item ) min = item;
+                  }
+
+                  const height = ( max - min ) / 2 * canvas.height;
+                  const startPixel = ( 1 - ( max + 1 ) / 2 ) * canvas.height;
+
+                  context.fillRect( i, startPixel, 1, height )
+                }
+              }
+
+              function drawLoop( el, start, width ) {
+                el.style.display = 'block';
+                el.style.left = start * 100 + '%';
+                el.style.width = width * 100 + '%';
+              }
+
+              // Safari doesn't support promises in decodeAudioData :(
+              if ( !window.AudioContext && window.webkitAudioContext ) {
+                const oldFunc = webkitAudioContext.prototype.decodeAudioData;
+                webkitAudioContext.prototype.decodeAudioData = function ( arraybuffer ) {
+                  return new Promise( ( resolve, reject ) => {
+                    oldFunc.call( this, arraybuffer, resolve, reject );
+                  } );
+                }
+              }
+
+              const loop1 = {
+                barLength: ( 60 / 110 /*BPM*/ ) * 4,
+                size: 1150563,
+                buffer: null,
+                startOffset: 0,
+                downloadProgress: 0,
+                url: '/c/loop1-46034bf9.mp4'
+              };
+
+              const loop2 = {
+                barLength: ( 60 / 123 /*BPM*/ ) * 4,
+                size: 1062675,
+                buffer: null,
+                startOffset: 0,
+                downloadProgress: 0,
+                url: '/c/loop2-f1b50df7.mp4'
+              };
+
+              const stab = {
+                buffer: null,
+                size: 110755,
+                startOffset: 0,
+                downloadProgress: 0,
+                url: '/c/stab-6fedd1c5.mp4'
+              };
+
+              const singleLoop = {
+                size: 966911,
+                buffer: null,
+                startOffset: 0,
+                downloadProgress: 0,
+                url: '/c/sonic-fcf62fd5.mp4'
+              };
+
+              function dispatchStateChange() {
+                window.dispatchEvent( new Event( 'app-statechange' ) );
+              }
+
+              function downloadAudio( item ) {
+                item.downloadProgress = 0.0001;
+                dispatchStateChange();
+
+                return bufferFetch( item.url, complete => {
+                  item.downloadProgress = complete;
+                  dispatchStateChange();
+                } ).then( ab => context.decodeAudioData( ab ) ).then( buffer => {
+                  const l = buffer.getChannelData( 0 );
+                  const r = buffer.getChannelData( 1 );
+
+                  for ( var i = 0; i < l.length; i++ ) {
+                    if ( l[ i ] || r[ i ] ) {
+                      item.startOffset = i / buffer.sampleRate;
+                      break;
+                    }
+                  }
+
+                  item.buffer = buffer;
+                  dispatchStateChange();
+                } );
+              }
+
+              function humanSize( size ) {
+                const total = Math.round( size / 1024 / 1024 * 100 );
+                return `${total/100}M`;
+              }
+            </script>
+
+            <div class="audio-container">
+              <div class="audio-output stab-only">
+                <canvas></canvas>
+                <div class="play-head"></div>
+              </div>
+              <div class="stab-only-buttons audio-buttons">
+                <button class="btn stab-load">Download audio (0.11M)</button>
+              </div>
+            </div>
+
+            <script>
+              ( function () {
+                let audioDrawn = false;
+                let stabSource;
+                let stabStart = 0;
+                const buttonsEl = document.querySelector( '.stab-only-buttons' );
+                const playhead = document.querySelector( '.stab-only .play-head' );
+
+                function updateButtonsUi() {
+                  if ( !stab.buffer ) {
+                    if ( stab.downloadProgress ) {
+                      let progress = buttonsEl.firstElementChild;
+                      if ( !progress || progress.tagName != 'PROGRESS' ) {
+                        buttonsEl.innerHTML = `<progress max="1"></progress>`;
+                        progress = buttonsEl.firstElementChild;
+                      }
+                      progress.value = stab.downloadProgress;
+                      return;
+                    }
+
+                    buttonsEl.innerHTML = `
+        <button class="btn stab-load">Download audio (${humanSize(stab.size)})</button>
+      `;
+                    return;
+                  }
+
+                  if ( !audioDrawn ) {
+                    drawAudio( document.querySelector( '.stab-only canvas' ), stab.buffer );
+                    audioDrawn = true;
+                  }
+
+                  buttonsEl.innerHTML = `<button class="btn stab-play">Play</button>`;
+                }
+
+                window.addEventListener( 'app-statechange', updateButtonsUi );
+                updateButtonsUi();
+
+                function updatePlayheadUi() {
+                  if ( !stabSource ) {
+                    playhead.style.display = 'none';
+                    return;
+                  }
+
+                  const rect = playhead.parentNode.getBoundingClientRect();
+                  const posInTrack = context.currentTime - stabStart;
+                  const pos = Math.max( posInTrack / stab.buffer.duration, 0 );
+
+                  playhead.style.display = 'block';
+                  playhead.style.transform = `translate(${rect.width * pos}px, 0)`;
+                  requestAnimationFrame( updatePlayheadUi );
+                }
+
+                function start() {
+                  stabSource = context.createBufferSource();
+                  stabSource.onended = event => {
+                    if ( stabSource == event.target ) stabSource = null;
+                  };
+                  stabSource.buffer = stab.buffer;
+                  stabSource.connect( context.destination );
+                  stabStart = context.currentTime;
+                  stabSource.start( stabStart );
+                }
+
+                buttonsEl.addEventListener( 'click', event => {
+                  const button = event.target;
+                  if ( !button ) return;
+
+                  if ( button.classList.contains( 'stab-load' ) ) {
+                    downloadAudio( stab );
+                    return;
+                  }
+
+                  if ( button.classList.contains( 'stab-play' ) ) {
+                    start();
+                    updatePlayheadUi();
+                    return;
+                  }
+                } );
+              } )();
+            </script>
+
+            <p>So yeah, it's way more complicated than just using <code>&lt;audio src="…"&gt;</code> to play a sound,
+              but web audio can do so much more. The amount of control web audio gives you is great fun, but also kinda
+              daunting. In this post I'm just going to scratch the surface, and look at how to loop and queue sounds.
+            </p>
+            <h2 id="the-big-web-quiz">The Big Web Quiz</h2>
+            <p>At Chrome Dev Summit <a href="https://twitter.com/aerotwist">Paul</a> &amp; I ran a web-based interactive
+              quiz between talks.</p>
+            <figure class="full-figure">
+              <div class="video"><iframe src="./sounds-fun_files/pga5kyweM9g.html" frameborder="0"
+                  allowfullscreen=""></iframe></div>
+              <figcaption>CSS properties on the Big Web Quiz</figcaption>
+            </figure>
+
+            <p>We tried to make it as ridiculous as possible, and the music was a big part of that. The music was
+              produced by <a href="http://plan8.se/">Plan8</a>, and it only took them a day to compose (we misread the
+              licence on a piece of music we were going to use, so the deadline was <em>our</em> fault. Anyway, the
+              music they made is way better). They also have JS libraries for scheduling audio, but hey I was in the
+              mood for some procrastination, so I did it myself.</p>
+            <h2 id="switching-between-clips">Switching between clips</h2>
+            <p>The music in the Big Web Quiz has three phases, and we wanted to switch between them during questions.
+              Using the code above, I loaded three buffers, <code>phase1AudioBuffer</code>,
+              <code>phase2AudioBuffer</code>, and <code>stabAudioBuffer</code>, each representing a different phase of
+              Big Web Quiz's music.</p>
+            <p>A naive solution is to play phase 1, then later stop it and play phase 2:</p>
+            <div class="code-example">
+              <pre class="language-js" data-initialized="true" data-gclp-id="2"
+                style="position: relative;"><code><span class="token keyword">const</span> phase1Source <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token function">createBufferSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+phase1Source<span class="token punctuation">.</span>buffer <span class="token operator">=</span> phase1AudioBuffer<span class="token punctuation">;</span>
+phase1Source<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span>context<span class="token punctuation">.</span>destination<span class="token punctuation">)</span><span class="token punctuation">;</span>
+phase1Source<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Then later…</span>
+<span class="token keyword">const</span> phase2Source <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token function">createBufferSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+phase2Source<span class="token punctuation">.</span>buffer <span class="token operator">=</span> phase2AudioBuffer<span class="token punctuation">;</span>
+phase2Source<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span>context<span class="token punctuation">.</span>destination<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Stop phase 1</span>
+phase1Source<span class="token punctuation">.</span><span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Start phase 2</span>
+phase2Source<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+            </div>
+            <div class="audio-container">
+              <div class="bwq-simple bwq-loops">
+                <div class="audio-output">
+                  <canvas></canvas>
+                  <div class="play-head"></div>
+                </div>
+                <div class="audio-output">
+                  <canvas></canvas>
+                  <div class="play-head"></div>
+                </div>
+                <div class="audio-output">
+                  <canvas></canvas>
+                  <div class="play-head"></div>
+                </div>
+              </div>
+              <div class="bwq-simple-buttons audio-buttons">
+                <button class="btn bwq-load">Download audio (2.22M)</button>
+              </div>
+            </div>
+            <script>
+              ( function () {
+                let uiState = 'stopped';
+                let audioDrawn = false;
+                const buttonsEl = document.querySelector( '.bwq-simple-buttons' );
+                const outputEls = document.querySelectorAll( '.bwq-simple .audio-output' );
+                const playheadEls = document.querySelectorAll( '.bwq-simple .play-head' );
+                let loop1Source;
+                let loop1Start;
+                let loop2Source;
+                let loop2Start;
+                let stabSource;
+                let stabStart;
+
+                function updateButtonsUi() {
+                  const loops = [ loop1, loop2, stab ];
+                  const notLoaded = loops.filter( item => !item.buffer );
+                  const allLoading = loops.every( item => item.downloadProgress > 0 );
+                  const remaining = notLoaded.reduce( ( total, item ) => total + item.size, 0 );
+                  if ( notLoaded.length ) {
+                    if ( allLoading ) {
+                      let progress = buttonsEl.firstElementChild;
+                      if ( !progress || progress.tagName != 'PROGRESS' ) {
+                        buttonsEl.innerHTML = `<progress max="1"></progress>`;
+                        progress = buttonsEl.firstElementChild;
+                      }
+                      progress.value = loops.reduce( ( total, loop ) => total + loop.downloadProgress, 0 ) / loops
+                        .length;
+                      return;
+                    }
+                    buttonsEl.innerHTML = `
+          <button class="btn bwq-load">Download audio (${humanSize(remaining)})</button>
+        `;
+                    return;
+                  }
+                  if ( !audioDrawn ) {
+                    drawAll();
+                    audioDrawn = true;
+                  }
+                  if ( uiState == 'stopped' || uiState == 'stab' ) {
+                    buttonsEl.innerHTML = `
+          <button class="btn bwq-play">Play</button>
+        `;
+                    return;
+                  }
+                  if ( uiState == 'loop1' ) {
+                    buttonsEl.innerHTML = `
+          <button class="btn bwq-step-up">Next phase</button>
+          <button class="btn bwq-stop">Stop</button>
+        `;
+                    return;
+                  }
+                  if ( uiState == 'loop2' ) {
+                    buttonsEl.innerHTML = `
+          <button class="btn bwq-stab">Stab</button>
+          <button class="btn bwq-stop">Stop</button>
+        `;
+                    return;
+                  }
+                }
+
+                function updatePlayheadUi() {
+                  if ( uiState == 'stopped' ) {
+                    for ( let el of Array.from( playheadEls ) ) {
+                      el.style.display = 'none';
+                    }
+                    return;
+                  }
+                  let container;
+                  let playHead;
+                  let buffer;
+                  let start;
+                  if ( loop1Source ) {
+                    container = outputEls[ 0 ];
+                    playHead = playheadEls[ 0 ];
+                    buffer = loop1.buffer;
+                    start = loop1Start;
+                  } else if ( loop2Source ) {
+                    container = outputEls[ 1 ];
+                    playHead = playheadEls[ 1 ];
+                    buffer = loop2.buffer;
+                    start = loop2Start;
+                  } else {
+                    container = outputEls[ 2 ];
+                    playHead = playheadEls[ 2 ];
+                    buffer = stab.buffer;
+                    start = stabStart;
+                  }
+                  const rect = container.getBoundingClientRect();
+                  for ( let el of Array.from( playheadEls ) ) {
+                    el.style.display = 'none';
+                  }
+                  let posInTrack = context.currentTime - start;
+                  if ( posInTrack > buffer.duration ) {
+                    if ( uiState == 'stab' ) return;
+                    posInTrack = posInTrack % buffer.duration;
+                  }
+                  const pos = Math.max( posInTrack / buffer.duration, 0 );
+                  playHead.style.display = 'block';
+                  playHead.style.transform = `translate(${rect.width * pos}px, 0)`;
+                  requestAnimationFrame( updatePlayheadUi );
+                }
+                window.addEventListener( 'app-statechange', updateButtonsUi );
+                updateButtonsUi();
+
+                function drawAll() {
+                  const canvases = document.querySelectorAll( '.bwq-simple canvas' );
+                  drawAudio( canvases[ 0 ], loop1.buffer );
+                  drawAudio( canvases[ 1 ], loop2.buffer );
+                  drawAudio( canvases[ 2 ], stab.buffer );
+                }
+
+                function start() {
+                  loop1Source = context.createBufferSource();
+                  loop1Source.onended = event => {
+                    if ( loop1Source == event.target ) loop1Source = null;
+                  };
+                  loop1Source.buffer = loop1.buffer;
+                  loop1Source.loop = true;
+                  loop1Source.loopStart = loop1.startOffset;
+                  loop1Source.connect( context.destination );
+                  loop1Start = context.currentTime;
+                  loop1Source.start();
+                }
+
+                function stepItUp() {
+                  loop2Source = context.createBufferSource();
+                  loop2Source.onended = event => {
+                    if ( loop2Source == event.target ) loop2Source = null;
+                  };
+                  loop2Source.buffer = loop2.buffer;
+                  loop2Source.loop = true;
+                  loop2Source.loopStart = loop2.startOffset;
+                  loop2Source.connect( context.destination );
+                  loop2Source.start();
+                  loop1Source.stop();
+                  loop2Start = context.currentTime;
+                }
+
+                function playStab() {
+                  const stabSource = context.createBufferSource();
+                  stabSource.buffer = stab.buffer;
+                  stabSource.connect( context.destination );
+                  stabSource.start();
+                  loop2Source.stop();
+                  stabStart = context.currentTime;
+                }
+
+                function stop() {
+                  if ( loop1Source ) {
+                    try {
+                      loop1Source.stop();
+                    } catch ( _ ) {}
+                  }
+                  if ( loop2Source ) {
+                    try {
+                      loop2Source.stop();
+                    } catch ( _ ) {}
+                  }
+                }
+                buttonsEl.addEventListener( 'click', event => {
+                  const button = event.target;
+                  if ( !button ) return;
+                  if ( button.classList.contains( 'bwq-load' ) ) {
+                    uiState = 'stopped';
+                    [ loop1, loop2, stab ].filter( item => !item.buffer ).map( item => downloadAudio( item ) );
+                    return;
+                  }
+                  if ( button.classList.contains( 'bwq-play' ) ) {
+                    start();
+                    uiState = 'loop1';
+                    updateButtonsUi();
+                    updatePlayheadUi();
+                    return;
+                  }
+                  if ( button.classList.contains( 'bwq-stop' ) ) {
+                    stop();
+                    uiState = 'stopped';
+                    updateButtonsUi();
+                    return;
+                  }
+                  if ( button.classList.contains( 'bwq-step-up' ) ) {
+                    stepItUp();
+                    uiState = 'loop2';
+                    updateButtonsUi();
+                    return;
+                  }
+                  if ( button.classList.contains( 'bwq-stab' ) ) {
+                    playStab();
+                    uiState = 'stab';
+                    updateButtonsUi();
+                    return;
+                  }
+                } );
+              } )();
+            </script>
+
+            <p>This doesn't really work. Switching between phases is jarring for a few reasons…</p>
+            <h2 id="sound-may-not-play-instantly">Sound may not play instantly</h2>
+            <p>Even though we have our audio data loaded in memory, there's still a gap between us calling
+              <code>start()</code> and the audio actually playing.</p>
+            <p>This is fine if you want the sound to play as soon as possible and don't mind if it's a few milliseconds
+              out, such as playing a sound in a game when the player collects a coin, but when syncronising two clips
+              things need to be precise.</p>
+            <p>To do anything precise with audio, you need to schedule things in advance. Both <code>start</code> and
+              <code>stop</code> take an optional number, the time to actually start/stop, and
+              <code>context.currentTime</code> gives you the current time as far as the audio context is concerned.</p>
+            <p>How much advance notice you have to give depends on hardware, but <a
+                href="https://github.com/WebAudio/web-audio-api/issues/296#issuecomment-257104709">Chris Wilson reliably
+                informs me</a> that a quarter of a second is super-safe more-than-enough, even for slow hardware.</p>
+            <p>So:</p>
+            <div class="code-example">
+              <pre class="language-js" data-initialized="true" data-gclp-id="3"
+                style="position: relative;"><code><span class="token keyword">const</span> safetyBuffer <span class="token operator">=</span> <span class="token number">0.25</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> switchTime <span class="token operator">=</span> context<span class="token punctuation">.</span>currentTime <span class="token operator">+</span> safetyBuffer<span class="token punctuation">;</span>
+phase1Source<span class="token punctuation">.</span><span class="token function">stop</span><span class="token punctuation">(</span>switchTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+phase2Source<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span>switchTime<span class="token punctuation">)</span><span class="token punctuation">;</span></code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+            </div>
+            <p>A quarter of a second is a long delay, but in this case syncronisation is more important to us than
+              immediacy.</p>
+            <p>Note: In the web audio API, time is in seconds, whereas most other web APIs use milliseconds.</p>
+            <p>But there's another delay to tackle…</p>
+            <h2 id="different-decoders-are-different">Different decoders are different</h2>
+            <p>Encoding audio down to formats like MP3 or AAC is a lossy process, but you at least get to pick the
+              encoder. When you use <code>decodeAudioData</code> you're relying on whatever decoder the browser uses,
+              and this may come as a shock, but sometimes different browsers do things differently.</p>
+            <p>Here's the start/end of an AAC clip decoded by your browser:</p>
+            <div class="audio-container">
+              <div class="aac-decode">
+                <div class="audio-output">
+                  <canvas width="354" height="202"></canvas>
+                </div>
+                <div class="audio-output">
+                  <canvas width="354" height="202"></canvas>
+                </div>
+              </div>
+            </div>
+            <script>
+              bufferFetch( '/c/tiny-clip-c9d21ecd.mp4' ).then( ab => context.decodeAudioData( ab ) ).then( buffer => {
+                const canvases = document.querySelectorAll( '.aac-decode canvas' );
+                drawAudio( canvases[ 0 ], buffer, 0, 7000 );
+                drawAudio( canvases[ 1 ], buffer, -7000 );
+              } );
+            </script>
+
+            <p>The original clip is gapless at the start/end, but if you're in Chrome stable, Firefox, or Edge, you'll
+              see a huge gap. By huge I mean 45 milliseconds, but y'know, that's a big deal when we're trying to
+              instantly switch between two clips.</p>
+            <p>The gap is almost gone in Chrome Canary. Safari on the other hand gets it spot-on, no gap at all.</p>
+            <p>In the first draft of this article I congratulated Safari on a job well done, but actual expert <a
+                href="https://twitter.com/padenot">Paul Adenot</a> from Mozilla dropped a few knowledge bombs on me (in
+              a friendly way of course).</p>
+            <p>The gap at the start is specified by the encoder as metadata. From <a
+                href="https://developer.apple.com/library/content/documentation/QuickTime/QTFF/QTFFAppenG/QTFFAppenG.html">Apple's
+                documentation</a>:</p>
+            <blockquote class="quote">
+              <p>…encoders add at least 1024 samples of silence before the first ‘true’ audio sample, and often add
+                more. This is called variously “priming”, “priming samples”, or “encoder delay”…</p>
+
+              <p>Therefore, a playback system must trim the silent priming samples to preserve correct synchronization.
+                This trimming by the playback system should be done in two places:</p>
+
+              <ul>
+                <li>When playback first begins</li>
+                <li>When the playback position is moved to another location. For example, the user skips ahead or back
+                  to another part of the media and begins playback from that new location.</li>
+              </ul>
+            </blockquote>
+
+            <p>The question is, should the browser remove the "priming samples" as part of <code>decodeAudioData</code>,
+              or are we (as users of the web audio API) the "playback system", meaning we have to deal with it.</p>
+            <p>I still feel that Safari is doing the right thing here, especially as finding out the number of priming
+              samples from the metadata is really non-trivial. To try and bring some consistency here, <a
+                href="https://github.com/WebAudio/web-audio-api/issues/1091">I've filed an issue with the spec</a>.</p>
+            <p>In the meantime, we can work around the gap by finding out how long it is:</p>
+            <div class="code-example">
+              <pre class="language-js" data-initialized="true" data-gclp-id="4"
+                style="position: relative;"><code><span class="token keyword">function</span> <span class="token function">findStartGapDuration</span><span class="token punctuation">(</span><span class="token parameter">audioBuffer</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Get the raw audio data for the left &amp; right channels.</span>
+  <span class="token keyword">const</span> l <span class="token operator">=</span> audioBuffer<span class="token punctuation">.</span><span class="token function">getChannelData</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> r <span class="token operator">=</span> audioBuffer<span class="token punctuation">.</span><span class="token function">getChannelData</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// Each is an array of numbers between -1 and 1 describing</span>
+  <span class="token comment">// the waveform, sample by sample.</span>
+
+  <span class="token comment">// Now to figure out how long both channels remain at 0:</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> l<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>l<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">||</span> r<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// Now we know which sample is non-zero, but we want</span>
+      <span class="token comment">// the gap in seconds, not samples. Thankfully sampleRate</span>
+      <span class="token comment">// gives us the number of samples per second.</span>
+      <span class="token keyword">return</span> i <span class="token operator">/</span> audioBuffer<span class="token punctuation">.</span>sampleRate<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// Hmm, the clip is entirely silent</span>
+  <span class="token keyword">return</span> audioBuffer<span class="token punctuation">.</span>duration<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+            </div>
+            <p>Once we have the gap, we can use source's second parameter to start playback at that point, after the
+              silence:</p>
+            <div class="code-example">
+              <pre class="language-js" data-initialized="true" data-gclp-id="5"
+                style="position: relative;"><code><span class="token keyword">const</span> phase1StartGap <span class="token operator">=</span> <span class="token function">findStartGapDuration</span><span class="token punctuation">(</span>phase1AudioBuffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> phase1Source <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token function">createBufferSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+phase1Source<span class="token punctuation">.</span>buffer <span class="token operator">=</span> phase1AudioBuffer<span class="token punctuation">;</span>
+phase1Source<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span>context<span class="token punctuation">.</span>destination<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Cater for the gap:</span>
+phase1Source<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span>context<span class="token punctuation">.</span>currentTime <span class="token operator">+</span> safetyBuffer<span class="token punctuation">,</span> phase1StartGap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Then later…</span>
+<span class="token keyword">const</span> phase2StartGap <span class="token operator">=</span> <span class="token function">findStartGapDuration</span><span class="token punctuation">(</span>phase2AudioBuffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> phase2Source <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token function">createBufferSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+phase2Source<span class="token punctuation">.</span>buffer <span class="token operator">=</span> phase2AudioBuffer<span class="token punctuation">;</span>
+phase2Source<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span>context<span class="token punctuation">.</span>destination<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> switchTime <span class="token operator">=</span> context<span class="token punctuation">.</span>currentTime <span class="token operator">+</span> safetyBuffer<span class="token punctuation">;</span>
+<span class="token comment">// Stop phase 1</span>
+phase1Source<span class="token punctuation">.</span><span class="token function">stop</span><span class="token punctuation">(</span>switchTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Start phase 2</span>
+phase2Source<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span>switchTime<span class="token punctuation">,</span> phase2StartGap<span class="token punctuation">)</span><span class="token punctuation">;</span></code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+            </div>
+            <p>And here's the result:</p>
+            <div class="audio-container">
+              <div class="bwq-better bwq-loops">
+                <div class="audio-output">
+                  <canvas></canvas>
+                  <div class="play-head"></div>
+                </div>
+                <div class="audio-output">
+                  <canvas></canvas>
+                  <div class="play-head"></div>
+                </div>
+                <div class="audio-output">
+                  <canvas></canvas>
+                  <div class="play-head"></div>
+                </div>
+              </div>
+              <div class="bwq-better-buttons audio-buttons">
+                <button class="btn bwq-load">Download audio (2.22M)</button>
+              </div>
+            </div>
+            <script>
+              ( function () {
+                let uiState = 'stopped';
+                let audioDrawn = false;
+                const buttonsEl = document.querySelector( '.bwq-better-buttons' );
+                const outputEls = document.querySelectorAll( '.bwq-better .audio-output' );
+                const playheadEls = document.querySelectorAll( '.bwq-better .play-head' );
+                let loop1Source;
+                let loop1Start;
+                let loop2Source;
+                let loop2Start;
+                let stabSource;
+                let stabStart;
+
+                function updateButtonsUi() {
+                  const loops = [ loop1, loop2, stab ];
+                  const notLoaded = loops.filter( item => !item.buffer );
+                  const allLoading = loops.every( item => item.downloadProgress > 0 );
+                  const remaining = notLoaded.reduce( ( total, item ) => total + item.size, 0 );
+                  if ( notLoaded.length ) {
+                    if ( allLoading ) {
+                      let progress = buttonsEl.firstElementChild;
+                      if ( !progress || progress.tagName != 'PROGRESS' ) {
+                        buttonsEl.innerHTML = `<progress max="1"></progress>`;
+                        progress = buttonsEl.firstElementChild;
+                      }
+                      progress.value = loops.reduce( ( total, loop ) => total + loop.downloadProgress, 0 ) / loops
+                        .length;
+                      return;
+                    }
+                    buttonsEl.innerHTML = `
+          <button class="btn bwq-load">Download audio (${humanSize(remaining)})</button>
+        `;
+                    return;
+                  }
+                  if ( !audioDrawn ) {
+                    drawAll();
+                    audioDrawn = true;
+                  }
+                  if ( uiState == 'stopped' || uiState == 'stab' ) {
+                    buttonsEl.innerHTML = `
+          <button class="btn bwq-play">Play</button>
+        `;
+                    return;
+                  }
+                  if ( uiState == 'loop1' ) {
+                    buttonsEl.innerHTML = `
+          <button class="btn bwq-step-up">Next phase</button>
+          <button class="btn bwq-stop">Stop</button>
+        `;
+                    return;
+                  }
+                  if ( uiState == 'loop2' ) {
+                    buttonsEl.innerHTML = `
+          <button class="btn bwq-stab">Stab</button>
+          <button class="btn bwq-stop">Stop</button>
+        `;
+                    return;
+                  }
+                }
+
+                function updatePlayheadUi() {
+                  if ( uiState == 'stopped' ) {
+                    for ( let el of Array.from( playheadEls ) ) {
+                      el.style.display = 'none';
+                    }
+                    return;
+                  }
+                  let container;
+                  let playHead;
+                  let buffer;
+                  let start;
+                  if ( loop1Source ) {
+                    container = outputEls[ 0 ];
+                    playHead = playheadEls[ 0 ];
+                    buffer = loop1.buffer;
+                    start = loop1Start;
+                  } else if ( loop2Source ) {
+                    container = outputEls[ 1 ];
+                    playHead = playheadEls[ 1 ];
+                    buffer = loop2.buffer;
+                    start = loop2Start;
+                  } else {
+                    container = outputEls[ 2 ];
+                    playHead = playheadEls[ 2 ];
+                    buffer = stab.buffer;
+                    start = stabStart;
+                  }
+                  const rect = container.getBoundingClientRect();
+                  for ( let el of Array.from( playheadEls ) ) {
+                    el.style.display = 'none';
+                  }
+                  let posInTrack = context.currentTime - start;
+                  if ( posInTrack > buffer.duration ) {
+                    if ( uiState == 'stab' ) return;
+                    posInTrack = posInTrack % buffer.duration;
+                  }
+                  const pos = Math.max( posInTrack / buffer.duration, 0 );
+                  playHead.style.display = 'block';
+                  playHead.style.transform = `translate(${rect.width * pos}px, 0)`;
+                  requestAnimationFrame( updatePlayheadUi );
+                }
+                window.addEventListener( 'app-statechange', updateButtonsUi );
+                updateButtonsUi();
+
+                function drawAll() {
+                  const canvases = document.querySelectorAll( '.bwq-better canvas' );
+                  drawAudio( canvases[ 0 ], loop1.buffer );
+                  drawAudio( canvases[ 1 ], loop2.buffer );
+                  drawAudio( canvases[ 2 ], stab.buffer );
+                }
+
+                function start() {
+                  loop1Source = context.createBufferSource();
+                  loop1Source.onended = event => {
+                    if ( loop1Source == event.target ) loop1Source = null;
+                  };
+                  loop1Source.buffer = loop1.buffer;
+                  loop1Source.loop = true;
+                  loop1Source.loopStart = loop1.startOffset;
+                  loop1Source.connect( context.destination );
+                  loop1Start = context.currentTime + safetyOffset;
+                  loop1Source.start( loop1Start, loop1.startOffset );
+                }
+
+                function stepItUp() {
+                  loop2Source = context.createBufferSource();
+                  loop2Source.onended = event => {
+                    if ( loop2Source == event.target ) loop2Source = null;
+                  };
+                  loop2Source.buffer = loop2.buffer;
+                  loop2Source.loop = true;
+                  loop2Source.loopStart = loop2.startOffset;
+                  loop2Source.connect( context.destination );
+                  const startTime = context.currentTime + safetyOffset;
+                  loop2Source.start( startTime, loop2.startOffset );
+                  loop1Source.stop( startTime );
+                  loop2Start = startTime;
+                }
+
+                function playStab() {
+                  const stabSource = context.createBufferSource();
+                  stabSource.buffer = stab.buffer;
+                  stabSource.connect( context.destination );
+                  const startTime = context.currentTime + safetyOffset;
+                  stabSource.start( startTime, stab.startOffset );
+                  loop2Source.stop( startTime );
+                  stabStart = startTime;
+                }
+
+                function stop() {
+                  if ( loop1Source ) {
+                    try {
+                      loop1Source.stop();
+                    } catch ( _ ) {}
+                  }
+                  if ( loop2Source ) {
+                    try {
+                      loop2Source.stop();
+                    } catch ( _ ) {}
+                  }
+                }
+                buttonsEl.addEventListener( 'click', event => {
+                  const button = event.target;
+                  if ( !button ) return;
+                  if ( button.classList.contains( 'bwq-load' ) ) {
+                    uiState = 'stopped';
+                    [ loop1, loop2, stab ].filter( item => !item.buffer ).map( item => downloadAudio( item ) );
+                    return;
+                  }
+                  if ( button.classList.contains( 'bwq-play' ) ) {
+                    start();
+                    uiState = 'loop1';
+                    updateButtonsUi();
+                    updatePlayheadUi();
+                    return;
+                  }
+                  if ( button.classList.contains( 'bwq-stop' ) ) {
+                    stop();
+                    uiState = 'stopped';
+                    updateButtonsUi();
+                    return;
+                  }
+                  if ( button.classList.contains( 'bwq-step-up' ) ) {
+                    stepItUp();
+                    uiState = 'loop2';
+                    updateButtonsUi();
+                    return;
+                  }
+                  if ( button.classList.contains( 'bwq-stab' ) ) {
+                    playStab();
+                    uiState = 'stab';
+                    updateButtonsUi();
+                    return;
+                  }
+                } );
+              } )();
+            </script>
+
+            <p>Better, but not perfect. Depending on when you press the button, the switch from phase 2 to the end stab
+              can feel mistimed, but we can fix that…</p>
+            <h2 id="musically-aware-scheduling">Musically-aware scheduling</h2>
+            <p>Ideally we want the phases to switch right at the end of a musical bar. Phase 1 is 110bpm, and phase 2 is
+              123bpm, so we can figure out the duration of each bar:</p>
+            <div class="code-example">
+              <pre class="language-js" data-initialized="true" data-gclp-id="6"
+                style="position: relative;"><code><span class="token keyword">function</span> <span class="token function">getBarDuration</span><span class="token punctuation">(</span><span class="token parameter">bpm<span class="token punctuation">,</span> beatsPerBar</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">60</span> <span class="token operator">/</span> bpm<span class="token punctuation">)</span> <span class="token operator">*</span> beatsPerBar<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> phase1BarDuration <span class="token operator">=</span> <span class="token function">getBarDuration</span><span class="token punctuation">(</span><span class="token number">110</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> phase2BarDuration <span class="token operator">=</span> <span class="token function">getBarDuration</span><span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+            </div>
+            <p>We want to switch the phases at the end of the next bar, unless that's less than our
+              <code>safetyBuffer</code>, in which case we want to switch at the end of the following bar.</p>
+            <div class="code-example">
+              <pre class="language-js" data-initialized="true" data-gclp-id="7"
+                style="position: relative;"><code><span class="token keyword">function</span> <span class="token function">getPhaseSwitchTime</span><span class="token punctuation">(</span><span class="token parameter">currentTime<span class="token punctuation">,</span> phaseStartTime<span class="token punctuation">,</span> barDuration</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// How long the phase has been playing:</span>
+  <span class="token keyword">const</span> phasePlaybackPosition <span class="token operator">=</span> currentTime <span class="token operator">-</span> phaseStartTime<span class="token punctuation">;</span>
+  <span class="token comment">// How long has it been playing the current bar:</span>
+  <span class="token keyword">const</span> positionWithinBar <span class="token operator">=</span> phasePlaybackPosition <span class="token operator">%</span> barDuration<span class="token punctuation">;</span>
+  <span class="token comment">// How long until the next bar:</span>
+  <span class="token keyword">let</span> untilSwitch <span class="token operator">=</span> barDuration <span class="token operator">-</span> positionWithinBar<span class="token punctuation">;</span>
+  <span class="token comment">// If it's less than our safetyBuffer, add another bar:</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>untilSwitch <span class="token operator">&lt;</span> safetyBuffer<span class="token punctuation">)</span> untilSwitch <span class="token operator">+=</span> barDuration<span class="token punctuation">;</span>
+  <span class="token comment">// Add on the current time:</span>
+  <span class="token keyword">return</span> untilSwitch <span class="token operator">+</span> currentTime<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+            </div>
+            <p>Unfortunately the web audio API doesn't tell us the current playblack position of a source (<a
+                href="https://github.com/WebAudio/web-audio-api/issues/296">it might eventually</a>), so we have to
+              track that ourselves:</p>
+            <div class="code-example">
+              <pre class="language-js" data-initialized="true" data-gclp-id="8"
+                style="position: relative;"><code><span class="token keyword">const</span> phase1StartTime <span class="token operator">=</span> context<span class="token punctuation">.</span>currentTime <span class="token operator">+</span> safetyBuffer<span class="token punctuation">;</span>
+phase1Source<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span>phase1StartTime<span class="token punctuation">,</span> phase1StartGap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Then later…</span>
+<span class="token keyword">const</span> phase2StartTime <span class="token operator">=</span> <span class="token function">getPhaseSwitchTime</span><span class="token punctuation">(</span>
+  context<span class="token punctuation">.</span>currentTime<span class="token punctuation">,</span>
+  phase1StartTime<span class="token punctuation">,</span>
+  phase1BarDuration<span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+phase1Source<span class="token punctuation">.</span><span class="token function">stop</span><span class="token punctuation">(</span>phase2StartTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+phase2Source<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span>phase2StartTime<span class="token punctuation">,</span> phase2StartGap<span class="token punctuation">)</span><span class="token punctuation">;</span></code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+            </div>
+            <p>Job done! Here it is:</p>
+            <div class="audio-container">
+              <div class="bwq-perfect bwq-loops">
+                <div class="audio-output">
+                  <canvas></canvas>
+                  <div class="play-head"></div>
+                </div>
+                <div class="audio-output">
+                  <canvas></canvas>
+                  <div class="play-head"></div>
+                </div>
+                <div class="audio-output">
+                  <canvas></canvas>
+                  <div class="play-head"></div>
+                </div>
+              </div>
+              <div class="bwq-perfect-buttons audio-buttons">
+                <button class="btn bwq-load">Download audio (2.22M)</button>
+              </div>
+            </div>
+            <script>
+              ( function () {
+                let uiState = 'stopped';
+                let audioDrawn = false;
+                const buttonsEl = document.querySelector( '.bwq-perfect-buttons' );
+                const outputEls = document.querySelectorAll( '.bwq-perfect .audio-output' );
+                const playheadEls = document.querySelectorAll( '.bwq-perfect .play-head' );
+                let loop1Source;
+                let loop1Start;
+                let loop2Source;
+                let loop2Start;
+                let stabSource;
+                let stabStart;
+
+                function getBarSwitchTime( currentTime, loopStart, loopBarLength ) {
+                  const loopPlaytime = currentTime - loopStart;
+                  const timeInBar = loopPlaytime % loopBarLength;
+                  let untilSwitch = loopBarLength - timeInBar;
+                  if ( untilSwitch < safetyOffset ) untilSwitch += loopBarLength;
+                  return untilSwitch + currentTime;
+                }
+
+                function updateButtonsUi() {
+                  const loops = [ loop1, loop2, stab ];
+                  const notLoaded = loops.filter( item => !item.buffer );
+                  const allLoading = loops.every( item => item.downloadProgress > 0 );
+                  const remaining = notLoaded.reduce( ( total, item ) => total + item.size, 0 );
+                  if ( notLoaded.length ) {
+                    if ( allLoading ) {
+                      let progress = buttonsEl.firstElementChild;
+                      if ( !progress || progress.tagName != 'PROGRESS' ) {
+                        buttonsEl.innerHTML = `<progress max="1"></progress>`;
+                        progress = buttonsEl.firstElementChild;
+                      }
+                      progress.value = loops.reduce( ( total, loop ) => total + loop.downloadProgress, 0 ) / loops
+                        .length;
+                      return;
+                    }
+                    buttonsEl.innerHTML = `
+          <button class="btn bwq-load">Download audio (${humanSize(remaining)})</button>
+        `;
+                    return;
+                  }
+                  if ( !audioDrawn ) {
+                    drawAll();
+                    audioDrawn = true;
+                  }
+                  if ( uiState == 'stopped' || uiState == 'stab' ) {
+                    buttonsEl.innerHTML = `
+          <button class="btn bwq-play">Play</button>
+        `;
+                    return;
+                  }
+                  if ( uiState == 'loop1' ) {
+                    buttonsEl.innerHTML = `
+          <button class="btn bwq-step-up">Next phase</button>
+          <button class="btn bwq-stop">Stop</button>
+        `;
+                    return;
+                  }
+                  if ( uiState == 'loop2' ) {
+                    buttonsEl.innerHTML = `
+          <button class="btn bwq-stab">Stab</button>
+          <button class="btn bwq-stop">Stop</button>
+        `;
+                    return;
+                  }
+                }
+
+                function updatePlayheadUi() {
+                  if ( uiState == 'stopped' ) {
+                    for ( let el of Array.from( playheadEls ) ) {
+                      el.style.display = 'none';
+                    }
+                    return;
+                  }
+                  let container;
+                  let playHead;
+                  let buffer;
+                  let start;
+                  if ( loop1Source ) {
+                    container = outputEls[ 0 ];
+                    playHead = playheadEls[ 0 ];
+                    buffer = loop1.buffer;
+                    start = loop1Start;
+                  } else if ( loop2Source ) {
+                    container = outputEls[ 1 ];
+                    playHead = playheadEls[ 1 ];
+                    buffer = loop2.buffer;
+                    start = loop2Start;
+                  } else {
+                    container = outputEls[ 2 ];
+                    playHead = playheadEls[ 2 ];
+                    buffer = stab.buffer;
+                    start = stabStart;
+                  }
+                  const rect = container.getBoundingClientRect();
+                  for ( let el of Array.from( playheadEls ) ) {
+                    el.style.display = 'none';
+                  }
+                  let posInTrack = context.currentTime - start;
+                  if ( posInTrack > buffer.duration ) {
+                    if ( uiState == 'stab' ) return;
+                    posInTrack = posInTrack % buffer.duration;
+                  }
+                  const pos = Math.max( posInTrack / buffer.duration, 0 );
+                  playHead.style.display = 'block';
+                  playHead.style.transform = `translate(${rect.width * pos}px, 0)`;
+                  requestAnimationFrame( updatePlayheadUi );
+                }
+                window.addEventListener( 'app-statechange', updateButtonsUi );
+                updateButtonsUi();
+
+                function drawBarLines( canvas, loop ) {
+                  const context = canvas.getContext( '2d' );
+                  context.fillStyle = 'rgba(255, 255, 255, 0.2)';
+                  const width = Math.floor( loop.barLength / loop.buffer.duration * canvas.width );
+                  for ( let i = loop.startOffset + loop.barLength; i < loop.buffer.duration; i += loop.barLength *
+                    2 ) {
+                    const x = Math.floor( ( i / loop.buffer.duration ) * canvas.width );
+                    context.fillRect( x, 0, width, canvas.height );
+                  }
+                }
+
+                function drawAll() {
+                  const canvases = document.querySelectorAll( '.bwq-perfect canvas' );
+                  drawAudio( canvases[ 0 ], loop1.buffer );
+                  drawBarLines( canvases[ 0 ], loop1 );
+                  drawAudio( canvases[ 1 ], loop2.buffer );
+                  drawBarLines( canvases[ 1 ], loop2 );
+                  drawAudio( canvases[ 2 ], stab.buffer );
+                }
+
+                function start() {
+                  loop1Source = context.createBufferSource();
+                  loop1Source.onended = event => {
+                    if ( loop1Source == event.target ) loop1Source = null;
+                  };
+                  loop1Source.buffer = loop1.buffer;
+                  loop1Source.loop = true;
+                  loop1Source.loopStart = loop1.startOffset;
+                  loop1Source.connect( context.destination );
+                  loop1Start = context.currentTime + safetyOffset;
+                  loop1Source.start( loop1Start, loop1.startOffset );
+                }
+
+                function stepItUp() {
+                  loop2Source = context.createBufferSource();
+                  loop2Source.onended = event => {
+                    if ( loop2Source == event.target ) loop2Source = null;
+                  };
+                  loop2Source.buffer = loop2.buffer;
+                  loop2Source.loop = true;
+                  loop2Source.loopStart = loop2.startOffset;
+                  loop2Source.connect( context.destination );
+                  const startTime = getBarSwitchTime( context.currentTime, loop1Start, loop1.barLength );
+                  loop2Source.start( startTime, loop2.startOffset );
+                  loop1Source.stop( startTime );
+                  loop2Start = startTime;
+                }
+
+                function playStab() {
+                  const stabSource = context.createBufferSource();
+                  stabSource.buffer = stab.buffer;
+                  stabSource.connect( context.destination );
+                  const startTime = getBarSwitchTime( context.currentTime, loop2Start, loop2.barLength );
+                  stabSource.start( startTime, stab.startOffset );
+                  loop2Source.stop( startTime );
+                  stabStart = startTime;
+                }
+
+                function stop() {
+                  if ( loop1Source ) {
+                    try {
+                      loop1Source.stop();
+                    } catch ( _ ) {}
+                  }
+                  if ( loop2Source ) {
+                    try {
+                      loop2Source.stop();
+                    } catch ( _ ) {}
+                  }
+                }
+                buttonsEl.addEventListener( 'click', event => {
+                  const button = event.target;
+                  if ( !button ) return;
+                  if ( button.classList.contains( 'bwq-load' ) ) {
+                    uiState = 'stopped';
+                    [ loop1, loop2, stab ].filter( item => !item.buffer ).map( item => downloadAudio( item ) );
+                    return;
+                  }
+                  if ( button.classList.contains( 'bwq-play' ) ) {
+                    start();
+                    uiState = 'loop1';
+                    updateButtonsUi();
+                    updatePlayheadUi();
+                    return;
+                  }
+                  if ( button.classList.contains( 'bwq-stop' ) ) {
+                    stop();
+                    uiState = 'stopped';
+                    updateButtonsUi();
+                    return;
+                  }
+                  if ( button.classList.contains( 'bwq-step-up' ) ) {
+                    stepItUp();
+                    uiState = 'loop2';
+                    updateButtonsUi();
+                    return;
+                  }
+                  if ( button.classList.contains( 'bwq-stab' ) ) {
+                    playStab();
+                    uiState = 'stab';
+                    updateButtonsUi();
+                    return;
+                  }
+                } );
+              } )();
+            </script>
+
+            <p>Sometimes switching between clips can cause a click if the samples don't join at a zero value. If you get
+              this, you can use a <a href="https://developer.mozilla.org/en-US/docs/Web/API/GainNode">gain node</a> to
+              create a really short, imperceptible, fade-out and fade-in.</p>
+            <h2 id="dynamic-looping">Dynamic looping</h2>
+            <p>Switching multiple clips isn't the only way to create multi-phase audio. BEHOLD<a
+                href="https://twitter.com/philhawksworth/status/802302348991176705">:</a></p>
+            <div class="audio-container">
+              <div class="audio-output single-loop">
+                <canvas></canvas>
+                <div class="loop"></div>
+                <div class="play-head"></div>
+              </div>
+              <div class="single-loop-buttons audio-buttons">
+                <button class="btn single-loop-load">Download audio (0.92M)</button>
+              </div>
+            </div>
+            <script>
+              ( function () {
+                let uiState = 'stopped';
+                let audioDrawn = false;
+                const buttonsEl = document.querySelector( '.single-loop-buttons' );
+                const playheadEl = document.querySelector( '.single-loop .play-head' );
+                const loopEl = document.querySelector( '.single-loop .loop' );
+                const samplePhases = [ {
+                    start: 328948,
+                    end: 656828
+                  },
+                  {
+                    start: 985007,
+                    end: 1314119
+                  },
+                  {
+                    start: 1643272,
+                    end: 1972421
+                  },
+                  {
+                    start: 1972421,
+                    end: 2137288
+                  },
+                ];
+                let phases;
+                let currentPhase = 0;
+                let loopSource;
+                let loopStart;
+
+                function updateButtonsUi() {
+                  if ( !singleLoop.buffer ) {
+                    if ( singleLoop.downloadProgress ) {
+                      let progress = buttonsEl.firstElementChild;
+                      if ( !progress || progress.tagName != 'PROGRESS' ) {
+                        buttonsEl.innerHTML = `<progress max="1"></progress>`;
+                        progress = buttonsEl.firstElementChild;
+                      }
+                      progress.value = singleLoop.downloadProgress;
+                      return;
+                    }
+                    buttonsEl.innerHTML = `
+          <button class="btn single-loop-load">Download audio (${humanSize(singleLoop.size)})</button>
+        `;
+                    return;
+                  }
+                  if ( !audioDrawn ) {
+                    drawAudio( document.querySelector( '.single-loop canvas' ), singleLoop.buffer );
+                    phases = samplePhases.map( obj => ( {
+                      start: obj.start / 48000 + singleLoop.startOffset,
+                      end: obj.end / 48000 + singleLoop.startOffset
+                    } ) );
+                    audioDrawn = true;
+                  }
+                  if ( uiState == 'stopped' ) {
+                    buttonsEl.innerHTML = `
+          <button class="btn single-loop-play">Play</button>
+        `;
+                    return;
+                  }
+                  if ( uiState == 'playing' ) {
+                    buttonsEl.innerHTML = `
+          <button class="btn single-loop-next">Next loop</button>
+          <button class="btn single-loop-stop">Stop</button>
+        `;
+                    return;
+                  }
+                }
+                let lastTime;
+                let posInTrack;
+
+                function updatePlayheadUi() {
+                  if ( uiState == 'stopped' ) {
+                    playheadEl.style.display = 'none';
+                    return;
+                  }
+                  const time = context.currentTime;
+                  posInTrack += time - lastTime;
+                  lastTime = time;
+                  if ( posInTrack > loopSource.loopEnd ) {
+                    posInTrack = loopSource.loopStart + ( posInTrack - loopSource.loopEnd );
+                  }
+                  const rect = playheadEl.parentNode.getBoundingClientRect();
+                  const pos = Math.max( posInTrack / singleLoop.buffer.duration, 0 );
+                  playheadEl.style.transform = `translate(${rect.width * pos}px, 0)`;
+                  playheadEl.style.display = 'block';
+                  requestAnimationFrame( updatePlayheadUi );
+                }
+                window.addEventListener( 'app-statechange', updateButtonsUi );
+                updateButtonsUi();
+
+                function start() {
+                  const buffer = singleLoop.buffer;
+                  currentPhase = 0;
+                  loopSource = context.createBufferSource();
+                  loopSource.buffer = buffer;
+                  loopSource.loop = true;
+                  loopSource.loopStart = phases[ currentPhase ].start;
+                  loopSource.loopEnd = phases[ currentPhase ].end;
+                  loopSource.connect( context.destination );
+                  loopSource.start( context.currentTime + safetyOffset, singleLoop.startOffset );
+                  lastTime = context.currentTime;
+                  posInTrack = -safetyOffset + singleLoop.startOffset;
+                  loopEl.style.display = 'block';
+                  drawLoop( loopEl, phases[ currentPhase ].start / buffer.duration, ( phases[ currentPhase ].end -
+                    phases[ currentPhase ].start ) / buffer.duration );
+                }
+
+                function nextPhase() {
+                  const buffer = singleLoop.buffer;
+                  currentPhase++;
+                  if ( currentPhase != phases.length ) {
+                    loopSource.loopStart = phases[ currentPhase ].start;
+                    loopSource.loopEnd = phases[ currentPhase ].end;
+                    drawLoop( loopEl, phases[ currentPhase ].start / buffer.duration, ( phases[ currentPhase ].end -
+                      phases[ currentPhase ].start ) / buffer.duration );
+                    return;
+                  }
+                  currentPhase = 1;
+                  loopSource.loopStart = phases[ currentPhase ].start;
+                  loopSource.loopEnd = 2631045 / 48000 + singleLoop.startOffset;
+                  drawLoop( loopEl, phases[ currentPhase ].start / buffer.duration, buffer.duration );
+                  setTimeout( () => {
+                    loopSource.loopEnd = phases[ currentPhase ].end;
+                    drawLoop( loopEl, phases[ currentPhase ].start / buffer.duration, ( phases[ currentPhase ]
+                      .end - phases[ currentPhase ].start ) / buffer.duration );
+                  }, 658624 / 48 );
+                }
+
+                function stop() {
+                  loopEl.style.display = 'none';
+                  if ( loopSource ) {
+                    try {
+                      loopSource.stop();
+                    } catch ( _ ) {}
+                  }
+                }
+                buttonsEl.addEventListener( 'click', event => {
+                  const button = event.target;
+                  if ( !button ) return;
+                  if ( button.classList.contains( 'single-loop-load' ) ) {
+                    downloadAudio( singleLoop );
+                    return;
+                  }
+                  if ( button.classList.contains( 'single-loop-play' ) ) {
+                    start();
+                    uiState = 'playing';
+                    updateButtonsUi();
+                    updatePlayheadUi();
+                    return;
+                  }
+                  if ( button.classList.contains( 'single-loop-stop' ) ) {
+                    stop();
+                    uiState = 'stopped';
+                    updateButtonsUi();
+                    return;
+                  }
+                  if ( button.classList.contains( 'single-loop-next' ) ) {
+                    nextPhase();
+                    return;
+                  }
+                } );
+              } )();
+            </script>
+
+            <p>Credit: <a href="https://soundcloud.com/psdub/sonic-chemical-plant-zone">Sonic 2, chemical plant zone,
+                Protostar remix</a>.</p>
+            <p>This is a single source that loops, but the loop-points change dynamically. Compared to what we've done
+              already, looping a clip is pretty simple:</p>
+            <div class="code-example">
+              <pre class="language-js" data-initialized="true" data-gclp-id="9"
+                style="position: relative;"><code><span class="token comment">// Cater for buggy AAC decoders as before:</span>
+<span class="token keyword">const</span> sonicStartGap <span class="token operator">=</span> <span class="token function">findStartGapDuration</span><span class="token punctuation">(</span>sonicAudioBuffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Create the source:</span>
+<span class="token keyword">const</span> sonicSource <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token function">createBufferSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+sonicSource<span class="token punctuation">.</span>buffer <span class="token operator">=</span> sonicAudioBuffer<span class="token punctuation">;</span>
+sonicSource<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span>context<span class="token punctuation">.</span>destination<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Loop it!</span>
+sonicSource<span class="token punctuation">.</span>loop <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token comment">// Set loop points:</span>
+sonicSource<span class="token punctuation">.</span>loopStart <span class="token operator">=</span> loopStartTime <span class="token operator">+</span> sonicStartGap<span class="token punctuation">;</span>
+sonicSource<span class="token punctuation">.</span>loopEnd <span class="token operator">=</span> loopEndTime <span class="token operator">+</span> sonicStartGap<span class="token punctuation">;</span>
+<span class="token comment">// Play!</span>
+sonicSource<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> sonicStartGap<span class="token punctuation">)</span><span class="token punctuation">;</span></code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+            </div>
+            <p>And changing those loop points is just…</p>
+            <div class="code-example">
+              <pre class="language-js" data-initialized="true" data-gclp-id="10"
+                style="position: relative;"><code>sonicSource<span class="token punctuation">.</span>loopStart <span class="token operator">=</span> anotherLoopStartTime <span class="token operator">+</span> sonicStartGap<span class="token punctuation">;</span>
+sonicSource<span class="token punctuation">.</span>loopEnd <span class="token operator">=</span> anotherLoopEndTime <span class="token operator">+</span> sonicStartGap<span class="token punctuation">;</span></code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+            </div>
+            <p>Although discovering the loop points is easier said than done.</p>
+            <h2 id="finding-the-loop-points">Finding the loop points</h2>
+            <p>Tools like <a href="http://www.audacityteam.org/">Audacity</a> (free) and <a
+                href="https://www.adobe.com/Audition">Adobe Audition</a> (not so free) are great for chopping and
+              looping audio.</p>
+            <p>Once we've found the loop points, we need to find the <em>sample</em> they start &amp; end on. This is
+              the most accurate measurement we'll get.</p>
+            <figure class="full-figure">
+              <img src="./sounds-fun_files/audacity-8bcbe5a9.png" alt="">
+              <figcaption>Selecting by sample in Audacity</figcaption>
+            </figure>
+
+            <div class="code-example">
+              <pre class="language-js" data-initialized="true" data-gclp-id="11"
+                style="position: relative;"><code><span class="token keyword">const</span> loopPoints <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span> start<span class="token operator">:</span> <span class="token number">328948</span><span class="token punctuation">,</span> end<span class="token operator">:</span> <span class="token number">656828</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> start<span class="token operator">:</span> <span class="token number">985007</span><span class="token punctuation">,</span> end<span class="token operator">:</span> <span class="token number">1314119</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> start<span class="token operator">:</span> <span class="token number">1643272</span><span class="token punctuation">,</span> end<span class="token operator">:</span> <span class="token number">1972421</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> start<span class="token operator">:</span> <span class="token number">1972421</span><span class="token punctuation">,</span> end<span class="token operator">:</span> <span class="token number">2137288</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span></code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+            </div>
+            <p>But <code>loopStart</code> and <code>loopEnd</code> want the time in seconds, so we convert them:</p>
+            <div class="code-example">
+              <pre class="language-js" data-initialized="true" data-gclp-id="12"
+                style="position: relative;"><code><span class="token keyword">const</span> loopPointTimes <span class="token operator">=</span> loopPoints<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">loop</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  start<span class="token operator">:</span> loop<span class="token punctuation">.</span>start <span class="token operator">/</span> <span class="token number">48000</span> <span class="token operator">+</span> sonicStartGap<span class="token punctuation">,</span>
+  end<span class="token operator">:</span> loop<span class="token punctuation">.</span>end <span class="token operator">/</span> <span class="token number">48000</span> <span class="token operator">+</span> sonicStartGap<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+            </div>
+            <p><code>48000</code> needs to be replaced with the sample rate of the clip as viewed in Audacity. Don't do
+              what I did &amp; use <code>buffer.sampleRate</code>, as the decoded sample rate can be different to the
+              sample rate of the file. Audio is decoded to <code>context.sampleRate</code>, which is 44,100 on my mac,
+              but 48,000 on my phone.</p>
+            <h2 id="looping-back-to-an-earlier-point">Looping back to an earlier point</h2>
+            <p>At the end of the demo above, the clip loops back to an earlier point. Unfortunately, if you set
+              <code>loopEnd</code> to a point earlier than the current playback point, it immediately goes back to
+              <code>loopStart</code>, whereas we want it to play through to the end, <em>then</em> go back to an earlier
+              loop.</p>
+            <p>The least hacky way to do this would be to stop <code>sonicSource</code> looping, and queue up a new
+              <code>sonicSource2</code> to start looping once <code>sonicSource</code> reaches its natural finish.</p>
+            <p>However, to do this, we'd need to know the current playback position of <code>sonicSource</code>, and as
+              I mentioned earlier, this <a href="https://github.com/WebAudio/web-audio-api/issues/296">feature hasn't
+                landed yet</a>. We can't even reliably work around this - the source has been looping all over the
+              place, and we can't be sure each write to <code>loopStart</code> and <code>loopEnd</code> made it to the
+              sound card in time. I'm hacking it for the purposes of the visualisations above, but it isn't accurate
+              enough for sound.</p>
+            <p>To work around this we make two changes to the loop. We loop from the start of the earlier loop, right to
+              the end of the clip. Then, once the clip has played past the end, we change <code>loopEnd</code> to the
+              end of the earlier loop.</p>
+            <div class="code-example">
+              <pre class="language-js" data-initialized="true" data-gclp-id="13"
+                style="position: relative;"><code><span class="token comment">// Current loop start</span>
+<span class="token keyword">const</span> currentLoopStart <span class="token operator">=</span> sonicSource<span class="token punctuation">.</span>loopStart<span class="token punctuation">;</span>
+<span class="token comment">// The earlier loop we want to move to.</span>
+<span class="token keyword">const</span> targetLoop <span class="token operator">=</span> loopPointTimes<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">// The point we want to reach before looping back.</span>
+<span class="token comment">// sonicSource.duration is not good enough here, due to</span>
+<span class="token comment">// the AAC decoding bug mentioned earlier.</span>
+<span class="token keyword">const</span> endSample <span class="token operator">=</span> <span class="token number">658624</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> endTime <span class="token operator">=</span> endSample <span class="token operator">/</span> <span class="token number">48000</span> <span class="token operator">+</span> sonicStartGap<span class="token punctuation">;</span>
+<span class="token comment">// Play to the end, then loop back to the start:</span>
+sonicSource<span class="token punctuation">.</span>loopStart <span class="token operator">=</span> targetLoop<span class="token punctuation">.</span>start<span class="token punctuation">;</span>
+sonicSource<span class="token punctuation">.</span>loopEnd <span class="token operator">=</span> endTime<span class="token punctuation">;</span>
+<span class="token comment">// But once it's gone back to loopStart, we don't want</span>
+<span class="token comment">// it to play all the way to loopEnd, we want targetLoop.end.</span>
+<span class="token comment">// Hack time!</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  sonicSource<span class="token punctuation">.</span>loopEnd <span class="token operator">=</span> targetLoop<span class="token punctuation">.</span>end<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>endTime <span class="token operator">-</span> currentLoopStart<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+            </div>
+            <p><code>endTime - currentLoopStart</code> is the maximum time the clip could play before it loops back to
+              <code>targetLoop.start</code>, after that it's safe to move the end point. Done!</p>
+            <p>While the web audio API isn't something you'll use in every project, it's suprisingly powerful and fun.
+              If you're wanting to dig a little deeper, I recommend this <a
+                href="http://teropa.info/blog/2016/08/19/what-is-the-web-audio-api.html">multi-part guide</a> by <a
+                href="https://twitter.com/teropa">Tero Parviainen</a>.</p>
+            <p>Speaking of procrastination, I really should be getting back to the service worker spec…</p>
+            <p><small>Huge thanks to <a href="https://twitter.com/padenot">Paul Adenot</a>, <a
+                  href="https://twitter.com/stuartmemo">Stuart Memo</a>, <a href="https://twitter.com/cwilso">Chris
+                  Wilson</a>, and <a href="https://twitter.com/jenross83">Jen Ross</a> for proof-reading and
+                fact-checking.</small></p>
+          </div>
+          <p><small><a
+                href="https://github.com/jakearchibald/jakearchibald.com/blob/main/static-build/posts/2016/11/sounds-fun/index.md">View
+                this page on GitHub</a></small></p>
+        </div>
+        <div class="comments" id="comments">
+          <div id="disqus_thread"></div>
+          <script>
+            var disqus_shortname = 'jakearchibald';
+            var disqus_identifier = "2016/sounds-fun";
+            var disqus_title = "Sounds fun";
+            var disqus_url = "http://jakearchibald.com/2016/sounds-fun";
+            const observer = new IntersectionObserver( ( [ result ] ) => {
+              if ( !result.isIntersecting ) return;
+              observer.disconnect();
+              const script = document.createElement( 'script' );
+              script.src = 'https://jakearchibald.disqus.com/embed.js';
+              document.head.append( script );
+            }, {
+              rootMargin: '500px'
+            } );
+            observer.observe( document.querySelector( '#comments' ) );
+          </script><noscript>I hate that Disqus doesn't work without JavaScript. It should.</noscript><a
+            href="https://disqus.com/" class="dsq-brlink">Comments powered by <span
+              class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+      <div class="side">
+        <section>
+          <figure class="my-big-face">
+            <h1><img width="500" height="471" src="./sounds-fun_files/me-a6274ea4.jpg"
+                alt="Jake Archibald &amp; a black cat"></h1>
+          </figure>
+          <p>Hello, I’m Jake and one of those faces is my face. I’m a developer advocate for Google Chrome.</p>
+          <h1>Elsewhere</h1>
+          <ul class="icon-list">
+            <li><a href="https://twitter.com/jaffathecake" class="icon-list-item"><img class="icon-list-icon"
+                  src="./sounds-fun_files/twitter-18d5a573.svg" alt="">Twitter</a></li>
+            <li><a href="https://github.com/jakearchibald/" class="icon-list-item"><img class="icon-list-icon"
+                  src="./sounds-fun_files/github-e706696e.svg" alt="">Github</a></li>
+            <li><a href="https://www.youtube.com/playlist?list=PLNYkxOF6rcIAKIQFsNbV0JDws_G_bnNo9"
+                class="icon-list-item"><img class="icon-list-icon" src="./sounds-fun_files/youtube-89ebf2c1.svg"
+                  alt="">YouTube</a></li>
+            <li><a href="https://http203.libsyn.com/" class="icon-list-item"><img class="icon-list-icon"
+                  src="./sounds-fun_files/podcast-c8559e51.svg" alt="">Podcast</a></li>
+          </ul>
+          <h1>Contact</h1>
+          <p>Feel free to <a href="mailto:jaffathecake@gmail.com">throw me an email</a>, unless you're a recruiter, or
+            someone trying to offer me 'sponsored content' for this site, in which case write your request on a piece of
+            paper, and fling it out the window.</p>
+        </section>
+      </div>
+    </div>
+  </div>
+  <form id="gclp-frame-form" target="gclp-frame" method="post" style="display: none;"></form>
+  <div class="gclp-code-grabber" data-gclp-id="0" data-hasqtip="true"
+    style="left: 969.268px; top: 546.466px; display: none;"></div>
+  <div class="gclp-code-grabber" data-gclp-id="1" data-hasqtip="true"
+    style="left: 811.268px; top: 1068.63px; display: none;"></div>
+  <div class="gclp-code-grabber" data-gclp-id="2" data-hasqtip="true"
+    style="left: 863.268px; top: 2747.44px; display: none;"></div>
+  <div class="gclp-code-grabber" data-gclp-id="3" data-hasqtip="true"
+    style="left: 899.268px; top: 3888.64px; display: none;"></div>
+  <div class="gclp-code-grabber" data-gclp-id="4" data-hasqtip="true"
+    style="left: 978.268px; top: 5663.24px; display: none;"></div>
+  <div class="gclp-code-grabber" data-gclp-id="5" data-hasqtip="true"
+    style="left: 1048.27px; top: 6266.94px; display: none;"></div>
+  <div class="gclp-code-grabber" data-gclp-id="6" data-hasqtip="true"
+    style="left: 854.268px; top: 7209.94px; display: none;"></div>
+  <div class="gclp-code-grabber" data-gclp-id="7" data-hasqtip="true"
+    style="left: 1048.27px; top: 7481.79px; display: none;"></div>
+  <div class="gclp-code-grabber" data-gclp-id="8" data-hasqtip="true"
+    style="left: 942.268px; top: 7895.86px; display: none;"></div>
+  <div class="gclp-code-grabber" data-gclp-id="9" data-hasqtip="true"
+    style="left: 960.268px; top: 9043.12px; display: none;"></div>
+  <div class="gclp-code-grabber" data-gclp-id="10" data-hasqtip="true"
+    style="left: 960.268px; top: 9451.26px; display: none;"></div>
+  <div class="gclp-code-grabber" data-gclp-id="11" data-hasqtip="true"
+    style="left: 732.268px; top: 10137.8px; display: none;"></div>
+  <div class="gclp-code-grabber" data-gclp-id="12" data-hasqtip="true"
+    style="left: 863.268px; top: 10380px; display: none;"></div>
+  <div class="gclp-code-grabber" data-gclp-id="13" data-hasqtip="true"
+    style="left: 960.268px; top: 11213.3px; display: none;"></div><span
+    style="margin: 0px auto; border: 2px dotted rgb(0, 0, 0); position: absolute; z-index: 2147483647; visibility: hidden; left: 199px; width: 0px; top: 267px; height: 0px;"></span><span
+    style="z-index: 2147483647; position: absolute; visibility: hidden; left: 184px; width: 50px; top: 252px; height: 20px; font-size: 10px; color: black;"></span>
+</body>
+
+</html>

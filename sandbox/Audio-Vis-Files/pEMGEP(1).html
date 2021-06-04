@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://cdpn.io/Rumyra/fullembedgrid/pEMGEP?animations=run&type=embed -->
+<html lang="en" class=" -webkit-"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  
+<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+
+<link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+
+
+  <title>CodePen - Codevember AudioVis #1</title>
+  
+  
+  
+  
+<style>
+html {
+  background: #efefef;
+  font-family: "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;
+  letter-spacing: -0.2px;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+#links {
+  display: flex;
+  padding: 5px;
+  justify-content: space-around;
+}
+#links a {
+  display: block;
+  padding: 5px 15px;
+  border: 3px solid #343436;
+  border-radius: 3px;
+  background-color: #343436;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+}
+#links a:hover {
+  background-color: #4d4d50;
+}
+
+#screen {
+  position: relative;
+  padding: 1vh;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  background: black;
+}
+
+#screen section {
+  height: 8vh;
+  margin: 3vh;
+  background-color: mediumorchid;
+  background-image: linear-gradient(45deg, mediumorchid 9%, seagreen 9%, seagreen 16%, white 16%, white 34%, seagreen 34%, seagreen 41%, mediumorchid 41%, mediumorchid 59%, seagreen 59%, seagreen 66%, white 66%, white 84%, seagreen 84%, seagreen 91%, mediumorchid 91%);
+  background-size: 2vh 2vh;
+}
+
+#screen section:nth-of-type(2n) {
+  background-image: linear-gradient(135deg, indianred 9%, seagreen 9%, seagreen 16%, white 16%, white 34%, seagreen 34%, seagreen 41%, indianred 41%, indianred 59%, seagreen 59%, seagreen 66%, white 66%, white 84%, seagreen 84%, seagreen 91%, indianred 91%);
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  <script src="./prefixfree.min.js.download"></script>
+
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no">
+  <section id="links">
+  <a target="_blank" href="https://codepen.io/Rumyra/pen/pEMGEP">View over Https</a>
+  <a target="_blank" href="https://codepen.io/Rumyra/post/audiovis-codevember-part-one-the-beginning">Read Blog Post</a>
+</section>
+
+<div id="screen">
+  <section style="width: 0vw;"></section>
+  <section style="width: 0vw;"></section>
+  <section style="width: 0vw;"></section>
+  <section style="width: 0vw;"></section>
+  <section style="width: 0vw;"></section>
+  <section style="width: 0vw;"></section>
+  <section style="width: 0vw;"></section>
+  <section style="width: 0vw;"></section>
+</div>
+    <script src="./stopExecutionOnTimeout-8216c69d01441f36c0ea791ae2d4469f0f8ff5326f00ae2d00e4bb7d20e24edb.js.download"></script>
+
+  
+      <script id="rendered-js">
+// set up audio context
+var audioContext = window.AudioContext || window.webkitAudioContext;
+// create audio class
+if (audioContext) {
+  // Web Audio API is available.
+  var audioAPI = new audioContext();
+} else {
+  // Web Audio API is not available. Ask the user to use a supported browser.
+  alert("Oh nos! It appears your browser does not support the Web Audio API, please upgrade or use a different browser");
+}
+
+// variables
+var analyserNode,
+frequencyData = new Uint8Array(256);
+const screen = document.querySelector('#screen'),
+allRepeatedEls = document.querySelectorAll('#screen section'),
+totalEls = allRepeatedEls.length;
+
+// create an audio API analyser node and connect to source
+function createAnalyserNode(audioSource) {
+  analyserNode = audioAPI.createAnalyser();
+  analyserNode.fftSize = 512;
+  audioSource.connect(analyserNode);
+}
+
+// get's html elements, loops over them & attaches a frequency from analysed data - what you do is up to you!
+function animateStuff() {
+  requestAnimationFrame(animateStuff);
+  analyserNode.getByteFrequencyData(frequencyData);
+
+  for (let i = 0; i < totalEls; i++) {
+
+    var freqVol = frequencyData[i * 32] / 2;
+    allRepeatedEls[i].style.width = freqVol + 'vw';
+  }
+
+}
+
+// getUserMedia success callback -> pipe audio stream into audio API
+var gotStream = function (stream) {
+  // Create an audio input from the stream.
+  var audioSource = audioAPI.createMediaStreamSource(stream);
+  createAnalyserNode(audioSource);
+  animateStuff();
+};
+
+// pipe in analysing to getUserMedia
+navigator.mediaDevices.getUserMedia({ audio: true, video: false }).
+then(gotStream);
+//# sourceURL=pen.js
+    </script>
+
+  
+
+  <script src="./iframeRefreshCSS-4793b73c6332f7f14a9b6bba5d5e62748e9d1bd0b5c52d7af6376f3d1c625d7e.js.download"></script>
+
+
+
+ 
+</body></html>

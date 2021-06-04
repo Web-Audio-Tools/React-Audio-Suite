@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Landing Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+    integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous">
+  </script>
+  <style>
+    #content {
+      margin: auto;
+      width: 775px;
+    }
+
+    iframe {
+      border-radius: 15px;
+      padding: 0.5rem;
+      margin-bottom: 0.7rem;
+      box-shadow: black 4px;
+      border-color: black 2px;
+    }
+    body{
+      background-color: rgba(240, 233, 230, 0.427);
+    }
+  </style>
+  
+  
+
+</head>
+
+<body>
+
+  <div id="content">
+    <h2>Table of contents</h2>
+    </header>
+    <ul id="toc-entries">
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#web_audio_concepts_and_usage">Web
+          audio concepts and usage</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#web_audio_api_target_audience">Web
+          Audio API target audience</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#web_audio_api_interfaces">Web
+          Audio API interfaces</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#guides_and_tutorials">Guides and
+          tutorials</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#examples">Examples</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#specifications">Specifications</a>
+      </li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#browser_compatibility">Browser
+          compatibility</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#see_also">See also</a></li>
+    </ul>
+    </section>
+    </aside>
+    <main id="content" class="main-content" role="main">
+      <article class="main-page-content" lang="en-US">
+        <h1>Web Audio API</h1>
+        <div>
+          <div></div>
+
+          <p class="summary">The Web Audio API provides a powerful and versatile system for controlling audio on the
+            Web, allowing developers to choose audio sources, add effects to audio, create audio visualizations, apply
+            spatial effects (such as panning) and much more.</p>
+        </div>
+        <h2 id="web_audio_concepts_and_usage"><a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#web_audio_concepts_and_usage"
+            title="Permalink to Web audio concepts and usage">Web audio concepts and usage</a></h2>
+        <div>
+          <p>The Web Audio API involves handling audio operations inside an <strong>audio context</strong>, and has
+            been designed to allow <strong>modular routing</strong>. Basic audio operations are performed with
+            <strong>audio nodes</strong>, which are linked together to form an <strong>audio routing graph</strong>.
+            Several sources — with different types of channel layout — are supported even within a single context.
+            This modular design provides the flexibility to create complex audio functions with dynamic effects.</p>
+
+          <p>Audio nodes are linked into chains and simple webs by their inputs and outputs. They typically start with
+            one or more sources. Sources provide arrays of sound intensities (samples) at very small timeslices, often
+            tens of thousands of them per second. These could be either computed mathematically (such as <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode"><code>OscillatorNode</code></a>),
+            or they can be recordings from sound/video files (like <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode"><code>AudioBufferSourceNode</code></a>
+            and <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/MediaElementAudioSourceNode"><code>MediaElementAudioSourceNode</code></a>)
+            and audio streams (<a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamAudioSourceNode"><code>MediaStreamAudioSourceNode</code></a>).
+            In fact, sound files are just recordings of sound intensities themselves, which come in from microphones
+            or electric instruments, and get mixed down into a single, complicated wave.</p>
+
+          <p>Outputs of these nodes could be linked to inputs of others, which mix or modify these streams of sound
+            samples into different streams. A common modification is multiplying the samples by a value to make them
+            louder or quieter (as is the case with <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/GainNode"><code>GainNode</code></a>). Once the
+            sound has been sufficiently processed for the intended effect, it can be linked to the input of a
+            destination (<a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/BaseAudioContext/destination"><code>BaseAudioContext.destination</code></a>),
+            which sends the sound to the speakers or headphones. This last connection is only necessary if the user is
+            supposed to hear the audio.</p>
+
+          <p>A simple, typical workflow for web audio would look something like this:</p>
+
+          <ol>
+            <li>Create audio context</li>
+            <li>Inside the context, create sources — such as <code>&lt;audio&gt;</code>, oscillator, stream</li>
+            <li>Create effects nodes, such as reverb, biquad filter, panner, compressor</li>
+            <li>Choose final destination of audio, for example your system speakers</li>
+            <li>Connect the sources up to the effects, and the effects to the destination.</li>
+          </ol>
+
+          <p><img
+              alt="A simple box diagram with an outer box labeled Audio context, and three inner boxes labeled Sources, Effects and Destination. The three inner boxes have arrow between them pointing from left to right, indicating the flow of audio information."
+              src="./Web Audio API - Web APIs _ MDN_files/audio-context_.png" width="1200" height="400" loading="lazy">
+          </p>
+
+          <p>Timing is controlled with high precision and low latency, allowing developers to write code that responds
+            accurately to events and is able to target specific samples, even at a high sample rate. So applications
+            such as drum machines and sequencers are well within reach.</p>
+
+          <p>The Web Audio API also allows us to control how audio is <em>spatialized</em>. Using a system based on a
+            <em>source-listener model</em>, it allows control of the <em>panning model</em> and deals with
+            <em>distance-induced attenuation</em>&nbsp;induced by a moving source (or moving listener).</p>
+
+          <div class="note notecard">
+            <p>You can read about the theory of the Web Audio API in a lot more detail in our article <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API">Basic
+                concepts behind Web Audio API</a>.</p>
+          </div>
+        </div>
+        <h2 id="web_audio_api_target_audience"><a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#web_audio_api_target_audience"
+            title="Permalink to Web Audio API target audience">Web Audio API target audience</a></h2>
+        <div>
+          <p>The Web Audio API can seem intimidating to those that aren't familiar with audio or music terms, and as
+            it incorporates a great deal of functionality it can prove difficult to get started if you are a
+            developer.</p>
+
+          <p>It can be used to incorporate audio into your website or application, by <a
+              href="https://www.futurelibrary.no/" class="external" rel=" noopener">providing atmosphere like
+              futurelibrary.no</a>, or <a href="https://css-tricks.com/form-validation-web-audio/" class="external"
+              rel=" noopener">auditory feedback on forms</a>. However, it can also be used to create <em>advanced</em>
+            interactive instruments. With that in mind, it is suitable for both developers and musicians alike.</p>
+
+          <p>We have a <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API">simple
+              introductory tutorial</a> for those that are familiar with programming but need a good introduction to
+            some of the terms and structure of the API.</p>
+
+          <p>There's also a <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API">Basic
+              Concepts Behind Web Audio API</a> article, to help you understand the way digital audio works,
+            specifically in the realm of the API. This also includes a good introduction to some of the concepts the
+            API is built upon.</p>
+
+          <p>Learning coding is like playing cards — you learn the rules, then you play, then you go back and learn
+            the rules again, then you play again. So if some of the theory doesn't quite fit after the first tutorial
+            and article, there's an <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Advanced_techniques">advanced
+              tutorial</a> which extends the first one to help you practice what you've learnt, and apply some more
+            advanced techniques to build up a step sequencer.</p>
+
+          <p>We also have other tutorials and comprehensive reference material available that covers all features of
+            the API. See the sidebar on this page for more.</p>
+
+          <p>If you are more familiar with the musical side of things, are familiar with music theory concepts, want
+            to start building instruments, then you can go ahead and start building things with the advance tutorial
+            and others as a guide (the above linked tutorial covers scheduling notes, creating bespoke oscillators and
+            envelopes, as well as an LFO among other things.)</p>
+
+          <p>If you aren't familiar with the programming basics, you might want to consult some beginner's JavaScript
+            tutorials first and then come back here — see our <a
+              href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript">Beginner's JavaScript learning
+              module</a> for a great place to begin.</p>
+        </div>
+        <h2 id="web_audio_api_interfaces"><a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#web_audio_api_interfaces"
+            title="Permalink to Web Audio API interfaces">Web Audio API interfaces</a></h2>
+        <div>
+          <p>The Web Audio API has a number of interfaces and associated events, which we have split up into nine
+            categories of functionality.</p>
+        </div>
+        <h3 id="general_audio_graph_definition"><a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#general_audio_graph_definition"
+            title="Permalink to General audio graph definition">General audio graph definition</a></h3>
+        <div>
+          <p>General containers and definitions that shape audio graphs in Web Audio API usage.</p>
+
+          <dl>
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioContext"><code>AudioContext</code></a>
+            </dt>
+            <dd>The <strong><code>AudioContext</code></strong> interface represents an audio-processing graph built
+              from audio modules linked together, each represented by an <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioNode"><code>AudioNode</code></a>. An audio
+              context controls the creation of the nodes it contains and the execution of the audio processing, or
+              decoding. You need to create an <code>AudioContext</code> before you do anything else, as everything
+              happens inside a context.</dd>
+            <dt><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioContextOptions"><code>AudioContextOptions</code></a>
+            </dt>
+            <dd>The <code><strong>AudioContextOptions</strong></code> dictionary is used to provide options when
+              instantiating a new <code>AudioContext</code>.</dd>
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioNode"><code>AudioNode</code></a></dt>
+            <dd>The <strong><code>AudioNode</code></strong> interface represents an audio-processing module like an
+              <em>audio source</em> (e.g. an HTML <a
+                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio"><code>&lt;audio&gt;</code></a>
+              or <a
+                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video"><code>&lt;video&gt;</code></a>
+              element), <em>audio destination</em>, <em>intermediate processing module</em> (e.g. a filter like <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/BiquadFilterNode"><code>BiquadFilterNode</code></a>,
+              or <em>volume control</em> like <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/GainNode"><code>GainNode</code></a>).</dd>
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioParam"><code>AudioParam</code></a></dt>
+            <dd>The <strong><code>AudioParam</code></strong> interface represents an audio-related parameter, like one
+              of an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioNode"><code>AudioNode</code></a>.
+              It can be set to a specific value or a change in value, and can be scheduled to happen at a specific
+              time and following a specific pattern.</dd>
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioParamMap"><code>AudioParamMap</code></a>
+            </dt>
+            <dd>Provides a maplike interface to a group of&nbsp;<a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioParam"><code>AudioParam</code></a>
+              interfaces, which means it provides the methods&nbsp;<code>forEach()</code>, <code>get()</code>,
+              <code>has()</code>, <code>keys()</code>, and&nbsp;<code>values()</code>, as well as a <code>size</code>
+              property.</dd>
+            <dt><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/BaseAudioContext"><code>BaseAudioContext</code></a>
+            </dt>
+            <dd>The <strong><code>BaseAudioContext</code></strong> interface acts as a base definition for online and
+              offline audio-processing graphs, as represented by <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioContext"><code>AudioContext</code></a> and
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/OfflineAudioContext"><code>OfflineAudioContext</code></a>
+              respectively. You wouldn't use <code>BaseAudioContext</code> directly — you'd use its features via one
+              of these two inheriting interfaces.</dd>
+            <dt>The
+              <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/ended_event"
+                  title="/en-US/docs/Web/Events/ended">ended</a></code>
+              event</dt>
+            <dd>The <code>ended</code> event is fired when playback has stopped because the end of the media was
+              reached.</dd>
+          </dl>
+        </div>
+        <h3 id="defining_audio_sources"><a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#defining_audio_sources"
+            title="Permalink to Defining audio sources">Defining audio sources</a></h3>
+        <div>
+          <p>Interfaces that define audio sources for use in the Web Audio API.</p>
+
+          <dl>
+            <dt><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioScheduledSourceNode"><code>AudioScheduledSourceNode</code></a>
+            </dt>
+            <dd>The <strong><code>AudioScheduledSourceNode</code></strong> is a parent interface for several types of
+              audio source node interfaces. It is an <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioNode"><code>AudioNode</code></a>.</dd>
+            <dt><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode"><code>OscillatorNode</code></a>
+            </dt>
+            <dd>The&nbsp;<strong><code style="font-size: 14px;">OscillatorNode</code>&nbsp;</strong>interface
+              represents a periodic waveform, such as a sine or triangle wave. It is an <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioNode"><code>AudioNode</code></a>
+              audio-processing module that causes a given&nbsp;<em>frequency</em>&nbsp;of wave to be created.</dd>
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer"><code>AudioBuffer</code></a>
+            </dt>
+            <dd>The <strong><code>AudioBuffer</code></strong> interface represents a short audio asset residing in
+              memory, created from an audio file using the <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/BaseAudioContext/decodeAudioData"><code>BaseAudioContext.decodeAudioData</code></a>
+              method, or created with raw data using <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/BaseAudioContext/createBuffer"><code>BaseAudioContext.createBuffer</code></a>.
+              Once decoded into this form, the audio can then be put into an <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode"><code>AudioBufferSourceNode</code></a>.
+            </dd>
+            <dt><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode"><code>AudioBufferSourceNode</code></a>
+            </dt>
+            <dd>The <strong><code>AudioBufferSourceNode</code></strong> interface represents an audio source
+              consisting of in-memory audio data, stored in an <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer"><code>AudioBuffer</code></a>. It
+              is an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioNode"><code>AudioNode</code></a>
+              that acts as an audio source.</dd>
+            <dt><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/MediaElementAudioSourceNode"><code>MediaElementAudioSourceNode</code></a>
+            </dt>
+            <dd>The <code><strong>MediaElementAudioSourceNode</strong></code> interface represents an audio source
+              consisting of an HTML5 <a
+                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio"><code>&lt;audio&gt;</code></a>
+              or <a
+                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video"><code>&lt;video&gt;</code></a>
+              element. It is an <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioNode"><code>AudioNode</code></a> that acts
+              as an audio source.</dd>
+            <dt><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamAudioSourceNode"><code>MediaStreamAudioSourceNode</code></a>
+            </dt>
+            <dd>The <code><strong>MediaStreamAudioSourceNode</strong></code> interface represents an audio source
+              consisting of a <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStream"><code>MediaStream</code></a> (such
+              as a webcam, microphone, or a stream being sent from a remote computer). If multiple audio tracks are
+              present on the stream, the track whose <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack/id"
+                title="id"><code>id</code></a> comes first lexicographically (alphabetically) is used. It is an <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioNode"><code>AudioNode</code></a> that acts
+              as an audio source.</dd>
+            <dt><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrackAudioSourceNode"><code>MediaStreamTrackAudioSourceNode</code></a>
+            </dt>
+            <dd>A node of type <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrackAudioSourceNode"><code>MediaStreamTrackAudioSourceNode</code></a>
+              represents an audio source whose data comes from a <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack"><code>MediaStreamTrack</code></a>.
+              When creating the node using the <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioContext/createMediaStreamTrackSource"
+                title="createMediaStreamTrackSource()"><code>createMediaStreamTrackSource()</code></a> method to
+              create the node, you specify which track to use. This provides more control than
+              <code>MediaStreamAudioSourceNode</code>.</dd>
+          </dl>
+        </div>
+        <h3 id="defining_audio_effects_filters"><a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#defining_audio_effects_filters"
+            title="Permalink to Defining audio effects filters">Defining audio effects filters</a></h3>
+        <div>
+          <p>Interfaces for defining effects that you want to apply to your audio sources.</p>
+
+          <dl>
+            <dt><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/BiquadFilterNode"><code>BiquadFilterNode</code></a>
+            </dt>
+            <dd>The <strong><code>BiquadFilterNode</code></strong> interface represents a simple low-order filter. It
+              is an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioNode"><code>AudioNode</code></a>
+              that can represent different kinds of filters, tone control devices, or graphic equalizers. A
+              <code>BiquadFilterNode</code> always has exactly one input and one output.</dd>
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/ConvolverNode"><code>ConvolverNode</code></a>
+            </dt>
+            <dd>The <code><strong>Convolver</strong></code><strong><code>Node</code></strong> interface is
+              an&nbsp;<span style="line-height: 1.5;"><a
+                  href="https://developer.mozilla.org/en-US/docs/Web/API/AudioNode"><code>AudioNode</code></a>
+                that</span><span style="line-height: 1.5;">&nbsp;performs a Linear Convolution on a given <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer"><code>AudioBuffer</code></a>,
+                and is often used to achieve a reverb effect</span><span style="line-height: 1.5;">.</span></dd>
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/DelayNode"><code>DelayNode</code></a></dt>
+            <dd>The <strong><code>DelayNode</code></strong> interface represents a <a
+                href="https://en.wikipedia.org/wiki/Digital_delay_line" class="external" rel=" noopener">delay-line</a>;
+              an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioNode"><code>AudioNode</code></a>
+              audio-processing module that causes a delay between the arrival of an input data and its propagation to
+              the output.</dd>
+            <dt><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/DynamicsCompressorNode"><code>DynamicsCompressorNode</code></a>
+            </dt>
+            <dd>The <strong><code>DynamicsCompressorNode</code></strong> interface provides a compression effect,
+              which lowers the volume of the loudest parts of the signal in order to help prevent clipping and
+              distortion that can occur when multiple sounds are played and multiplexed together at once.</dd>
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/GainNode"><code>GainNode</code></a></dt>
+            <dd>The <strong><code>GainNode</code></strong> interface represents a change in volume. It is an <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioNode"><code>AudioNode</code></a>
+              audio-processing module that causes a given <em>gain</em> to be applied to the input data before its
+              propagation to the output.</dd>
+            <dt><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/WaveShaperNode"><code>WaveShaperNode</code></a>
+            </dt>
+            <dd>The <strong><code>WaveShaperNode</code></strong> interface represents a non-linear distorter. It is an
+              <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioNode"><code>AudioNode</code></a> that use
+              a curve to apply a waveshaping distortion to the signal. Beside obvious distortion effects, it is often
+              used to add a warm feeling to the signal.</dd>
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/PeriodicWave"><code>PeriodicWave</code></a>
+            </dt>
+            <dd>Describes a periodic waveform that can be used to shape the output of an <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode"><code>OscillatorNode</code></a>.
+            </dd>
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/IIRFilterNode"><code>IIRFilterNode</code></a>
+            </dt>
+            <dd>Implements a general <strong><a class="external external-icon"
+                  href="https://en.wikipedia.org/wiki/infinite%20impulse%20response" title="infinite impulse response"
+                  rel=" noopener">infinite impulse response</a></strong> (IIR)&nbsp; filter; this type of filter can
+              be used to implement tone control devices and graphic equalizers as well.</dd>
+          </dl>
+        </div>
+        <h3 id="defining_audio_destinations"><a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#defining_audio_destinations"
+            title="Permalink to Defining audio destinations">Defining audio destinations</a></h3>
+        <div>
+          <p>Once you are done processing your audio, these interfaces define where to output it.</p>
+
+          <dl>
+            <dt><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioDestinationNode"><code>AudioDestinationNode</code></a>
+            </dt>
+            <dd>The <strong><code>AudioDestinationNode</code></strong> interface represents the end destination of an
+              audio source in a given context — usually the speakers of your device.</dd>
+            <dt><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamAudioDestinationNode"><code>MediaStreamAudioDestinationNode</code></a>
+            </dt>
+            <dd>The <code><strong>MediaStreamAudio</strong></code><strong><code>DestinationNode</code></strong>
+              interface represents an audio destination consisting of a <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API">WebRTC</a> <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStream"><code>MediaStream</code></a> with
+              a single <code>AudioMediaStreamTrack</code>, which can be used in a similar way to a <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStream"><code>MediaStream</code></a>
+              obtained from <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia"
+                title="getUserMedia()"><code>getUserMedia()</code></a>. It is an <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioNode"><code>AudioNode</code></a> that acts
+              as an audio destination.</dd>
+          </dl>
+        </div>
+        <h3 id="data_analysis_and_visualization"><a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#data_analysis_and_visualization"
+            title="Permalink to Data analysis and visualization">Data analysis and visualization</a></h3>
+        <div>
+          <p>If you want to extract time, frequency, and other data from your audio, the <code>AnalyserNode</code> is
+            what you need.</p>
+
+          <dl>
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode"><code>AnalyserNode</code></a>
+            </dt>
+            <dd>The <strong><code>AnalyserNode</code></strong> interface represents a node able to provide real-time
+              frequency and time-domain analysis information, for the purposes of data analysis and visualization.
+            </dd>
+          </dl>
+        </div>
+        <h3 id="splitting_and_merging_audio_channels"><a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#splitting_and_merging_audio_channels"
+            title="Permalink to Splitting and merging audio channels">Splitting and merging audio channels</a></h3>
+        <div>
+          <p>To split and merge audio channels, you'll use these interfaces.</p>
+
+          <dl>
+            <dt><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/ChannelSplitterNode"><code>ChannelSplitterNode</code></a>
+            </dt>
+            <dd>The <code><strong>ChannelSplitterNode</strong></code> interface separates the different channels of an
+              audio source out into a set of <em>mono</em> outputs.</dd>
+            <dt><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/ChannelMergerNode"><code>ChannelMergerNode</code></a>
+            </dt>
+            <dd>The <code><strong>ChannelMergerNode</strong></code> interface reunites different mono inputs into a
+              single output. Each input will be used to fill a channel of the output.</dd>
+          </dl>
+        </div>
+        <h3 id="audio_spatialization"><a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#audio_spatialization"
+            title="Permalink to Audio spatialization">Audio spatialization</a></h3>
+        <div>
+          <p>These interfaces allow you to add audio spatialization panning effects to your audio sources.</p>
+
+          <dl>
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioListener"><code>AudioListener</code></a>
+            </dt>
+            <dd>The <strong><code>AudioListener</code></strong> interface represents the position and orientation of
+              the unique person listening to the audio scene used in audio spatialization.</dd>
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/PannerNode"><code>PannerNode</code></a></dt>
+            <dd>The <code><strong>PannerNode</strong></code> interface represents the position and behavior of an
+              audio source signal in 3D space, allowing you to create complex panning effects.</dd>
+            <dt><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/StereoPannerNode"><code>StereoPannerNode</code></a>
+            </dt>
+            <dd>The <code><strong>StereoPannerNode</strong></code> interface represents a simple stereo panner node
+              that can be used to pan an audio stream left or right.</dd>
+          </dl>
+        </div>
+        <h3 id="audio_processing_in_javascript"><a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#audio_processing_in_javascript"
+            title="Permalink to Audio processing in JavaScript">Audio processing in JavaScript</a></h3>
+        <div>
+          <p>Using audio worklets, you can define custom audio nodes written in JavaScript or <a
+              href="https://developer.mozilla.org/en-US/docs/WebAssembly">WebAssembly</a>. Audio worklets implement
+            the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Worklet"><code>Worklet</code></a> interface,
+            a lightweight version of the <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/Worker"><code>Worker</code></a> interface.</p>
+
+          <dl>
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioWorklet"><code>AudioWorklet</code></a>
+            </dt>
+            <dd>The <code>AudioWorklet</code> interface is available through the <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioContext"><code>AudioContext</code></a>
+              object's <a href="https://developer.mozilla.org/en-US/docs/Web/API/BaseAudioContext/audioWorklet"
+                title="audioWorklet"><code>audioWorklet</code></a>, and lets you add modules to the audio worklet to
+              be executed off the main thread.</dd>
+            <dt><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioWorkletNode"><code>AudioWorkletNode</code></a>
+            </dt>
+            <dd>The <code>AudioWorkletNode</code> interface represents an <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioNode"><code>AudioNode</code></a> that is
+              embedded into an audio graph and can pass messages to the corresponding
+              <code>AudioWorkletProcessor</code>.</dd>
+            <dt><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioWorkletProcessor"><code>AudioWorkletProcessor</code></a>
+            </dt>
+            <dd>The <code>AudioWorkletProcessor</code> interface represents audio processing code running in a
+              <code>AudioWorkletGlobalScope</code> that generates, processes, or analyses audio directly, and can pass
+              messages to the corresponding <code>AudioWorkletNode</code>.</dd>
+            <dt><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioWorkletGlobalScope"><code>AudioWorkletGlobalScope</code></a>
+            </dt>
+            <dd>The <code>AudioWorkletGlobalScope</code> interface is a <code>WorkletGlobalScope</code>-derived object
+              representing a worker context in which an audio processing script is run; it is designed to enable the
+              generation, processing, and analysis of audio data directly using JavaScript in a worklet thread rather
+              than on the main thread.</dd>
+          </dl>
+
+          <h4 id="obsolete_script_processor_nodes">Obsolete: script processor nodes</h4>
+
+          <p>Before audio worklets were defined, the Web Audio API used the <code>ScriptProcessorNode</code>&nbsp; for
+            JavaScript-based audio processing. Because the code runs in the main thread, they have bad performance.
+            The <code>ScriptProcessorNode</code> is kept for historic reasons but is marked as deprecated.</p>
+
+          <dl>
+            <dt><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/ScriptProcessorNode"><code>ScriptProcessorNode</code></a>
+              <svg class="icon icon-deprecated" tabindex="0">
+                <use xlink:href="/assets/badges.svg#icon-deprecated"></use>
+              </svg></dt>
+            <dd>The <strong><code>ScriptProcessorNode</code></strong> interface allows the generation, processing, or
+              analyzing of audio using JavaScript. It is an <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioNode"><code>AudioNode</code></a>
+              audio-processing module that is linked to two buffers, one containing the current input, one containing
+              the output. An event, implementing the <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioProcessingEvent"><code>AudioProcessingEvent</code></a>
+              interface, is sent to the object each time the input buffer contains new data, and the event handler
+              terminates when it has filled the output buffer with data.</dd>
+            <dt>
+              <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/ScriptProcessorNode/audioprocess_event"
+                  title="/en-US/docs/Web/Events/audioprocess">audioprocess</a></code>
+              (event) <svg class="icon icon-deprecated" tabindex="0">
+                <use xlink:href="/assets/badges.svg#icon-deprecated"></use>
+              </svg></dt>
+            <dd>The <code>audioprocess</code> event is fired when an input buffer of a Web Audio API <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/ScriptProcessorNode"><code>ScriptProcessorNode</code></a>
+              is ready to be processed.</dd>
+            <dt><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioProcessingEvent"><code>AudioProcessingEvent</code></a>
+              <svg class="icon icon-deprecated" tabindex="0">
+                <use xlink:href="/assets/badges.svg#icon-deprecated"></use>
+              </svg></dt>
+            <dd>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API" aria-current="page">Web
+                Audio API</a> <code>AudioProcessingEvent</code> represents events that occur when a <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/ScriptProcessorNode"><code>ScriptProcessorNode</code></a>
+              input buffer is ready to be processed.</dd>
+          </dl>
+        </div>
+        <h3 id="offlinebackground_audio_processing"><a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#offlinebackground_audio_processing"
+            title="Permalink to Offline/background audio processing">Offline/background audio processing</a></h3>
+        <div>
+          <p>It is possible to process/render an audio graph very quickly in the background — rendering it to an <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer"><code>AudioBuffer</code></a> rather
+            than to the device's speakers — with the following.</p>
+
+          <dl>
+            <dt><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/OfflineAudioContext"><code>OfflineAudioContext</code></a>
+            </dt>
+            <dd>The <strong><code>OfflineAudioContext</code></strong> interface is an <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioContext"><code>AudioContext</code></a>
+              interface representing an audio-processing graph built from linked together <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioNode"><code>AudioNode</code></a>s. In
+              contrast with a standard <code>AudioContext</code>, an <code>OfflineAudioContext</code> doesn't really
+              render the audio but rather generates it, <em>as fast as it can</em>, in a buffer.</dd>
+            <dt>
+              <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/OfflineAudioContext/complete_event"
+                  title="/en-US/docs/Web/Events/complete">complete</a></code>
+              (event)</dt>
+            <dd>The <code>complete</code> event is fired when the rendering of an <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/OfflineAudioContext"><code>OfflineAudioContext</code></a>
+              is terminated.</dd>
+            <dt><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/OfflineAudioCompletionEvent"><code>OfflineAudioCompletionEvent</code></a>
+            </dt>
+            <dd>The <code>OfflineAudioCompletionEvent</code> represents events that occur when the processing of an <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/OfflineAudioContext"><code>OfflineAudioContext</code></a>
+              is terminated. The
+              <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/OfflineAudioContext/complete_event"
+                  title="/en-US/docs/Web/Events/complete">complete</a></code>
+              event implements this interface.</dd>
+          </dl>
+        </div>
+        <h2 id="guides_and_tutorials"><a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#guides_and_tutorials"
+            title="Permalink to Guides and tutorials">Guides and tutorials</a></h2>
+        <div>
+          <p></p>
+          <div class="row topicpage-table">
+            <div class="section">
+              <dl>
+                <dl>
+                  <dt class="landingPageList"><a
+                      href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Advanced_techniques">Advanced
+                      techniques: Creating and sequencing audio</a></dt>
+                  <dd class="landingPageList">In this tutorial,&nbsp;we're going to cover sound creation and
+                    modification, as well as timing and scheduling. We're going to introduce sample loading,
+                    envelopes, filters, wavetables, and frequency modulation. If you're familiar with these
+                    terms&nbsp;and you're looking for an introduction to their application within with the Web Audio
+                    API, you've come to the right place.</dd>
+                  <dt class="landingPageList"><a
+                      href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Using_AudioWorklet">Background
+                      audio processing using AudioWorklet</a></dt>
+                  <dd class="landingPageList">The process of creating an audio processor using JavaScript,
+                    establishing it as an audio worklet processor, and then using that processor within a Web Audio
+                    application is the topic of this article.</dd>
+                  <dt class="landingPageList"><a
+                      href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API">Basic
+                      concepts behind Web Audio API</a></dt>
+                  <dd class="landingPageList">
+                    <p><span class="seoSummary">This article explains some of the audio theory behind how the features
+                        of the Web Audio API work, to help you make informed decisions while designing how audio is
+                        routed through your app.</span> It won't turn you into a master sound engineer, but it will
+                      give you enough background to understand why the Web Audio API works like it does.</p>
+                  </dd>
+                  <dt class="landingPageList"><a
+                      href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Controlling_multiple_parameters_with_ConstantSourceNode">Controlling
+                      multiple parameters with ConstantSourceNode</a></dt>
+                  <dd class="landingPageList">This article demonstrates how to use a <code>ConstantSourceNode</code>
+                    to link multiple parameters together so they share the same value, which can be changed by setting
+                    the value of the <code>ConstantSourceNode.offset</code> parameter.</dd>
+                  <dt class="landingPageList"><a
+                      href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Simple_synth">Example and
+                      tutorial: Simple synth keyboard</a></dt>
+                  <dd class="landingPageList">This article presents the code and working demo of a video keyboard you
+                    can play using the mouse. The keyboard allows you to switch among the standard waveforms as well
+                    as one custom waveform, and you can control the main gain using a volume slider beneath the
+                    keyboard. This example makes use of the following Web API interfaces: <code>AudioContext</code>,
+                    <code>OscillatorNode</code>, <code>PeriodicWave</code>, and <code>GainNode</code>.</dd>
+                  <dt class="landingPageList"><a
+                      href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Migrating_from_webkitAudioContext">Migrating
+                      from webkitAudioContext</a></dt>
+                  <dd class="landingPageList">In this article, we cover the differences in Web Audio API since it was
+                    first implemented in&nbsp;WebKit&nbsp;and how to update your code to use the modern Web Audio API.
+                  </dd>
+                  <dt class="landingPageList"><a
+                      href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Tools">Tools for analyzing
+                      Web Audio usage</a></dt>
+                  <dd class="landingPageList">While working on your Web Audio API code, you may find that you need
+                    tools to analyze the graph of nodes you create or to otherwise debug your work. This article
+                    discusses tools available to help you do that.</dd>
+                </dl>
+              </dl>
+            </div>
+            <div class="section">
+              <dl>
+                <dt class="landingPageList"><a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Using_IIR_filters">Using IIR
+                    filters</a></dt>
+                <dd class="landingPageList">The <strong><code>IIRFilterNode</code></strong> interface of the <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API" aria-current="page">Web
+                    Audio API</a> is an <code>AudioNode</code> processor that implements a general <a
+                    href="https://en.wikipedia.org/wiki/infinite%20impulse%20response" class="external"
+                    rel=" noopener">infinite impulse response</a> (IIR) filter; this type of filter can be used to
+                  implement tone control devices and graphic equalizers, and the filter response parameters can be
+                  specified, so that it can be tuned as needed. This article looks at how to implement one, and use it
+                  in a simple example.</dd>
+                <dt class="landingPageList"><a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API">Using
+                    the Web Audio API</a></dt>
+                <dd class="landingPageList"><span class="seoSummary">Let's take a look at getting started with the <a
+                      href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API" aria-current="page">Web
+                      Audio API</a>. We'll briefly look at some concepts, then study a simple boombox example that
+                    allows us to load an audio track, play and pause it, and change its volume and stereo
+                    panning.</span></dd>
+                <dt class="landingPageList"><a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API">Visualizations
+                    with Web Audio API</a></dt>
+                <dd class="landingPageList">
+                  <p>One of the most interesting features of the Web Audio API is the ability to extract frequency,
+                    waveform, and other data from your audio source, which can then be used to create visualizations.
+                    This article explains how, and provides a couple of basic use cases.</p>
+                </dd>
+                <dt class="landingPageList"><a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Best_practices">Web Audio API
+                    best practices</a></dt>
+                <dd class="landingPageList">There's no strict right or wrong way when writing creative code. As long
+                  as you consider security, performance, and accessibility, you can adapt to your own style. In this
+                  article, we'll share a number of <em>best practices</em> — guidelines, tips, and tricks for working
+                  with the Web Audio API.</dd>
+                <dt class="landingPageList"><a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Web_audio_spatialization_basics">Web
+                    audio spatialization basics</a></dt>
+                <dd class="landingPageList">
+                  <p><span class="seoSummary">As if its extensive variety of sound processing (and other) options
+                      wasn't enough, the Web Audio API also includes facilities to allow you to emulate the difference
+                      in sound as a listener moves around a sound source, for example panning as you move around a
+                      sound source inside a 3D game. The official term for this is <strong>spatialization</strong>,
+                      and this article will cover the basics of how to implement such a system.</span></p>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <p></p>
+        </div>
+        <h2 id="examples"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#examples"
+            title="Permalink to Examples">Examples</a></h2>
+        <div>
+          <p>You can find a number of examples at our <a href="https://github.com/mdn/webaudio-examples/"
+              class="external" rel=" noopener">webaudio-example repo</a> on GitHub.</p>
+        </div>
+        <h2 id="specifications"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#specifications"
+            title="Permalink to Specifications">Specifications</a></h2>
+        <div>
+          <table class="standard-table">
+            <tbody>
+              <tr>
+                <th scope="col">Specification</th>
+                <th scope="col">Status</th>
+                <th scope="col">Comment</th>
+              </tr>
+              <tr>
+                <td><a href="https://webaudio.github.io/web-audio-api/" hreflang="en" lang="en" class="external"
+                    title="The &#39;Web Audio API&#39; specification" rel=" noopener">Web Audio API</a></td>
+                <td><span class="spec-wd">Working Draft</span></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mume markdown-preview  ">
+          <h1 class="mume-header" id="webaudio-examples">webaudio-examples</h1>
+
+          <p>Code examples that accompany the MDN Web Audio documentation <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API">https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API</a>
+          </p>
+          <h2 class="mume-header" id="audio-analyser">Audio analyser</h2>
+
+          <p>The <a href="https://github.com/mdn/webaudio-examples/tree/master/audio-analyser">audio-analyser</a>
+            directory
+            contains a very simple example showing a graphical visualization of an audio signal drawn with data taken
+            from an
+            <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode">AnalyserNode</a></code>
+            interface.
+            <a href="http://mdn.github.io/webaudio-examples/audio-analyser/">Run the demo live</a>.</p>
+          <h2 class="mume-header" id="audio-basics">Audio basics</h2>
+
+          <p>The <a href="https://github.com/mdn/webaudio-examples/tree/master/audio-basics">audio-basics</a> directory
+            contains a fun example showing a retro-style &quot;boombox&quot; that allows audio to be played,
+            stereo-panned,
+            and volume-adjusted. <a href="http://mdn.github.io/webaudio-examples/audio-basics/">Run the demo live</a>.
+          </p>
+          <h2 class="mume-header" id="audio-buffer">Audio buffer</h2>
+
+          <p>The <a href="https://github.com/mdn/webaudio-examples/tree/master/audio-buffer">audio-buffer</a> directory
+            contains a very simple example showing how to use an <code><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer">AudioBuffer</a></code> interface in
+            the
+            Web Audio API. <a href="http://mdn.github.io/webaudio-examples/audio-buffer/">Run the demo live</a>.</p>
+          <h2 class="mume-header" id="audio-param">Audio param</h2>
+
+          <p>The <a href="https://github.com/mdn/webaudio-examples/tree/master/audio-param">audio-param</a> directory
+            contains
+            some simple examples showing how to use the methods of the Web Audio API <code><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioParam">AudioParam</a></code> interface. <a
+              href="http://mdn.github.io/webaudio-examples/audio-param/">Run example live</a>.</p>
+          <h2 class="mume-header" id="audio-context-states">Audio context states</h2>
+
+          <p>The <a
+              href="https://github.com/mdn/webaudio-examples/tree/master/audiocontext-states">audiocontext-states</a>
+            directory contains a simple demo of the new Web Audio API <code><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioContext">AudioContext</a></code> methods,
+            including the <code>states</code> property and the <code>close()</code>, <code>resume()</code>, and
+            <code>suspend()</code> methods. <a href="http://mdn.github.io/webaudio-examples/audiocontext-states/">Run
+              the demo
+              live</a>.</p>
+          <h2 class="mume-header" id="compressor-example">Compressor example</h2>
+
+          <p>The <a
+              href="https://github.com/mdn/webaudio-examples/tree/master/compressor-example">compressor-example</a>
+            directory contains a simple demo to show usage of the Web Audio API <code><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/BaseAudioContext/createDynamicsCompressor">BaseAudioContext.createDynamicsCompressor()</a></code>
+            method and <code><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/DynamicsCompressorNode">DynamicsCompressorNode</a></code>
+            interface. <a href="http://mdn.github.io/webaudio-examples/compressor-example/">Run the example live</a>.
+          </p>
+          <h2 class="mume-header" id="create-media-stream-destination">Create media stream destination</h2>
+
+          <p>The <a
+              href="https://github.com/mdn/webaudio-examples/tree/master/create-media-stream-destination">create-media-stream-destination</a>
+            directory contains a simple example showing how the Web Audio API <code><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioContext/createMediaStreamDestination">AudioContext.createMediaStreamDestination()</a></code>
+            method can be used to output a stream - in this case to a <code><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder">MediaRecorder</a></code> instance
+            - to
+            output a sinewave to an <a
+              href="https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Audio_codecs#Opus">opus</a> file. <a
+              href="http://mdn.github.io/webaudio-examples/create-media-stream-destination/">Run the demo live</a>.</p>
+          <h2 class="mume-header" id="decode-audio-data">Decode audio data</h2>
+
+          <p>The <a href="https://github.com/mdn/webaudio-examples/tree/master/decode-audio-data">decode-audio-data</a>
+            directory contains a simple example demonstrating usage of the Web Audio API <code><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/BaseAudioContext/decodeAudioData">BaseAudioContext.decodeAudioData()</a></code>
+            method. <a href="http://mdn.github.io/webaudio-examples/decode-audio-data/">View example live</a>.</p>
+          <h2 class="mume-header" id="iir-filter-node">IIR filter node</h2>
+
+          <p>The <a href="https://github.com/mdn/webaudio-examples/tree/master/iirfilter-node">iirfilter-node</a>
+            directory
+            contains an example showing usage of an <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/IIRFilterNode">IIRFilterNode</a> interface. <a
+              href="http://mdn.github.io/webaudio-examples/iirfilter-node/">Run the demo live</a>.</p>
+          <h2 class="mume-header" id="media-source-buffer">Media source buffer</h2>
+
+          <p>The <a
+              href="https://github.com/mdn/webaudio-examples/tree/master/media-source-buffer">media-source-buffer</a>
+            directory contains a simple example demonstrating usage of the Web Audio API <code><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioContext/createMediaElementSource">AudioContext.createMediaElementSource()</a></code>
+            method. <a href="http://mdn.github.io/webaudio-examples/media-source-buffer/">View the demo live</a>.</p>
+          <h2 class="mume-header" id="multi-track">Multi track</h2>
+
+          <p>The <a href="https://github.com/mdn/webaudio-examples/tree/master/multi-track">multi-track</a> directory
+            contains
+            an example of connecting separate independently-playable audio tracks to a single <code><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioDestinationNode">AudioDestinationNode</a></code>
+            interface. <a href="http://mdn.github.io/webaudio-examples/multi-track/">Run the example live</a>.</p>
+          <h2 class="mume-header" id="offline-audio-context">Offline audio context</h2>
+
+          <p>The <a
+              href="https://github.com/mdn/webaudio-examples/tree/master/offline-audio-context">offline-audio-context</a>
+            directory contains a simple example to show how a Web Audio API <code><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/OfflineAudioContext">OfflineAudioContext</a></code>
+            interface can be used to rapidly process/render audio in the background to create a buffer, which can then
+            be used
+            in any way you please. For more information, see <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/OfflineAudioContext">https://developer.mozilla.org/en-US/docs/Web/API/OfflineAudioContext</a>.
+            <a href="http://mdn.github.io/webaudio-examples/offline-audio-context/">Run example live</a>.</p>
+          <h2 class="mume-header" id="offline-audio-context-promise">Offline audio context promise</h2>
+
+          <p>The <a
+              href="https://github.com/mdn/webaudio-examples/tree/master/offline-audio-context-promise">offline-audio-context-promise</a>
+            directory contains a simple example to show how a Web Audio API <code><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/OfflineAudioContext">OfflineAudioContext</a></code>
+            interface can be used to rapidly process/render audio in the background to create a buffer, which can then
+            be used
+            in any way you please. <a href="http://mdn.github.io/webaudio-examples/offline-audio-context-promise/">Run
+              the
+              example live</a>.</p>
+          <h2 class="mume-header" id="output-timestamp">Output timestamp</h2>
+
+          <p>The <a href="https://github.com/mdn/webaudio-examples/tree/master/output-timestamp">output-timestamp</a>
+            directory contains an example of how the <code><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioContext/getOutputTimestamp">AudioContext.getOutputTimestamp()</a></code>
+            property can be used to log <code>contextTime</code> and <code>performanceTime</code> to the console. <a
+              href="https://mdn.github.io/webaudio-examples/output-timestamp/">Try the demo live</a>.</p>
+          <h2 class="mume-header" id="panner-node">Panner node</h2>
+
+          <p>The <a href="https://github.com/mdn/webaudio-examples/tree/master/panner-node">panner-node</a> directory
+            contains
+            a demo to show basic usage of the Web Audio API <code><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioContext/createPanner">BaseAudioContext.createPanner()</a></code>
+            method to control audio spatialization. <a href="http://mdn.github.io/webaudio-examples/panner-node/">Run
+              the
+              example live</a>.</p>
+          <h2 class="mume-header" id="script-processor-node">Script processor node</h2>
+
+          <p>The <a
+              href="https://github.com/mdn/webaudio-examples/tree/master/script-processor-node">script-processor-node</a>
+            directory contains a simple demo showing how to use the Web Audio API&apos;s <code><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/ScriptProcessorNode">ScriptProcessorNode</a></code>
+            interface to process a loaded audio track, adding a little bit of white noise to each audio sample. See the
+            <a href="http://mdn.github.io/webaudio-examples/script-processor-node/">live demo</a>.</p>
+          <h2 class="mume-header" id="spacialization">Spacialization</h2>
+
+          <p>The <a href="https://github.com/mdn/webaudio-examples/tree/master/spacialization">spacialization</a>
+            directory
+            contains an example of how the various properties of a <code><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/PannerNode">PannerNode</a></code> interface can
+            be
+            adjusted to emulate sound in a three-dimensional space. For more information see <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Web_audio_spatialization_basics">Web
+              audio
+              spatialization basics</a>. Try the <a href="http://mdn.github.io/webaudio-examples/spacialization/">live
+              demo</a>.</p>
+          <h2 class="mume-header" id="step-sequencer">Step sequencer</h2>
+
+          <p>The <a href="https://github.com/mdn/webaudio-examples/tree/master/step-sequencer">step-sequencer</a>
+            directory
+            contains a simple step-sequencer that loops and manipulates sounds based on a dial-up modem. For more
+            information
+            see <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Advanced_techniques">Advanced
+              techniques: creating sound, sequencing, timing, scheduling</a>. See the <a
+              href="http://mdn.github.io/webaudio-examples/step-sequencer/">live demo</a> also.</p>
+          <h2 class="mume-header" id="stereo-panner-node">Stereo panner node</h2>
+
+          <p>The <a
+              href="https://github.com/mdn/webaudio-examples/tree/master/stereo-panner-node">stereo-panner-node</a>
+            directory contains a simple example to show how the Web Audio API <code><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/StereoPannerNode">StereoPannerNode</a></code>
+            interface
+            can be used to pan an audio stream. <a href="http://mdn.github.io/webaudio-examples/stereo-panner-node/">Run
+              the
+              example live</a>.</p>
+          <h2 class="mume-header" id="stream-source-buffer">Stream source buffer</h2>
+
+          <p>The <a
+              href="https://github.com/mdn/webaudio-examples/tree/master/stream-source-buffer">stream-source-buffer</a>
+            directory contains a simple example demonstrating usage of the Web Audio API <code><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/AudioContext/createMediaElementSource">AudioContext.createMediaElementSource()</a></code>
+            method. <a href="http://mdn.github.io/webaudio-examples/stream-source-buffer/">View example live</a>.</p>
+
+        </div>
+        <div class="md-sidebar-toc">
+          <ul>
+            <li><a href="#webaudio-examples">webaudio-examples</a>
+              <ul>
+                <li><a href="#audio-analyser">Audio analyser</a></li>
+                <li><a href="#audio-basics">Audio basics</a></li>
+                <li><a href="#audio-buffer">Audio buffer</a></li>
+                <li><a href="#audio-param">Audio param</a></li>
+                <li><a href="#audio-context-states">Audio context states</a></li>
+                <li><a href="#compressor-example">Compressor example</a></li>
+                <li><a href="#create-media-stream-destination">Create media stream destination</a></li>
+                <li><a href="#decode-audio-data">Decode audio data</a></li>
+                <li><a href="#iir-filter-node">IIR filter node</a></li>
+                <li><a href="#media-source-buffer">Media source buffer</a></li>
+                <li><a href="#multi-track">Multi track</a></li>
+                <li><a href="#offline-audio-context">Offline audio context</a></li>
+                <li><a href="#offline-audio-context-promise">Offline audio context promise</a></li>
+                <li><a href="#output-timestamp">Output timestamp</a></li>
+                <li><a href="#panner-node">Panner node</a></li>
+                <li><a href="#script-processor-node">Script processor node</a></li>
+                <li><a href="#spacialization">Spacialization</a></li>
+                <li><a href="#step-sequencer">Step sequencer</a></li>
+                <li><a href="#stereo-panner-node">Stereo panner node</a></li>
+                <li><a href="#stream-source-buffer">Stream source buffer</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+  </div>
+
+  <center>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/pga5kyweM9g" title="YouTube video player"
+      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+
+
+
+
+
+    <iframe height="450" style="width: 95%;" scrolling="no" title="Boombox: Audio Basics"
+      src="https://codepen.io/bgoonz/embed/xxqWWyo?height=265&theme-id=light&default-tab=css,result" frameborder="no"
+      loading="lazy" allowtransparency="true" allowfullscreen="true">
+      See the Pen <a href='https://codepen.io/bgoonz/pen/xxqWWyo'>Boombox: Audio Basics</a> by Bryan C Guner
+      (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
+    </iframe>
+
+
+    <iframe height="450" style="width: 95%;" scrolling="no" title="Web Speech API Demo"
+      src="https://codepen.io/bgoonz/embed/QWpmmJQ?height=265&theme-id=light&default-tab=js,result" frameborder="no"
+      loading="lazy" allowtransparency="true" allowfullscreen="true">
+      See the Pen <a href='https://codepen.io/bgoonz/pen/QWpmmJQ'>Web Speech API Demo</a> by Bryan C Guner
+      (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
+    </iframe>
+
+
+
+    <iframe height="450" style="width: 95%;" scrolling="no" title="music grid animation"
+      src="https://codepen.io/bgoonz/embed/JjWLLeg?height=265&theme-id=light&default-tab=css,result" frameborder="no"
+      loading="lazy" allowtransparency="true" allowfullscreen="true">
+      See the Pen <a href='https://codepen.io/bgoonz/pen/JjWLLeg'>music grid animation</a> by Bryan C Guner
+      (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
+    </iframe>
+
+
+
+
+    <iframe height="450" style="width: 95%;" scrolling="no" title="VJ001: Audio triggered lights"
+      src="https://codepen.io/bgoonz/embed/WNpzzPM?height=265&theme-id=light&default-tab=js,result" frameborder="no"
+      loading="lazy" allowtransparency="true" allowfullscreen="true">
+      See the Pen <a href='https://codepen.io/bgoonz/pen/WNpzzPM'>VJ001: Audio triggered lights</a> by Bryan C Guner
+      (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
+    </iframe>
+
+
+
+
+    <iframe height="450" style="width: 95%;" scrolling="no" title="Web MIDI API Example"
+      src="https://codepen.io/bgoonz/embed/MWpVVLP?height=265&theme-id=light&default-tab=css,result" frameborder="no"
+      loading="lazy" allowtransparency="true" allowfullscreen="true">
+      See the Pen <a href='https://codepen.io/bgoonz/pen/MWpVVLP'>Web MIDI API Example</a> by Bryan C Guner
+      (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
+    </iframe>
+
+
+
+
+    <iframe height="450" style="width: 95%;" scrolling="no" title="Codevember AudioVis #1"
+      src="https://codepen.io/bgoonz/embed/eYvMMxb?height=265&theme-id=light&default-tab=js,result" frameborder="no"
+      loading="lazy" allowtransparency="true" allowfullscreen="true">
+      See the Pen <a href='https://codepen.io/bgoonz/pen/eYvMMxb'>Codevember AudioVis #1</a> by Bryan C Guner
+      (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
+    </iframe>
+
+
+
+
+    <iframe height="450" style="width: 95%;" scrolling="no" title="IIRFilter Example"
+      src="https://codepen.io/bgoonz/embed/qBroovB?height=265&theme-id=light&default-tab=js,result" frameborder="no"
+      loading="lazy" allowtransparency="true" allowfullscreen="true">
+      See the Pen <a href='https://codepen.io/bgoonz/pen/qBroovB'>IIRFilter Example</a> by Bryan C Guner
+      (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
+    </iframe>
+
+
+
+
+
+    <iframe height="450" style="width: 95%;" scrolling="no" title="Codevember AudioVis #5"
+      src="https://codepen.io/bgoonz/embed/YzZaagq?height=265&theme-id=light&default-tab=js,result" frameborder="no"
+      loading="lazy" allowtransparency="true" allowfullscreen="true">
+      See the Pen <a href='https://codepen.io/bgoonz/pen/YzZaagq'>Codevember AudioVis #5</a> by Bryan C Guner
+      (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
+    </iframe>
+
+
+
+
+
+
+
+    <iframe height="450" style="width: 95%;" scrolling="no" title="Codevember AudioVis #11"
+      src="https://codepen.io/bgoonz/embed/gOmeeEm?height=265&theme-id=light&default-tab=js,result" frameborder="no"
+      loading="lazy" allowtransparency="true" allowfullscreen="true">
+      See the Pen <a href='https://codepen.io/bgoonz/pen/gOmeeEm'>Codevember AudioVis #11</a> by Bryan C Guner
+      (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
+    </iframe>
+
+
+
+
+
+    <iframe height="450" style="width: 95%;" scrolling="no" title="Emulated MIDI Controller"
+      src="https://codepen.io/bgoonz/embed/QWpmmom?height=265&theme-id=light&default-tab=css,result" frameborder="no"
+      loading="lazy" allowtransparency="true" allowfullscreen="true">
+      See the Pen <a href='https://codepen.io/bgoonz/pen/QWpmmom'>Emulated MIDI Controller</a> by Bryan C Guner
+      (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
+    </iframe>
+
+
+
+
+
+
+
+
+
+
+    <iframe height="450" style="width: 95%;" scrolling="no" title="Boombox: Spacialisation"
+      src="https://codepen.io/bgoonz/embed/XWMEEGG?height=265&theme-id=light&default-tab=css,result" frameborder="no"
+      loading="lazy" allowtransparency="true" allowfullscreen="true">
+      See the Pen <a href='https://codepen.io/bgoonz/pen/XWMEEGG'>Boombox: Spacialisation</a> by Bryan C Guner
+      (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
+    </iframe>
+
+
+
+
+    <iframe height="450" style="width: 95%;" scrolling="no" title="Boombox: Spacialisation"
+      src="https://codepen.io/bgoonz/embed/GRWxxLr?height=265&theme-id=light&default-tab=css,result" frameborder="no"
+      loading="lazy" allowtransparency="true" allowfullscreen="true">
+      See the Pen <a href='https://codepen.io/bgoonz/pen/GRWxxLr'>Boombox: Spacialisation</a> by Bryan C Guner
+      (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
+    </iframe>
+
+
+
+
+    <iframe height="450" style="width: 95%;" scrolling="no" title="Music keyboard"
+      src="https://codepen.io/bgoonz/embed/QWpmmPm?height=265&theme-id=light&default-tab=css,result" frameborder="no"
+      loading="lazy" allowtransparency="true" allowfullscreen="true">
+      See the Pen <a href='https://codepen.io/bgoonz/pen/QWpmmPm'>Music keyboard</a> by Bryan C Guner
+      (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
+    </iframe>
+
+
+
+
+
+
+
+
+
+
+    <iframe height="450" style="width: 95%;" scrolling="no" title="Music keyboard"
+      src="https://codepen.io/bgoonz/embed/QWpmmPm?height=265&theme-id=light&default-tab=css,result" frameborder="no"
+      loading="lazy" allowtransparency="true" allowfullscreen="true">
+      See the Pen <a href='https://codepen.io/bgoonz/pen/QWpmmPm'>Music keyboard</a> by Bryan C Guner
+      (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
+    </iframe>
+
+
+
+
+
+
+
+
+
+    <iframe height="450" style="width: 95%;" scrolling="no" title="Simple Media Stream Example"
+      src="https://codepen.io/bgoonz/embed/JjWLLqj?height=265&theme-id=light&default-tab=js,result" frameborder="no"
+      loading="lazy" allowtransparency="true" allowfullscreen="true">
+      See the Pen <a href='https://codepen.io/bgoonz/pen/JjWLLqj'>Simple Media Stream Example</a> by Bryan C Guner
+      (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
+    </iframe>
+
+
+
+
+    <iframe height="450" style="width: 95%;" scrolling="no" title="Simple Media Stream Example"
+      src="https://codepen.io/bgoonz/embed/JjWLLqj?height=265&theme-id=light&default-tab=js,result" frameborder="no"
+      loading="lazy" allowtransparency="true" allowfullscreen="true">
+      See the Pen <a href='https://codepen.io/bgoonz/pen/JjWLLqj'>Simple Media Stream Example</a> by Bryan C Guner
+      (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
+    </iframe>
+
+
+    <iframe height="450" style="width: 95%;" scrolling="no" title="Analysing volume"
+      src="https://codepen.io/bgoonz/embed/XWMEEwQ?height=265&theme-id=light&default-tab=js,result" frameborder="no"
+      loading="lazy" allowtransparency="true" allowfullscreen="true">
+      See the Pen <a href='https://codepen.io/bgoonz/pen/XWMEEwQ'>Analysing volume</a> by Bryan C Guner
+      (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
+    </iframe>
+
+
+
+
+
+
+
+
+
+  </center>
+
+
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+.DS_Store
+*.tex
+evaluation
+native_test*
+node_modules
+dist

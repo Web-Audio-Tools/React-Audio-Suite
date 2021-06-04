@@ -1,0 +1,56 @@
+{
+  "name": "r-audio",
+  "version": "1.2.0",
+  "description": "A library of React components for building Web Audio graphs. ",
+  "module": "dist/r-audio.min.js",
+  "main": "dist/r-audio.min.js",
+  "scripts": {
+    "dev": "NODE_ENV=development webpack-dev-server",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bbc/r-audio.git"
+  },
+  "keywords": [
+    "web-audio",
+    "react"
+  ],
+  "author": "jakubfiala",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/bbc/r-audio/issues"
+  },
+  "homepage": "https://github.com/bbc/r-audio#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-loader": "^2.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-standard": "^3.1.0",
+    "uglifyjs-webpack-plugin": "^1.3.0",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.6.2",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.2",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0"
+  }
+}

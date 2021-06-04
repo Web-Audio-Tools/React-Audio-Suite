@@ -12,417 +12,242 @@ Audio on the web has been fairly primitive up to this point and until very recen
 
 The APIs have been designed with a wide variety of use cases [\[webaudio-usecases\]](https://www.w3.org/TR/webaudio/#biblio-webaudio-usecases) in mind. Ideally, it should be able to support _any_ use case which could reasonably be implemented with an optimized C++ engine controlled via script and run in a browser. That said, modern desktop audio software can have very advanced capabilities, some of which would be difficult or impossible to build with this system. Apple’s Logic Audio is one such application which has support for external MIDI controllers, arbitrary plugin audio effects and synthesizers, highly optimized direct-to-disk audio file reading/writing, tightly integrated time-stretching, and so on. Nevertheless, the proposed system will be quite capable of supporting a large range of reasonably complex games and interactive applications, including musical ones. And it can be a very good complement to the more advanced graphics features offered by WebGL. The API has been designed so that more advanced capabilities can be added at a later time.
 
+# Using the Web Audio API - Web APIs | MDN
 
-Web Audio API
-=============
-
-Table of Contents
------------------
-
-1.  [Introduction](https://www.w3.org/TR/webaudio/#introductory)
-    1.  [Features](https://www.w3.org/TR/webaudio/#Features)
-        1.  [Modular Routing](https://www.w3.org/TR/webaudio/#ModularRouting)
-
-    2.  [API Overview](https://www.w3.org/TR/webaudio/#APIOverview)
-
-2.  [1 The Audio API](https://www.w3.org/TR/webaudio/#audioapi)
-    1.  [1.1 The `BaseAudioContext` Interface](https://www.w3.org/TR/webaudio/#BaseAudioContext)
-        1.  [1.1.1 Attributes](https://www.w3.org/TR/webaudio/#BaseAudioContext-attributes)
-        2.  [1.1.2 Methods](https://www.w3.org/TR/webaudio/#BaseAudioContent-methods)
-        3.  [1.1.3 Callback `DecodeSuccessCallback()` Parameters](https://www.w3.org/TR/webaudio/#callback-decodesuccesscallback-parameters)
-        4.  [1.1.4 Callback `DecodeErrorCallback()` Parameters](https://www.w3.org/TR/webaudio/#callback-decodeerrorcallback-parameters)
-        5.  [1.1.5 Lifetime](https://www.w3.org/TR/webaudio/#lifetime-AudioContext)
-        6.  [1.1.6 Lack of Introspection or Serialization Primitives](https://www.w3.org/TR/webaudio/#lack-of-introspection-or-serialization-primitives)
-        7.  [1.1.7 System Resources Associated with `BaseAudioContext` Subclasses](https://www.w3.org/TR/webaudio/#system-resources-associated-with-baseaudiocontext-subclasses)
-
-    2.  [1.2 The `AudioContext` Interface](https://www.w3.org/TR/webaudio/#AudioContext)
-        1.  [1.2.1 Constructors](https://www.w3.org/TR/webaudio/#AudioContext-constructors)
-        2.  [1.2.2 Attributes](https://www.w3.org/TR/webaudio/#AudioContext-attributes)
-        3.  [1.2.3 Methods](https://www.w3.org/TR/webaudio/#AudioContext-methods)
-        4.  [1.2.4 `AudioContextOptions`](https://www.w3.org/TR/webaudio/#AudioContextOptions)
-            1.  [1.2.4.1 Dictionary `AudioContextOptions` Members](https://www.w3.org/TR/webaudio/#dictionary-audiocontextoptions-members)
-
-        5.  [1.2.5 `AudioTimestamp`](https://www.w3.org/TR/webaudio/#AudioTimestamp)
-            1.  [1.2.5.1 Dictionary `AudioTimestamp` Members](https://www.w3.org/TR/webaudio/#dictionary-audiotimestamp-members)
-
-    3.  [1.3 The `OfflineAudioContext` Interface](https://www.w3.org/TR/webaudio/#OfflineAudioContext)
-        1.  [1.3.1 Constructors](https://www.w3.org/TR/webaudio/#OfflineAudioContext-constructors)
-        2.  [1.3.2 Attributes](https://www.w3.org/TR/webaudio/#OfflineAudioContext-attributes)
-        3.  [1.3.3 Methods](https://www.w3.org/TR/webaudio/#OfflineAudioContext-methods)
-        4.  [1.3.4 `OfflineAudioContextOptions`](https://www.w3.org/TR/webaudio/#OfflineAudioContextOptions)
-            1.  [1.3.4.1 Dictionary `OfflineAudioContextOptions` Members](https://www.w3.org/TR/webaudio/#dictionary-offlineaudiocontextoptions-members)
-
-        5.  [1.3.5 The `OfflineAudioCompletionEvent` Interface](https://www.w3.org/TR/webaudio/#OfflineAudioCompletionEvent)
-            1.  [1.3.5.1 Attributes](https://www.w3.org/TR/webaudio/#OfflineAudioCompletionEvent-attributes)
-            2.  [1.3.5.2 `OfflineAudioCompletionEventInit`](https://www.w3.org/TR/webaudio/#OfflineAudioCompletionEventInit)
-                1.  [1.3.5.2.1 Dictionary `OfflineAudioCompletionEventInit` Members](https://www.w3.org/TR/webaudio/#dictionary-offlineaudiocompletioneventinit-members)
-
-    4.  [1.4 The `AudioBuffer` Interface](https://www.w3.org/TR/webaudio/#AudioBuffer)
-        1.  [1.4.1 Constructors](https://www.w3.org/TR/webaudio/#AudioBuffer-constructors)
-        2.  [1.4.2 Attributes](https://www.w3.org/TR/webaudio/#AudioBuffer-attributes)
-        3.  [1.4.3 Methods](https://www.w3.org/TR/webaudio/#AudioBuffer-methods)
-        4.  [1.4.4 `AudioBufferOptions`](https://www.w3.org/TR/webaudio/#AudioBufferOptions)
-            1.  [1.4.4.1 Dictionary `AudioBufferOptions` Members](https://www.w3.org/TR/webaudio/#dictionary-audiobufferoptions-members)
-
-    5.  [1.5 The `AudioNode` Interface](https://www.w3.org/TR/webaudio/#AudioNode)
-        1.  [1.5.1 AudioNode Creation](https://www.w3.org/TR/webaudio/#AudioNode-creation)
-        2.  [1.5.2 AudioNode Tail-Time](https://www.w3.org/TR/webaudio/#AudioNode-tail)
-        3.  [1.5.3 AudioNode Lifetime](https://www.w3.org/TR/webaudio/#AudioNode-actively-processing)
-        4.  [1.5.4 Attributes](https://www.w3.org/TR/webaudio/#AudioNode-attributes)
-        5.  [1.5.5 Methods](https://www.w3.org/TR/webaudio/#AudioNode-methods)
-        6.  [1.5.6 `AudioNodeOptions`](https://www.w3.org/TR/webaudio/#AudioNodeOptions)
-            1.  [1.5.6.1 Dictionary `AudioNodeOptions` Members](https://www.w3.org/TR/webaudio/#dictionary-audionodeoptions-members)
-
-    6.  [1.6 The `AudioParam` Interface](https://www.w3.org/TR/webaudio/#AudioParam)
-        1.  [1.6.1 Attributes](https://www.w3.org/TR/webaudio/#AudioParam-attributes)
-        2.  [1.6.2 Methods](https://www.w3.org/TR/webaudio/#AudioParam-methods)
-        3.  [1.6.3 Computation of Value](https://www.w3.org/TR/webaudio/#computation-of-value)
-        4.  [1.6.4 `AudioParam` Automation Example](https://www.w3.org/TR/webaudio/#example1-AudioParam)
-
-    7.  [1.7 The `AudioScheduledSourceNode` Interface](https://www.w3.org/TR/webaudio/#AudioScheduledSourceNode)
-        1.  [1.7.1 Attributes](https://www.w3.org/TR/webaudio/#AudioScheduledSourceNode-attributes)
-        2.  [1.7.2 Methods](https://www.w3.org/TR/webaudio/#AudioScheduledSourceNode-methods)
-
-    8.  [1.8 The `AnalyserNode` Interface](https://www.w3.org/TR/webaudio/#AnalyserNode)
-        1.  [1.8.1 Constructors](https://www.w3.org/TR/webaudio/#AnalyserNode-constructors)
-        2.  [1.8.2 Attributes](https://www.w3.org/TR/webaudio/#AnalyserNode-attributes)
-        3.  [1.8.3 Methods](https://www.w3.org/TR/webaudio/#AnalyserNode-methods)
-        4.  [1.8.4 `AnalyserOptions`](https://www.w3.org/TR/webaudio/#AnalyserOptions)
-            1.  [1.8.4.1 Dictionary `AnalyserOptions` Members](https://www.w3.org/TR/webaudio/#dictionary-analyseroptions-members)
-
-        5.  [1.8.5 Time-Domain Down-Mixing](https://www.w3.org/TR/webaudio/#time-domain-down-mixing)
-        6.  [1.8.6 FFT Windowing and Smoothing over Time](https://www.w3.org/TR/webaudio/#fft-windowing-and-smoothing-over-time)
-
-    9.  [1.9 The `AudioBufferSourceNode` Interface](https://www.w3.org/TR/webaudio/#AudioBufferSourceNode)
-        1.  [1.9.1 Constructors](https://www.w3.org/TR/webaudio/#AudioBufferSourceNode-constructors)
-        2.  [1.9.2 Attributes](https://www.w3.org/TR/webaudio/#AudioBufferSourceNode-attributes)
-        3.  [1.9.3 Methods](https://www.w3.org/TR/webaudio/#AudioBufferSourceNode-methods)
-        4.  [1.9.4 `AudioBufferSourceOptions`](https://www.w3.org/TR/webaudio/#AudioBufferSourceOptions)
-            1.  [1.9.4.1 Dictionary `AudioBufferSourceOptions` Members](https://www.w3.org/TR/webaudio/#dictionary-audiobuffersourceoptions-members)
-
-        5.  [1.9.5 Looping](https://www.w3.org/TR/webaudio/#looping-AudioBufferSourceNode)
-        6.  [1.9.6 Playback of AudioBuffer Contents](https://www.w3.org/TR/webaudio/#playback-AudioBufferSourceNode)
-
-    10. [1.10 The `AudioDestinationNode` Interface](https://www.w3.org/TR/webaudio/#AudioDestinationNode)
-        1.  [1.10.1 Attributes](https://www.w3.org/TR/webaudio/#AudioDestinationNode-attributes)
-
-    11. [1.11 The `AudioListener` Interface](https://www.w3.org/TR/webaudio/#AudioListener)
-        1.  [1.11.1 Attributes](https://www.w3.org/TR/webaudio/#AudioListener-attributes)
-        2.  [1.11.2 Methods](https://www.w3.org/TR/webaudio/#AudioListener-methods)
-        3.  [1.11.3 Processing](https://www.w3.org/TR/webaudio/#listenerprocessing)
-
-    12. [1.12 The `AudioProcessingEvent` Interface - DEPRECATED](https://www.w3.org/TR/webaudio/#AudioProcessingEvent)
-        1.  [1.12.1 Attributes](https://www.w3.org/TR/webaudio/#AudioProcessingEvent-attributes)
-        2.  [1.12.2 `AudioProcessingEventInit`](https://www.w3.org/TR/webaudio/#AudioProcessingEventInit)
-            1.  [1.12.2.1 Dictionary `AudioProcessingEventInit` Members](https://www.w3.org/TR/webaudio/#dictionary-audioprocessingeventinit-members)
-
-    13. [1.13 The `BiquadFilterNode` Interface](https://www.w3.org/TR/webaudio/#BiquadFilterNode)
-        1.  [1.13.1 Constructors](https://www.w3.org/TR/webaudio/#BiquadFilterNode-constructors)
-        2.  [1.13.2 Attributes](https://www.w3.org/TR/webaudio/#BiquadFilterNode-attributes)
-        3.  [1.13.3 Methods](https://www.w3.org/TR/webaudio/#BiquadFilterNode-methods)
-        4.  [1.13.4 `BiquadFilterOptions`](https://www.w3.org/TR/webaudio/#BiquadFilterOptions)
-            1.  [1.13.4.1 Dictionary `BiquadFilterOptions` Members](https://www.w3.org/TR/webaudio/#dictionary-biquadfilteroptions-members)
-
-        5.  [1.13.5 Filters Characteristics](https://www.w3.org/TR/webaudio/#filters-characteristics)
-
-    14. [1.14 The `ChannelMergerNode` Interface](https://www.w3.org/TR/webaudio/#ChannelMergerNode)
-        1.  [1.14.1 Constructors](https://www.w3.org/TR/webaudio/#ChannelMergerNode-constructors)
-        2.  [1.14.2 `ChannelMergerOptions`](https://www.w3.org/TR/webaudio/#ChannelMergerOptions)
-            1.  [1.14.2.1 Dictionary `ChannelMergerOptions` Members](https://www.w3.org/TR/webaudio/#dictionary-channelmergeroptions-members)
-
-    15. [1.15 The `ChannelSplitterNode` Interface](https://www.w3.org/TR/webaudio/#ChannelSplitterNode)
-        1.  [1.15.1 Constructors](https://www.w3.org/TR/webaudio/#ChannelSplitterNode-constructors)
-        2.  [1.15.2 `ChannelSplitterOptions`](https://www.w3.org/TR/webaudio/#ChannelSplitterOptions)
-            1.  [1.15.2.1 Dictionary `ChannelSplitterOptions` Members](https://www.w3.org/TR/webaudio/#dictionary-channelsplitteroptions-members)
-
-    16. [1.16 The `ConstantSourceNode` Interface](https://www.w3.org/TR/webaudio/#ConstantSourceNode)
-        1.  [1.16.1 Constructors](https://www.w3.org/TR/webaudio/#ConstantSourceNode-constructors)
-        2.  [1.16.2 Attributes](https://www.w3.org/TR/webaudio/#ConstantSourceNode-attributes)
-        3.  [1.16.3 `ConstantSourceOptions`](https://www.w3.org/TR/webaudio/#ConstantSourceOptions)
-            1.  [1.16.3.1 Dictionary `ConstantSourceOptions` Members](https://www.w3.org/TR/webaudio/#dictionary-constantsourceoptions-members)
-
-    17. [1.17 The `ConvolverNode` Interface](https://www.w3.org/TR/webaudio/#ConvolverNode)
-        1.  [1.17.1 Constructors](https://www.w3.org/TR/webaudio/#ConvolverNode-constructors)
-        2.  [1.17.2 Attributes](https://www.w3.org/TR/webaudio/#ConvolverNode-attributes)
-        3.  [1.17.3 `ConvolverOptions`](https://www.w3.org/TR/webaudio/#ConvolverOptions)
-            1.  [1.17.3.1 Dictionary `ConvolverOptions` Members](https://www.w3.org/TR/webaudio/#dictionary-convolveroptions-members)
-
-        4.  [1.17.4 Channel Configurations for Input, Impulse Response and Output](https://www.w3.org/TR/webaudio/#Convolution-channel-configurations)
-
-    18. [1.18 The `DelayNode` Interface](https://www.w3.org/TR/webaudio/#DelayNode)
-        1.  [1.18.1 Constructors](https://www.w3.org/TR/webaudio/#DelayNode-constructors)
-        2.  [1.18.2 Attributes](https://www.w3.org/TR/webaudio/#DelayNode-attributes)
-        3.  [1.18.3 `DelayOptions`](https://www.w3.org/TR/webaudio/#DelayOptions)
-            1.  [1.18.3.1 Dictionary `DelayOptions` Members](https://www.w3.org/TR/webaudio/#dictionary-delayoptions-members)
-
-        4.  [1.18.4 Processing](https://www.w3.org/TR/webaudio/#DelayNode-processing)
-
-    19. [1.19 The `DynamicsCompressorNode` Interface](https://www.w3.org/TR/webaudio/#DynamicsCompressorNode)
-        1.  [1.19.1 Constructors](https://www.w3.org/TR/webaudio/#DynamicsCompressorNode-constructors)
-        2.  [1.19.2 Attributes](https://www.w3.org/TR/webaudio/#DynamicsCompressorNode-attributes)
-        3.  [1.19.3 `DynamicsCompressorOptions`](https://www.w3.org/TR/webaudio/#DynamicsCompressorOptions)
-            1.  [1.19.3.1 Dictionary `DynamicsCompressorOptions` Members](https://www.w3.org/TR/webaudio/#dictionary-dynamicscompressoroptions-members)
-
-        4.  [1.19.4 Processing](https://www.w3.org/TR/webaudio/#DynamicsCompressorOptions-processing)
-
-    20. [1.20 The `GainNode` Interface](https://www.w3.org/TR/webaudio/#GainNode)
-        1.  [1.20.1 Constructors](https://www.w3.org/TR/webaudio/#GainNode-constructors)
-        2.  [1.20.2 Attributes](https://www.w3.org/TR/webaudio/#GainNode-attributes)
-        3.  [1.20.3 `GainOptions`](https://www.w3.org/TR/webaudio/#GainOptions)
-            1.  [1.20.3.1 Dictionary `GainOptions` Members](https://www.w3.org/TR/webaudio/#dictionary-gainoptions-members)
-
-    21. [1.21 The `IIRFilterNode` Interface](https://www.w3.org/TR/webaudio/#IIRFilterNode)
-        1.  [1.21.1 Constructors](https://www.w3.org/TR/webaudio/#IIRFilterNode-constructors)
-        2.  [1.21.2 Methods](https://www.w3.org/TR/webaudio/#IIRFilterNode-methods)
-        3.  [1.21.3 `IIRFilterOptions`](https://www.w3.org/TR/webaudio/#IIRFilterOptions)
-            1.  [1.21.3.1 Dictionary `IIRFilterOptions` Members](https://www.w3.org/TR/webaudio/#dictionary-iirfilteroptions-members)
-
-        4.  [1.21.4 Filter Definition](https://www.w3.org/TR/webaudio/#IIRFilterNode-filter-definition)
-
-    22. [1.22 The `MediaElementAudioSourceNode` Interface](https://www.w3.org/TR/webaudio/#MediaElementAudioSourceNode)
-        1.  [1.22.1 Constructors](https://www.w3.org/TR/webaudio/#MediaElementAudioSourceNode-constructors)
-        2.  [1.22.2 Attributes](https://www.w3.org/TR/webaudio/#MediaElementAudioSourceNode-attributes)
-        3.  [1.22.3 `MediaElementAudioSourceOptions`](https://www.w3.org/TR/webaudio/#MediaElementAudioSourceOptions)
-            1.  [1.22.3.1 Dictionary `MediaElementAudioSourceOptions` Members](https://www.w3.org/TR/webaudio/#dictionary-mediaelementaudiosourceoptions-members)
-
-        4.  [1.22.4 Security with MediaElementAudioSourceNode and Cross-Origin Resources](https://www.w3.org/TR/webaudio/#MediaElementAudioSourceOptions-security)
-
-    23. [1.23 The `MediaStreamAudioDestinationNode` Interface](https://www.w3.org/TR/webaudio/#MediaStreamAudioDestinationNode)
-        1.  [1.23.1 Constructors](https://www.w3.org/TR/webaudio/#MediaStreamAudioDestinationNode-constructors)
-        2.  [1.23.2 Attributes](https://www.w3.org/TR/webaudio/#MediaStreamAudioDestinationNode-attributes)
-
-    24. [1.24 The `MediaStreamAudioSourceNode` Interface](https://www.w3.org/TR/webaudio/#MediaStreamAudioSourceNode)
-        1.  [1.24.1 Constructors](https://www.w3.org/TR/webaudio/#MediaStreamAudioSourceNode-constructors)
-        2.  [1.24.2 Attributes](https://www.w3.org/TR/webaudio/#MediaStreamAudioSourceNode-attributes)
-        3.  [1.24.3 `MediaStreamAudioSourceOptions`](https://www.w3.org/TR/webaudio/#MediaStreamAudioSourceOptions)
-            1.  [1.24.3.1 Dictionary `MediaStreamAudioSourceOptions` Members](https://www.w3.org/TR/webaudio/#dictionary-mediastreamaudiosourceoptions-members)
-
-    25. [1.25 The `MediaStreamTrackAudioSourceNode` Interface](https://www.w3.org/TR/webaudio/#MediaStreamTrackAudioSourceNode)
-        1.  [1.25.1 Constructors](https://www.w3.org/TR/webaudio/#MediaStreamTrackAudioSourceNode-constructors)
-        2.  [1.25.2 `MediaStreamTrackAudioSourceOptions`](https://www.w3.org/TR/webaudio/#MediaStreamTrackAudioSourceOptions)
-            1.  [1.25.2.1 Dictionary `MediaStreamTrackAudioSourceOptions` Members](https://www.w3.org/TR/webaudio/#dictionary-mediastreamtrackaudiosourceoptions-members)
-
-    26. [1.26 The `OscillatorNode` Interface](https://www.w3.org/TR/webaudio/#OscillatorNode)
-        1.  [1.26.1 Constructors](https://www.w3.org/TR/webaudio/#OscillatorNode-constructors)
-        2.  [1.26.2 Attributes](https://www.w3.org/TR/webaudio/#OscillatorNode-attributes)
-        3.  [1.26.3 Methods](https://www.w3.org/TR/webaudio/#OscillatorNode-methods)
-        4.  [1.26.4 `OscillatorOptions`](https://www.w3.org/TR/webaudio/#OscillatorOptions)
-            1.  [1.26.4.1 Dictionary `OscillatorOptions` Members](https://www.w3.org/TR/webaudio/#dictionary-oscillatoroptions-members)
-
-        5.  [1.26.5 Basic Waveform Phase](https://www.w3.org/TR/webaudio/#basic-waveform-phase)
-
-    27. [1.27 The `PannerNode` Interface](https://www.w3.org/TR/webaudio/#PannerNode)
-        1.  [1.27.1 Constructors](https://www.w3.org/TR/webaudio/#PannerNode-constructors)
-        2.  [1.27.2 Attributes](https://www.w3.org/TR/webaudio/#PannerNode-attributes)
-        3.  [1.27.3 Methods](https://www.w3.org/TR/webaudio/#PannerNode-methods)
-        4.  [1.27.4 `PannerOptions`](https://www.w3.org/TR/webaudio/#PannerOptions)
-            1.  [1.27.4.1 Dictionary `PannerOptions` Members](https://www.w3.org/TR/webaudio/#dictionary-pannernode-members)
-
-        5.  [1.27.5 Channel Limitations](https://www.w3.org/TR/webaudio/#panner-channel-limitations)
-
-    28. [1.28 The `PeriodicWave` Interface](https://www.w3.org/TR/webaudio/#PeriodicWave)
-        1.  [1.28.1 Constructors](https://www.w3.org/TR/webaudio/#PeriodicWave-constructors)
-        2.  [1.28.2 `PeriodicWaveConstraints`](https://www.w3.org/TR/webaudio/#PeriodicWaveConstraints)
-            1.  [1.28.2.1 Dictionary `PeriodicWaveConstraints` Members](https://www.w3.org/TR/webaudio/#dictionary-periodicwaveconstraints-members)
-
-        3.  [1.28.3 `PeriodicWaveOptions`](https://www.w3.org/TR/webaudio/#PeriodicWaveOptions)
-            1.  [1.28.3.1 Dictionary `PeriodicWaveOptions` Members](https://www.w3.org/TR/webaudio/#dictionary-periodicwaveoptions-members)
-
-        4.  [1.28.4 Waveform Generation](https://www.w3.org/TR/webaudio/#waveform-generation)
-        5.  [1.28.5 Waveform Normalization](https://www.w3.org/TR/webaudio/#waveform-normalization)
-        6.  [1.28.6 Oscillator Coefficients](https://www.w3.org/TR/webaudio/#oscillator-coefficients)
-
-    29. [1.29 The `ScriptProcessorNode` Interface - DEPRECATED](https://www.w3.org/TR/webaudio/#ScriptProcessorNode)
-        1.  [1.29.1 Attributes](https://www.w3.org/TR/webaudio/#ScriptProcessorNode-attributes)
-
-    30. [1.30 The `StereoPannerNode` Interface](https://www.w3.org/TR/webaudio/#StereoPannerNode)
-        1.  [1.30.1 Constructors](https://www.w3.org/TR/webaudio/#StereoPannerNode-constructors)
-        2.  [1.30.2 Attributes](https://www.w3.org/TR/webaudio/#StereoPannerNode-attributes)
-        3.  [1.30.3 `StereoPannerOptions`](https://www.w3.org/TR/webaudio/#StereoPannerOptions)
-            1.  [1.30.3.1 Dictionary `StereoPannerOptions` Members](https://www.w3.org/TR/webaudio/#dictionary-stereopanneroptions-members)
-
-        4.  [1.30.4 Channel Limitations](https://www.w3.org/TR/webaudio/#StereoPanner-channel-limitations)
-
-    31. [1.31 The `WaveShaperNode` Interface](https://www.w3.org/TR/webaudio/#WaveShaperNode)
-        1.  [1.31.1 Constructors](https://www.w3.org/TR/webaudio/#WaveShaperNode-constructors)
-        2.  [1.31.2 Attributes](https://www.w3.org/TR/webaudio/#WaveShaperNode-attributes)
-        3.  [1.31.3 `WaveShaperOptions`](https://www.w3.org/TR/webaudio/#WaveShaperOptions)
-            1.  [1.31.3.1 Dictionary `WaveShaperOptions` Members](https://www.w3.org/TR/webaudio/#dictionary-waveshaperoptions-members)
-
-    32. [1.32 The `AudioWorklet` Interface](https://www.w3.org/TR/webaudio/#AudioWorklet)
-        1.  [1.32.1 Concepts](https://www.w3.org/TR/webaudio/#AudioWorklet-concepts)
-        2.  [1.32.2 The `AudioWorkletGlobalScope` Interface](https://www.w3.org/TR/webaudio/#AudioWorkletGlobalScope)
-            1.  [1.32.2.1 Attributes](https://www.w3.org/TR/webaudio/#AudioWorkletGlobalScope-attributes)
-            2.  [1.32.2.2 Methods](https://www.w3.org/TR/webaudio/#AudioWorkletGlobalScope-methods)
-            3.  [1.32.2.3 The instantiation of `AudioWorkletProcessor`](https://www.w3.org/TR/webaudio/#AudioWorkletProcessor-instantiation)
-
-        3.  [1.32.3 The `AudioWorkletNode` Interface](https://www.w3.org/TR/webaudio/#AudioWorkletNode)
-            1.  [1.32.3.1 Constructors](https://www.w3.org/TR/webaudio/#AudioWorkletNode-constructors)
-            2.  [1.32.3.2 Attributes](https://www.w3.org/TR/webaudio/#AudioWorkletNode-attributes)
-            3.  [1.32.3.3 `AudioWorkletNodeOptions`](https://www.w3.org/TR/webaudio/#AudioWorkletNodeOptions)
-                1.  [1.32.3.3.1 Dictionary `AudioWorkletNodeOptions` Members](https://www.w3.org/TR/webaudio/#dictionary-audioworkletnodeoptions-members)
-                2.  [1.32.3.3.2 Configuring Channels with `AudioWorkletNodeOptions`](https://www.w3.org/TR/webaudio/#configuring-channels-with-audioworkletnodeoptions)
-
-        4.  [1.32.4 The `AudioWorkletProcessor` Interface](https://www.w3.org/TR/webaudio/#AudioWorkletProcessor)
-            1.  [1.32.4.1 Constructors](https://www.w3.org/TR/webaudio/#AudioWorketProcessor-constructors)
-            2.  [1.32.4.2 Attributes](https://www.w3.org/TR/webaudio/#AudioWorkletProcessor-attributes)
-            3.  [1.32.4.3 Callback `AudioWorkletProcessCallback`](https://www.w3.org/TR/webaudio/#callback-audioworketprocess-callback)
-                1.  [1.32.4.3.1 Callback `AudioWorkletProcessCallback` Parameters](https://www.w3.org/TR/webaudio/#audioworkletprocess-callback-parameters)
-
-            4.  [1.32.4.4 `AudioParamDescriptor`](https://www.w3.org/TR/webaudio/#AudioParamDescriptor)
-                1.  [1.32.4.4.1 Dictionary `AudioParamDescriptor` Members](https://www.w3.org/TR/webaudio/#dictionary-audioparamdescriptor-members)
-
-        5.  [1.32.5 AudioWorklet Sequence of Events](https://www.w3.org/TR/webaudio/#AudioWorklet-Sequence)
-        6.  [1.32.6 AudioWorklet Examples](https://www.w3.org/TR/webaudio/#AudioWorklet-Examples)
-            1.  [1.32.6.1 The BitCrusher Node](https://www.w3.org/TR/webaudio/#the-bitcrusher-node)
-            2.  [1.32.6.2 VU Meter Node](https://www.w3.org/TR/webaudio/#vu-meter-mode)
-
-3.  [2 Processing model](https://www.w3.org/TR/webaudio/#processing-model)
-    1.  [2.1 Background](https://www.w3.org/TR/webaudio/#processing-model-background)
-    2.  [2.2 Control Thread and Rendering Thread](https://www.w3.org/TR/webaudio/#control-thread-and-rendering-thread)
-    3.  [2.3 Asynchronous Operations](https://www.w3.org/TR/webaudio/#asynchronous-operations)
-    4.  [2.4 Rendering an Audio Graph](https://www.w3.org/TR/webaudio/#rendering-loop)
-    5.  [2.5 Unloading a document](https://www.w3.org/TR/webaudio/#unloading-a-document)
-
-4.  [3 Dynamic Lifetime](https://www.w3.org/TR/webaudio/#DynamicLifetime)
-    1.  [3.1 Background](https://www.w3.org/TR/webaudio/#dynamic-lifetime-background)
-    2.  [3.2 Example](https://www.w3.org/TR/webaudio/#dynamic-lifetime-example)
+> Great! We have a boombox that plays our 'tape', and we can adjust the volume and stereo panning, giving us a fairly basic working audio graph.
 
-5.  [4 Channel Up-Mixing and Down-Mixing](https://www.w3.org/TR/webaudio/#channel-up-mixing-and-down-mixing)
-    1.  [4.1 Speaker Channel Layouts](https://www.w3.org/TR/webaudio/#ChannelLayouts)
-    2.  [4.2 Channel Ordering](https://www.w3.org/TR/webaudio/#ChannelOrdering)
-    3.  [4.3 Implication of tail-time on input and output channel count](https://www.w3.org/TR/webaudio/#channels-tail-time)
-    4.  [4.4 Up Mixing Speaker Layouts](https://www.w3.org/TR/webaudio/#UpMix-sub)
-    5.  [4.5 Down Mixing Speaker Layouts](https://www.w3.org/TR/webaudio/#down-mix)
-    6.  [4.6 Channel Rules Examples](https://www.w3.org/TR/webaudio/#ChannelRules-section)
+Let's take a look at getting started with the [Web Audio API](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/Web_Audio_API). We'll briefly look at some concepts, then study a simple boombox example that allows us to load an audio track, play and pause it, and change its volume and stereo panning.
 
-6.  [5 Audio Signal Values](https://www.w3.org/TR/webaudio/#audio-signal-values)
-    1.  [5.1 Audio sample format](https://www.w3.org/TR/webaudio/#audio-sample-format)
-    2.  [5.2 Rendering](https://www.w3.org/TR/webaudio/#audio-values-rendering)
+The Web Audio API does not replace the [`<audio>`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/HTML/Element/audio) media element, but rather complements it, just like [`<canvas>`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/HTML/Element/canvas) coexists alongside the [`<img>`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/HTML/Element/img) element. Your use case will determine what tools you use to implement audio. If you want to control playback of an audio track, the `<audio>` media element provides a better, quicker solution than the Web Audio API. If you want to carry out more complex audio processing, as well as playback, the Web Audio API provides much more power and control.
 
-7.  [6 Spatialization/Panning](https://www.w3.org/TR/webaudio/#Spatialization)
-    1.  [6.1 Background](https://www.w3.org/TR/webaudio/#Spatialization-background)
-    2.  [6.2 Azimuth and Elevation](https://www.w3.org/TR/webaudio/#azimuth-elevation)
-    3.  [6.3 Panning Algorithm](https://www.w3.org/TR/webaudio/#Spatialization-panning-algorithm)
-        1.  [6.3.1 PannerNode "equalpower" Panning](https://www.w3.org/TR/webaudio/#Spatialization-equal-power-panning)
-        2.  [6.3.2 PannerNode "HRTF" Panning (Stereo Only)](https://www.w3.org/TR/webaudio/#Spatialization-hrtf-panning)
-        3.  [6.3.3 StereoPannerNode Panning](https://www.w3.org/TR/webaudio/#stereopanner-algorithm)
+A powerful feature of the Web Audio API is that it does not have a strict "sound call limitation". For example, there is no ceiling of 32 or 64 sound calls at one time. Some processors may be capable of playing more than 1,000 simultaneous sounds without stuttering.
 
-    4.  [6.4 Distance Effects](https://www.w3.org/TR/webaudio/#Spatialization-distance-effects)
-    5.  [6.5 Sound Cones](https://www.w3.org/TR/webaudio/#Spatialization-sound-cones)
+[Example code](#example_code "Permalink to Example code")
+---------------------------------------------------------
 
-8.  [7 Performance Considerations](https://www.w3.org/TR/webaudio/#Performance)
-    1.  [7.1 Latency](https://www.w3.org/TR/webaudio/#latency)
-    2.  [7.2 Audio Buffer Copying](https://www.w3.org/TR/webaudio/#audio-buffer-copying)
-    3.  [7.3 AudioParam Transitions](https://www.w3.org/TR/webaudio/#audioparam-transitions)
-    4.  [7.4 Audio Glitching](https://www.w3.org/TR/webaudio/#audio-glitching)
+Our boombox looks like this:
 
-9.  [8 Security and Privacy Considerations](https://www.w3.org/TR/webaudio/#priv-sec)
-10. [9 Requirements and Use Cases](https://www.w3.org/TR/webaudio/#requirements)
-11. [10 Common Definitions for Specification Code](https://www.w3.org/TR/webaudio/#common-definitions)
-12. [11 Change Log](https://www.w3.org/TR/webaudio/#changes)
-    1.  [11.1 Since Candidate Recommendation of 14 January 2021](https://www.w3.org/TR/webaudio/#changes-2021-01-14)
-    2.  [11.2 Since Candidate Recommendation of 11 June 2020](https://www.w3.org/TR/webaudio/#changes-2020-06-11)
-    3.  [11.3 Since Candidate Recommendation of 18 September 2018](https://www.w3.org/TR/webaudio/#changestart1)
-    4.  [11.4 Since Working Draft of 19 June 2018](https://www.w3.org/TR/webaudio/#changestart2)
-    5.  [11.5 Since Working Draft of 08 December 2015](https://www.w3.org/TR/webaudio/#changestart3)
+![A boombox with play, pan, and volume controls](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API/boombox.png)
 
-13. [12 Acknowledgements](https://www.w3.org/TR/webaudio/#acks)
-14. [Conformance](https://www.w3.org/TR/webaudio/#conformance)
-    1.  [Document conventions](https://www.w3.org/TR/webaudio/#conventions)
-    2.  [Conformant Algorithms](https://www.w3.org/TR/webaudio/#conformant-algorithms)
-    3.  [Conformance Classes](https://www.w3.org/TR/webaudio/#conformance-classes)
+Note the retro cassette deck with a play button, and vol and pan sliders to allow you to alter the volume and stereo panning. We could make this a lot more complex, but this is ideal for simple learning at this stage.
 
-15. [Index](https://www.w3.org/TR/webaudio/#index)
-    1.  [Terms defined by this specification](https://www.w3.org/TR/webaudio/#index-defined-here)
-    2.  [Terms defined by reference](https://www.w3.org/TR/webaudio/#index-defined-elsewhere)
+[Check out the final demo here on Codepen](https://codepen.io/Rumyra/pen/qyMzqN/), or see the [source code on GitHub](https://github.com/mdn/webaudio-examples/tree/master/audio-basics).
 
-16. [References](https://www.w3.org/TR/webaudio/#references)
-    1.  [Normative References](https://www.w3.org/TR/webaudio/#normative)
-    2.  [Informative References](https://www.w3.org/TR/webaudio/#informative)
+[Browser support](#browser_support "Permalink to Browser support")
+------------------------------------------------------------------
 
-17. [IDL Index](https://www.w3.org/TR/webaudio/#idl-index)
+Modern browsers have good support for most features of the Web Audio API. There are a lot of features of the API, so for more exact information, you'll have to check the browser compatibility tables at the bottom of each reference page.
 
-Introduction
-------------
+[Audio graphs](#audio_graphs "Permalink to Audio graphs")
+---------------------------------------------------------
 
-Audio on the web has been fairly primitive up to this point and until very recently has had to be delivered through plugins such as Flash and QuickTime. The introduction of the `audio` element in HTML5 is very important, allowing for basic streaming audio playback. But, it is not powerful enough to handle more complex audio applications. For sophisticated web-based games or interactive applications, another solution is required. It is a goal of this specification to include the capabilities found in modern game audio engines as well as some of the mixing, processing, and filtering tasks that are found in modern desktop audio production applications.
+Everything within the Web Audio API is based around the concept of an audio graph, which is made up of nodes.
 
-The APIs have been designed with a wide variety of use cases [[webaudio-usecases]](https://www.w3.org/TR/webaudio/#biblio-webaudio-usecases) in mind. Ideally, it should be able to support *any* use case which could reasonably be implemented with an optimized C++ engine controlled via script and run in a browser. That said, modern desktop audio software can have very advanced capabilities, some of which would be difficult or impossible to build with this system. Apple’s Logic Audio is one such application which has support for external MIDI controllers, arbitrary plugin audio effects and synthesizers, highly optimized direct-to-disk audio file reading/writing, tightly integrated time-stretching, and so on. Nevertheless, the proposed system will be quite capable of supporting a large range of reasonably complex games and interactive applications, including musical ones. And it can be a very good complement to the more advanced graphics features offered by WebGL. The API has been designed so that more advanced capabilities can be added at a later time.
+The Web Audio API handles audio operations inside an **audio context**, and has been designed to allow **modular routing**. Basic audio operations are performed with **audio nodes**, which are linked together to form an **audio routing graph**. You have input nodes, which are the source of the sounds you are manipulating, modification nodes that change those sounds as desired, and output nodes (destinations), which allow you to save or hear those sounds.
 
-### Features
+Several audio sources with different channel layouts are supported, even within a single context. Because of this modular design, you can create complex audio functions with dynamic effects.
 
-The API supports these primary features:
+[Audio context](#audio_context "Permalink to Audio context")
+------------------------------------------------------------
 
--   [Modular routing](https://www.w3.org/TR/webaudio/#ModularRouting) for simple or complex mixing/effect architectures.
+To be able to do anything with the Web Audio API, we need to create an instance of the audio context. This then gives us access to all the features and functionality of the API.
 
--   High dynamic range, using 32-bit floats for internal processing.
+    
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    
+    const audioContext = new AudioContext();
+    
 
--   [Sample-accurate scheduled sound playback](https://www.w3.org/TR/webaudio/#AudioParam) with low [latency](https://www.w3.org/TR/webaudio/#latency) for musical applications requiring a very high degree of rhythmic precision such as drum machines and sequencers. This also includes the possibility of [dynamic creation](https://www.w3.org/TR/webaudio/#DynamicLifetime) of effects.
+So what's going on when we do this? A [`BaseAudioContext`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/BaseAudioContext) is created for us automatically and extended to an online audio context. We'll want this because we're looking to play live sound.
 
--   Automation of audio parameters for envelopes, fade-ins / fade-outs, granular effects, filter sweeps, LFOs etc.
+**Note**: If you just want to process audio data, for instance, buffer and stream it but not play it, you might want to look into creating an [`OfflineAudioContext`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/OfflineAudioContext).
 
--   Flexible handling of channels in an audio stream, allowing them to be split and merged.
+[Loading sound](#loading_sound "Permalink to Loading sound")
+------------------------------------------------------------
 
--   Processing of audio sources from an `audio` or `video` `media element`.
+Now, the audio context we've created needs some sound to play through it. There are a few ways to do this with the API. Let's begin with a simple method — as we have a boombox, we most likely want to play a full song track. Also, for accessibility, it's nice to expose that track in the DOM. We'll expose the song on the page using an [`<audio>`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/HTML/Element/audio) element.
 
--   Processing live audio input using a `MediaStream` from `getUserMedia()`.
+    <audio src="myCoolTrack.mp3"></audio>
+    
 
--   Integration with WebRTC
+**Note**: If the sound file you're loading is held on a different domain you will need to use the `crossorigin` attribute; see [Cross Origin Resource Sharing (CORS)](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/HTTP/CORS) for more information.
 
-    -   Processing audio received from a remote peer using a `MediaStreamTrackAudioSourceNode` and [[webrtc]](https://www.w3.org/TR/webaudio/#biblio-webrtc).
+To use all the nice things we get with the Web Audio API, we need to grab the source from this element and _pipe_ it into the context we have created. Lucky for us there's a method that allows us to do just that — [`AudioContext.createMediaElementSource`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/AudioContext/createMediaElementSource):
 
-    -   Sending a generated or processed audio stream to a remote peer using a `MediaStreamAudioDestinationNode` and [[webrtc]](https://www.w3.org/TR/webaudio/#biblio-webrtc).
+    
+    const audioElement = document.querySelector('audio');
+    
+    
+    const track = audioContext.createMediaElementSource(audioElement);
+    
 
--   Audio stream synthesis and processing [directly using scripts](https://www.w3.org/TR/webaudio/#AudioWorklet).
+**Note**: The `<audio>` element above is represented in the DOM by an object of type [`HTMLMediaElement`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/HTMLMediaElement), which comes with its own set of functionality. All of this has stayed intact; we are merely allowing the sound to be available to the Web Audio API.
 
--   [Spatialized audio](https://www.w3.org/TR/webaudio/#Spatialization) supporting a wide range of 3D games and immersive environments:
+[Controlling sound](#controlling_sound "Permalink to Controlling sound")
+------------------------------------------------------------------------
 
-    -   Panning models: equalpower, HRTF, pass-through
+When playing sound on the web, it's important to allow the user to control it. Depending on the use case, there's a myriad of options, but we'll provide functionality to play/pause the sound, alter the track's volume, and pan it from left to right.
 
-    -   Distance Attenuation
+Controlling sound programmatically from JavaScript code is covered by browsers' autoplay support policies, as such is likely to be blocked without permission being granted by the user (or a whitelist). Autoplay policies typically require either explicit permission or a user engagement with the page before scripts can trigger audio to play.
 
-    -   Sound Cones
+These special requirements are in place essentially because unexpected sounds can be annoying and intrusive, and can cause accessibility problems. You can learn more about this in our article [Autoplay guide for media and Web Audio APIs](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/Media/Autoplay_guide).
 
-    -   Obstruction / Occlusion
+Since our scripts are playing audio in response to a user input event (a click on a play button, for instance), we're in good shape and should have no problems from autoplay blocking. So, let's start by taking a look at our play and pause functionality. We have a play button that changes to a pause button when the track is playing:
 
-    -   Source / Listener based
+    <button data-playing="false" role="switch" aria-checked="false">
+        <span>Play/Pause</span>
+    </button>
+    
 
--   A convolution engine for a wide range of linear effects, especially very high-quality room effects. Here are some examples of possible effects:
+Before we can play our track we need to connect our audio graph from the audio source/input node to the destination.
 
-    -   Small / large room
+We've already created an input node by passing our audio element into the API. For the most part, you don't need to create an output node, you can just connect your other nodes to [`BaseAudioContext.destination`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/BaseAudioContext/destination), which handles the situation for you:
 
-    -   Cathedral
+    track.connect(audioContext.destination);
+    
 
-    -   Concert hall
+A good way to visualise these nodes is by drawing an audio graph so you can visualize it. This is what our current audio graph looks like:
 
-    -   Cave
+![an audio graph with an audio element source connected to the default destination](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API/graph1.jpg)
 
-    -   Tunnel
+Now we can add the play and pause functionality.
 
-    -   Hallway
+    
+    const playButton = document.querySelector('button');
+    
+    playButton.addEventListener('click', function() {
+    
+        
+        if (audioContext.state === 'suspended') {
+            audioContext.resume();
+        }
+    
+        
+        if (this.dataset.playing === 'false') {
+            audioElement.play();
+            this.dataset.playing = 'true';
+        } else if (this.dataset.playing === 'true') {
+            audioElement.pause();
+            this.dataset.playing = 'false';
+        }
+    
+    }, false);
+    
 
-    -   Forest
+We also need to take into account what to do when the track finishes playing. Our `HTMLMediaElement` fires an `ended` event once it's finished playing, so we can listen for that and run code accordingly:
 
-    -   Amphitheater
+    audioElement.addEventListener('ended', () => {
+        playButton.dataset.playing = 'false';
+    }, false);
+    
 
-    -   Sound of a distant room through a doorway
+[Modifying sound](#modifying_sound "Permalink to Modifying sound")
+------------------------------------------------------------------
 
-    -   Extreme filters
+Let's delve into some basic modification nodes, to change the sound that we have. This is where the Web Audio API really starts to come in handy. First of all, let's change the volume. This can be done using a [`GainNode`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/GainNode), which represents how big our sound wave is.
 
-    -   Strange backwards effects
+There are two ways you can create nodes with the Web Audio API. You can use the factory method on the context itself (e.g. `audioContext.createGain()`) or via a constructor of the node (e.g. `new GainNode()`). We'll use the factory method in our code:
 
-    -   Extreme comb filter effects
+    const gainNode = audioContext.createGain();
+    
 
--   Dynamics compression for overall control and sweetening of the mix
+Now we have to update our audio graph from before, so the input is connected to the gain, then the gain node is connected to the destination:
 
--   Efficient [real-time time-domain and frequency-domain analysis / music visualizer support](https://www.w3.org/TR/webaudio/#AnalyserNode).
+    track.connect(gainNode).connect(audioContext.destination);
+    
 
--   Efficient biquad filters for lowpass, highpass, and other common filters.
+This will make our audio graph look like this:
 
--   A Waveshaping effect for distortion and other non-linear effects
+![an audio graph with an audio element source, connected to a gain node that modifies the audio source, and then going to the default destination](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API/graph2.jpg)
 
--   Oscillators
+The default value for gain is 1; this keeps the current volume the same. Gain can be set to a minimum of about -3.4 and a max of about 3.4. Here we'll allow the boombox to move the gain up to 2 (double the original volume) and down to 0 (this will effectively mute our sound).
+
+Let's give the user control to do this — we'll use a [range input](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/HTML/Element/input/range):
+
+    <input type="range" id="volume" min="0" max="2" value="1" step="0.01">
+    
+
+**Note**: Range inputs are a really handy input type for updating values on audio nodes. You can specify a range's values and use them directly with the audio node's parameters.
+
+So let's grab this input's value and update the gain value when the input node has its value changed by the user:
+
+    const volumeControl = document.querySelector('#volume');
+    
+    volumeControl.addEventListener('input', function() {
+        gainNode.gain.value = this.value;
+    }, false);
+    
+
+**Note**: The values of node objects (e.g. `GainNode.gain`) are not simple values; they are actually objects of type [`AudioParam`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/AudioParam) — these called parameters. This is why we have to set `GainNode.gain`'s `value` property, rather than just setting the value on `gain` directly. This enables them to be much more flexible, allowing for passing the parameter a specific set of values to change between over a set period of time, for example.
+
+Great, now the user can update the track's volume! The gain node is the perfect node to use if you want to add mute functionality.
+
+[Adding stereo panning to our app](#adding_stereo_panning_to_our_app "Permalink to Adding stereo panning to our app")
+---------------------------------------------------------------------------------------------------------------------
+
+Let's add another modification node to practice what we've just learnt.
+
+There's a [`StereoPannerNode`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/StereoPannerNode) node, which changes the balance of the sound between the left and right speakers, if the user has stereo capabilities.
+
+**Note**: The `StereoPannerNode` is for simple cases in which you just want stereo panning from left to right. There is also a [`PannerNode`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/PannerNode), which allows for a great deal of control over 3D space, or sound _spatialisation_, for creating more complex effects. This is used in games and 3D apps to create birds flying overhead, or sound coming from behind the user for instance.
+
+To visualise it, we will be making our audio graph look like this:
+
+![An image showing the audio graph showing an input node, two modification nodes (a gain node and a stereo panner node) and a destination node.](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API/graphpan.jpg)
+
+Let's use the constructor method of creating a node this time. When we do it this way, we have to pass in the context and any options that the particular node may take:
+
+    const pannerOptions = { pan: 0 };
+    const panner = new StereoPannerNode(audioContext, pannerOptions);
+    
+
+**Note**: The constructor method of creating nodes is not supported by all browsers at this time. The older factory methods are supported more widely.
+
+Here our values range from -1 (far left) and 1 (far right). Again let's use a range type input to vary this parameter:
+
+    <input type="range" id="panner" min="-1" max="1" value="0" step="0.01">
+    
+
+We use the values from that input to adjust our panner values in the same way as we did before:
+
+    const pannerControl = document.querySelector('#panner');
+    
+    pannerControl.addEventListener('input', function() {
+        panner.pan.value = this.value;
+    }, false);
+    
+
+Let's adjust our audio graph again, to connect all the nodes together:
+
+    track.connect(gainNode).connect(panner).connect(audioContext.destination);
+    
+
+The only thing left to do is give the app a try: [Check out the final demo here on Codepen](https://codepen.io/Rumyra/pen/qyMzqN/).
+
+[Summary](#summary "Permalink to Summary")
+------------------------------------------
+
+Great! We have a boombox that plays our 'tape', and we can adjust the volume and stereo panning, giving us a fairly basic working audio graph.
+
+This makes up quite a few basics that you would need to start to add audio to your website or web app. There's a lot more functionality to the Web Audio API, but once you've grasped the concept of nodes and putting your audio graph together, we can move on to looking at more complex functionality.
+
+[More examples](#more_examples "Permalink to More examples")
+------------------------------------------------------------
+
+There are other examples available to learn more about the Web Audio API.
+
+The [Voice-change-O-matic](https://github.com/mdn/voice-change-o-matic) is a fun voice manipulator and sound visualization web app that allows you to choose different effects and visualizations. The application is fairly rudimentary, but it demonstrates the simultaneous use of multiple Web Audio API features. ([run the Voice-change-O-matic live](https://mdn.github.io/voice-change-o-matic/)).
+
+![A UI with a sound wave being shown, and options for choosing voice effects and visualizations.](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API/voice-change-o-matic.png)
+
+Another application developed specifically to demonstrate the Web Audio API is the [Violent Theremin](https://mdn.github.io/violent-theremin/), a simple web application that allows you to change pitch and volume by moving your mouse pointer. It also provides a psychedelic lightshow ([see Violent Theremin source code](https://github.com/mdn/violent-theremin)).
+
+![A page full of rainbow colors, with two buttons labeled Clear screen and mute.](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API/violent-theremin.png)
+
+Also see our [webaudio-examples repo](https://github.com/mdn/webaudio-examples) for more examples.
+
+
+[Source](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
 
 #### Modular Routing
 

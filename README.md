@@ -10016,882 +10016,467 @@ This section describes common functions and classes employed by JavaScript code 
 
 // Three dimensional vector class.class Vec3 { // Construct from 3 coordinates. constructor(x, y, z) { this.x \= x; this.y \= y; this.z \= z; } // Dot product with another vector. dot(v) { return (this.x \* v.x) + (this.y \* v.y) + (this.z \* v.z); } // Cross product with another vector. cross(v) { return new Vec3((this.y \* v.z) \- (this.z \* v.y), (this.z \* v.x) \- (this.x \* v.z), (this.x \* v.y) \- (this.y \* v.x)); } // Difference with another vector. diff(v) { return new Vec3(this.x \- v.x, this.y \- v.y, this.z \- v.z); } // Get the magnitude of this vector. get magnitude() { return Math.sqrt(dot(this)); } // Get a copy of this vector multiplied by a scalar. scale(s) { return new Vec3(this.x \* s, this.y \* s, this.z \* s); } // Get a normalized copy of this vector. normalize() { const m \= magnitude; if (m \== 0) { return new Vec3(0, 0, 0); } return scale(1 / m); }}
 
-## 11\. Change Log[](https://www.w3.org/TR/webaudio/#changes)
-
-### 11.1. Since Candidate Recommendation Snapshot of 14 January 2021[](https://www.w3.org/TR/webaudio/#changes-2021-01-14)
-
--   [PR 2333](https://github.com/WebAudio/web-audio-api/pull/2333): Update links to point to W3C versions
-    
--   [PR 2334](https://github.com/WebAudio/web-audio-api/pull/2334): Use bikeshed to link to ErrorEvent
-    
--   [PR 2331](https://github.com/WebAudio/web-audio-api/pull/2331): Add MIMESniff to normative references
-    
--   [PR 2328](https://github.com/WebAudio/web-audio-api/pull/2328): MediaStream must be resampled to match the context sample rate
-    
--   [PR 2318](https://github.com/WebAudio/web-audio-api/pull/2318): Restore empty of pending processor construction data after successful initialization of AudioWorkProcessor#port.
-    
--   [PR 2317](https://github.com/WebAudio/web-audio-api/pull/2317): Standardize h3/h4 interface and dictionary markup
-    
--   [PR 2312](https://github.com/WebAudio/web-audio-api/pull/2312): Rework description of control thread state and rendering thread state
-    
--   [PR 2311](https://github.com/WebAudio/web-audio-api/pull/2311): Adjust the steps to process a context’s regular task queue
-    
--   [PR 2310](https://github.com/WebAudio/web-audio-api/pull/2310): OscillatorNode output is mono
-    
--   [PR 2308](https://github.com/WebAudio/web-audio-api/pull/2308): Refine phrasing for "allowed to start"
-    
--   [PR 2307](https://github.com/WebAudio/web-audio-api/pull/2307): Replace "queue a task" with "queue a media element task"
-    
--   [PR 2306](https://github.com/WebAudio/web-audio-api/pull/2306): Move some steps from AudioWorkletProcessor constructor to the instantiation algorithm
-    
--   [PR 2304](https://github.com/WebAudio/web-audio-api/pull/2304): Add required components for ES operations in the rendering loop
-    
--   [PR 2301](https://github.com/WebAudio/web-audio-api/pull/2301): Define when and how regular tasks are processed wrt the processing model
-    
--   [PR 2286](https://github.com/WebAudio/web-audio-api/pull/2286): Clean up ABSN start algorithm
-    
--   [PR 2277](https://github.com/WebAudio/web-audio-api/pull/2277): Fix compression curve diagram
-    
--   [PR 2273](https://github.com/WebAudio/web-audio-api/pull/2273): Clarify units used in threshold & knee value calculations
-    
--   [PR 2256](https://github.com/WebAudio/web-audio-api/pull/2256): ABSN extrapolates the last output
-    
--   [PR 2250](https://github.com/WebAudio/web-audio-api/pull/2250): Use FrozenArray for AudioWorkletProcessor process()
-    
--   [PR 2298](https://github.com/WebAudio/web-audio-api/pull/2298): Bikeshed HTML validation issues
-    
-
-### 11.2. Since Candidate Recommendation of 11 June 2020[](https://www.w3.org/TR/webaudio/#changes-2020-06-11)
-
--   [PR 2202](https://github.com/WebAudio/web-audio-api/pull/2201): Fixed wrong optionality of IIRFilterNode options
-    
--   [Issue 2191](https://github.com/WebAudio/web-audio-api/issues/2191): Restrict sounds beyond normal hearing
-    
--   [PR 2210](https://github.com/WebAudio/web-audio-api/pull/2210): Return rejected promise when the document is not fully active, for operations returning promises
-    
--   [Issue 2191](https://github.com/WebAudio/web-audio-api/issues/2191): Destination of request created by `addModule`
-    
--   [Issue 2213](https://github.com/WebAudio/web-audio-api/issues/2213): The message queue is for message running on the rendering thread.
-    
--   [Issue 2216](https://github.com/WebAudio/web-audio-api/issues/2216): Use inclusive language in the spec
-    
--   [PR 2219](https://github.com/WebAudio/web-audio-api/pull/2219): Update more terminology in images and markdown documents
-    
--   [Issue 2206](https://github.com/WebAudio/web-audio-api/issues/2206): PannerNode.rollOffFactor with "linear" distance model is not clamped to \[0, 1\] in main browser engines
-    
--   [Issue 2169](https://github.com/WebAudio/web-audio-api/issues/2169): AudioParamDescriptor has member constraints that are redundant
-    
--   [Issue 1457](https://github.com/WebAudio/web-audio-api/issues/1457): \[privacy\] Exposing data to an origin: fingerprinting
-    
--   [Issue 2061](https://github.com/WebAudio/web-audio-api/issues/2061): Privacy re-review of latest changes
-    
--   [Issue 2225](https://github.com/WebAudio/web-audio-api/issues/2225): Describe "Planar versus interleaved buffers"
-    
--   [Issue 2231](https://github.com/WebAudio/web-audio-api/issues/2231): WaveShaper \[\[curve set\]\] not defined
-    
--   [Issue 2240](https://github.com/WebAudio/web-audio-api/issues/2240): Align with Web IDL specification
-    
--   [Issue 2242](https://github.com/WebAudio/web-audio-api/issues/2242): LInk to undefined instead of using `<code>`
-    
--   [Issue 2227](https://github.com/WebAudio/web-audio-api/issues/2227): Clarify buffer.copyToChannel() must be called before source.buffer = buffer else nothing is played
-    
--   [PR 2253](https://github.com/WebAudio/web-audio-api/pull/2253): Fix duplicated IDs for decode callbacks
-    
--   [Issue 2252](https://github.com/WebAudio/web-audio-api/issues/2252): When are promises in "\[\[pending resume promises\]\]" resolved?
-    
--   [PR 2266](https://github.com/WebAudio/web-audio-api/pull/2266): Prohibit arbitrary termination of AudioWorkletGlobalScopes
-    
-
-### 11.3. Since Candidate Recommendation of 18 September 2018[](https://www.w3.org/TR/webaudio/#changestart1)
-
--   [Issue 2193](https://github.com/WebAudio/web-audio-api/issues/2193): Incorrect azimuth comparison in spatialization algorithm
-    
--   [Issue 2192](https://github.com/WebAudio/web-audio-api/issues/2197): Waveshaper curve interpolation algorithm incorrect
-    
--   [Issue 2171](https://github.com/WebAudio/web-audio-api/issues/2171): Allow not having get parameterDescriptors in an AudioWorkletProcessor
-    
--   [Issue 2184](https://github.com/WebAudio/web-audio-api/issues/2184): PannerNode refDistance description unclear
-    
--   [Issue 2165](https://github.com/WebAudio/web-audio-api/issues/2165): AudioScheduledSourceNode start algorithm incomplete
-    
--   [Issue 2155](https://github.com/WebAudio/web-audio-api/issues/2155): Restore changes accidentally reverted in bikeshed conversion
-    
--   [Issue 2154](https://github.com/WebAudio/web-audio-api/issues/2154): Exception for changing channelCountMode on ScriptProcessorNode does not match browsers
-    
--   [Issue 2153](https://github.com/WebAudio/web-audio-api/issues/2153): Exception for changing channelCount on ScriptProcessorNode does not match browsers
-    
--   [Issue 2152](https://github.com/WebAudio/web-audio-api/issues/2152): close() steps don’t make sense
-    
--   [Issue 2150](https://github.com/WebAudio/web-audio-api/issues/2150): AudioBufferOptions requires throwing NotFoundError in cases that can’t happen
-    
--   [Issue 2149](https://github.com/WebAudio/web-audio-api/issues/2149): MediaStreamAudioSourceNode constructor has weird check for AudioContext
-    
--   [Issue 2148](https://github.com/WebAudio/web-audio-api/issues/2148): IIRFilterOptions description makes impossible demands
-    
--   [Issue 2147](https://github.com/WebAudio/web-audio-api/issues/2147): PeriodicWave constructor examines lengths of things that might not be there
-    
--   [Issue 2113](https://github.com/WebAudio/web-audio-api/issues/2113): BiquadFilter gain lower bound can be lower.
-    
--   [Issue 2096](https://github.com/WebAudio/web-audio-api/issues/2096): Lifetime of pending processor construction data and exceptions in instantiation of AudioWorkletProcessor
-    
--   [Issue 2087](https://github.com/WebAudio/web-audio-api/issues/2087): Minor issues with BiquadFilter AudioParams
-    
--   [Issue 2083](https://github.com/WebAudio/web-audio-api/issues/2083): Missing text in WaveShaperNode?
-    
--   [Issue 2082](https://github.com/WebAudio/web-audio-api/issues/2082): WaveShaperNode curve interpolation incomplete
-    
--   [Issue 2074](https://github.com/WebAudio/web-audio-api/issues/2074): Should the AudioWorkletNode constructor invoke the algorithm for initializing an object that inherits from AudioNode?
-    
--   [Issue 2073](https://github.com/WebAudio/web-audio-api/issues/2073): Inconsistencies in constructor descriptions and factory method initialization
-    
--   [Issue 2072](https://github.com/WebAudio/web-audio-api/issues/2072): Clarification on `AudioBufferSourceNode` looping, and loop points
-    
--   [Issue 2071](https://github.com/WebAudio/web-audio-api/issues/2071): cancelScheduledValues with setValueCurveAtTime
-    
--   [Issue 2060](https://github.com/WebAudio/web-audio-api/issues/2060): Would it be helpful to restrict use of `AudioWorkletProcessor.port().postMessage()` in order to facilitate garbage collection?
-    
--   [Issue 2051](https://github.com/WebAudio/web-audio-api/issues/2051): Update to constructor operations
-    
--   [Issue 2050](https://github.com/WebAudio/web-audio-api/issues/2050): Restore ConvolverNode channel mixing configurability (up to 2 channels)
-    
--   [Issue 2045](https://github.com/WebAudio/web-audio-api/issues/2045): Should the check on `process()` be removed from `AudioWorkletGlobalScope.registerProcessor()`?
-    
--   [Issue 2044](https://github.com/WebAudio/web-audio-api/issues/2044): Remove `options` parameter from `AudioWorkletProcessor` constructor WebIDL
-    
--   [Issue 2036](https://github.com/WebAudio/web-audio-api/issues/2036): Remove `options` parameter of `AudioWorkletProcessor` constructor
-    
--   [Issue 2035](https://github.com/WebAudio/web-audio-api/issues/2035): De-duplicate initial value setting on AudioWorkletNode AudioParams
-    
--   [Issue 2027](https://github.com/WebAudio/web-audio-api/issues/2027): Revise "processor construction data" algorithm
-    
--   [Issue 2021](https://github.com/WebAudio/web-audio-api/issues/2021): AudioWorkletProcessor constructor leads to infinite recursion
-    
--   [Issue 2018](https://github.com/WebAudio/web-audio-api/issues/2018): There are still issues with the setup of an AudioWorkletNode’s parameters
-    
--   [Issue 2016](https://github.com/WebAudio/web-audio-api/issues/2016): Clarify `parameters` in AudioWorkletProcessor.process()
-    
--   [Issue 2011](https://github.com/WebAudio/web-audio-api/issues/2011): AudioWorkletNodeOptions.processorOptions should not default to null.
-    
--   [Issue 1989](https://github.com/WebAudio/web-audio-api/issues/1989): Please update to Web IDL changes to optional dictionary defaulting
-    
--   [Issue 1984](https://github.com/WebAudio/web-audio-api/issues/1984): Handling of exceptions in audio worklet is not very clear
-    
--   [Issue 1976](https://github.com/WebAudio/web-audio-api/issues/1976): AudioWorkletProcessor’s \[\[node reference\]\] seems to be write-only
-    
--   [Issue 1972](https://github.com/WebAudio/web-audio-api/issues/1972): parameterDescriptors handling during AudioWorkletNode initialization is probably wrong
-    
--   [Issue 1971](https://github.com/WebAudio/web-audio-api/issues/1971): AudioWorkletNode options serialization is underdefined
-    
--   [Issue 1970](https://github.com/WebAudio/web-audio-api/issues/1970): "active source" flag handling is a weird monkeypatch
-    
--   [Issue 1969](https://github.com/WebAudio/web-audio-api/issues/1969): It would be clearer if the various validation of AudioWorkletNodeOptions were an explicit step or set of steps
-    
--   [Issue 1966](https://github.com/WebAudio/web-audio-api/issues/1966): parameterDescriptors is not looked up by the AudioWorkletProcessor constructor
-    
--   [Issue 1963](https://github.com/WebAudio/web-audio-api/issues/1963): NewTarget check for AudioWorkletProcessor isn’t actually possible with a Web IDL constructor
-    
--   [Issue 1947](https://github.com/WebAudio/web-audio-api/issues/1947): Spec is inconsistent about whether parameterDescriptors is an array or an iterable
-    
--   [Issue 1946](https://github.com/WebAudio/web-audio-api/issues/1946): Population of "node name to parameter descriptor map" needs to be defined
-    
--   [Issue 1945](https://github.com/WebAudio/web-audio-api/issues/1945): registerProcessor is doing odd things with threads and JS values
-    
--   [Issue 1943](https://github.com/WebAudio/web-audio-api/issues/1943): Describe how WaveShaperNode shapes the input with the curve
-    
--   [Issue 1935](https://github.com/WebAudio/web-audio-api/issues/1935): length of AudioWorkletProcessor.process() parameter sequences with inactive inputs
-    
--   [Issue 1932](https://github.com/WebAudio/web-audio-api/issues/1932): Make AudioWorkletNode output buffer available for reading
-    
--   [Issue 1925](https://github.com/WebAudio/web-audio-api/issues/1925): front vs forward
-    
--   [Issue 1902](https://github.com/WebAudio/web-audio-api/issues/1902): Mixer Gain Structure section not needed
-    
--   [Issue 1906](https://github.com/WebAudio/web-audio-api/issues/1906): Steps in rendering algorithm
-    
--   [Issue 1905](https://github.com/WebAudio/web-audio-api/issues/1905): Rendering callbacks are observable
-    
--   [Issue 1904](https://github.com/WebAudio/web-audio-api/issues/1904): Strange Note in algorithm for swapping a control message queue
-    
--   [Issue 1903](https://github.com/WebAudio/web-audio-api/issues/1903): Funny sentence about priority and latency
-    
--   [Issue 1901](https://github.com/WebAudio/web-audio-api/issues/1901): AudioWorkletNode state property?
-    
--   [Issue 1900](https://github.com/WebAudio/web-audio-api/issues/1900): AudioWorkletProcessor NewTarget undefined
-    
--   [Issue 1899](https://github.com/WebAudio/web-audio-api/issues/1899): Missing synchronous markers
-    
--   [Issue 1897](https://github.com/WebAudio/web-audio-api/issues/1897): WaveShaper curve value setter allows multiple sets
-    
--   [Issue 1896](https://github.com/WebAudio/web-audio-api/issues/1896): WaveShaperNode constructor says curve set is initialized to false
-    
--   [Issue #1471](https://github.com/WebAudio/web-audio-api/issues/1471): AudioNode Lifetime section seems to attempt to make garbage collection observable
-    
--   [Issue #1893](https://github.com/WebAudio/web-audio-api/issues/1893): Active processing for Panner/Convolver/ChannelMerger
-    
--   [Issue #1894](https://github.com/WebAudio/web-audio-api/issues/1894): Funny text in PannerNode.orientationX
-    
--   [Issue #1866](https://github.com/WebAudio/web-audio-api/issues/1866): References to garbage collection
-    
--   [Issue #1851](https://github.com/WebAudio/web-audio-api/issues/1851): Parameter values used for BiquadFilterNode::getFrequencyResponse
-    
--   [Issue #1905](https://github.com/WebAudio/web-audio-api/issues/1905): Rendering callbacks are observable
-    
--   [Issue #1879](https://github.com/WebAudio/web-audio-api/issues/1879): ABSN playback algorithm offset
-    
--   [Issue #1882](https://github.com/WebAudio/web-audio-api/issues/1882): Biquad lowpass/highpass Q
-    
--   [Issue #1303](https://github.com/WebAudio/web-audio-api/issues/1303): MediaElementAudioSourceNode information in a funny place
-    
--   [Issue #1896](https://github.com/WebAudio/web-audio-api/issues/1896): WaveShaperNode constructor says curve set is initialized to false
-    
--   [Issue #1897](https://github.com/WebAudio/web-audio-api/issues/1897): WaveShaper curve value setter allows multiple sets.
-    
--   [Issue #1880](https://github.com/WebAudio/web-audio-api/issues/1880): setOrientation description has confusing paragraph
-    
--   [Issue #1855](https://github.com/WebAudio/web-audio-api/issues/1855): createScriptProcessor parameter requirements
-    
--   [Issue #1857](https://github.com/WebAudio/web-audio-api/issues/1857): Fix typos and bad phrasing
-    
--   [Issue #1788](https://github.com/WebAudio/web-audio-api/issues/1788): Unclear what value is returned by AudioParam.value
-    
--   [Issue #1852](https://github.com/WebAudio/web-audio-api/issues/1852): Fix error condition of AudioNode.disconnect(destinationNode, output, input)
-    
--   [Issue #1841](https://github.com/WebAudio/web-audio-api/issues/1841): Recovering from unstable biquad filters?
-    
--   [Issue #1777](https://github.com/WebAudio/web-audio-api/issues/1777): Picture of the coordinate system for panner node
-    
--   [Issue #1802](https://github.com/WebAudio/web-audio-api/issues/1802): Clarify interaction between user-invoked suspend and autoplay policy
-    
--   [Issue #1822](https://github.com/WebAudio/web-audio-api/issues/1822): OfflineAudioContext.suspend can suspend before the given time
-    
--   [Issue #1772](https://github.com/WebAudio/web-audio-api/issues/1772): Sorting tracks alphabetically is underspecified
-    
--   [Issue #1797](https://github.com/WebAudio/web-audio-api/issues/1797): Specification is incomplete for AudioNode.connect()
-    
--   [Issue #1805](https://github.com/WebAudio/web-audio-api/issues/1805): Exception ordering on error
-    
--   [Issue #1790](https://github.com/WebAudio/web-audio-api/issues/1790): Automation example chart has an error (reversed function arguments
-    
--   Fix rendering algorithm iteration and cycle breaking
-    
--   [Issue #1719](https://github.com/WebAudio/web-audio-api/issues/1719): channel count changes in filter nodes with tail time
-    
--   [Issue #1563](https://github.com/WebAudio/web-audio-api/issues/1563): Make decodeAudioData more precise
-    
--   [Issue #1481](https://github.com/WebAudio/web-audio-api/issues/1481): Tighten spec on ABSN output channels?
-    
--   [Issue #1762](https://github.com/WebAudio/web-audio-api/issues/1762): Setting convolver buffer more than once?
-    
--   [Issue #1758](https://github.com/WebAudio/web-audio-api/issues/1758): Explicitly include time-domain processing code for BiquadFilterNode
-    
--   [Issue #1770](https://github.com/WebAudio/web-audio-api/issues/1770): Link to correct algorithm for StereoPannerNode, mention algorithm is equal-power
-    
--   [Issue #1753](https://github.com/WebAudio/web-audio-api/issues/1753): Have a single `AudioWorkletGlobalScope` per `BaseAudioContext`
-    
--   [Issue #1746](https://github.com/WebAudio/web-audio-api/issues/1746): AnalyserNode: Clarify how much time domain data we’re supposed to keep around
-    
--   [Issue #1741](https://github.com/WebAudio/web-audio-api/issues/1741): Sample rate of AudioBuffer
-    
--   [Issue #1745](https://github.com/WebAudio/web-audio-api/issues/1745): Clarify unit of fftSize
-    
--   [Issue #1743](https://github.com/WebAudio/web-audio-api/issues/1743): Missing normative reference to Fetch
-    
--   Use "get a reference to the bytes" algorithm as needed.
-    
--   Specify rules for determining output chanel count.
-    
--   Clarified rendering algorithm for AudioListener.
-    
-    ### 11.4. Since Working Draft of 19 June 2018[](https://www.w3.org/TR/webaudio/#changestart2)
-    
--   Minor editorial clarifications.
-    
--   Update implementation-report.html.
-    
--   Widen the valid range of detune values so that any value that doesn’t cause 2^(d/1200) to overflow is valid.
-    
--   PannerNode constructor throws errors.
-    
--   Rephrase algorithm for setting buffer and curve.
-    
--   Refine startRendering algorithm.
-    
--   Make "queue a task" link to the HTML spec.
-    
--   Specify more precisely, events overlapping with SetValueCurveAtTime.
-    
--   Add implementation report to gh-pages.
-    
--   Honor the given value in `outputChannelCount`.
-    
--   Initialize bufferDuration outside of process() in ABSN algorithm.
-    
--   Rework definition of ABSN output behavior to account for playbackRate’s interaction with the start(…duration) argument.
-    
--   Add mention of video element in ultrasonic attack surface.
-    
-
-### 11.5. Since Working Draft of 08 December 2015[](https://www.w3.org/TR/webaudio/#changestart3)
-
--   Add AudioWorklet and related interfaces to support custom nodes. This replaces ScriptProcessorNode, which is now deprecated.
-    
--   Explicitly say what the channel count, mode, and interpretation values are for all source nodes.
-    
--   Specify the behavior of Web Audio when a document is unloaded.
-    
--   Merge the proposed SpatialListener interface into AudioListener.
-    
--   Rework and clean up algorithms for panning and spatialization and define "magic functions".
-    
--   Clarify that AudioBufferSourceNode looping is limited by duration argument to start().
-    
--   Add constructors with options dictionaries for all node types.
-    
--   Clarify parameter automation method behavior and equations. Handle cases where automation methods may interact with each other.
-    
--   Support latency hints and arbitrary sample rates in AudioContext constructor.
-    
--   Clear up ambiguities in definitions of start() and stop() for scheduled sources.
-    
--   Remove automatic dezippering from AudioParam value setters which now equate to setValueAtTime().
-    
--   Specify normative behavior of DynamicsCompressorNode.
-    
--   Specify that AudioParam.value returns the most recent computed value.
-    
--   Permit AudioBufferSourceNode to specify sub-sample start, duration, loopStart and loopEnd. Respecify algorithms to say exactly how looping works in all scenarios, including dynamic and negative playback rates.
-    
--   Harmonized behavior of IIRFilterNode with BiquadFilterNode.
-    
--   Add diagram describing mono-input-to-matrixed-stereo case.
-    
--   Prevent connecting an AudioNode to an AudioParam of a different AudioContext.
-    
--   Added Audioparam cancelAndHoldAtTime
-    
--   Clarify behaviour of AudioParam.cancelScheduledValues().
-    
--   Add playing reference to MediaElementAudioSourceNodes and MediaStreamAudioSourceNodes.
-    
--   Refactor BaseAudioContext interface out of AudioContext, OfflineAudioContext.
-    
--   OfflineAudioContext inherits from BaseAudioContext, not AudioContext.
-    
--   "StereoPanner" replaced with the correct "StereoPannerNode".
-    
--   Support chaining on AudioNode.connect() and AudioParam automation methods.
-    
--   Specify behavior of events following SetTarget events.
-    
--   Reinstate channelCount declaration for AnalyserNode.
-    
--   Specify exponential ramp behavior when previous value is 0.
-    
--   Specify behavior of setValueCurveAtTime parameters.
-    
--   Add spatialListener attribute to AudioContext.
-    
--   Remove section titled "Doppler Shift".
-    
--   Added a list of nodes and reason why they can add latency, in an informative section.
-    
--   Speced nominal ranges, nyquist, and behavior when outside the range.
-    
--   Spec the processing model for the Web Audio API.
-    
--   Merge the SpatialPannerNode into the PannerNode, undeprecating the PannerNode.
-    
--   Merge the SpatialListener into the AudioListener, undeprecating the AudioListener.
-    
--   Added latencyHint(s).
-    
--   Move the constructor from BaseAudioContext to AudioContext where it belongs; BaseAudioContext is not constructible.
-    
--   Specified the Behavior of automations and nominal ranges.
-    
--   The playbackRate is widened to +/- infinity.
-    
--   setValueCurveAtTime is modified so that an implicit call to setValueAtTime is made at the end of the curve duration.
-    
--   Make setting the `value` attribute of an `AudioParam` strictly equivalent of calling setValueAtTime with AudioContext.currentTime.
-    
--   Add new sections for AudioContextOptions and AudioTimestamp.
-    
--   Add constructor for all nodes.
-    
--   Define ConstantSourceNode.
-    
--   Make the WaveShaperNode have a tail time, depending on the oversampling level.
-    
--   Allow collecting MediaStreamAudioSourceNode or MediaElementAudioSourceNode when they won’t play ever again.
-    
--   Add a concept of 'allowed to start' and use it when creating an AudioContext and resuming it from resume() (closes #836).
-    
--   Add AudioScheduledSourceNode base class for source nodes.
-    
--   Mark all AudioParams as being k-rate.
-    
 
 
 
 ---
-```
 
-├── [./README.md](./README.md)
-├── [./r-audio](./r-audio)
-│   ├── [./r-audio/README.md](./r-audio/README.md)
-│   ├── [./r-audio/examples](./r-audio/examples)
-│   │   ├── [./r-audio/examples/README.md](./r-audio/examples/README.md)
-│   │   ├── [./r-audio/examples/assets](./r-audio/examples/assets)
-│   │   │   ├── [./r-audio/examples/assets/audio](./r-audio/examples/assets/audio)
-│   │   │   │   ├── [./r-audio/examples/assets/audio/a.wav](./r-audio/examples/assets/audio/a.wav)
-│   │   │   │   ├── [./r-audio/examples/assets/audio/b.wav](./r-audio/examples/assets/audio/b.wav)
-│   │   │   │   └── [./r-audio/examples/assets/audio/clarinet.mp3](./r-audio/examples/assets/audio/clarinet.mp3)
-│   │   │   └── [./r-audio/examples/assets/js](./r-audio/examples/assets/js)
-│   │   │       └── [./r-audio/examples/assets/js/bit-crusher.js](./r-audio/examples/assets/js/bit-crusher.js)
-│   │   ├── [./r-audio/examples/audio-worklet.js](./r-audio/examples/audio-worklet.js)
-│   │   ├── [./r-audio/examples/buffers-channels.js](./r-audio/examples/buffers-channels.js)
-│   │   ├── [./r-audio/examples/complex-effects-graph.js](./r-audio/examples/complex-effects-graph.js)
-│   │   ├── [./r-audio/examples/custom-nodes.js](./r-audio/examples/custom-nodes.js)
-│   │   ├── [./r-audio/examples/delay-lines.js](./r-audio/examples/delay-lines.js)
-│   │   ├── [./r-audio/examples/examples.js](./r-audio/examples/examples.js)
-│   │   ├── [./r-audio/examples/gain-matrix.js](./r-audio/examples/gain-matrix.js)
-│   │   ├── [./r-audio/examples/index.html](./r-audio/examples/index.html)
-│   │   ├── [./r-audio/examples/index.js](./r-audio/examples/index.js)
-│   │   ├── [./r-audio/examples/media-element.js](./r-audio/examples/media-element.js)
-│   │   ├── [./r-audio/examples/media-stream.js](./r-audio/examples/media-stream.js)
-│   │   └── [./r-audio/examples/mutation.js](./r-audio/examples/mutation.js)
-│   ├── [./r-audio/index.js](./r-audio/index.js)
-│   ├── [./r-audio/package-lock.json](./r-audio/package-lock.json)
-│   ├── [./r-audio/package.json](./r-audio/package.json)
-│   ├── [./r-audio/src](./r-audio/src)
-│   │   ├── [./r-audio/src/audio-nodes](./r-audio/src/audio-nodes)
-│   │   │   ├── [./r-audio/src/audio-nodes/analyser.js](./r-audio/src/audio-nodes/analyser.js)
-│   │   │   ├── [./r-audio/src/audio-nodes/audio-worklet.js](./r-audio/src/audio-nodes/audio-worklet.js)
-│   │   │   ├── [./r-audio/src/audio-nodes/biquad-filter.js](./r-audio/src/audio-nodes/biquad-filter.js)
-│   │   │   ├── [./r-audio/src/audio-nodes/buffer-source.js](./r-audio/src/audio-nodes/buffer-source.js)
-│   │   │   ├── [./r-audio/src/audio-nodes/channel-merger.js](./r-audio/src/audio-nodes/channel-merger.js)
-│   │   │   ├── [./r-audio/src/audio-nodes/channel-splitter.js](./r-audio/src/audio-nodes/channel-splitter.js)
-│   │   │   ├── [./r-audio/src/audio-nodes/constant-source.js](./r-audio/src/audio-nodes/constant-source.js)
-│   │   │   ├── [./r-audio/src/audio-nodes/convolver.js](./r-audio/src/audio-nodes/convolver.js)
-│   │   │   ├── [./r-audio/src/audio-nodes/delay.js](./r-audio/src/audio-nodes/delay.js)
-│   │   │   ├── [./r-audio/src/audio-nodes/dynamics-compressor.js](./r-audio/src/audio-nodes/dynamics-compressor.js)
-│   │   │   ├── [./r-audio/src/audio-nodes/gain.js](./r-audio/src/audio-nodes/gain.js)
-│   │   │   ├── [./r-audio/src/audio-nodes/iir-filter.js](./r-audio/src/audio-nodes/iir-filter.js)
-│   │   │   ├── [./r-audio/src/audio-nodes/index.js](./r-audio/src/audio-nodes/index.js)
-│   │   │   ├── [./r-audio/src/audio-nodes/media-element-source.js](./r-audio/src/audio-nodes/media-element-source.js)
-│   │   │   ├── [./r-audio/src/audio-nodes/media-stream-source.js](./r-audio/src/audio-nodes/media-stream-source.js)
-│   │   │   ├── [./r-audio/src/audio-nodes/oscillator.js](./r-audio/src/audio-nodes/oscillator.js)
-│   │   │   ├── [./r-audio/src/audio-nodes/panner.js](./r-audio/src/audio-nodes/panner.js)
-│   │   │   ├── [./r-audio/src/audio-nodes/stereo-panner.js](./r-audio/src/audio-nodes/stereo-panner.js)
-│   │   │   └── [./r-audio/src/audio-nodes/wave-shaper.js](./r-audio/src/audio-nodes/wave-shaper.js)
-│   │   ├── [./r-audio/src/base](./r-audio/src/base)
-│   │   │   ├── [./r-audio/src/base/audio-context.js](./r-audio/src/base/audio-context.js)
-│   │   │   ├── [./r-audio/src/base/audio-node.js](./r-audio/src/base/audio-node.js)
-│   │   │   ├── [./r-audio/src/base/component.js](./r-audio/src/base/component.js)
-│   │   │   ├── [./r-audio/src/base/connectable-node.js](./r-audio/src/base/connectable-node.js)
-│   │   │   └── [./r-audio/src/base/scheduled-source.js](./r-audio/src/base/scheduled-source.js)
-│   │   └── [./r-audio/src/graph](./r-audio/src/graph)
-│   │       ├── [./r-audio/src/graph/cycle.js](./r-audio/src/graph/cycle.js)
-│   │       ├── [./r-audio/src/graph/extensible.js](./r-audio/src/graph/extensible.js)
-│   │       ├── [./r-audio/src/graph/pipeline.js](./r-audio/src/graph/pipeline.js)
-│   │       ├── [./r-audio/src/graph/split-channels.js](./r-audio/src/graph/split-channels.js)
-│   │       ├── [./r-audio/src/graph/split.js](./r-audio/src/graph/split.js)
-│   │       └── [./r-audio/src/graph/utils.js](./r-audio/src/graph/utils.js)
-│   └── [./r-audio/webpack.config.js](./r-audio/webpack.config.js)
-├── [./react-audio-recorder](./react-audio-recorder)
-│   ├── [./react-audio-recorder/README.md](./react-audio-recorder/README.md)
-│   ├── [./react-audio-recorder/dist](./react-audio-recorder/dist)
-│   │   ├── [./react-audio-recorder/dist/AudioContext.d.ts](./react-audio-recorder/dist/AudioContext.d.ts)
-│   │   ├── [./react-audio-recorder/dist/AudioContext.js](./react-audio-recorder/dist/AudioContext.js)
-│   │   ├── [./react-audio-recorder/dist/AudioRecorder.d.ts](./react-audio-recorder/dist/AudioRecorder.d.ts)
-│   │   ├── [./react-audio-recorder/dist/AudioRecorder.js](./react-audio-recorder/dist/AudioRecorder.js)
-│   │   ├── [./react-audio-recorder/dist/dist](./react-audio-recorder/dist/dist)
-│   │   │   └── [./react-audio-recorder/dist/dist/AudioRecorder.min.js](./react-audio-recorder/dist/dist/AudioRecorder.min.js)
-│   │   ├── [./react-audio-recorder/dist/downloadBlob.d.ts](./react-audio-recorder/dist/downloadBlob.d.ts)
-│   │   ├── [./react-audio-recorder/dist/downloadBlob.js](./react-audio-recorder/dist/downloadBlob.js)
-│   │   ├── [./react-audio-recorder/dist/getUserMedia.d.ts](./react-audio-recorder/dist/getUserMedia.d.ts)
-│   │   ├── [./react-audio-recorder/dist/getUserMedia.js](./react-audio-recorder/dist/getUserMedia.js)
-│   │   ├── [./react-audio-recorder/dist/waveEncoder.d.ts](./react-audio-recorder/dist/waveEncoder.d.ts)
-│   │   ├── [./react-audio-recorder/dist/waveEncoder.js](./react-audio-recorder/dist/waveEncoder.js)
-│   │   ├── [./react-audio-recorder/dist/waveInterface.d.ts](./react-audio-recorder/dist/waveInterface.d.ts)
-│   │   └── [./react-audio-recorder/dist/waveInterface.js](./react-audio-recorder/dist/waveInterface.js)
-│   ├── [./react-audio-recorder/package-lock.json](./react-audio-recorder/package-lock.json)
-│   ├── [./react-audio-recorder/package.json](./react-audio-recorder/package.json)
-│   ├── [./react-audio-recorder/src](./react-audio-recorder/src)
-│   │   ├── [./react-audio-recorder/src/AudioContext.ts](./react-audio-recorder/src/AudioContext.ts)
-│   │   ├── [./react-audio-recorder/src/AudioRecorder.tsx](./react-audio-recorder/src/AudioRecorder.tsx)
-│   │   ├── [./react-audio-recorder/src/downloadBlob.ts](./react-audio-recorder/src/downloadBlob.ts)
-│   │   ├── [./react-audio-recorder/src/getUserMedia.ts](./react-audio-recorder/src/getUserMedia.ts)
-│   │   ├── [./react-audio-recorder/src/waveEncoder.ts](./react-audio-recorder/src/waveEncoder.ts)
-│   │   └── [./react-audio-recorder/src/waveInterface.ts](./react-audio-recorder/src/waveInterface.ts)
-│   ├── [./react-audio-recorder/tsconfig.json](./react-audio-recorder/tsconfig.json)
-│   ├── [./react-audio-recorder/types](./react-audio-recorder/types)
-│   │   └── [./react-audio-recorder/types/dom.d.ts](./react-audio-recorder/types/dom.d.ts)
-│   └── [./react-audio-recorder/webpack.config.js](./react-audio-recorder/webpack.config.js)
-├── [./react-native-voice-processor-main](./react-native-voice-processor-main)
-│   ├── [./react-native-voice-processor-main/README.md](./react-native-voice-processor-main/README.md)
-│   ├── [./react-native-voice-processor-main/android](./react-native-voice-processor-main/android)
-│   │   ├── [./react-native-voice-processor-main/android/build.gradle](./react-native-voice-processor-main/android/build.gradle)
-│   │   ├── [./react-native-voice-processor-main/android/gradle](./react-native-voice-processor-main/android/gradle)
-│   │   │   └── [./react-native-voice-processor-main/android/gradle/wrapper](./react-native-voice-processor-main/android/gradle/wrapper)
-│   │   │       ├── [./react-native-voice-processor-main/android/gradle/wrapper/gradle-wrapper.jar](./react-native-voice-processor-main/android/gradle/wrapper/gradle-wrapper.jar)
-│   │   │       └── [./react-native-voice-processor-main/android/gradle/wrapper/gradle-wrapper.properties](./react-native-voice-processor-main/android/gradle/wrapper/gradle-wrapper.properties)
-│   │   ├── [./react-native-voice-processor-main/android/gradle.properties](./react-native-voice-processor-main/android/gradle.properties)
-│   │   ├── [./react-native-voice-processor-main/android/gradlew](./react-native-voice-processor-main/android/gradlew)
-│   │   ├── [./react-native-voice-processor-main/android/gradlew.bat](./react-native-voice-processor-main/android/gradlew.bat)
-│   │   ├── [./react-native-voice-processor-main/android/settings.gradle](./react-native-voice-processor-main/android/settings.gradle)
-│   │   └── [./react-native-voice-processor-main/android/src](./react-native-voice-processor-main/android/src)
-│   │       └── [./react-native-voice-processor-main/android/src/main](./react-native-voice-processor-main/android/src/main)
-│   │           ├── [./react-native-voice-processor-main/android/src/main/AndroidManifest.xml](./react-native-voice-processor-main/android/src/main/AndroidManifest.xml)
-│   │           └── [./react-native-voice-processor-main/android/src/main/java](./react-native-voice-processor-main/android/src/main/java)
-│   │               └── [./react-native-voice-processor-main/android/src/main/java/ai](./react-native-voice-processor-main/android/src/main/java/ai)
-│   │                   └── [./react-native-voice-processor-main/android/src/main/java/ai/picovoice](./react-native-voice-processor-main/android/src/main/java/ai/picovoice)
-│   │                       └── [./react-native-voice-processor-main/android/src/main/java/ai/picovoice/reactnative](./react-native-voice-processor-main/android/src/main/java/ai/picovoice/reactnative)
-│   │                           └── [./react-native-voice-processor-main/android/src/main/java/ai/picovoice/reactnative/voiceprocessor](./react-native-voice-processor-main/android/src/main/java/ai/picovoice/reactnative/voiceprocessor)
-│   │                               ├── [./react-native-voice-processor-main/android/src/main/java/ai/picovoice/reactnative/voiceprocessor/VoiceProcessorModule.java](./react-native-voice-processor-main/android/src/main/java/ai/picovoice/reactnative/voiceprocessor/VoiceProcessorModule.java)
-│   │                               └── [./react-native-voice-processor-main/android/src/main/java/ai/picovoice/reactnative/voiceprocessor/VoiceProcessorPackage.java](./react-native-voice-processor-main/android/src/main/java/ai/picovoice/reactnative/voiceprocessor/VoiceProcessorPackage.java)
-│   ├── [./react-native-voice-processor-main/babel.config.js](./react-native-voice-processor-main/babel.config.js)
-│   ├── [./react-native-voice-processor-main/example](./react-native-voice-processor-main/example)
-│   │   ├── [./react-native-voice-processor-main/example/android](./react-native-voice-processor-main/example/android)
-│   │   │   ├── [./react-native-voice-processor-main/example/android/app](./react-native-voice-processor-main/example/android/app)
-│   │   │   │   ├── [./react-native-voice-processor-main/example/android/app/build.gradle](./react-native-voice-processor-main/example/android/app/build.gradle)
-│   │   │   │   ├── [./react-native-voice-processor-main/example/android/app/debug.keystore](./react-native-voice-processor-main/example/android/app/debug.keystore)
-│   │   │   │   ├── [./react-native-voice-processor-main/example/android/app/proguard-rules.pro](./react-native-voice-processor-main/example/android/app/proguard-rules.pro)
-│   │   │   │   └── [./react-native-voice-processor-main/example/android/app/src](./react-native-voice-processor-main/example/android/app/src)
-│   │   │   │       ├── [./react-native-voice-processor-main/example/android/app/src/debug](./react-native-voice-processor-main/example/android/app/src/debug)
-│   │   │   │       │   ├── [./react-native-voice-processor-main/example/android/app/src/debug/AndroidManifest.xml](./react-native-voice-processor-main/example/android/app/src/debug/AndroidManifest.xml)
-│   │   │   │       │   └── [./react-native-voice-processor-main/example/android/app/src/debug/java](./react-native-voice-processor-main/example/android/app/src/debug/java)
-│   │   │   │       │       └── [./react-native-voice-processor-main/example/android/app/src/debug/java/com](./react-native-voice-processor-main/example/android/app/src/debug/java/com)
-│   │   │   │       │           └── [./react-native-voice-processor-main/example/android/app/src/debug/java/com/example](./react-native-voice-processor-main/example/android/app/src/debug/java/com/example)
-│   │   │   │       │               └── [./react-native-voice-processor-main/example/android/app/src/debug/java/com/example/reactnativevoiceprocessor](./react-native-voice-processor-main/example/android/app/src/debug/java/com/example/reactnativevoiceprocessor)
-│   │   │   │       │                   └── [./react-native-voice-processor-main/example/android/app/src/debug/java/com/example/reactnativevoiceprocessor/ReactNativeFlipper.java](./react-native-voice-processor-main/example/android/app/src/debug/java/com/example/reactnativevoiceprocessor/ReactNativeFlipper.java)
-│   │   │   │       └── [./react-native-voice-processor-main/example/android/app/src/main](./react-native-voice-processor-main/example/android/app/src/main)
-│   │   │   │           ├── [./react-native-voice-processor-main/example/android/app/src/main/AndroidManifest.xml](./react-native-voice-processor-main/example/android/app/src/main/AndroidManifest.xml)
-│   │   │   │           ├── [./react-native-voice-processor-main/example/android/app/src/main/java](./react-native-voice-processor-main/example/android/app/src/main/java)
-│   │   │   │           │   └── [./react-native-voice-processor-main/example/android/app/src/main/java/ai](./react-native-voice-processor-main/example/android/app/src/main/java/ai)
-│   │   │   │           │       └── [./react-native-voice-processor-main/example/android/app/src/main/java/ai/picovoice](./react-native-voice-processor-main/example/android/app/src/main/java/ai/picovoice)
-│   │   │   │           │           └── [./react-native-voice-processor-main/example/android/app/src/main/java/ai/picovoice/reactnative](./react-native-voice-processor-main/example/android/app/src/main/java/ai/picovoice/reactnative)
-│   │   │   │           │               └── [./react-native-voice-processor-main/example/android/app/src/main/java/ai/picovoice/reactnative/voiceprocessorexample](./react-native-voice-processor-main/example/android/app/src/main/java/ai/picovoice/reactnative/voiceprocessorexample)
-│   │   │   │           │                   ├── [./react-native-voice-processor-main/example/android/app/src/main/java/ai/picovoice/reactnative/voiceprocessorexample/MainActivity.java](./react-native-voice-processor-main/example/android/app/src/main/java/ai/picovoice/reactnative/voiceprocessorexample/MainActivity.java)
-│   │   │   │           │                   └── [./react-native-voice-processor-main/example/android/app/src/main/java/ai/picovoice/reactnative/voiceprocessorexample/MainApplication.java](./react-native-voice-processor-main/example/android/app/src/main/java/ai/picovoice/reactnative/voiceprocessorexample/MainApplication.java)
-│   │   │   │           └── [./react-native-voice-processor-main/example/android/app/src/main/res](./react-native-voice-processor-main/example/android/app/src/main/res)
-│   │   │   │               ├── [./react-native-voice-processor-main/example/android/app/src/main/res/drawable](./react-native-voice-processor-main/example/android/app/src/main/res/drawable)
-│   │   │   │               │   ├── [./react-native-voice-processor-main/example/android/app/src/main/res/drawable/ic_launcher_background.xml](./react-native-voice-processor-main/example/android/app/src/main/res/drawable/ic_launcher_background.xml)
-│   │   │   │               │   └── [./react-native-voice-processor-main/example/android/app/src/main/res/drawable/ic_launcher_foreground.xml](./react-native-voice-processor-main/example/android/app/src/main/res/drawable/ic_launcher_foreground.xml)
-│   │   │   │               ├── [./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-anydpi-v26](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-anydpi-v26)
-│   │   │   │               │   ├── [./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml)
-│   │   │   │               │   └── [./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml)
-│   │   │   │               ├── [./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-hdpi](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-hdpi)
-│   │   │   │               │   ├── [./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-hdpi/ic_launcher.png](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-hdpi/ic_launcher.png)
-│   │   │   │               │   └── [./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png)
-│   │   │   │               ├── [./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-mdpi](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-mdpi)
-│   │   │   │               │   ├── [./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-mdpi/ic_launcher.png](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-mdpi/ic_launcher.png)
-│   │   │   │               │   └── [./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png)
-│   │   │   │               ├── [./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xhdpi](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xhdpi)
-│   │   │   │               │   ├── [./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png)
-│   │   │   │               │   └── [./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png)
-│   │   │   │               ├── [./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xxhdpi](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xxhdpi)
-│   │   │   │               │   ├── [./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png)
-│   │   │   │               │   └── [./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png)
-│   │   │   │               ├── [./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xxxhdpi](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xxxhdpi)
-│   │   │   │               │   ├── [./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
-│   │   │   │               │   └── [./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png)
-│   │   │   │               └── [./react-native-voice-processor-main/example/android/app/src/main/res/values](./react-native-voice-processor-main/example/android/app/src/main/res/values)
-│   │   │   │                   ├── [./react-native-voice-processor-main/example/android/app/src/main/res/values/strings.xml](./react-native-voice-processor-main/example/android/app/src/main/res/values/strings.xml)
-│   │   │   │                   └── [./react-native-voice-processor-main/example/android/app/src/main/res/values/styles.xml](./react-native-voice-processor-main/example/android/app/src/main/res/values/styles.xml)
-│   │   │   ├── [./react-native-voice-processor-main/example/android/build.gradle](./react-native-voice-processor-main/example/android/build.gradle)
-│   │   │   ├── [./react-native-voice-processor-main/example/android/gradle](./react-native-voice-processor-main/example/android/gradle)
-│   │   │   │   └── [./react-native-voice-processor-main/example/android/gradle/wrapper](./react-native-voice-processor-main/example/android/gradle/wrapper)
-│   │   │   │       ├── [./react-native-voice-processor-main/example/android/gradle/wrapper/gradle-wrapper.jar](./react-native-voice-processor-main/example/android/gradle/wrapper/gradle-wrapper.jar)
-│   │   │   │       └── [./react-native-voice-processor-main/example/android/gradle/wrapper/gradle-wrapper.properties](./react-native-voice-processor-main/example/android/gradle/wrapper/gradle-wrapper.properties)
-│   │   │   ├── [./react-native-voice-processor-main/example/android/gradle.properties](./react-native-voice-processor-main/example/android/gradle.properties)
-│   │   │   ├── [./react-native-voice-processor-main/example/android/gradlew](./react-native-voice-processor-main/example/android/gradlew)
-│   │   │   ├── [./react-native-voice-processor-main/example/android/gradlew.bat](./react-native-voice-processor-main/example/android/gradlew.bat)
-│   │   │   └── [./react-native-voice-processor-main/example/android/settings.gradle](./react-native-voice-processor-main/example/android/settings.gradle)
-│   │   ├── [./react-native-voice-processor-main/example/app.json](./react-native-voice-processor-main/example/app.json)
-│   │   ├── [./react-native-voice-processor-main/example/babel.config.js](./react-native-voice-processor-main/example/babel.config.js)
-│   │   ├── [./react-native-voice-processor-main/example/index.tsx](./react-native-voice-processor-main/example/index.tsx)
-│   │   ├── [./react-native-voice-processor-main/example/ios](./react-native-voice-processor-main/example/ios)
-│   │   │   ├── [./react-native-voice-processor-main/example/ios/File.swift](./react-native-voice-processor-main/example/ios/File.swift)
-│   │   │   ├── [./react-native-voice-processor-main/example/ios/Podfile](./react-native-voice-processor-main/example/ios/Podfile)
-│   │   │   ├── [./react-native-voice-processor-main/example/ios/Podfile.lock](./react-native-voice-processor-main/example/ios/Podfile.lock)
-│   │   │   ├── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample](./react-native-voice-processor-main/example/ios/VoiceProcessorExample)
-│   │   │   │   ├── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample/AppDelegate.h](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/AppDelegate.h)
-│   │   │   │   ├── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample/AppDelegate.m](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/AppDelegate.m)
-│   │   │   │   ├── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Base.lproj](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Base.lproj)
-│   │   │   │   │   └── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Base.lproj/LaunchScreen.xib](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Base.lproj/LaunchScreen.xib)
-│   │   │   │   ├── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets)
-│   │   │   │   │   ├── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset)
-│   │   │   │   │   │   ├── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/Contents.json](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/Contents.json)
-│   │   │   │   │   │   ├── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-1024.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-1024.png)
-│   │   │   │   │   │   ├── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-20.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-20.png)
-│   │   │   │   │   │   ├── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-20@2x.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-20@2x.png)
-│   │   │   │   │   │   ├── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-20@3x.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-20@3x.png)
-│   │   │   │   │   │   ├── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-29.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-29.png)
-│   │   │   │   │   │   ├── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-29@2x.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-29@2x.png)
-│   │   │   │   │   │   ├── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-29@3x.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-29@3x.png)
-│   │   │   │   │   │   ├── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-40.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-40.png)
-│   │   │   │   │   │   ├── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-40@2x.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-40@2x.png)
-│   │   │   │   │   │   ├── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-40@3x.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-40@3x.png)
-│   │   │   │   │   │   ├── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-60@2x.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-60@2x.png)
-│   │   │   │   │   │   ├── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-60@3x.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-60@3x.png)
-│   │   │   │   │   │   ├── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-76.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-76.png)
-│   │   │   │   │   │   ├── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-76@2x.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-76@2x.png)
-│   │   │   │   │   │   └── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-83.5@2x.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-83.5@2x.png)
-│   │   │   │   │   └── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/Contents.json](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/Contents.json)
-│   │   │   │   ├── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Info.plist](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Info.plist)
-│   │   │   │   └── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample/main.m](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/main.m)
-│   │   │   ├── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample-Bridging-Header.h](./react-native-voice-processor-main/example/ios/VoiceProcessorExample-Bridging-Header.h)
-│   │   │   ├── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcodeproj](./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcodeproj)
-│   │   │   │   ├── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcodeproj/project.pbxproj](./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcodeproj/project.pbxproj)
-│   │   │   │   └── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcodeproj/xcshareddata](./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcodeproj/xcshareddata)
-│   │   │   │       └── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcodeproj/xcshareddata/xcschemes](./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcodeproj/xcshareddata/xcschemes)
-│   │   │   │           └── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcodeproj/xcshareddata/xcschemes/VoiceProcessorExample.xcscheme](./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcodeproj/xcshareddata/xcschemes/VoiceProcessorExample.xcscheme)
-│   │   │   └── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcworkspace](./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcworkspace)
-│   │   │       ├── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcworkspace/contents.xcworkspacedata](./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcworkspace/contents.xcworkspacedata)
-│   │   │       └── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcworkspace/xcshareddata](./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcworkspace/xcshareddata)
-│   │   │           └── [./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist](./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist)
-│   │   ├── [./react-native-voice-processor-main/example/metro.config.js](./react-native-voice-processor-main/example/metro.config.js)
-│   │   ├── [./react-native-voice-processor-main/example/package-lock.json](./react-native-voice-processor-main/example/package-lock.json)
-│   │   ├── [./react-native-voice-processor-main/example/package.json](./react-native-voice-processor-main/example/package.json)
-│   │   ├── [./react-native-voice-processor-main/example/src](./react-native-voice-processor-main/example/src)
-│   │   │   └── [./react-native-voice-processor-main/example/src/App.tsx](./react-native-voice-processor-main/example/src/App.tsx)
-│   │   └── [./react-native-voice-processor-main/example/yarn.lock](./react-native-voice-processor-main/example/yarn.lock)
-│   ├── [./react-native-voice-processor-main/ios](./react-native-voice-processor-main/ios)
-│   │   ├── [./react-native-voice-processor-main/ios/VoiceProcessor-Bridging-Header.h](./react-native-voice-processor-main/ios/VoiceProcessor-Bridging-Header.h)
-│   │   ├── [./react-native-voice-processor-main/ios/VoiceProcessor.m](./react-native-voice-processor-main/ios/VoiceProcessor.m)
-│   │   ├── [./react-native-voice-processor-main/ios/VoiceProcessor.swift](./react-native-voice-processor-main/ios/VoiceProcessor.swift)
-│   │   └── [./react-native-voice-processor-main/ios/VoiceProcessor.xcodeproj](./react-native-voice-processor-main/ios/VoiceProcessor.xcodeproj)
-│   │       └── [./react-native-voice-processor-main/ios/VoiceProcessor.xcodeproj/project.pbxproj](./react-native-voice-processor-main/ios/VoiceProcessor.xcodeproj/project.pbxproj)
-│   ├── [./react-native-voice-processor-main/package.json](./react-native-voice-processor-main/package.json)
-│   ├── [./react-native-voice-processor-main/react-native-voice-processor.podspec](./react-native-voice-processor-main/react-native-voice-processor.podspec)
-│   ├── [./react-native-voice-processor-main/src](./react-native-voice-processor-main/src)
-│   │   └── [./react-native-voice-processor-main/src/index.tsx](./react-native-voice-processor-main/src/index.tsx)
-│   ├── [./react-native-voice-processor-main/tsconfig.json](./react-native-voice-processor-main/tsconfig.json)
-│   └── [./react-native-voice-processor-main/yarn.lock](./react-native-voice-processor-main/yarn.lock)
-├── [./react-player](./react-player)
-│   ├── [./react-player/README.md](./react-player/README.md)
-│   ├── [./react-player/config](./react-player/config)
-│   │   ├── [./react-player/config/env.js](./react-player/config/env.js)
-│   │   ├── [./react-player/config/jest](./react-player/config/jest)
-│   │   │   ├── [./react-player/config/jest/cssTransform.js](./react-player/config/jest/cssTransform.js)
-│   │   │   └── [./react-player/config/jest/fileTransform.js](./react-player/config/jest/fileTransform.js)
-│   │   ├── [./react-player/config/modules.js](./react-player/config/modules.js)
-│   │   ├── [./react-player/config/paths.js](./react-player/config/paths.js)
-│   │   ├── [./react-player/config/pnpTs.js](./react-player/config/pnpTs.js)
-│   │   ├── [./react-player/config/webpack.config.js](./react-player/config/webpack.config.js)
-│   │   └── [./react-player/config/webpackDevServer.config.js](./react-player/config/webpackDevServer.config.js)
-│   ├── [./react-player/package.json](./react-player/package.json)
-│   ├── [./react-player/public](./react-player/public)
-│   │   ├── [./react-player/public/16x16_radius.png](./react-player/public/16x16_radius.png)
-│   │   ├── [./react-player/public/24x24_radius.png](./react-player/public/24x24_radius.png)
-│   │   ├── [./react-player/public/32x32_radius.png](./react-player/public/32x32_radius.png)
-│   │   ├── [./react-player/public/64x64_radius.png](./react-player/public/64x64_radius.png)
-│   │   ├── [./react-player/public/_redirects](./react-player/public/_redirects)
-│   │   ├── [./react-player/public/favicon.png](./react-player/public/favicon.png)
-│   │   ├── [./react-player/public/index.html](./react-player/public/index.html)
-│   │   └── [./react-player/public/manifest.json](./react-player/public/manifest.json)
-│   ├── [./react-player/scripts](./react-player/scripts)
-│   │   ├── [./react-player/scripts/build.js](./react-player/scripts/build.js)
-│   │   ├── [./react-player/scripts/start.js](./react-player/scripts/start.js)
-│   │   └── [./react-player/scripts/test.js](./react-player/scripts/test.js)
-│   ├── [./react-player/src](./react-player/src)
-│   │   ├── [./react-player/src/App.test.js](./react-player/src/App.test.js)
-│   │   ├── [./react-player/src/assets](./react-player/src/assets)
-│   │   │   ├── [./react-player/src/assets/css](./react-player/src/assets/css)
-│   │   │   │   ├── [./react-player/src/assets/css/base.styl](./react-player/src/assets/css/base.styl)
-│   │   │   │   └── [./react-player/src/assets/css/mixins](./react-player/src/assets/css/mixins)
-│   │   │   │       ├── [./react-player/src/assets/css/mixins/animations.styl](./react-player/src/assets/css/mixins/animations.styl)
-│   │   │   │       ├── [./react-player/src/assets/css/mixins/breakpoints.styl](./react-player/src/assets/css/mixins/breakpoints.styl)
-│   │   │   │       ├── [./react-player/src/assets/css/mixins/colors.styl](./react-player/src/assets/css/mixins/colors.styl)
-│   │   │   │       ├── [./react-player/src/assets/css/mixins/reset.styl](./react-player/src/assets/css/mixins/reset.styl)
-│   │   │   │       ├── [./react-player/src/assets/css/mixins/root.styl](./react-player/src/assets/css/mixins/root.styl)
-│   │   │   │       └── [./react-player/src/assets/css/mixins/zindex.styl](./react-player/src/assets/css/mixins/zindex.styl)
-│   │   │   ├── [./react-player/src/assets/github](./react-player/src/assets/github)
-│   │   │   │   └── [./react-player/src/assets/github/GitHub-Mark-Light-32px.png](./react-player/src/assets/github/GitHub-Mark-Light-32px.png)
-│   │   │   ├── [./react-player/src/assets/logo](./react-player/src/assets/logo)
-│   │   │   │   ├── [./react-player/src/assets/logo/16x16.png](./react-player/src/assets/logo/16x16.png)
-│   │   │   │   ├── [./react-player/src/assets/logo/16x16.svg](./react-player/src/assets/logo/16x16.svg)
-│   │   │   │   ├── [./react-player/src/assets/logo/16x16_radius.png](./react-player/src/assets/logo/16x16_radius.png)
-│   │   │   │   ├── [./react-player/src/assets/logo/24x24.png](./react-player/src/assets/logo/24x24.png)
-│   │   │   │   ├── [./react-player/src/assets/logo/24x24.svg](./react-player/src/assets/logo/24x24.svg)
-│   │   │   │   ├── [./react-player/src/assets/logo/24x24_radius.png](./react-player/src/assets/logo/24x24_radius.png)
-│   │   │   │   ├── [./react-player/src/assets/logo/32x32.png](./react-player/src/assets/logo/32x32.png)
-│   │   │   │   ├── [./react-player/src/assets/logo/32x32.svg](./react-player/src/assets/logo/32x32.svg)
-│   │   │   │   ├── [./react-player/src/assets/logo/32x32_radius.png](./react-player/src/assets/logo/32x32_radius.png)
-│   │   │   │   ├── [./react-player/src/assets/logo/64x64.png](./react-player/src/assets/logo/64x64.png)
-│   │   │   │   ├── [./react-player/src/assets/logo/64x64.svg](./react-player/src/assets/logo/64x64.svg)
-│   │   │   │   ├── [./react-player/src/assets/logo/64x64_radius.png](./react-player/src/assets/logo/64x64_radius.png)
-│   │   │   │   ├── [./react-player/src/assets/logo/audio-player.ai](./react-player/src/assets/logo/audio-player.ai)
-│   │   │   │   └── [./react-player/src/assets/logo/audio-player_radius.ai](./react-player/src/assets/logo/audio-player_radius.ai)
-│   │   │   ├── [./react-player/src/assets/music](./react-player/src/assets/music)
-│   │   │   │   ├── [./react-player/src/assets/music/fantastic.mp3](./react-player/src/assets/music/fantastic.mp3)
-│   │   │   │   ├── [./react-player/src/assets/music/legends-never-die.mp3](./react-player/src/assets/music/legends-never-die.mp3)
-│   │   │   │   ├── [./react-player/src/assets/music/rise.mp3](./react-player/src/assets/music/rise.mp3)
-│   │   │   │   └── [./react-player/src/assets/music/short-legends-never-die.mp3](./react-player/src/assets/music/short-legends-never-die.mp3)
-│   │   │   ├── [./react-player/src/assets/spotify](./react-player/src/assets/spotify)
-│   │   │   │   ├── [./react-player/src/assets/spotify/icon](./react-player/src/assets/spotify/icon)
-│   │   │   │   │   ├── [./react-player/src/assets/spotify/icon/Spotify_Icon_RGB_Black.png](./react-player/src/assets/spotify/icon/Spotify_Icon_RGB_Black.png)
-│   │   │   │   │   ├── [./react-player/src/assets/spotify/icon/Spotify_Icon_RGB_Green.png](./react-player/src/assets/spotify/icon/Spotify_Icon_RGB_Green.png)
-│   │   │   │   │   └── [./react-player/src/assets/spotify/icon/Spotify_Icon_RGB_White.png](./react-player/src/assets/spotify/icon/Spotify_Icon_RGB_White.png)
-│   │   │   │   └── [./react-player/src/assets/spotify/logo](./react-player/src/assets/spotify/logo)
-│   │   │   │       ├── [./react-player/src/assets/spotify/logo/Spotify_Logo_RGB_Black.png](./react-player/src/assets/spotify/logo/Spotify_Logo_RGB_Black.png)
-│   │   │   │       ├── [./react-player/src/assets/spotify/logo/Spotify_Logo_RGB_Green.png](./react-player/src/assets/spotify/logo/Spotify_Logo_RGB_Green.png)
-│   │   │   │       └── [./react-player/src/assets/spotify/logo/Spotify_Logo_RGB_White.png](./react-player/src/assets/spotify/logo/Spotify_Logo_RGB_White.png)
-│   │   │   └── [./react-player/src/assets/svg](./react-player/src/assets/svg)
-│   │   │       └── [./react-player/src/assets/svg/logo.svg](./react-player/src/assets/svg/logo.svg)
-│   │   ├── [./react-player/src/components](./react-player/src/components)
-│   │   │   ├── [./react-player/src/components/_boilerplate](./react-player/src/components/_boilerplate)
-│   │   │   │   ├── [./react-player/src/components/_boilerplate/index.jsx](./react-player/src/components/_boilerplate/index.jsx)
-│   │   │   │   └── [./react-player/src/components/_boilerplate/style.styl](./react-player/src/components/_boilerplate/style.styl)
-│   │   │   ├── [./react-player/src/components/app-footer-nav](./react-player/src/components/app-footer-nav)
-│   │   │   │   ├── [./react-player/src/components/app-footer-nav/index.jsx](./react-player/src/components/app-footer-nav/index.jsx)
-│   │   │   │   └── [./react-player/src/components/app-footer-nav/style.styl](./react-player/src/components/app-footer-nav/style.styl)
-│   │   │   ├── [./react-player/src/components/app-version](./react-player/src/components/app-version)
-│   │   │   │   ├── [./react-player/src/components/app-version/index.jsx](./react-player/src/components/app-version/index.jsx)
-│   │   │   │   └── [./react-player/src/components/app-version/style.styl](./react-player/src/components/app-version/style.styl)
-│   │   │   └── [./react-player/src/components/audio](./react-player/src/components/audio)
-│   │   │       ├── [./react-player/src/components/audio/audio.worker.js](./react-player/src/components/audio/audio.worker.js)
-│   │   │       ├── [./react-player/src/components/audio/index.jsx](./react-player/src/components/audio/index.jsx)
-│   │   │       └── [./react-player/src/components/audio/style.styl](./react-player/src/components/audio/style.styl)
-│   │   ├── [./react-player/src/context](./react-player/src/context)
-│   │   │   └── [./react-player/src/context/app-context.jsx](./react-player/src/context/app-context.jsx)
-│   │   ├── [./react-player/src/export-components.js](./react-player/src/export-components.js)
-│   │   ├── [./react-player/src/index.js](./react-player/src/index.js)
-│   │   ├── [./react-player/src/modules](./react-player/src/modules)
-│   │   │   └── [./react-player/src/modules/app](./react-player/src/modules/app)
-│   │   │       ├── [./react-player/src/modules/app/index.jsx](./react-player/src/modules/app/index.jsx)
-│   │   │       └── [./react-player/src/modules/app/style.styl](./react-player/src/modules/app/style.styl)
-│   │   └── [./react-player/src/serviceWorker.js](./react-player/src/serviceWorker.js)
-│   └── [./react-player/yarn.lock](./react-player/yarn.lock)
-└── [./react-web-audio-graph](./react-web-audio-graph)
-    ├── [./react-web-audio-graph/README.md](./react-web-audio-graph/README.md)
-    ├── [./react-web-audio-graph/package.json](./react-web-audio-graph/package.json)
-    ├── [./react-web-audio-graph/public](./react-web-audio-graph/public)
-    │   ├── [./react-web-audio-graph/public/favicon.ico](./react-web-audio-graph/public/favicon.ico)
-    │   ├── [./react-web-audio-graph/public/index.html](./react-web-audio-graph/public/index.html)
-    │   ├── [./react-web-audio-graph/public/logo192.png](./react-web-audio-graph/public/logo192.png)
-    │   ├── [./react-web-audio-graph/public/logo512.png](./react-web-audio-graph/public/logo512.png)
-    │   ├── [./react-web-audio-graph/public/manifest.json](./react-web-audio-graph/public/manifest.json)
-    │   └── [./react-web-audio-graph/public/robots.txt](./react-web-audio-graph/public/robots.txt)
-    ├── [./react-web-audio-graph/src](./react-web-audio-graph/src)
-    │   ├── [./react-web-audio-graph/src/App.tsx](./react-web-audio-graph/src/App.tsx)
-    │   ├── [./react-web-audio-graph/src/components](./react-web-audio-graph/src/components)
-    │   │   ├── [./react-web-audio-graph/src/components/Audio.tsx](./react-web-audio-graph/src/components/Audio.tsx)
-    │   │   ├── [./react-web-audio-graph/src/components/ContextMenu.tsx](./react-web-audio-graph/src/components/ContextMenu.tsx)
-    │   │   ├── [./react-web-audio-graph/src/components/Flow.tsx](./react-web-audio-graph/src/components/Flow.tsx)
-    │   │   ├── [./react-web-audio-graph/src/components/FlowContextMenu.tsx](./react-web-audio-graph/src/components/FlowContextMenu.tsx)
-    │   │   ├── [./react-web-audio-graph/src/components/Node.tsx](./react-web-audio-graph/src/components/Node.tsx)
-    │   │   ├── [./react-web-audio-graph/src/components/Nodes.tsx](./react-web-audio-graph/src/components/Nodes.tsx)
-    │   │   ├── [./react-web-audio-graph/src/components/Note.tsx](./react-web-audio-graph/src/components/Note.tsx)
-    │   │   ├── [./react-web-audio-graph/src/components/Project.tsx](./react-web-audio-graph/src/components/Project.tsx)
-    │   │   ├── [./react-web-audio-graph/src/components/controls](./react-web-audio-graph/src/components/controls)
-    │   │   │   ├── [./react-web-audio-graph/src/components/controls/Slider.tsx](./react-web-audio-graph/src/components/controls/Slider.tsx)
-    │   │   │   └── [./react-web-audio-graph/src/components/controls/Toggle.tsx](./react-web-audio-graph/src/components/controls/Toggle.tsx)
-    │   │   └── [./react-web-audio-graph/src/components/nodes](./react-web-audio-graph/src/components/nodes)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/ADSR.tsx](./react-web-audio-graph/src/components/nodes/ADSR.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/Analyser](./react-web-audio-graph/src/components/nodes/Analyser)
-    │   │       │   ├── [./react-web-audio-graph/src/components/nodes/Analyser/Visualiser.tsx](./react-web-audio-graph/src/components/nodes/Analyser/Visualiser.tsx)
-    │   │       │   └── [./react-web-audio-graph/src/components/nodes/Analyser/index.tsx](./react-web-audio-graph/src/components/nodes/Analyser/index.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/AndGate.tsx](./react-web-audio-graph/src/components/nodes/AndGate.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/AudioBufferSource.tsx](./react-web-audio-graph/src/components/nodes/AudioBufferSource.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/BiquadFilter.tsx](./react-web-audio-graph/src/components/nodes/BiquadFilter.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/ChannelMerger.tsx](./react-web-audio-graph/src/components/nodes/ChannelMerger.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/ChannelSplitter.tsx](./react-web-audio-graph/src/components/nodes/ChannelSplitter.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/Comparator.tsx](./react-web-audio-graph/src/components/nodes/Comparator.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/ConstantSource.tsx](./react-web-audio-graph/src/components/nodes/ConstantSource.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/Delay.tsx](./react-web-audio-graph/src/components/nodes/Delay.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/DelayEffect.tsx](./react-web-audio-graph/src/components/nodes/DelayEffect.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/Destination.tsx](./react-web-audio-graph/src/components/nodes/Destination.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/DynamicsCompressor.tsx](./react-web-audio-graph/src/components/nodes/DynamicsCompressor.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/Equalizer.tsx](./react-web-audio-graph/src/components/nodes/Equalizer.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/Gain.tsx](./react-web-audio-graph/src/components/nodes/Gain.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/Gate.tsx](./react-web-audio-graph/src/components/nodes/Gate.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/InputSwitch.tsx](./react-web-audio-graph/src/components/nodes/InputSwitch.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/Keyboard.css](./react-web-audio-graph/src/components/nodes/Keyboard.css)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/Keyboard.tsx](./react-web-audio-graph/src/components/nodes/Keyboard.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/Meter.tsx](./react-web-audio-graph/src/components/nodes/Meter.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/Metronome.tsx](./react-web-audio-graph/src/components/nodes/Metronome.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/Noise.tsx](./react-web-audio-graph/src/components/nodes/Noise.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/NotGate.tsx](./react-web-audio-graph/src/components/nodes/NotGate.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/OrGate.tsx](./react-web-audio-graph/src/components/nodes/OrGate.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/Oscillator.tsx](./react-web-audio-graph/src/components/nodes/Oscillator.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/OscillatorNote.tsx](./react-web-audio-graph/src/components/nodes/OscillatorNote.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/OutputSwitch.tsx](./react-web-audio-graph/src/components/nodes/OutputSwitch.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/Quantizer.tsx](./react-web-audio-graph/src/components/nodes/Quantizer.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/Rectifier.tsx](./react-web-audio-graph/src/components/nodes/Rectifier.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/SampleAndHold.tsx](./react-web-audio-graph/src/components/nodes/SampleAndHold.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/Sign.tsx](./react-web-audio-graph/src/components/nodes/Sign.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/StereoPanner.tsx](./react-web-audio-graph/src/components/nodes/StereoPanner.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/Transformer.tsx](./react-web-audio-graph/src/components/nodes/Transformer.tsx)
-    │   │       ├── [./react-web-audio-graph/src/components/nodes/WaveShaper.tsx](./react-web-audio-graph/src/components/nodes/WaveShaper.tsx)
-    │   │       └── [./react-web-audio-graph/src/components/nodes/XorGate.tsx](./react-web-audio-graph/src/components/nodes/XorGate.tsx)
-    │   ├── [./react-web-audio-graph/src/context](./react-web-audio-graph/src/context)
-    │   │   ├── [./react-web-audio-graph/src/context/AudioContextContext.tsx](./react-web-audio-graph/src/context/AudioContextContext.tsx)
-    │   │   ├── [./react-web-audio-graph/src/context/ContextMenuContext.tsx](./react-web-audio-graph/src/context/ContextMenuContext.tsx)
-    │   │   ├── [./react-web-audio-graph/src/context/NodeContext.tsx](./react-web-audio-graph/src/context/NodeContext.tsx)
-    │   │   └── [./react-web-audio-graph/src/context/ProjectContext.tsx](./react-web-audio-graph/src/context/ProjectContext.tsx)
-    │   ├── [./react-web-audio-graph/src/fonts](./react-web-audio-graph/src/fonts)
-    │   │   └── [./react-web-audio-graph/src/fonts/bravura](./react-web-audio-graph/src/fonts/bravura)
-    │   │       ├── [./react-web-audio-graph/src/fonts/bravura/bravura.css](./react-web-audio-graph/src/fonts/bravura/bravura.css)
-    │   │       ├── [./react-web-audio-graph/src/fonts/bravura/bravura.woff](./react-web-audio-graph/src/fonts/bravura/bravura.woff)
-    │   │       └── [./react-web-audio-graph/src/fonts/bravura/bravura.woff2](./react-web-audio-graph/src/fonts/bravura/bravura.woff2)
-    │   ├── [./react-web-audio-graph/src/hooks](./react-web-audio-graph/src/hooks)
-    │   │   ├── [./react-web-audio-graph/src/hooks/nodes](./react-web-audio-graph/src/hooks/nodes)
-    │   │   │   ├── [./react-web-audio-graph/src/hooks/nodes/useAnalyserNode.tsx](./react-web-audio-graph/src/hooks/nodes/useAnalyserNode.tsx)
-    │   │   │   ├── [./react-web-audio-graph/src/hooks/nodes/useAudioWorkletNode.tsx](./react-web-audio-graph/src/hooks/nodes/useAudioWorkletNode.tsx)
-    │   │   │   ├── [./react-web-audio-graph/src/hooks/nodes/useBiquadFilterNode.tsx](./react-web-audio-graph/src/hooks/nodes/useBiquadFilterNode.tsx)
-    │   │   │   ├── [./react-web-audio-graph/src/hooks/nodes/useChannelMergerNode.tsx](./react-web-audio-graph/src/hooks/nodes/useChannelMergerNode.tsx)
-    │   │   │   ├── [./react-web-audio-graph/src/hooks/nodes/useChannelSplitterNode.tsx](./react-web-audio-graph/src/hooks/nodes/useChannelSplitterNode.tsx)
-    │   │   │   ├── [./react-web-audio-graph/src/hooks/nodes/useConstantSourceNode.tsx](./react-web-audio-graph/src/hooks/nodes/useConstantSourceNode.tsx)
-    │   │   │   ├── [./react-web-audio-graph/src/hooks/nodes/useDelayNode.tsx](./react-web-audio-graph/src/hooks/nodes/useDelayNode.tsx)
-    │   │   │   ├── [./react-web-audio-graph/src/hooks/nodes/useDestinationNode.tsx](./react-web-audio-graph/src/hooks/nodes/useDestinationNode.tsx)
-    │   │   │   ├── [./react-web-audio-graph/src/hooks/nodes/useDynamicsCompressorNode.tsx](./react-web-audio-graph/src/hooks/nodes/useDynamicsCompressorNode.tsx)
-    │   │   │   ├── [./react-web-audio-graph/src/hooks/nodes/useGainNode.tsx](./react-web-audio-graph/src/hooks/nodes/useGainNode.tsx)
-    │   │   │   ├── [./react-web-audio-graph/src/hooks/nodes/useOscillatorNode.tsx](./react-web-audio-graph/src/hooks/nodes/useOscillatorNode.tsx)
-    │   │   │   ├── [./react-web-audio-graph/src/hooks/nodes/useStereoPannerNode.tsx](./react-web-audio-graph/src/hooks/nodes/useStereoPannerNode.tsx)
-    │   │   │   └── [./react-web-audio-graph/src/hooks/nodes/useWaveShaperNode.tsx](./react-web-audio-graph/src/hooks/nodes/useWaveShaperNode.tsx)
-    │   │   └── [./react-web-audio-graph/src/hooks/useAnimationFrame.ts](./react-web-audio-graph/src/hooks/useAnimationFrame.ts)
-    │   ├── [./react-web-audio-graph/src/index.css](./react-web-audio-graph/src/index.css)
-    │   ├── [./react-web-audio-graph/src/index.tsx](./react-web-audio-graph/src/index.tsx)
-    │   ├── [./react-web-audio-graph/src/logo.svg](./react-web-audio-graph/src/logo.svg)
-    │   ├── [./react-web-audio-graph/src/react-app-env.d.ts](./react-web-audio-graph/src/react-app-env.d.ts)
-    │   ├── [./react-web-audio-graph/src/reportWebVitals.ts](./react-web-audio-graph/src/reportWebVitals.ts)
-    │   ├── [./react-web-audio-graph/src/setupTests.ts](./react-web-audio-graph/src/setupTests.ts)
-    │   ├── [./react-web-audio-graph/src/types](./react-web-audio-graph/src/types)
-    │   │   ├── [./react-web-audio-graph/src/types/AudioWorkletGlobalScope.d.ts](./react-web-audio-graph/src/types/AudioWorkletGlobalScope.d.ts)
-    │   │   ├── [./react-web-audio-graph/src/types/AudioWorkletProcessor.d.ts](./react-web-audio-graph/src/types/AudioWorkletProcessor.d.ts)
-    │   │   └── [./react-web-audio-graph/src/types/worklet-loader.d.ts](./react-web-audio-graph/src/types/worklet-loader.d.ts)
-    │   ├── [./react-web-audio-graph/src/utils](./react-web-audio-graph/src/utils)
-    │   │   ├── [./react-web-audio-graph/src/utils/audioContext.ts](./react-web-audio-graph/src/utils/audioContext.ts)
-    │   │   ├── [./react-web-audio-graph/src/utils/channels.ts](./react-web-audio-graph/src/utils/channels.ts)
-    │   │   ├── [./react-web-audio-graph/src/utils/handles.ts](./react-web-audio-graph/src/utils/handles.ts)
-    │   │   ├── [./react-web-audio-graph/src/utils/notes.ts](./react-web-audio-graph/src/utils/notes.ts)
-    │   │   ├── [./react-web-audio-graph/src/utils/scale.ts](./react-web-audio-graph/src/utils/scale.ts)
-    │   │   └── [./react-web-audio-graph/src/utils/units.ts](./react-web-audio-graph/src/utils/units.ts)
-    │   └── [./react-web-audio-graph/src/worklets](./react-web-audio-graph/src/worklets)
-    │       ├── [./react-web-audio-graph/src/worklets/StoppableAudioWorkletProcessor.ts](./react-web-audio-graph/src/worklets/StoppableAudioWorkletProcessor.ts)
-    │       ├── [./react-web-audio-graph/src/worklets/adsr-processor.types.ts](./react-web-audio-graph/src/worklets/adsr-processor.types.ts)
-    │       ├── [./react-web-audio-graph/src/worklets/adsr-processor.worklet.ts](./react-web-audio-graph/src/worklets/adsr-processor.worklet.ts)
-    │       ├── [./react-web-audio-graph/src/worklets/and-gate-processor.worklet.ts](./react-web-audio-graph/src/worklets/and-gate-processor.worklet.ts)
-    │       ├── [./react-web-audio-graph/src/worklets/comparator-processor.worklet.ts](./react-web-audio-graph/src/worklets/comparator-processor.worklet.ts)
-    │       ├── [./react-web-audio-graph/src/worklets/gate-processor.worklet.ts](./react-web-audio-graph/src/worklets/gate-processor.worklet.ts)
-    │       ├── [./react-web-audio-graph/src/worklets/meter-processor.worklet.ts](./react-web-audio-graph/src/worklets/meter-processor.worklet.ts)
-    │       ├── [./react-web-audio-graph/src/worklets/noise-processor.types.ts](./react-web-audio-graph/src/worklets/noise-processor.types.ts)
-    │       ├── [./react-web-audio-graph/src/worklets/noise-processor.worklet.ts](./react-web-audio-graph/src/worklets/noise-processor.worklet.ts)
-    │       ├── [./react-web-audio-graph/src/worklets/not-gate-processor.worklet.ts](./react-web-audio-graph/src/worklets/not-gate-processor.worklet.ts)
-    │       ├── [./react-web-audio-graph/src/worklets/or-gate-processor.worklet.ts](./react-web-audio-graph/src/worklets/or-gate-processor.worklet.ts)
-    │       ├── [./react-web-audio-graph/src/worklets/quantizer-processor.worklet.ts](./react-web-audio-graph/src/worklets/quantizer-processor.worklet.ts)
-    │       ├── [./react-web-audio-graph/src/worklets/rectifier-processor.types.ts](./react-web-audio-graph/src/worklets/rectifier-processor.types.ts)
-    │       ├── [./react-web-audio-graph/src/worklets/rectifier-processor.worklet.ts](./react-web-audio-graph/src/worklets/rectifier-processor.worklet.ts)
-    │       ├── [./react-web-audio-graph/src/worklets/sample-and-hold-processor.types.ts](./react-web-audio-graph/src/worklets/sample-and-hold-processor.types.ts)
-    │       ├── [./react-web-audio-graph/src/worklets/sample-and-hold-processor.worklet.ts](./react-web-audio-graph/src/worklets/sample-and-hold-processor.worklet.ts)
-    │       ├── [./react-web-audio-graph/src/worklets/sign-processor.worklet.ts](./react-web-audio-graph/src/worklets/sign-processor.worklet.ts)
-    │       ├── [./react-web-audio-graph/src/worklets/transformer-processor.worklet.ts](./react-web-audio-graph/src/worklets/transformer-processor.worklet.ts)
-    │       └── [./react-web-audio-graph/src/worklets/xor-gate-processor.worklet.ts](./react-web-audio-graph/src/worklets/xor-gate-processor.worklet.ts)
-    ├── [./react-web-audio-graph/tsconfig.json](./react-web-audio-graph/tsconfig.json)
-    └── [./react-web-audio-graph/yarn.lock](./react-web-audio-graph/yarn.lock)
+
+├──&nbsp;[./README.md](./README.md)
+├──&nbsp;[./r-audio](./r-audio)
+│  &nbsp;├──&nbsp;[./r-audio/README.md](./r-audio/README.md)
+│  &nbsp;├──&nbsp;[./r-audio/examples](./r-audio/examples)
+│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/examples/README.md](./r-audio/examples/README.md)
+│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/examples/assets](./r-audio/examples/assets)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/examples/assets/audio](./r-audio/examples/assets/audio)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/examples/assets/audio/a.wav](./r-audio/examples/assets/audio/a.wav)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/examples/assets/audio/b.wav](./r-audio/examples/assets/audio/b.wav)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./r-audio/examples/assets/audio/clarinet.mp3](./r-audio/examples/assets/audio/clarinet.mp3)
+│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./r-audio/examples/assets/js](./r-audio/examples/assets/js)
+│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./r-audio/examples/assets/js/bit-crusher.js](./r-audio/examples/assets/js/bit-crusher.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/examples/audio-worklet.js](./r-audio/examples/audio-worklet.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/examples/buffers-channels.js](./r-audio/examples/buffers-channels.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/examples/complex-effects-graph.js](./r-audio/examples/complex-effects-graph.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/examples/custom-nodes.js](./r-audio/examples/custom-nodes.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/examples/delay-lines.js](./r-audio/examples/delay-lines.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/examples/examples.js](./r-audio/examples/examples.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/examples/gain-matrix.js](./r-audio/examples/gain-matrix.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/examples/index.html](./r-audio/examples/index.html)
+│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/examples/index.js](./r-audio/examples/index.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/examples/media-element.js](./r-audio/examples/media-element.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/examples/media-stream.js](./r-audio/examples/media-stream.js)
+│  &nbsp;│  &nbsp;└──&nbsp;[./r-audio/examples/mutation.js](./r-audio/examples/mutation.js)
+│  &nbsp;├──&nbsp;[./r-audio/index.js](./r-audio/index.js)
+│  &nbsp;├──&nbsp;[./r-audio/package-lock.json](./r-audio/package-lock.json)
+│  &nbsp;├──&nbsp;[./r-audio/package.json](./r-audio/package.json)
+│  &nbsp;├──&nbsp;[./r-audio/src](./r-audio/src)
+│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/src/audio-nodes](./r-audio/src/audio-nodes)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/src/audio-nodes/analyser.js](./r-audio/src/audio-nodes/analyser.js)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/src/audio-nodes/audio-worklet.js](./r-audio/src/audio-nodes/audio-worklet.js)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/src/audio-nodes/biquad-filter.js](./r-audio/src/audio-nodes/biquad-filter.js)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/src/audio-nodes/buffer-source.js](./r-audio/src/audio-nodes/buffer-source.js)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/src/audio-nodes/channel-merger.js](./r-audio/src/audio-nodes/channel-merger.js)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/src/audio-nodes/channel-splitter.js](./r-audio/src/audio-nodes/channel-splitter.js)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/src/audio-nodes/constant-source.js](./r-audio/src/audio-nodes/constant-source.js)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/src/audio-nodes/convolver.js](./r-audio/src/audio-nodes/convolver.js)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/src/audio-nodes/delay.js](./r-audio/src/audio-nodes/delay.js)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/src/audio-nodes/dynamics-compressor.js](./r-audio/src/audio-nodes/dynamics-compressor.js)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/src/audio-nodes/gain.js](./r-audio/src/audio-nodes/gain.js)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/src/audio-nodes/iir-filter.js](./r-audio/src/audio-nodes/iir-filter.js)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/src/audio-nodes/index.js](./r-audio/src/audio-nodes/index.js)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/src/audio-nodes/media-element-source.js](./r-audio/src/audio-nodes/media-element-source.js)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/src/audio-nodes/media-stream-source.js](./r-audio/src/audio-nodes/media-stream-source.js)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/src/audio-nodes/oscillator.js](./r-audio/src/audio-nodes/oscillator.js)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/src/audio-nodes/panner.js](./r-audio/src/audio-nodes/panner.js)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/src/audio-nodes/stereo-panner.js](./r-audio/src/audio-nodes/stereo-panner.js)
+│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./r-audio/src/audio-nodes/wave-shaper.js](./r-audio/src/audio-nodes/wave-shaper.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/src/base](./r-audio/src/base)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/src/base/audio-context.js](./r-audio/src/base/audio-context.js)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/src/base/audio-node.js](./r-audio/src/base/audio-node.js)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/src/base/component.js](./r-audio/src/base/component.js)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./r-audio/src/base/connectable-node.js](./r-audio/src/base/connectable-node.js)
+│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./r-audio/src/base/scheduled-source.js](./r-audio/src/base/scheduled-source.js)
+│  &nbsp;│  &nbsp;└──&nbsp;[./r-audio/src/graph](./r-audio/src/graph)
+│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./r-audio/src/graph/cycle.js](./r-audio/src/graph/cycle.js)
+│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./r-audio/src/graph/extensible.js](./r-audio/src/graph/extensible.js)
+│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./r-audio/src/graph/pipeline.js](./r-audio/src/graph/pipeline.js)
+│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./r-audio/src/graph/split-channels.js](./r-audio/src/graph/split-channels.js)
+│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./r-audio/src/graph/split.js](./r-audio/src/graph/split.js)
+│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./r-audio/src/graph/utils.js](./r-audio/src/graph/utils.js)
+│  &nbsp;└──&nbsp;[./r-audio/webpack.config.js](./r-audio/webpack.config.js)
+├──&nbsp;[./react-audio-recorder](./react-audio-recorder)
+│  &nbsp;├──&nbsp;[./react-audio-recorder/README.md](./react-audio-recorder/README.md)
+│  &nbsp;├──&nbsp;[./react-audio-recorder/dist](./react-audio-recorder/dist)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-audio-recorder/dist/AudioContext.d.ts](./react-audio-recorder/dist/AudioContext.d.ts)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-audio-recorder/dist/AudioContext.js](./react-audio-recorder/dist/AudioContext.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-audio-recorder/dist/AudioRecorder.d.ts](./react-audio-recorder/dist/AudioRecorder.d.ts)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-audio-recorder/dist/AudioRecorder.js](./react-audio-recorder/dist/AudioRecorder.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-audio-recorder/dist/dist](./react-audio-recorder/dist/dist)
+│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-audio-recorder/dist/dist/AudioRecorder.min.js](./react-audio-recorder/dist/dist/AudioRecorder.min.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-audio-recorder/dist/downloadBlob.d.ts](./react-audio-recorder/dist/downloadBlob.d.ts)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-audio-recorder/dist/downloadBlob.js](./react-audio-recorder/dist/downloadBlob.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-audio-recorder/dist/getUserMedia.d.ts](./react-audio-recorder/dist/getUserMedia.d.ts)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-audio-recorder/dist/getUserMedia.js](./react-audio-recorder/dist/getUserMedia.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-audio-recorder/dist/waveEncoder.d.ts](./react-audio-recorder/dist/waveEncoder.d.ts)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-audio-recorder/dist/waveEncoder.js](./react-audio-recorder/dist/waveEncoder.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-audio-recorder/dist/waveInterface.d.ts](./react-audio-recorder/dist/waveInterface.d.ts)
+│  &nbsp;│  &nbsp;└──&nbsp;[./react-audio-recorder/dist/waveInterface.js](./react-audio-recorder/dist/waveInterface.js)
+│  &nbsp;├──&nbsp;[./react-audio-recorder/package-lock.json](./react-audio-recorder/package-lock.json)
+│  &nbsp;├──&nbsp;[./react-audio-recorder/package.json](./react-audio-recorder/package.json)
+│  &nbsp;├──&nbsp;[./react-audio-recorder/src](./react-audio-recorder/src)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-audio-recorder/src/AudioContext.ts](./react-audio-recorder/src/AudioContext.ts)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-audio-recorder/src/AudioRecorder.tsx](./react-audio-recorder/src/AudioRecorder.tsx)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-audio-recorder/src/downloadBlob.ts](./react-audio-recorder/src/downloadBlob.ts)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-audio-recorder/src/getUserMedia.ts](./react-audio-recorder/src/getUserMedia.ts)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-audio-recorder/src/waveEncoder.ts](./react-audio-recorder/src/waveEncoder.ts)
+│  &nbsp;│  &nbsp;└──&nbsp;[./react-audio-recorder/src/waveInterface.ts](./react-audio-recorder/src/waveInterface.ts)
+│  &nbsp;├──&nbsp;[./react-audio-recorder/tsconfig.json](./react-audio-recorder/tsconfig.json)
+│  &nbsp;├──&nbsp;[./react-audio-recorder/types](./react-audio-recorder/types)
+│  &nbsp;│  &nbsp;└──&nbsp;[./react-audio-recorder/types/dom.d.ts](./react-audio-recorder/types/dom.d.ts)
+│  &nbsp;└──&nbsp;[./react-audio-recorder/webpack.config.js](./react-audio-recorder/webpack.config.js)
+├──&nbsp;[./react-native-voice-processor-main](./react-native-voice-processor-main)
+│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/README.md](./react-native-voice-processor-main/README.md)
+│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/android](./react-native-voice-processor-main/android)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/android/build.gradle](./react-native-voice-processor-main/android/build.gradle)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/android/gradle](./react-native-voice-processor-main/android/gradle)
+│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-native-voice-processor-main/android/gradle/wrapper](./react-native-voice-processor-main/android/gradle/wrapper)
+│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-native-voice-processor-main/android/gradle/wrapper/gradle-wrapper.jar](./react-native-voice-processor-main/android/gradle/wrapper/gradle-wrapper.jar)
+│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-native-voice-processor-main/android/gradle/wrapper/gradle-wrapper.properties](./react-native-voice-processor-main/android/gradle/wrapper/gradle-wrapper.properties)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/android/gradle.properties](./react-native-voice-processor-main/android/gradle.properties)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/android/gradlew](./react-native-voice-processor-main/android/gradlew)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/android/gradlew.bat](./react-native-voice-processor-main/android/gradlew.bat)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/android/settings.gradle](./react-native-voice-processor-main/android/settings.gradle)
+│  &nbsp;│  &nbsp;└──&nbsp;[./react-native-voice-processor-main/android/src](./react-native-voice-processor-main/android/src)
+│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-native-voice-processor-main/android/src/main](./react-native-voice-processor-main/android/src/main)
+│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-native-voice-processor-main/android/src/main/AndroidManifest.xml](./react-native-voice-processor-main/android/src/main/AndroidManifest.xml)
+│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-native-voice-processor-main/android/src/main/java](./react-native-voice-processor-main/android/src/main/java)
+│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-native-voice-processor-main/android/src/main/java/ai](./react-native-voice-processor-main/android/src/main/java/ai)
+│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-native-voice-processor-main/android/src/main/java/ai/picovoice](./react-native-voice-processor-main/android/src/main/java/ai/picovoice)
+│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-native-voice-processor-main/android/src/main/java/ai/picovoice/reactnative](./react-native-voice-processor-main/android/src/main/java/ai/picovoice/reactnative)
+│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-native-voice-processor-main/android/src/main/java/ai/picovoice/reactnative/voiceprocessor](./react-native-voice-processor-main/android/src/main/java/ai/picovoice/reactnative/voiceprocessor)
+│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-native-voice-processor-main/android/src/main/java/ai/picovoice/reactnative/voiceprocessor/VoiceProcessorModule.java](./react-native-voice-processor-main/android/src/main/java/ai/picovoice/reactnative/voiceprocessor/VoiceProcessorModule.java)
+│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-native-voice-processor-main/android/src/main/java/ai/picovoice/reactnative/voiceprocessor/VoiceProcessorPackage.java](./react-native-voice-processor-main/android/src/main/java/ai/picovoice/reactnative/voiceprocessor/VoiceProcessorPackage.java)
+│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/babel.config.js](./react-native-voice-processor-main/babel.config.js)
+│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example](./react-native-voice-processor-main/example)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android](./react-native-voice-processor-main/example/android)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/app](./react-native-voice-processor-main/example/android/app)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/app/build.gradle](./react-native-voice-processor-main/example/android/app/build.gradle)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/app/debug.keystore](./react-native-voice-processor-main/example/android/app/debug.keystore)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/app/proguard-rules.pro](./react-native-voice-processor-main/example/android/app/proguard-rules.pro)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-native-voice-processor-main/example/android/app/src](./react-native-voice-processor-main/example/android/app/src)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/app/src/debug](./react-native-voice-processor-main/example/android/app/src/debug)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/app/src/debug/AndroidManifest.xml](./react-native-voice-processor-main/example/android/app/src/debug/AndroidManifest.xml)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;└──&nbsp;[./react-native-voice-processor-main/example/android/app/src/debug/java](./react-native-voice-processor-main/example/android/app/src/debug/java)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-native-voice-processor-main/example/android/app/src/debug/java/com](./react-native-voice-processor-main/example/android/app/src/debug/java/com)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-native-voice-processor-main/example/android/app/src/debug/java/com/example](./react-native-voice-processor-main/example/android/app/src/debug/java/com/example)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-native-voice-processor-main/example/android/app/src/debug/java/com/example/reactnativevoiceprocessor](./react-native-voice-processor-main/example/android/app/src/debug/java/com/example/reactnativevoiceprocessor)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-native-voice-processor-main/example/android/app/src/debug/java/com/example/reactnativevoiceprocessor/ReactNativeFlipper.java](./react-native-voice-processor-main/example/android/app/src/debug/java/com/example/reactnativevoiceprocessor/ReactNativeFlipper.java)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main](./react-native-voice-processor-main/example/android/app/src/main)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/AndroidManifest.xml](./react-native-voice-processor-main/example/android/app/src/main/AndroidManifest.xml)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/java](./react-native-voice-processor-main/example/android/app/src/main/java)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;└──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/java/ai](./react-native-voice-processor-main/example/android/app/src/main/java/ai)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/java/ai/picovoice](./react-native-voice-processor-main/example/android/app/src/main/java/ai/picovoice)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/java/ai/picovoice/reactnative](./react-native-voice-processor-main/example/android/app/src/main/java/ai/picovoice/reactnative)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/java/ai/picovoice/reactnative/voiceprocessorexample](./react-native-voice-processor-main/example/android/app/src/main/java/ai/picovoice/reactnative/voiceprocessorexample)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/java/ai/picovoice/reactnative/voiceprocessorexample/MainActivity.java](./react-native-voice-processor-main/example/android/app/src/main/java/ai/picovoice/reactnative/voiceprocessorexample/MainActivity.java)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/java/ai/picovoice/reactnative/voiceprocessorexample/MainApplication.java](./react-native-voice-processor-main/example/android/app/src/main/java/ai/picovoice/reactnative/voiceprocessorexample/MainApplication.java)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/res](./react-native-voice-processor-main/example/android/app/src/main/res)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/res/drawable](./react-native-voice-processor-main/example/android/app/src/main/res/drawable)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/res/drawable/ic_launcher_background.xml](./react-native-voice-processor-main/example/android/app/src/main/res/drawable/ic_launcher_background.xml)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;└──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/res/drawable/ic_launcher_foreground.xml](./react-native-voice-processor-main/example/android/app/src/main/res/drawable/ic_launcher_foreground.xml)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-anydpi-v26](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-anydpi-v26)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;└──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-hdpi](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-hdpi)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-hdpi/ic_launcher.png](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-hdpi/ic_launcher.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;└──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-mdpi](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-mdpi)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-mdpi/ic_launcher.png](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-mdpi/ic_launcher.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;└──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xhdpi](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xhdpi)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;└──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xxhdpi](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xxhdpi)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;└──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xxxhdpi](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xxxhdpi)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;└──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png](./react-native-voice-processor-main/example/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/res/values](./react-native-voice-processor-main/example/android/app/src/main/res/values)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/res/values/strings.xml](./react-native-voice-processor-main/example/android/app/src/main/res/values/strings.xml)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-native-voice-processor-main/example/android/app/src/main/res/values/styles.xml](./react-native-voice-processor-main/example/android/app/src/main/res/values/styles.xml)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/build.gradle](./react-native-voice-processor-main/example/android/build.gradle)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/gradle](./react-native-voice-processor-main/example/android/gradle)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-native-voice-processor-main/example/android/gradle/wrapper](./react-native-voice-processor-main/example/android/gradle/wrapper)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/gradle/wrapper/gradle-wrapper.jar](./react-native-voice-processor-main/example/android/gradle/wrapper/gradle-wrapper.jar)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-native-voice-processor-main/example/android/gradle/wrapper/gradle-wrapper.properties](./react-native-voice-processor-main/example/android/gradle/wrapper/gradle-wrapper.properties)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/gradle.properties](./react-native-voice-processor-main/example/android/gradle.properties)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/gradlew](./react-native-voice-processor-main/example/android/gradlew)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/android/gradlew.bat](./react-native-voice-processor-main/example/android/gradlew.bat)
+│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-native-voice-processor-main/example/android/settings.gradle](./react-native-voice-processor-main/example/android/settings.gradle)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/app.json](./react-native-voice-processor-main/example/app.json)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/babel.config.js](./react-native-voice-processor-main/example/babel.config.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/index.tsx](./react-native-voice-processor-main/example/index.tsx)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios](./react-native-voice-processor-main/example/ios)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/File.swift](./react-native-voice-processor-main/example/ios/File.swift)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/Podfile](./react-native-voice-processor-main/example/ios/Podfile)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/Podfile.lock](./react-native-voice-processor-main/example/ios/Podfile.lock)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample](./react-native-voice-processor-main/example/ios/VoiceProcessorExample)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample/AppDelegate.h](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/AppDelegate.h)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample/AppDelegate.m](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/AppDelegate.m)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Base.lproj](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Base.lproj)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Base.lproj/LaunchScreen.xib](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Base.lproj/LaunchScreen.xib)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/Contents.json](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/Contents.json)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-1024.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-1024.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-20.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-20.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-20@2x.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-20@2x.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-20@3x.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-20@3x.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-29.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-29.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-29@2x.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-29@2x.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-29@3x.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-29@3x.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-40.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-40.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-40@2x.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-40@2x.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-40@3x.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-40@3x.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-60@2x.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-60@2x.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-60@3x.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-60@3x.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-76.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-76.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-76@2x.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-76@2x.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-83.5@2x.png](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/AppIcon.appiconset/pv_circle_512-83.5@2x.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/Contents.json](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Images.xcassets/Contents.json)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Info.plist](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/Info.plist)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample/main.m](./react-native-voice-processor-main/example/ios/VoiceProcessorExample/main.m)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample-Bridging-Header.h](./react-native-voice-processor-main/example/ios/VoiceProcessorExample-Bridging-Header.h)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcodeproj](./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcodeproj)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcodeproj/project.pbxproj](./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcodeproj/project.pbxproj)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcodeproj/xcshareddata](./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcodeproj/xcshareddata)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcodeproj/xcshareddata/xcschemes](./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcodeproj/xcshareddata/xcschemes)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcodeproj/xcshareddata/xcschemes/VoiceProcessorExample.xcscheme](./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcodeproj/xcshareddata/xcschemes/VoiceProcessorExample.xcscheme)
+│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcworkspace](./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcworkspace)
+│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcworkspace/contents.xcworkspacedata](./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcworkspace/contents.xcworkspacedata)
+│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcworkspace/xcshareddata](./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcworkspace/xcshareddata)
+│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist](./react-native-voice-processor-main/example/ios/VoiceProcessorExample.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/metro.config.js](./react-native-voice-processor-main/example/metro.config.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/package-lock.json](./react-native-voice-processor-main/example/package-lock.json)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/package.json](./react-native-voice-processor-main/example/package.json)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/example/src](./react-native-voice-processor-main/example/src)
+│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-native-voice-processor-main/example/src/App.tsx](./react-native-voice-processor-main/example/src/App.tsx)
+│  &nbsp;│  &nbsp;└──&nbsp;[./react-native-voice-processor-main/example/yarn.lock](./react-native-voice-processor-main/example/yarn.lock)
+│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/ios](./react-native-voice-processor-main/ios)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/ios/VoiceProcessor-Bridging-Header.h](./react-native-voice-processor-main/ios/VoiceProcessor-Bridging-Header.h)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/ios/VoiceProcessor.m](./react-native-voice-processor-main/ios/VoiceProcessor.m)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/ios/VoiceProcessor.swift](./react-native-voice-processor-main/ios/VoiceProcessor.swift)
+│  &nbsp;│  &nbsp;└──&nbsp;[./react-native-voice-processor-main/ios/VoiceProcessor.xcodeproj](./react-native-voice-processor-main/ios/VoiceProcessor.xcodeproj)
+│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-native-voice-processor-main/ios/VoiceProcessor.xcodeproj/project.pbxproj](./react-native-voice-processor-main/ios/VoiceProcessor.xcodeproj/project.pbxproj)
+│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/package.json](./react-native-voice-processor-main/package.json)
+│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/react-native-voice-processor.podspec](./react-native-voice-processor-main/react-native-voice-processor.podspec)
+│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/src](./react-native-voice-processor-main/src)
+│  &nbsp;│  &nbsp;└──&nbsp;[./react-native-voice-processor-main/src/index.tsx](./react-native-voice-processor-main/src/index.tsx)
+│  &nbsp;├──&nbsp;[./react-native-voice-processor-main/tsconfig.json](./react-native-voice-processor-main/tsconfig.json)
+│  &nbsp;└──&nbsp;[./react-native-voice-processor-main/yarn.lock](./react-native-voice-processor-main/yarn.lock)
+├──&nbsp;[./react-player](./react-player)
+│  &nbsp;├──&nbsp;[./react-player/README.md](./react-player/README.md)
+│  &nbsp;├──&nbsp;[./react-player/config](./react-player/config)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/config/env.js](./react-player/config/env.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/config/jest](./react-player/config/jest)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/config/jest/cssTransform.js](./react-player/config/jest/cssTransform.js)
+│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-player/config/jest/fileTransform.js](./react-player/config/jest/fileTransform.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/config/modules.js](./react-player/config/modules.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/config/paths.js](./react-player/config/paths.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/config/pnpTs.js](./react-player/config/pnpTs.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/config/webpack.config.js](./react-player/config/webpack.config.js)
+│  &nbsp;│  &nbsp;└──&nbsp;[./react-player/config/webpackDevServer.config.js](./react-player/config/webpackDevServer.config.js)
+│  &nbsp;├──&nbsp;[./react-player/package.json](./react-player/package.json)
+│  &nbsp;├──&nbsp;[./react-player/public](./react-player/public)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/public/16x16_radius.png](./react-player/public/16x16_radius.png)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/public/24x24_radius.png](./react-player/public/24x24_radius.png)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/public/32x32_radius.png](./react-player/public/32x32_radius.png)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/public/64x64_radius.png](./react-player/public/64x64_radius.png)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/public/_redirects](./react-player/public/_redirects)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/public/favicon.png](./react-player/public/favicon.png)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/public/index.html](./react-player/public/index.html)
+│  &nbsp;│  &nbsp;└──&nbsp;[./react-player/public/manifest.json](./react-player/public/manifest.json)
+│  &nbsp;├──&nbsp;[./react-player/scripts](./react-player/scripts)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/scripts/build.js](./react-player/scripts/build.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/scripts/start.js](./react-player/scripts/start.js)
+│  &nbsp;│  &nbsp;└──&nbsp;[./react-player/scripts/test.js](./react-player/scripts/test.js)
+│  &nbsp;├──&nbsp;[./react-player/src](./react-player/src)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/App.test.js](./react-player/src/App.test.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/assets](./react-player/src/assets)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/assets/css](./react-player/src/assets/css)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/assets/css/base.styl](./react-player/src/assets/css/base.styl)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-player/src/assets/css/mixins](./react-player/src/assets/css/mixins)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-player/src/assets/css/mixins/animations.styl](./react-player/src/assets/css/mixins/animations.styl)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-player/src/assets/css/mixins/breakpoints.styl](./react-player/src/assets/css/mixins/breakpoints.styl)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-player/src/assets/css/mixins/colors.styl](./react-player/src/assets/css/mixins/colors.styl)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-player/src/assets/css/mixins/reset.styl](./react-player/src/assets/css/mixins/reset.styl)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-player/src/assets/css/mixins/root.styl](./react-player/src/assets/css/mixins/root.styl)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-player/src/assets/css/mixins/zindex.styl](./react-player/src/assets/css/mixins/zindex.styl)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/assets/github](./react-player/src/assets/github)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-player/src/assets/github/GitHub-Mark-Light-32px.png](./react-player/src/assets/github/GitHub-Mark-Light-32px.png)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/assets/logo](./react-player/src/assets/logo)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/assets/logo/16x16.png](./react-player/src/assets/logo/16x16.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/assets/logo/16x16.svg](./react-player/src/assets/logo/16x16.svg)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/assets/logo/16x16_radius.png](./react-player/src/assets/logo/16x16_radius.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/assets/logo/24x24.png](./react-player/src/assets/logo/24x24.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/assets/logo/24x24.svg](./react-player/src/assets/logo/24x24.svg)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/assets/logo/24x24_radius.png](./react-player/src/assets/logo/24x24_radius.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/assets/logo/32x32.png](./react-player/src/assets/logo/32x32.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/assets/logo/32x32.svg](./react-player/src/assets/logo/32x32.svg)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/assets/logo/32x32_radius.png](./react-player/src/assets/logo/32x32_radius.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/assets/logo/64x64.png](./react-player/src/assets/logo/64x64.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/assets/logo/64x64.svg](./react-player/src/assets/logo/64x64.svg)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/assets/logo/64x64_radius.png](./react-player/src/assets/logo/64x64_radius.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/assets/logo/audio-player.ai](./react-player/src/assets/logo/audio-player.ai)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-player/src/assets/logo/audio-player_radius.ai](./react-player/src/assets/logo/audio-player_radius.ai)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/assets/music](./react-player/src/assets/music)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/assets/music/fantastic.mp3](./react-player/src/assets/music/fantastic.mp3)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/assets/music/legends-never-die.mp3](./react-player/src/assets/music/legends-never-die.mp3)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/assets/music/rise.mp3](./react-player/src/assets/music/rise.mp3)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-player/src/assets/music/short-legends-never-die.mp3](./react-player/src/assets/music/short-legends-never-die.mp3)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/assets/spotify](./react-player/src/assets/spotify)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/assets/spotify/icon](./react-player/src/assets/spotify/icon)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/assets/spotify/icon/Spotify_Icon_RGB_Black.png](./react-player/src/assets/spotify/icon/Spotify_Icon_RGB_Black.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/assets/spotify/icon/Spotify_Icon_RGB_Green.png](./react-player/src/assets/spotify/icon/Spotify_Icon_RGB_Green.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-player/src/assets/spotify/icon/Spotify_Icon_RGB_White.png](./react-player/src/assets/spotify/icon/Spotify_Icon_RGB_White.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-player/src/assets/spotify/logo](./react-player/src/assets/spotify/logo)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-player/src/assets/spotify/logo/Spotify_Logo_RGB_Black.png](./react-player/src/assets/spotify/logo/Spotify_Logo_RGB_Black.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-player/src/assets/spotify/logo/Spotify_Logo_RGB_Green.png](./react-player/src/assets/spotify/logo/Spotify_Logo_RGB_Green.png)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-player/src/assets/spotify/logo/Spotify_Logo_RGB_White.png](./react-player/src/assets/spotify/logo/Spotify_Logo_RGB_White.png)
+│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-player/src/assets/svg](./react-player/src/assets/svg)
+│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-player/src/assets/svg/logo.svg](./react-player/src/assets/svg/logo.svg)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/components](./react-player/src/components)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/components/_boilerplate](./react-player/src/components/_boilerplate)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/components/_boilerplate/index.jsx](./react-player/src/components/_boilerplate/index.jsx)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-player/src/components/_boilerplate/style.styl](./react-player/src/components/_boilerplate/style.styl)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/components/app-footer-nav](./react-player/src/components/app-footer-nav)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/components/app-footer-nav/index.jsx](./react-player/src/components/app-footer-nav/index.jsx)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-player/src/components/app-footer-nav/style.styl](./react-player/src/components/app-footer-nav/style.styl)
+│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/components/app-version](./react-player/src/components/app-version)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/components/app-version/index.jsx](./react-player/src/components/app-version/index.jsx)
+│  &nbsp;│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-player/src/components/app-version/style.styl](./react-player/src/components/app-version/style.styl)
+│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-player/src/components/audio](./react-player/src/components/audio)
+│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-player/src/components/audio/audio.worker.js](./react-player/src/components/audio/audio.worker.js)
+│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-player/src/components/audio/index.jsx](./react-player/src/components/audio/index.jsx)
+│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-player/src/components/audio/style.styl](./react-player/src/components/audio/style.styl)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/context](./react-player/src/context)
+│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-player/src/context/app-context.jsx](./react-player/src/context/app-context.jsx)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/export-components.js](./react-player/src/export-components.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/index.js](./react-player/src/index.js)
+│  &nbsp;│  &nbsp;├──&nbsp;[./react-player/src/modules](./react-player/src/modules)
+│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-player/src/modules/app](./react-player/src/modules/app)
+│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-player/src/modules/app/index.jsx](./react-player/src/modules/app/index.jsx)
+│  &nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-player/src/modules/app/style.styl](./react-player/src/modules/app/style.styl)
+│  &nbsp;│  &nbsp;└──&nbsp;[./react-player/src/serviceWorker.js](./react-player/src/serviceWorker.js)
+│  &nbsp;└──&nbsp;[./react-player/yarn.lock](./react-player/yarn.lock)
+└──&nbsp;[./react-web-audio-graph](./react-web-audio-graph)
+&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/README.md](./react-web-audio-graph/README.md)
+&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/package.json](./react-web-audio-graph/package.json)
+&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/public](./react-web-audio-graph/public)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/public/favicon.ico](./react-web-audio-graph/public/favicon.ico)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/public/index.html](./react-web-audio-graph/public/index.html)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/public/logo192.png](./react-web-audio-graph/public/logo192.png)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/public/logo512.png](./react-web-audio-graph/public/logo512.png)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/public/manifest.json](./react-web-audio-graph/public/manifest.json)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;└──&nbsp;[./react-web-audio-graph/public/robots.txt](./react-web-audio-graph/public/robots.txt)
+&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src](./react-web-audio-graph/src)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/App.tsx](./react-web-audio-graph/src/App.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/components](./react-web-audio-graph/src/components)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/components/Audio.tsx](./react-web-audio-graph/src/components/Audio.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/components/ContextMenu.tsx](./react-web-audio-graph/src/components/ContextMenu.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/components/Flow.tsx](./react-web-audio-graph/src/components/Flow.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/components/FlowContextMenu.tsx](./react-web-audio-graph/src/components/FlowContextMenu.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/components/Node.tsx](./react-web-audio-graph/src/components/Node.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/components/Nodes.tsx](./react-web-audio-graph/src/components/Nodes.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/components/Note.tsx](./react-web-audio-graph/src/components/Note.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/components/Project.tsx](./react-web-audio-graph/src/components/Project.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/components/controls](./react-web-audio-graph/src/components/controls)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/components/controls/Slider.tsx](./react-web-audio-graph/src/components/controls/Slider.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-web-audio-graph/src/components/controls/Toggle.tsx](./react-web-audio-graph/src/components/controls/Toggle.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-web-audio-graph/src/components/nodes](./react-web-audio-graph/src/components/nodes)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/ADSR.tsx](./react-web-audio-graph/src/components/nodes/ADSR.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/Analyser](./react-web-audio-graph/src/components/nodes/Analyser)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/Analyser/Visualiser.tsx](./react-web-audio-graph/src/components/nodes/Analyser/Visualiser.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;└──&nbsp;[./react-web-audio-graph/src/components/nodes/Analyser/index.tsx](./react-web-audio-graph/src/components/nodes/Analyser/index.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/AndGate.tsx](./react-web-audio-graph/src/components/nodes/AndGate.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/AudioBufferSource.tsx](./react-web-audio-graph/src/components/nodes/AudioBufferSource.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/BiquadFilter.tsx](./react-web-audio-graph/src/components/nodes/BiquadFilter.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/ChannelMerger.tsx](./react-web-audio-graph/src/components/nodes/ChannelMerger.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/ChannelSplitter.tsx](./react-web-audio-graph/src/components/nodes/ChannelSplitter.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/Comparator.tsx](./react-web-audio-graph/src/components/nodes/Comparator.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/ConstantSource.tsx](./react-web-audio-graph/src/components/nodes/ConstantSource.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/Delay.tsx](./react-web-audio-graph/src/components/nodes/Delay.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/DelayEffect.tsx](./react-web-audio-graph/src/components/nodes/DelayEffect.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/Destination.tsx](./react-web-audio-graph/src/components/nodes/Destination.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/DynamicsCompressor.tsx](./react-web-audio-graph/src/components/nodes/DynamicsCompressor.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/Equalizer.tsx](./react-web-audio-graph/src/components/nodes/Equalizer.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/Gain.tsx](./react-web-audio-graph/src/components/nodes/Gain.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/Gate.tsx](./react-web-audio-graph/src/components/nodes/Gate.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/InputSwitch.tsx](./react-web-audio-graph/src/components/nodes/InputSwitch.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/Keyboard.css](./react-web-audio-graph/src/components/nodes/Keyboard.css)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/Keyboard.tsx](./react-web-audio-graph/src/components/nodes/Keyboard.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/Meter.tsx](./react-web-audio-graph/src/components/nodes/Meter.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/Metronome.tsx](./react-web-audio-graph/src/components/nodes/Metronome.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/Noise.tsx](./react-web-audio-graph/src/components/nodes/Noise.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/NotGate.tsx](./react-web-audio-graph/src/components/nodes/NotGate.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/OrGate.tsx](./react-web-audio-graph/src/components/nodes/OrGate.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/Oscillator.tsx](./react-web-audio-graph/src/components/nodes/Oscillator.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/OscillatorNote.tsx](./react-web-audio-graph/src/components/nodes/OscillatorNote.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/OutputSwitch.tsx](./react-web-audio-graph/src/components/nodes/OutputSwitch.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/Quantizer.tsx](./react-web-audio-graph/src/components/nodes/Quantizer.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/Rectifier.tsx](./react-web-audio-graph/src/components/nodes/Rectifier.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/SampleAndHold.tsx](./react-web-audio-graph/src/components/nodes/SampleAndHold.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/Sign.tsx](./react-web-audio-graph/src/components/nodes/Sign.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/StereoPanner.tsx](./react-web-audio-graph/src/components/nodes/StereoPanner.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/Transformer.tsx](./react-web-audio-graph/src/components/nodes/Transformer.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/components/nodes/WaveShaper.tsx](./react-web-audio-graph/src/components/nodes/WaveShaper.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-web-audio-graph/src/components/nodes/XorGate.tsx](./react-web-audio-graph/src/components/nodes/XorGate.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/context](./react-web-audio-graph/src/context)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/context/AudioContextContext.tsx](./react-web-audio-graph/src/context/AudioContextContext.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/context/ContextMenuContext.tsx](./react-web-audio-graph/src/context/ContextMenuContext.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/context/NodeContext.tsx](./react-web-audio-graph/src/context/NodeContext.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-web-audio-graph/src/context/ProjectContext.tsx](./react-web-audio-graph/src/context/ProjectContext.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/fonts](./react-web-audio-graph/src/fonts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-web-audio-graph/src/fonts/bravura](./react-web-audio-graph/src/fonts/bravura)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/fonts/bravura/bravura.css](./react-web-audio-graph/src/fonts/bravura/bravura.css)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/fonts/bravura/bravura.woff](./react-web-audio-graph/src/fonts/bravura/bravura.woff)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-web-audio-graph/src/fonts/bravura/bravura.woff2](./react-web-audio-graph/src/fonts/bravura/bravura.woff2)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/hooks](./react-web-audio-graph/src/hooks)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/hooks/nodes](./react-web-audio-graph/src/hooks/nodes)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/hooks/nodes/useAnalyserNode.tsx](./react-web-audio-graph/src/hooks/nodes/useAnalyserNode.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/hooks/nodes/useAudioWorkletNode.tsx](./react-web-audio-graph/src/hooks/nodes/useAudioWorkletNode.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/hooks/nodes/useBiquadFilterNode.tsx](./react-web-audio-graph/src/hooks/nodes/useBiquadFilterNode.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/hooks/nodes/useChannelMergerNode.tsx](./react-web-audio-graph/src/hooks/nodes/useChannelMergerNode.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/hooks/nodes/useChannelSplitterNode.tsx](./react-web-audio-graph/src/hooks/nodes/useChannelSplitterNode.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/hooks/nodes/useConstantSourceNode.tsx](./react-web-audio-graph/src/hooks/nodes/useConstantSourceNode.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/hooks/nodes/useDelayNode.tsx](./react-web-audio-graph/src/hooks/nodes/useDelayNode.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/hooks/nodes/useDestinationNode.tsx](./react-web-audio-graph/src/hooks/nodes/useDestinationNode.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/hooks/nodes/useDynamicsCompressorNode.tsx](./react-web-audio-graph/src/hooks/nodes/useDynamicsCompressorNode.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/hooks/nodes/useGainNode.tsx](./react-web-audio-graph/src/hooks/nodes/useGainNode.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/hooks/nodes/useOscillatorNode.tsx](./react-web-audio-graph/src/hooks/nodes/useOscillatorNode.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/hooks/nodes/useStereoPannerNode.tsx](./react-web-audio-graph/src/hooks/nodes/useStereoPannerNode.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-web-audio-graph/src/hooks/nodes/useWaveShaperNode.tsx](./react-web-audio-graph/src/hooks/nodes/useWaveShaperNode.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-web-audio-graph/src/hooks/useAnimationFrame.ts](./react-web-audio-graph/src/hooks/useAnimationFrame.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/index.css](./react-web-audio-graph/src/index.css)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/index.tsx](./react-web-audio-graph/src/index.tsx)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/logo.svg](./react-web-audio-graph/src/logo.svg)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/react-app-env.d.ts](./react-web-audio-graph/src/react-app-env.d.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/reportWebVitals.ts](./react-web-audio-graph/src/reportWebVitals.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/setupTests.ts](./react-web-audio-graph/src/setupTests.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/types](./react-web-audio-graph/src/types)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/types/AudioWorkletGlobalScope.d.ts](./react-web-audio-graph/src/types/AudioWorkletGlobalScope.d.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/types/AudioWorkletProcessor.d.ts](./react-web-audio-graph/src/types/AudioWorkletProcessor.d.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-web-audio-graph/src/types/worklet-loader.d.ts](./react-web-audio-graph/src/types/worklet-loader.d.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/utils](./react-web-audio-graph/src/utils)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/utils/audioContext.ts](./react-web-audio-graph/src/utils/audioContext.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/utils/channels.ts](./react-web-audio-graph/src/utils/channels.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/utils/handles.ts](./react-web-audio-graph/src/utils/handles.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/utils/notes.ts](./react-web-audio-graph/src/utils/notes.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;├──&nbsp;[./react-web-audio-graph/src/utils/scale.ts](./react-web-audio-graph/src/utils/scale.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;│  &nbsp;└──&nbsp;[./react-web-audio-graph/src/utils/units.ts](./react-web-audio-graph/src/utils/units.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;└──&nbsp;[./react-web-audio-graph/src/worklets](./react-web-audio-graph/src/worklets)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/worklets/StoppableAudioWorkletProcessor.ts](./react-web-audio-graph/src/worklets/StoppableAudioWorkletProcessor.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/worklets/adsr-processor.types.ts](./react-web-audio-graph/src/worklets/adsr-processor.types.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/worklets/adsr-processor.worklet.ts](./react-web-audio-graph/src/worklets/adsr-processor.worklet.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/worklets/and-gate-processor.worklet.ts](./react-web-audio-graph/src/worklets/and-gate-processor.worklet.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/worklets/comparator-processor.worklet.ts](./react-web-audio-graph/src/worklets/comparator-processor.worklet.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/worklets/gate-processor.worklet.ts](./react-web-audio-graph/src/worklets/gate-processor.worklet.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/worklets/meter-processor.worklet.ts](./react-web-audio-graph/src/worklets/meter-processor.worklet.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/worklets/noise-processor.types.ts](./react-web-audio-graph/src/worklets/noise-processor.types.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/worklets/noise-processor.worklet.ts](./react-web-audio-graph/src/worklets/noise-processor.worklet.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/worklets/not-gate-processor.worklet.ts](./react-web-audio-graph/src/worklets/not-gate-processor.worklet.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/worklets/or-gate-processor.worklet.ts](./react-web-audio-graph/src/worklets/or-gate-processor.worklet.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/worklets/quantizer-processor.worklet.ts](./react-web-audio-graph/src/worklets/quantizer-processor.worklet.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/worklets/rectifier-processor.types.ts](./react-web-audio-graph/src/worklets/rectifier-processor.types.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/worklets/rectifier-processor.worklet.ts](./react-web-audio-graph/src/worklets/rectifier-processor.worklet.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/worklets/sample-and-hold-processor.types.ts](./react-web-audio-graph/src/worklets/sample-and-hold-processor.types.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/worklets/sample-and-hold-processor.worklet.ts](./react-web-audio-graph/src/worklets/sample-and-hold-processor.worklet.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/worklets/sign-processor.worklet.ts](./react-web-audio-graph/src/worklets/sign-processor.worklet.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/src/worklets/transformer-processor.worklet.ts](./react-web-audio-graph/src/worklets/transformer-processor.worklet.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-web-audio-graph/src/worklets/xor-gate-processor.worklet.ts](./react-web-audio-graph/src/worklets/xor-gate-processor.worklet.ts)
+&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;[./react-web-audio-graph/tsconfig.json](./react-web-audio-graph/tsconfig.json)
+&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[./react-web-audio-graph/yarn.lock](./react-web-audio-graph/yarn.lock)
 
 
 ```

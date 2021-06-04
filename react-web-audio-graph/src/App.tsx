@@ -14,17 +14,18 @@ function App() {
   const [elements, setElements] = useState<ProjectState["elements"]>(defaultProject.elements);
   const [transform, setTransform] = useState<ProjectState["transform"]>(defaultProject.transform);
   const onChangeElementFactory = useCallback(
-    (id: string) => (data: Record<string, any>): void => {
-      setElements(
-        produce((draft: Elements) => {
-          const node = draft.filter(isNode).find(element => element.id === id);
-          if (!node) {
-            return;
-          }
-          Object.keys(data).forEach(property => (node.data[property] = data[property]));
-        })
-      );
-    },
+    (id: string) =>
+      (data: Record<string, any>): void => {
+        setElements(
+          produce((draft: Elements) => {
+            const node = draft.filter(isNode).find(element => element.id === id);
+            if (!node) {
+              return;
+            }
+            Object.keys(data).forEach(property => (node.data[property] = data[property]));
+          })
+        );
+      },
     [setElements]
   );
   const project = { elements, id, onChangeElementFactory, setElements, setId, setTransform, transform };

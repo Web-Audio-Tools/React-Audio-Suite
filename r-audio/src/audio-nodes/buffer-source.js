@@ -1,5 +1,5 @@
-import React from 'react';
-import RScheduledSource from './../base/scheduled-source.js';
+import React from "react";
+import RScheduledSource from "./../base/scheduled-source.js";
 
 export default class RBufferSource extends RScheduledSource {
   constructor(props) {
@@ -11,7 +11,7 @@ export default class RBufferSource extends RScheduledSource {
       loop: props.loop || false,
       loopStart: props.loopStart || 0,
       loopEnd: props.loopEnd || 0,
-      playbackRate: props.playbackRate || 1
+      playbackRate: props.playbackRate || 1,
     };
 
     this.onEnded = this.onEnded.bind(this);
@@ -21,7 +21,7 @@ export default class RBufferSource extends RScheduledSource {
   instantiateNode() {
     if (!this.node) {
       this.node = this.context.audio.createBufferSource();
-      this.node.addEventListener('ended', this.onEnded);
+      this.node.addEventListener("ended", this.onEnded);
 
       this.context.nodes.set(this.props.identifier, this.node);
     }

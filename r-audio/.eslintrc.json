@@ -1,9 +1,5 @@
 {
-  "extends": [
-    "standard",
-    "eslint:recommended",
-    "plugin:react/recommended"
-  ],
+  "extends": ["standard", "eslint:recommended", "plugin:react/recommended"],
   "env": {
     "browser": true
   },
@@ -13,9 +9,6 @@
     "no-unused-vars": "off",
     "space-before-function-paren": "off",
     "no-return-assign": "off",
-    "semi": [
-      "error",
-      "always"
-    ]
+    "semi": ["error", "always"]
   }
 }

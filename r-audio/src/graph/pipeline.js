@@ -1,7 +1,7 @@
-import React from 'react';
-import RComponent from './../base/component.js';
+import React from "react";
+import RComponent from "./../base/component.js";
 
-import { isConnectable } from './utils.js';
+import { isConnectable } from "./utils.js";
 
 /**
  * A RComponent which connects its children in a series, creating inbound branches if necessary.
@@ -29,7 +29,9 @@ export default class RPipeline extends RComponent {
 
     if (pointer instanceof Array) {
       // it could also happen that the pointer leads to an AudioNode reference (esp. if it's an AudioContextDestination)
-      resolved = pointer.map(identifier => this.context.nodes.get(identifier) || identifier);
+      resolved = pointer.map(
+        (identifier) => this.context.nodes.get(identifier) || identifier
+      );
     }
 
     return resolved;
@@ -58,10 +60,16 @@ export default class RPipeline extends RComponent {
       if (childIndex === currentIndex + 1 || !childrenArray[childIndex]) {
         destinationFunction = () => this.props.destination();
       } else {
-        destinationFunction = () => this.resolvePointer(this.context.nodes.get(childrenArray[childIndex].identifier));
+        destinationFunction = () =>
+          this.resolvePointer(
+            this.context.nodes.get(childrenArray[childIndex].identifier)
+          );
       }
     } else {
-      destinationFunction = () => this.resolvePointer(this.context.nodes.get(childrenArray[currentIndex + 1].identifier));
+      destinationFunction = () =>
+        this.resolvePointer(
+          this.context.nodes.get(childrenArray[currentIndex + 1].identifier)
+        );
     }
 
     return destinationFunction;
@@ -87,8 +95,11 @@ export default class RPipeline extends RComponent {
 
       // look for all preceding RComponents until we hit one which is connectable
       while (child) {
-        if (isConnectable(child.component) ||
-          !RComponent.isPrototypeOf(child.component.type)) break;
+        if (
+          isConnectable(child.component) ||
+          !RComponent.isPrototypeOf(child.component.type)
+        )
+          break;
 
         parents.push(child.identifier);
         child = children.pop();
@@ -107,7 +118,7 @@ export default class RPipeline extends RComponent {
   createIdentifiedChild(component) {
     const identifiedChild = {
       component,
-      identifier: Symbol(component.type.name + Date.now())
+      identifier: Symbol(component.type.name + Date.now()),
     };
 
     if (!this.foundFirstConnectableType && isConnectable(component)) {
@@ -127,7 +138,8 @@ export default class RPipeline extends RComponent {
    * @return     {Component}  A clone of the child Component
    */
   createEmbeddableChild(identifiedChild, childIndex, childrenArray) {
-    if (!RComponent.isPrototypeOf(identifiedChild.component.type)) return identifiedChild.component;
+    if (!RComponent.isPrototypeOf(identifiedChild.component.type))
+      return identifiedChild.component;
 
     const getDestination = this.resolveDestination(childIndex, childrenArray);
     const getParent = this.resolveParent(childIndex, childrenArray);
@@ -135,13 +147,13 @@ export default class RPipeline extends RComponent {
     const pipelineProps = {
       destination: getDestination,
       parent: getParent,
-      identifier: identifiedChild.identifier
+      identifier: identifiedChild.identifier,
     };
 
     if (childIndex === childrenArray.length - 1) {
       Object.assign(pipelineProps, {
         connectFromChannel: this.props.connectFromChannel || 0,
-        connectToChannel: this.props.connectToChannel || 0
+        connectToChannel: this.props.connectToChannel || 0,
       });
     }
 
@@ -153,7 +165,7 @@ export default class RPipeline extends RComponent {
 
     const originalChildren = React.Children.toArray(this.props.children);
     const children = (this.customChildren || originalChildren)
-      .filter(c => c !== null && c !== [])
+      .filter((c) => c !== null && c !== [])
       // double mapping because the second functor needs to peek ahead on the children array
       .map(this.createIdentifiedChild, this)
       .map(this.createEmbeddableChild, this);
@@ -162,9 +174,7 @@ export default class RPipeline extends RComponent {
       return (
         <li>
           <strong>{this.constructor.name}</strong>
-          <ul>
-            {children}
-          </ul>
+          <ul>{children}</ul>
         </li>
       );
     }

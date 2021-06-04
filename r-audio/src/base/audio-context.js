@@ -1,11 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import RComponent from './component.js';
+import React from "react";
+import PropTypes from "prop-types";
+import RComponent from "./component.js";
 
 window.AudioContext = window.AudioContext || window.webkitAudioContext || null;
 if (!window.AudioContext) {
   throw new Error(
-    'Could not find AudioContext. This may be because your browser does not support Web Audio.');
+    "Could not find AudioContext. This may be because your browser does not support Web Audio."
+  );
 }
 
 /**
@@ -38,7 +39,7 @@ export default class RAudioContext extends React.Component {
     return {
       audio: this._context,
       debug: this.props.debug,
-      nodes: this.nodes
+      nodes: this.nodes,
     };
   }
 
@@ -47,26 +48,24 @@ export default class RAudioContext extends React.Component {
   }
 
   render() {
-    const children = React.Children
-      .toArray(this.props.children)
-      .map(child => {
+    const children = React.Children.toArray(this.props.children).map(
+      (child) => {
         if (!RComponent.isPrototypeOf(child.type)) return child;
 
         const audioContextProps = {
           destination: () => this._context.destination,
-          identifier: Symbol(child.type.name)
+          identifier: Symbol(child.type.name),
         };
 
         return React.cloneElement(child, audioContextProps);
-      });
+      }
+    );
 
     if (this.props.debug) {
       return (
         <div>
           <strong>RAudioContext</strong>
-          <ul>
-            {children}
-          </ul>
+          <ul>{children}</ul>
         </div>
       );
     }
@@ -78,5 +77,5 @@ export default class RAudioContext extends React.Component {
 RAudioContext.childContextTypes = {
   audio: PropTypes.instanceOf(AudioContext),
   nodes: PropTypes.instanceOf(Map),
-  debug: PropTypes.bool
+  debug: PropTypes.bool,
 };

@@ -1,5 +1,5 @@
-import React from 'react';
-import RAudioNode from './audio-node.js';
+import React from "react";
+import RAudioNode from "./audio-node.js";
 
 /**
  * Any RAudioNode that can be scheduled to start/end is a RScheduledSource
@@ -25,16 +25,20 @@ export default class RScheduledSource extends RAudioNode {
 
   schedule() {
     const shouldScheduleStart =
-      typeof this.props.start === 'number' &&
+      typeof this.props.start === "number" &&
       this.readyToPlay &&
       !this.playbackScheduled &&
-      (typeof this.props.stop !== 'number' || this.props.start < this.props.stop);
+      (typeof this.props.stop !== "number" ||
+        this.props.start < this.props.stop);
 
-    const shouldScheduleStop =
-      typeof this.props.stop === 'number';
+    const shouldScheduleStop = typeof this.props.stop === "number";
 
     if (shouldScheduleStart) {
-      this.node.start(this.props.start || 0, this.props.offset || 0, this.props.duration);
+      this.node.start(
+        this.props.start || 0,
+        this.props.offset || 0,
+        this.props.duration
+      );
       this.playbackScheduled = true;
     }
 
@@ -58,9 +62,11 @@ export default class RScheduledSource extends RAudioNode {
   componentDidUpdate(prevProps, prevState) {
     super.componentDidUpdate(prevProps, prevState);
 
-    if (prevProps.start !== this.props.start ||
-        prevProps.stop !== this.props.stop ||
-        this.shouldStartWithPropsChange(prevProps, this.props)) {
+    if (
+      prevProps.start !== this.props.start ||
+      prevProps.stop !== this.props.stop ||
+      this.shouldStartWithPropsChange(prevProps, this.props)
+    ) {
       this.schedule();
     }
   }

@@ -1,5 +1,5 @@
-import React from 'react';
-import RConnectableNode from './../base/connectable-node.js';
+import React from "react";
+import RConnectableNode from "./../base/connectable-node.js";
 
 export default class RChannelSplitter extends RConnectableNode {
   constructor(props) {
@@ -17,16 +17,20 @@ export default class RChannelSplitter extends RConnectableNode {
     const fromChannel = destinationIndex % this.props.channelCount;
     // normally we expect to connect to the first channel of each destination
     // but this can be overriden
-    const toChannel = !isNaN(this.props.connectToChannel) ? this.props.connectToChannel : 0;
+    const toChannel = !isNaN(this.props.connectToChannel)
+      ? this.props.connectToChannel
+      : 0;
 
-    return [ connectTarget ].concat(toParam ? [] : [ fromChannel, toChannel ]);
+    return [connectTarget].concat(toParam ? [] : [fromChannel, toChannel]);
   }
 
   componentWillMount() {
     super.componentWillMount();
 
     if (!this.node) {
-      this.node = this.context.audio.createChannelSplitter(this.props.channelCount);
+      this.node = this.context.audio.createChannelSplitter(
+        this.props.channelCount
+      );
       this.context.nodes.set(this.props.identifier, this.node);
     }
 

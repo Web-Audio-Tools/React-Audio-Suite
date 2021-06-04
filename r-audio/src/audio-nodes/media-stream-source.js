@@ -1,12 +1,12 @@
-import React from 'react';
-import RAudioNode from './../base/audio-node.js';
+import React from "react";
+import RAudioNode from "./../base/audio-node.js";
 
 export default class RMediaStreamSource extends RAudioNode {
   constructor(props) {
     super(props);
 
     this.params = {
-      buffer: props.buffer || null
+      buffer: props.buffer || null,
     };
 
     this.createNode = this.createNode.bind(this);

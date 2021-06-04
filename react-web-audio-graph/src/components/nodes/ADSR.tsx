@@ -36,7 +36,7 @@ function ADSR({ data, id, selected, type }: NodeProps) {
   );
 
   // AudioNode
-  const node = (useNode(
+  const node = useNode(
     id,
     () => ({
       [Parameters.AttackTime]: workletNode.parameters.get(Parameters.AttackTime),
@@ -49,7 +49,7 @@ function ADSR({ data, id, selected, type }: NodeProps) {
       [Parameters.SustainLevel]: workletNode.parameters.get(Parameters.SustainLevel),
     }),
     [mode, sustainOn]
-  ) as unknown) as ADSRNode;
+  ) as unknown as ADSRNode;
 
   // AudioParam
   useEffect(() => void (node[Parameters.AttackTime].value = attackTime), [node, attackTime]);

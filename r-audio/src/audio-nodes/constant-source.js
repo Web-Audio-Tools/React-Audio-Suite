@@ -1,12 +1,12 @@
-import React from 'react';
-import RScheduledSource from './../base/scheduled-source.js';
+import React from "react";
+import RScheduledSource from "./../base/scheduled-source.js";
 
 export default class RConstantSource extends RScheduledSource {
   constructor(props) {
     super(props);
 
     this.params = {
-      offset: props.offset
+      offset: props.offset,
     };
 
     this.instantiateNode = this.instantiateNode.bind(this);
@@ -22,7 +22,7 @@ export default class RConstantSource extends RScheduledSource {
   instantiateNode() {
     if (!this.node || this.playbackScheduled === false) {
       this.node = this.context.audio.createConstantSource();
-      this.node.addEventListener('ended', this.onEnded);
+      this.node.addEventListener("ended", this.onEnded);
 
       this.context.nodes.set(this.props.identifier, this.node);
     }

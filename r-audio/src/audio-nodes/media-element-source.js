@@ -1,5 +1,5 @@
-import React from 'react';
-import RAudioNode from './../base/audio-node.js';
+import React from "react";
+import RAudioNode from "./../base/audio-node.js";
 
 export default class RMediaElementSource extends RAudioNode {
   constructor(props) {

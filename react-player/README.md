@@ -4,7 +4,7 @@
 
 This project are listed on [Awesome Audio Visualization - WillianJusten](https://github.com/willianjusten/awesome-audio-visualization)
 
-----
+---
 
 ![Web Player](https://i.imgur.com/ApMUQE9.png)
 

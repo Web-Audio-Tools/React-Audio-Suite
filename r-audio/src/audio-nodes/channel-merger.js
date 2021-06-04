@@ -1,5 +1,5 @@
-import React from 'react';
-import RConnectableNode from './../base/connectable-node.js';
+import React from "react";
+import RConnectableNode from "./../base/connectable-node.js";
 
 export default class RChannelMerger extends RConnectableNode {
   constructor(props) {
@@ -12,7 +12,9 @@ export default class RChannelMerger extends RConnectableNode {
     super.componentWillMount();
 
     if (!this.node) {
-      this.node = this.context.audio.createChannelMerger(this.props.channelCount);
+      this.node = this.context.audio.createChannelMerger(
+        this.props.channelCount
+      );
       this.context.nodes.set(this.props.identifier, this.node);
     }
 

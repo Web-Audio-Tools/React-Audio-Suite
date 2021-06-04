@@ -4,20 +4,11 @@
     "target": "es5",
     "jsx": "react",
     "declaration": true,
-    "typeRoots": [
-      "typings",
-      "node_modules/@types"
-    ],
-    "lib": [
-      "dom",
-      "es2015"
-    ],
+    "typeRoots": ["typings", "node_modules/@types"],
+    "lib": ["dom", "es2015"],
     "outDir": "dist",
     "listEmittedFiles": true,
     "moduleResolution": "node"
   },
-  "include": [
-    "./src/**/*",
-    "./types/**/*"
-  ]
+  "include": ["./src/**/*", "./types/**/*"]
 }

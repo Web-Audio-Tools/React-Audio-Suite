@@ -1,5 +1,5 @@
-import React from 'react';
-import RAudioNode from './audio-node.js';
+import React from "react";
+import RAudioNode from "./audio-node.js";
 
 /**
  * Any RAudioNode that can be connected to is a RConnectableNode

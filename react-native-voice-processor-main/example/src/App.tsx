@@ -10,11 +10,7 @@
 //
 
 import React, { Component } from 'react';
-import {
-  Button,
-  PermissionsAndroid,
-  Platform,
-} from 'react-native';
+import { Button, PermissionsAndroid, Platform } from 'react-native';
 import {
   StyleSheet,
   View,
@@ -27,21 +23,21 @@ type Props = {};
 type State = {
   isListening: boolean;
   buttonText: string;
-  buttonDisabled: boolean;  
+  buttonDisabled: boolean;
 };
 
 export default class App extends Component<Props, State> {
-  _bufferListener?: EventSubscription;  
-  _bufferEmitter: NativeEventEmitter;  
+  _bufferListener?: EventSubscription;
+  _bufferEmitter: NativeEventEmitter;
 
   constructor(props: Props) {
     super(props);
     this.state = {
       buttonText: 'Start',
       isListening: false,
-      buttonDisabled: false
+      buttonDisabled: false,
     };
-    
+
     this._bufferEmitter = new NativeEventEmitter(BufferEmitter);
     this._bufferListener = this._bufferEmitter.addListener(
       BufferEmitter.BUFFER_EMITTER_KEY,
@@ -49,7 +45,6 @@ export default class App extends Component<Props, State> {
         console.log(`Buffer of size ${buffer.length} received!`);
       }
     );
-
   }
   componentDidMount() {}
 
@@ -65,38 +60,42 @@ export default class App extends Component<Props, State> {
 
     recordAudioRequest.then((hasPermission) => {
       if (!hasPermission) {
-        console.error("Did not grant required microphone permission.")
+        console.error('Did not grant required microphone permission.');
         return;
       }
-      
-      VoiceProcessor.getVoiceProcessor(512, 16000).start().then((didStart) =>{
-        if(didStart){
-          this.setState({          
-            isListening: true,
-            buttonText: "Stop",
-            buttonDisabled: false
-          });
-        }      
-      });      
+
+      VoiceProcessor.getVoiceProcessor(512, 16000)
+        .start()
+        .then((didStart) => {
+          if (didStart) {
+            this.setState({
+              isListening: true,
+              buttonText: 'Stop',
+              buttonDisabled: false,
+            });
+          }
+        });
     });
   }
 
-  _stopProcessing() {    
-    VoiceProcessor.getVoiceProcessor(512, 16000).stop().then((didStop) =>{
-      if(didStop){
-        this.setState({                      
-          isListening: false,
-          buttonText: "Start",
-          buttonDisabled: false
-        });
-      }
-    });
+  _stopProcessing() {
+    VoiceProcessor.getVoiceProcessor(512, 16000)
+      .stop()
+      .then((didStop) => {
+        if (didStop) {
+          this.setState({
+            isListening: false,
+            buttonText: 'Start',
+            buttonDisabled: false,
+          });
+        }
+      });
   }
 
   _toggleProcessing() {
     this.setState({
-      buttonDisabled: true
-    })
+      buttonDisabled: true,
+    });
 
     if (this.state.isListening) {
       this._stopProcessing();

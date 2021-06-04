@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width" />
     <title>Output timestamp example</title>
   </head>
 
@@ -13,73 +13,79 @@
     <button class="stop">Stop</button>
     <pre></pre>
   </body>
-<script>
+  <script>
+    // define variables
 
+    let audioCtx;
+    let source;
+    let songLength;
+    let rAF;
 
-// define variables
+    const pre = document.querySelector("pre");
+    const myScript = document.querySelector("script");
+    const play = document.querySelector(".play");
+    const stop = document.querySelector(".stop");
 
-let audioCtx;
-let source;
-let songLength;
-let rAF;
+    // use XHR to load an audio track, and
+    // decodeAudioData to decode it and stick it in a buffer.
+    // Then we put the buffer into the source
 
-const pre = document.querySelector('pre');
-const myScript = document.querySelector('script');
-const play = document.querySelector('.play');
-const stop = document.querySelector('.stop');
+    function getData() {
+      source = audioCtx.createBufferSource();
+      fetch("outfoxing.mp3")
+        .then((response) => response.arrayBuffer())
+        .then((buffer) => {
+          let audioData = buffer;
+          audioCtx.decodeAudioData(
+            audioData,
+            function (buffer) {
+              myBuffer = buffer;
+              songLength = buffer.duration;
+              source.buffer = myBuffer;
+              source.connect(audioCtx.destination);
+              source.loop = true;
+            },
+            function (e) {
+              "Error with decoding audio data" + e.error;
+            }
+          );
+        });
+    }
 
-// use XHR to load an audio track, and
-// decodeAudioData to decode it and stick it in a buffer.
-// Then we put the buffer into the source
+    // wire up buttons to stop and play audio, and range slider control
 
-function getData() {
-  source = audioCtx.createBufferSource();
-  fetch('outfoxing.mp3')
-  .then(response => response.arrayBuffer())
-  .then(buffer => {
-    let audioData = buffer;
-    audioCtx.decodeAudioData(audioData, function(buffer) {
-      myBuffer = buffer;
-      songLength = buffer.duration;
-      source.buffer = myBuffer;
-      source.connect(audioCtx.destination);
-      source.loop = true;
-    },
-    function(e) {
-      "Error with decoding audio data" + e.error
+    play.addEventListener("click", () => {
+      if (!audioCtx) {
+        audioCtx = new window.AudioContext();
+      }
+
+      getData();
+      source.start(0);
+      play.setAttribute("disabled", "disabled");
+
+      rAF = requestAnimationFrame(outputTimestamps);
     });
-  })
-}
 
-// wire up buttons to stop and play audio, and range slider control
+    stop.addEventListener("click", () => {
+      source.stop(0);
+      play.removeAttribute("disabled");
+      cancelAnimationFrame(rAF);
+    });
 
-play.addEventListener('click', () => {
-  if(!audioCtx) {
-    audioCtx = new window.AudioContext();
-  }
+    // function to output timestamps
 
-  getData();
-  source.start(0);
-  play.setAttribute('disabled', 'disabled');
+    function outputTimestamps() {
+      let ts = audioCtx.getOutputTimestamp();
+      console.log(
+        "Context time: " +
+          ts.contextTime +
+          " | Performance time: " +
+          ts.performanceTime
+      );
+      rAF = requestAnimationFrame(outputTimestamps);
+    }
 
-  rAF = requestAnimationFrame(outputTimestamps);
-});
-
-stop.addEventListener('click', () => {
-  source.stop(0);
-  play.removeAttribute('disabled');
-  cancelAnimationFrame(rAF);
-});
-
-// function to output timestamps
-
-function outputTimestamps() {
-  let ts = audioCtx.getOutputTimestamp()
-  console.log('Context time: ' + ts.contextTime + ' | Performance time: ' + ts.performanceTime);
-  rAF = requestAnimationFrame(outputTimestamps);
-}
-
-// dump script to pre element
-pre.innerHTML = myScript.innerHTML;
+    // dump script to pre element
+    pre.innerHTML = myScript.innerHTML;
   </script>
 </html>

@@ -1,12 +1,12 @@
-import React from 'react';
-import RConnectableNode from './../base/connectable-node.js';
+import React from "react";
+import RConnectableNode from "./../base/connectable-node.js";
 
 export default class RGain extends RConnectableNode {
   constructor(props) {
     super(props);
 
     this.params = {
-      gain: this.props.gain
+      gain: this.props.gain,
     };
   }
 

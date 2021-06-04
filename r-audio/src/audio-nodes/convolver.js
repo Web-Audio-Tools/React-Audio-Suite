@@ -1,5 +1,5 @@
-import React from 'react';
-import RConnectableNode from './../base/connectable-node.js';
+import React from "react";
+import RConnectableNode from "./../base/connectable-node.js";
 
 export default class RConvolver extends RConnectableNode {
   constructor(props) {
@@ -7,7 +7,7 @@ export default class RConvolver extends RConnectableNode {
 
     this.params = {
       buffer: props.buffer || null,
-      normalize: props.normalize || true
+      normalize: props.normalize || true,
     };
   }
 

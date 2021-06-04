@@ -1,5 +1,5 @@
-import React from 'react';
-import RConnectableNode from './../base/connectable-node.js';
+import React from "react";
+import RConnectableNode from "./../base/connectable-node.js";
 
 export default class RWaveShaper extends RConnectableNode {
   constructor(props) {
@@ -7,7 +7,7 @@ export default class RWaveShaper extends RConnectableNode {
 
     this.params = {
       curve: props.curve || null,
-      oversample: props.oversample || 'none'
+      oversample: props.oversample || "none",
     };
   }
 

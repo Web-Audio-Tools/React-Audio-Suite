@@ -1,6 +1,6 @@
-import React from 'react';
-import RConnectableNode from './../base/connectable-node.js';
-import PropTypes from 'prop-types';
+import React from "react";
+import RConnectableNode from "./../base/connectable-node.js";
+import PropTypes from "prop-types";
 
 export default class RIIRFilter extends RConnectableNode {
   constructor(props) {
@@ -15,7 +15,7 @@ export default class RIIRFilter extends RConnectableNode {
     if (!this.node) {
       this.node = this.context.audio.createIIRFilter({
         feedback: this.props.feedback,
-        feedforward: this.props.feedforward
+        feedforward: this.props.feedforward,
       });
 
       this.context.nodes.set(this.props.identifier, this.node);
@@ -26,11 +26,15 @@ export default class RIIRFilter extends RConnectableNode {
   }
 
   render() {
-    if (typeof this.props.children === 'function') {
+    if (typeof this.props.children === "function") {
       const filterProxy = Object.freeze({
         getFrequencyResponse: (frequencyHz, magResponse, phaseResponse) => {
-          return this.node.getFrequencyResponse(frequencyHz, magResponse, phaseResponse);
-        }
+          return this.node.getFrequencyResponse(
+            frequencyHz,
+            magResponse,
+            phaseResponse
+          );
+        },
       });
 
       this.props.children(filterProxy);
@@ -41,5 +45,5 @@ export default class RIIRFilter extends RConnectableNode {
 }
 
 RIIRFilter.propTypes = {
-  children: PropTypes.func
+  children: PropTypes.func,
 };

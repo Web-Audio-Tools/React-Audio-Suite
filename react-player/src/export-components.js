@@ -1,5 +1,4 @@
 /**
  * Components
  */
-export { Audio } from 'components/audio'
-
+export { Audio } from "components/audio";

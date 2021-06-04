@@ -12,8 +12,9 @@
 class BitCrusher extends AudioWorkletProcessor {
   static get parameterDescriptors() {
     return [
-      {name: 'bitDepth', defaultValue: 12, minValue: 1, maxValue: 16}, {
-        name: 'frequencyReduction',
+      { name: "bitDepth", defaultValue: 12, minValue: 1, maxValue: 16 },
+      {
+        name: "frequencyReduction",
         defaultValue: 0.5,
         minValue: 0,
         maxValue: 1,
@@ -41,7 +42,7 @@ class BitCrusher extends AudioWorkletProcessor {
         if (this.phase_ >= 1.0) {
           this.phase_ -= 1.0;
           this.lastSampleValue_ =
-              step * Math.floor(inputChannel[i] / step + 0.5);
+            step * Math.floor(inputChannel[i] / step + 0.5);
         }
         outputChannel[i] = this.lastSampleValue_;
       }
@@ -51,4 +52,4 @@ class BitCrusher extends AudioWorkletProcessor {
   }
 }
 
-registerProcessor('bit-crusher', BitCrusher);
+registerProcessor("bit-crusher", BitCrusher);

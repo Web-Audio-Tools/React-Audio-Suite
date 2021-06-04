@@ -1,27 +1,27 @@
-import React, { Component, createContext } from 'react'
+import React, { Component, createContext } from "react";
 
 /**
  * Mocked Assets
  */
-import rise from 'assets/music/rise.mp3'
-import fantastic from 'assets/music/fantastic.mp3'
-import legendsNeverDie from 'assets/music/legends-never-die.mp3'
-import shortLegendsNeverDie from 'assets/music/short-legends-never-die.mp3'
+import rise from "assets/music/rise.mp3";
+import fantastic from "assets/music/fantastic.mp3";
+import legendsNeverDie from "assets/music/legends-never-die.mp3";
+import shortLegendsNeverDie from "assets/music/short-legends-never-die.mp3";
 
-export const appContext = createContext()
+export const appContext = createContext();
 
 class appProvider extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     /**
      * state
      */
     this.state = {
       player: {
         /**
-        * Audio Context
-        */
-        threadInUse: 'worker', // 'main' or 'worker'
+         * Audio Context
+         */
+        threadInUse: "worker", // 'main' or 'worker'
         audioContext: null,
         analyser: null,
         gainNode: null,
@@ -30,24 +30,24 @@ class appProvider extends Component {
         duration: 0,
         tracks: [
           {
-            name: 'Small Piece of music LND',
-            artist: 'League of Legends',
-            url: shortLegendsNeverDie
+            name: "Small Piece of music LND",
+            artist: "League of Legends",
+            url: shortLegendsNeverDie,
           },
           {
-            name: 'Legends Never Die',
-            artist: 'League of Legends',
-            url: legendsNeverDie
+            name: "Legends Never Die",
+            artist: "League of Legends",
+            url: legendsNeverDie,
           },
           {
-            name: 'Rise',
-            artist: 'League of Legends',
-            url: rise
+            name: "Rise",
+            artist: "League of Legends",
+            url: rise,
           },
           {
-            name: 'Fantastic - Cinematic Sound',
-            artist: 'AudioJungle',
-            url: fantastic
+            name: "Fantastic - Cinematic Sound",
+            artist: "AudioJungle",
+            url: fantastic,
           },
         ],
         musicIndex: 0,
@@ -118,40 +118,42 @@ class appProvider extends Component {
          * Controls Context
          */
         timeControl: {
-          textContent: '00:00'
+          textContent: "00:00",
         },
 
         /**
          * Misc
          */
         initialFixedTicks: false,
-        hasStreamSupport: !!window.fetch && !!window.ReadableStream
-      }
-    }
+        hasStreamSupport: !!window.fetch && !!window.ReadableStream,
+      },
+    };
 
     /**
      * functions
      */
-    this.myFunction = this.myFunction.bind(this)
+    this.myFunction = this.myFunction.bind(this);
   }
 
   myFunction() {}
 
-	/**
-	 * React Render
-	 */
+  /**
+   * React Render
+   */
   render() {
     return (
-      <appContext.Provider value={{
-        /**
-         * Player
-         */
-        player: this.state.player
-      }}>
-        { this.props.children }
+      <appContext.Provider
+        value={{
+          /**
+           * Player
+           */
+          player: this.state.player,
+        }}
+      >
+        {this.props.children}
       </appContext.Provider>
-    )
+    );
   }
 }
 
-export default appProvider
+export default appProvider;

@@ -1,5 +1,5 @@
-import React from 'react';
-import RConnectableNode from './../base/connectable-node.js';
+import React from "react";
+import RConnectableNode from "./../base/connectable-node.js";
 
 export default class RDynamicsCompressor extends RConnectableNode {
   constructor(props) {
@@ -10,7 +10,7 @@ export default class RDynamicsCompressor extends RConnectableNode {
       knee: props.knee || 30,
       ratio: props.ratio || 12,
       attack: props.attack || 0.003,
-      release: props.release || 0.25
+      release: props.release || 0.25,
     };
   }
 

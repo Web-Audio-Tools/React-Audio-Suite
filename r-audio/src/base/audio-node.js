@@ -1,5 +1,5 @@
-import React from 'react';
-import RComponent from './component.js';
+import React from "react";
+import RComponent from "./component.js";
 
 /**
  * Any RComponent that corresponds to an AudioNode is a RAudioNode
@@ -22,7 +22,7 @@ export default class RAudioNode extends RComponent {
     for (let element of destinations) {
       if (Array.isArray(element)) {
         this.flattenPointers(element, flattened);
-      } else if (typeof element === 'symbol') {
+      } else if (typeof element === "symbol") {
         flattened.push(this.context.nodes.get(element));
       } else {
         flattened.push(element);
@@ -42,10 +42,16 @@ export default class RAudioNode extends RComponent {
    * @param      {number} fromChannel The index of the chosen output channel of this node (default is 0)
    * @param      {number} toChannel The index of the chosen input channel of the destination node (default is 0)
    */
-  getConnectionArguments(destination, destinationIndex, toParam, fromChannel = 0, toChannel = 0) {
+  getConnectionArguments(
+    destination,
+    destinationIndex,
+    toParam,
+    fromChannel = 0,
+    toChannel = 0
+  ) {
     const connectTarget = toParam ? destination[toParam] : destination;
 
-    return [ connectTarget ].concat(toParam ? [] : [ fromChannel, toChannel ]);
+    return [connectTarget].concat(toParam ? [] : [fromChannel, toChannel]);
   }
 
   /**
@@ -61,7 +67,7 @@ export default class RAudioNode extends RComponent {
     if (destinationFunction && !this.props.disconnected) {
       let destinations = destinationFunction();
 
-      if (!(destinations instanceof Array)) destinations = [ destinations ];
+      if (!(destinations instanceof Array)) destinations = [destinations];
 
       this.flattenPointers(destinations).forEach((destination, di) => {
         if (destination) {
@@ -70,7 +76,8 @@ export default class RAudioNode extends RComponent {
             di,
             this.props.connectToParam,
             this.props.connectFromChannel,
-            this.props.connectToChannel);
+            this.props.connectToChannel
+          );
 
           webAudioNode.connect(...connectArgs);
         }
@@ -108,15 +115,21 @@ export default class RAudioNode extends RComponent {
   }
 
   resolveTransitionProps(props, propName) {
-    const transitionTime = typeof props.transitionTime === 'number'
-      ? props.transitionTime
-      : props.transitionTime ? props.transitionTime[propName] : null;
+    const transitionTime =
+      typeof props.transitionTime === "number"
+        ? props.transitionTime
+        : props.transitionTime
+        ? props.transitionTime[propName]
+        : null;
 
-    const transitionCurve = typeof props.transitionCurve === 'string'
-      ? props.transitionCurve
-      : props.transitionCurve ? props.transitionCurve[propName] : null;
+    const transitionCurve =
+      typeof props.transitionCurve === "string"
+        ? props.transitionCurve
+        : props.transitionCurve
+        ? props.transitionCurve[propName]
+        : null;
 
-    return [ transitionTime, transitionCurve ];
+    return [transitionTime, transitionCurve];
   }
 
   // updates only Web Audio-related parameters
@@ -127,7 +140,10 @@ export default class RAudioNode extends RComponent {
     for (let p in this.params) {
       if (!(p in props)) continue;
 
-      const [ transitionTime, transitionCurve ] = this.resolveTransitionProps(props, p);
+      const [transitionTime, transitionCurve] = this.resolveTransitionProps(
+        props,
+        p
+      );
 
       if (this.node[p] instanceof AudioParam) {
         this.setParam(this.node[p], props[p], transitionTime, transitionCurve);
@@ -140,7 +156,7 @@ export default class RAudioNode extends RComponent {
         // we simply wrap the action in a try-catch
         try {
           if (this.node[p] !== props[p]) this.node[p] = props[p];
-        } catch(e) {
+        } catch (e) {
           console.warn(`Tried setting ${p} on node`, this.node); // eslint-disable-line no-console
         }
       }
@@ -154,10 +170,13 @@ export default class RAudioNode extends RComponent {
       try {
         param[fn](value, transitionTime);
       } catch (e) {
-        param['linearRampToValueAtTime'](value, transitionTime);
+        param["linearRampToValueAtTime"](value, transitionTime);
       }
     } else {
-      param.setValueAtTime(value, transitionTime || this.context.audio.currentTime);
+      param.setValueAtTime(
+        value,
+        transitionTime || this.context.audio.currentTime
+      );
     }
   }
 
@@ -171,26 +190,40 @@ export default class RAudioNode extends RComponent {
         <li>
           <div>
             <strong>
-              {this.constructor.name} <em>{this.props.name || ''}</em>
-              <sup><mark>{this.props.disconnected && 'disconnected' || ''}</mark></sup>
+              {this.constructor.name} <em>{this.props.name || ""}</em>
+              <sup>
+                <mark>{(this.props.disconnected && "disconnected") || ""}</mark>
+              </sup>
             </strong>
-            <div>{ this.props.connectToParam ? <span> connects to <em>{this.props.connectToParam}</em></span> : null }</div>
+            <div>
+              {this.props.connectToParam ? (
+                <span>
+                  {" "}
+                  connects to <em>{this.props.connectToParam}</em>
+                </span>
+              ) : null}
+            </div>
           </div>
           <ul>
-            {
-              Object.keys(this.params).map((p, pi) => {
-                if (!this.props[p] && this.props[p] !== 0) return null;
+            {Object.keys(this.params).map((p, pi) => {
+              if (!this.props[p] && this.props[p] !== 0) return null;
 
-                let param = this.props[p];
-                if (typeof this.props[p] === 'boolean') param = this.props[p].toString();
+              let param = this.props[p];
+              if (typeof this.props[p] === "boolean")
+                param = this.props[p].toString();
 
-                if (!(['number', 'string', 'boolean'].includes(typeof this.props[p]))) {
-                  param = param.constructor.name;
-                }
+              if (
+                !["number", "string", "boolean"].includes(typeof this.props[p])
+              ) {
+                param = param.constructor.name;
+              }
 
-                return <li key={pi}>{p}: <code>{param}</code></li>;
-              })
-            }
+              return (
+                <li key={pi}>
+                  {p}: <code>{param}</code>
+                </li>
+              );
+            })}
           </ul>
         </li>
       );

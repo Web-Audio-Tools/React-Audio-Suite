@@ -2,11 +2,9 @@
 
 A React Component using the Web Audio API to record, save, and play audio.
 
-
 ## Demo & Examples
 
 Live demo: [danrouse.github.io/react-audio-recorder](https://danrouse.github.io/react-audio-recorder/)
-
 
 ## Installation
 
@@ -17,7 +15,6 @@ You can also use the standalone build by including `dist/AudioRecorder.min.js` i
 ```
 npm install react-audio-recorder --save
 ```
-
 
 ## Usage
 
@@ -33,26 +30,27 @@ import AudioRecorder from 'react-audio-recorder';
 For more detailed usage examples, see the [live demo](http://kremonte.github.io/react-audio-recorder/).
 
 ### Properties
-property|type|default|Description
-----|----|-------|-----------
-initialAudio|Blob|An initial Blob of audio data
-downloadable|boolean|`true`|Whether to show a download button
-loop|boolean|`false`|Whether to loop audio playback
-filename|string|`'output.wav'`|Downloaded file name
-className|string|`''`|CSS class name on the container element
-style|Object|`{}`|Inline styles on the container element
-onAbort|`() => void`||Callback when playback is stopped
-onChange|`(AudioRecorderChangeEvent) => void`||Callback when the recording buffer is modified
-onEnded|`() => void`||Callback when playback completes on its own
-onPause|`() => void`||(NYI)
-onPlay|`() => void`||Callback when playback begins
-onRecordStart|`() => void`||Callback when recording begins
-playLabel|string|'🔊 Play'|Button label
-playingLabel|string|'❚❚ Playing'|Button label
-recordLabel|string|'● Record'|Button label
-recordingLabel|string|'● Recording'|Button label
-removeLabel|string|'✖ Remove'|Button label
-downloadLabel|string|'💾 Save'|Button label
+
+| property       | type                                 | default                       | Description                                    |
+| -------------- | ------------------------------------ | ----------------------------- | ---------------------------------------------- |
+| initialAudio   | Blob                                 | An initial Blob of audio data |
+| downloadable   | boolean                              | `true`                        | Whether to show a download button              |
+| loop           | boolean                              | `false`                       | Whether to loop audio playback                 |
+| filename       | string                               | `'output.wav'`                | Downloaded file name                           |
+| className      | string                               | `''`                          | CSS class name on the container element        |
+| style          | Object                               | `{}`                          | Inline styles on the container element         |
+| onAbort        | `() => void`                         |                               | Callback when playback is stopped              |
+| onChange       | `(AudioRecorderChangeEvent) => void` |                               | Callback when the recording buffer is modified |
+| onEnded        | `() => void`                         |                               | Callback when playback completes on its own    |
+| onPause        | `() => void`                         |                               | (NYI)                                          |
+| onPlay         | `() => void`                         |                               | Callback when playback begins                  |
+| onRecordStart  | `() => void`                         |                               | Callback when recording begins                 |
+| playLabel      | string                               | '🔊 Play'                     | Button label                                   |
+| playingLabel   | string                               | '❚❚ Playing'                  | Button label                                   |
+| recordLabel    | string                               | '● Record'                    | Button label                                   |
+| recordingLabel | string                               | '● Recording'                 | Button label                                   |
+| removeLabel    | string                               | '✖ Remove'                    | Button label                                   |
+| downloadLabel  | string                               | '💾 Save'                     | Button label                                   |
 
 ### Notes
 
@@ -61,7 +59,6 @@ This component is intended for use with short sounds only, such as speech sample
 ### Compatibility
 
 Because of its usage of the Web Audio API, react-audio-recorder is not compatible with any version of Internet Explorer (Edge is compatible).
-
 
 ## Development
 

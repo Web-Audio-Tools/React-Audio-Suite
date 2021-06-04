@@ -1,5 +1,5 @@
-import React from 'react';
-import { render } from 'react-dom';
+import React from "react";
+import { render } from "react-dom";
 
 import {
   RAudioContext,
@@ -7,13 +7,13 @@ import {
   RDelay,
   RGain,
   RMediaElementSource,
-  RPipeline
-} from '../index.js';
+  RPipeline,
+} from "../index.js";
 
 export default class MediaElementSourceExample extends React.Component {
   constructor(props) {
     super(props);
-    this.audio = new Audio('/assets/audio/clarinet.mp3');
+    this.audio = new Audio("/assets/audio/clarinet.mp3");
     this.audio.autoplay = true;
     this.audio.loop = true;
   }
@@ -23,7 +23,12 @@ export default class MediaElementSourceExample extends React.Component {
       <RAudioContext debug={true}>
         <article>
           <h1>Media Element</h1>
-          <p>This example demonstrates plugging a HTML5 Audio element to the <em>r-audio</em> graph using <code>RMediaElementSource</code>. A reference to the audio element could also be obtained via React refs.</p>
+          <p>
+            This example demonstrates plugging a HTML5 Audio element to the{" "}
+            <em>r-audio</em> graph using <code>RMediaElementSource</code>. A
+            reference to the audio element could also be obtained via React
+            refs.
+          </p>
         </article>
         <RPipeline>
           <RMediaElementSource element={this.audio} />

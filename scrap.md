@@ -1,8 +1,6 @@
-
 # React Audio Components (JS & TSX)
 
 ---
-
 
 ## WEB Audio API:
 
@@ -16,76 +14,47 @@ The APIs have been designed with a wide variety of use cases [\[webaudio-usecase
 
 The API supports these primary features:
 
--   [Modular routing](https://www.w3.org/TR/webaudio/#ModularRouting) for simple or complex mixing/effect architectures.
-    
--   High dynamic range, using 32-bit floats for internal processing.
-    
--   [Sample-accurate scheduled sound playback](https://www.w3.org/TR/webaudio/#AudioParam) with low [latency](https://www.w3.org/TR/webaudio/#latency) for musical applications requiring a very high degree of rhythmic precision such as drum machines and sequencers. This also includes the possibility of [dynamic creation](https://www.w3.org/TR/webaudio/#DynamicLifetime) of effects.
-    
--   Automation of audio parameters for envelopes, fade-ins / fade-outs, granular effects, filter sweeps, LFOs etc.
-    
--   Flexible handling of channels in an audio stream, allowing them to be split and merged.
-    
--   Processing of audio sources from an `[audio](https://html.spec.whatwg.org/multipage/media.html#audio)` or `[video](https://html.spec.whatwg.org/multipage/media.html#video)` `[media element](https://www.w3.org/TR/webaudio/#mediaelementaudiosourcenode)`.
-    
--   Processing live audio input using a `[MediaStream](https://www.w3.org/TR/webaudio/#mediastreamtrackaudiosourcenode)` from `[getUserMedia()](https://www.w3.org/TR/mediacapture-streams/#dom-mediadevices-getusermedia)`.
-    
--   Integration with WebRTC
-    
-    -   Processing audio received from a remote peer using a `[MediaStreamTrackAudioSourceNode](https://www.w3.org/TR/webaudio/#mediastreamtrackaudiosourcenode)` and [\[webrtc\]](https://www.w3.org/TR/webaudio/#biblio-webrtc).
-        
-    -   Sending a generated or processed audio stream to a remote peer using a `[MediaStreamAudioDestinationNode](https://www.w3.org/TR/webaudio/#mediastreamaudiodestinationnode)` and [\[webrtc\]](https://www.w3.org/TR/webaudio/#biblio-webrtc).
-        
--   Audio stream synthesis and processing [directly using scripts](https://www.w3.org/TR/webaudio/#AudioWorklet).
-    
--   [Spatialized audio](https://www.w3.org/TR/webaudio/#Spatialization) supporting a wide range of 3D games and immersive environments:
-    
-    -   Panning models: equalpower, HRTF, pass-through
-        
-    -   Distance Attenuation
-        
-    -   Sound Cones
-        
-    -   Obstruction / Occlusion
-        
-    -   Source / Listener based
-        
--   A convolution engine for a wide range of linear effects, especially very high-quality room effects. Here are some examples of possible effects:
-    
-    -   Small / large room
-        
-    -   Cathedral
-        
-    -   Concert hall
-        
-    -   Cave
-        
-    -   Tunnel
-        
-    -   Hallway
-        
-    -   Forest
-        
-    -   Amphitheater
-        
-    -   Sound of a distant room through a doorway
-        
-    -   Extreme filters
-        
-    -   Strange backwards effects
-        
-    -   Extreme comb filter effects
-        
--   Dynamics compression for overall control and sweetening of the mix
-    
--   Efficient [real-time time-domain and frequency-domain analysis / music visualizer support](https://www.w3.org/TR/webaudio/#AnalyserNode).
-    
--   Efficient biquad filters for lowpass, highpass, and other common filters.
-    
--   A Waveshaping effect for distortion and other non-linear effects
-    
--   Oscillators
-    
+- [Modular routing](https://www.w3.org/TR/webaudio/#ModularRouting) for simple or complex mixing/effect architectures.
+- High dynamic range, using 32-bit floats for internal processing.
+- [Sample-accurate scheduled sound playback](https://www.w3.org/TR/webaudio/#AudioParam) with low [latency](https://www.w3.org/TR/webaudio/#latency) for musical applications requiring a very high degree of rhythmic precision such as drum machines and sequencers. This also includes the possibility of [dynamic creation](https://www.w3.org/TR/webaudio/#DynamicLifetime) of effects.
+- Automation of audio parameters for envelopes, fade-ins / fade-outs, granular effects, filter sweeps, LFOs etc.
+- Flexible handling of channels in an audio stream, allowing them to be split and merged.
+- Processing of audio sources from an `[audio](https://html.spec.whatwg.org/multipage/media.html#audio)` or `[video](https://html.spec.whatwg.org/multipage/media.html#video)` `[media element](https://www.w3.org/TR/webaudio/#mediaelementaudiosourcenode)`.
+- Processing live audio input using a `[MediaStream](https://www.w3.org/TR/webaudio/#mediastreamtrackaudiosourcenode)` from `[getUserMedia()](https://www.w3.org/TR/mediacapture-streams/#dom-mediadevices-getusermedia)`.
+- Integration with WebRTC
+
+  - Processing audio received from a remote peer using a `[MediaStreamTrackAudioSourceNode](https://www.w3.org/TR/webaudio/#mediastreamtrackaudiosourcenode)` and [\[webrtc\]](https://www.w3.org/TR/webaudio/#biblio-webrtc).
+  - Sending a generated or processed audio stream to a remote peer using a `[MediaStreamAudioDestinationNode](https://www.w3.org/TR/webaudio/#mediastreamaudiodestinationnode)` and [\[webrtc\]](https://www.w3.org/TR/webaudio/#biblio-webrtc).
+
+- Audio stream synthesis and processing [directly using scripts](https://www.w3.org/TR/webaudio/#AudioWorklet).
+- [Spatialized audio](https://www.w3.org/TR/webaudio/#Spatialization) supporting a wide range of 3D games and immersive environments:
+
+  - Panning models: equalpower, HRTF, pass-through
+  - Distance Attenuation
+  - Sound Cones
+  - Obstruction / Occlusion
+  - Source / Listener based
+
+- A convolution engine for a wide range of linear effects, especially very high-quality room effects. Here are some examples of possible effects:
+
+  - Small / large room
+  - Cathedral
+  - Concert hall
+  - Cave
+  - Tunnel
+  - Hallway
+  - Forest
+  - Amphitheater
+  - Sound of a distant room through a doorway
+  - Extreme filters
+  - Strange backwards effects
+  - Extreme comb filter effects
+
+- Dynamics compression for overall control and sweetening of the mix
+- Efficient [real-time time-domain and frequency-domain analysis / music visualizer support](https://www.w3.org/TR/webaudio/#AnalyserNode).
+- Efficient biquad filters for lowpass, highpass, and other common filters.
+- A Waveshaping effect for distortion and other non-linear effects
+- Oscillators
 
 #### Modular Routing
 
@@ -102,10 +71,10 @@ Illustrating this simple routing, here’s a simple example playing a single sou
 [](https://www.w3.org/TR/webaudio/#example-05baec05)const context \= new AudioContext();
 
 function playSound() {
-  const source \= context.createBufferSource();
-  source.buffer \= dogBarkingBuffer;
-  source.connect(context.destination);
-  source.start(0);
+const source \= context.createBufferSource();
+source.buffer \= dogBarkingBuffer;
+source.connect(context.destination);
+source.start(0);
 }
 
 Here’s a more complex example with three sources and a convolution reverb send with a dynamics compressor at the final output stage:
@@ -128,89 +97,51 @@ Modular routing illustrating one Oscillator modulating the frequency of another.
 
 The interfaces defined are:
 
--   An [AudioContext](https://www.w3.org/TR/webaudio/#AudioContext) interface, which contains an audio signal graph representing connections between `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`s.
-    
--   An `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` interface, which represents audio sources, audio outputs, and intermediate processing modules. `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`s can be dynamically connected together in a [modular fashion](https://www.w3.org/TR/webaudio/#ModularRouting). `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`s exist in the context of an `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)`.
-    
--   An `[AnalyserNode](https://www.w3.org/TR/webaudio/#analysernode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` for use with music visualizers, or other visualization applications.
-    
--   An `[AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer)` interface, for working with memory-resident audio assets. These can represent one-shot sounds, or longer audio clips.
-    
--   An `[AudioBufferSourceNode](https://www.w3.org/TR/webaudio/#audiobuffersourcenode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` which generates audio from an AudioBuffer.
-    
--   An `[AudioDestinationNode](https://www.w3.org/TR/webaudio/#audiodestinationnode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` subclass representing the final destination for all rendered audio.
-    
--   An `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)` interface, for controlling an individual aspect of an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`'s functioning, such as volume.
-    
--   An `[AudioListener](https://www.w3.org/TR/webaudio/#audiolistener)` interface, which works with a `[PannerNode](https://www.w3.org/TR/webaudio/#pannernode)` for spatialization.
-    
--   An `[AudioWorklet](https://www.w3.org/TR/webaudio/#audioworklet)` interface representing a factory for creating custom nodes that can process audio directly using scripts.
-    
--   An `[AudioWorkletGlobalScope](https://www.w3.org/TR/webaudio/#audioworkletglobalscope)` interface, the context in which AudioWorkletProcessor processing scripts run.
-    
--   An `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` representing a node processed in an AudioWorkletProcessor.
-    
--   An `[AudioWorkletProcessor](https://www.w3.org/TR/webaudio/#audioworkletprocessor)` interface, representing a single node instance inside an audio worker.
-    
--   A `[BiquadFilterNode](https://www.w3.org/TR/webaudio/#biquadfilternode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` for common low-order filters such as:
-    
-    -   Low Pass
-        
-    -   High Pass
-        
-    -   Band Pass
-        
-    -   Low Shelf
-        
-    -   High Shelf
-        
-    -   Peaking
-        
-    -   Notch
-        
-    -   Allpass
-        
--   A `[ChannelMergerNode](https://www.w3.org/TR/webaudio/#channelmergernode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` for combining channels from multiple audio streams into a single audio stream.
-    
--   A `[ChannelSplitterNode](https://www.w3.org/TR/webaudio/#channelsplitternode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` for accessing the individual channels of an audio stream in the routing graph.
-    
--   A `[ConstantSourceNode](https://www.w3.org/TR/webaudio/#constantsourcenode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` for generating a nominally constant output value with an `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)` to allow automation of the value.
-    
--   A `[ConvolverNode](https://www.w3.org/TR/webaudio/#convolvernode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` for applying a real-time linear effect (such as the sound of a concert hall).
-    
--   A `[DelayNode](https://www.w3.org/TR/webaudio/#delaynode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` which applies a dynamically adjustable variable delay.
-    
--   A `[DynamicsCompressorNode](https://www.w3.org/TR/webaudio/#dynamicscompressornode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` for dynamics compression.
-    
--   A `[GainNode](https://www.w3.org/TR/webaudio/#gainnode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` for explicit gain control.
-    
--   An `[IIRFilterNode](https://www.w3.org/TR/webaudio/#iirfilternode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` for a general IIR filter.
-    
--   A `[MediaElementAudioSourceNode](https://www.w3.org/TR/webaudio/#mediaelementaudiosourcenode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` which is the audio source from an `[audio](https://html.spec.whatwg.org/multipage/media.html#audio)`, `[video](https://html.spec.whatwg.org/multipage/media.html#video)`, or other media element.
-    
--   A `[MediaStreamAudioSourceNode](https://www.w3.org/TR/webaudio/#mediastreamaudiosourcenode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` which is the audio source from a `[MediaStream](https://www.w3.org/TR/mediacapture-streams/#dom-mediastream)` such as live audio input, or from a remote peer.
-    
--   A `[MediaStreamTrackAudioSourceNode](https://www.w3.org/TR/webaudio/#mediastreamtrackaudiosourcenode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` which is the audio source from a `[MediaStreamTrack](https://www.w3.org/TR/mediacapture-streams/#dom-mediastreamtrack)`.
-    
--   A `[MediaStreamAudioDestinationNode](https://www.w3.org/TR/webaudio/#mediastreamaudiodestinationnode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` which is the audio destination to a `[MediaStream](https://www.w3.org/TR/mediacapture-streams/#dom-mediastream)` sent to a remote peer.
-    
--   A `[PannerNode](https://www.w3.org/TR/webaudio/#pannernode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` for spatializing / positioning audio in 3D space.
-    
--   A `[PeriodicWave](https://www.w3.org/TR/webaudio/#periodicwave)` interface for specifying custom periodic waveforms for use by the `[OscillatorNode](https://www.w3.org/TR/webaudio/#oscillatornode)`.
-    
--   An `[OscillatorNode](https://www.w3.org/TR/webaudio/#oscillatornode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` for generating a periodic waveform.
-    
--   A `[StereoPannerNode](https://www.w3.org/TR/webaudio/#stereopannernode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` for equal-power positioning of audio input in a stereo stream.
-    
--   A `[WaveShaperNode](https://www.w3.org/TR/webaudio/#waveshapernode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` which applies a non-linear waveshaping effect for distortion and other more subtle warming effects.
-    
+- An [AudioContext](https://www.w3.org/TR/webaudio/#AudioContext) interface, which contains an audio signal graph representing connections between `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`s.
+- An `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` interface, which represents audio sources, audio outputs, and intermediate processing modules. `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`s can be dynamically connected together in a [modular fashion](https://www.w3.org/TR/webaudio/#ModularRouting). `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`s exist in the context of an `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)`.
+- An `[AnalyserNode](https://www.w3.org/TR/webaudio/#analysernode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` for use with music visualizers, or other visualization applications.
+- An `[AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer)` interface, for working with memory-resident audio assets. These can represent one-shot sounds, or longer audio clips.
+- An `[AudioBufferSourceNode](https://www.w3.org/TR/webaudio/#audiobuffersourcenode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` which generates audio from an AudioBuffer.
+- An `[AudioDestinationNode](https://www.w3.org/TR/webaudio/#audiodestinationnode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` subclass representing the final destination for all rendered audio.
+- An `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)` interface, for controlling an individual aspect of an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`'s functioning, such as volume.
+- An `[AudioListener](https://www.w3.org/TR/webaudio/#audiolistener)` interface, which works with a `[PannerNode](https://www.w3.org/TR/webaudio/#pannernode)` for spatialization.
+- An `[AudioWorklet](https://www.w3.org/TR/webaudio/#audioworklet)` interface representing a factory for creating custom nodes that can process audio directly using scripts.
+- An `[AudioWorkletGlobalScope](https://www.w3.org/TR/webaudio/#audioworkletglobalscope)` interface, the context in which AudioWorkletProcessor processing scripts run.
+- An `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` representing a node processed in an AudioWorkletProcessor.
+- An `[AudioWorkletProcessor](https://www.w3.org/TR/webaudio/#audioworkletprocessor)` interface, representing a single node instance inside an audio worker.
+- A `[BiquadFilterNode](https://www.w3.org/TR/webaudio/#biquadfilternode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` for common low-order filters such as:
+
+  - Low Pass
+  - High Pass
+  - Band Pass
+  - Low Shelf
+  - High Shelf
+  - Peaking
+  - Notch
+  - Allpass
+
+- A `[ChannelMergerNode](https://www.w3.org/TR/webaudio/#channelmergernode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` for combining channels from multiple audio streams into a single audio stream.
+- A `[ChannelSplitterNode](https://www.w3.org/TR/webaudio/#channelsplitternode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` for accessing the individual channels of an audio stream in the routing graph.
+- A `[ConstantSourceNode](https://www.w3.org/TR/webaudio/#constantsourcenode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` for generating a nominally constant output value with an `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)` to allow automation of the value.
+- A `[ConvolverNode](https://www.w3.org/TR/webaudio/#convolvernode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` for applying a real-time linear effect (such as the sound of a concert hall).
+- A `[DelayNode](https://www.w3.org/TR/webaudio/#delaynode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` which applies a dynamically adjustable variable delay.
+- A `[DynamicsCompressorNode](https://www.w3.org/TR/webaudio/#dynamicscompressornode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` for dynamics compression.
+- A `[GainNode](https://www.w3.org/TR/webaudio/#gainnode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` for explicit gain control.
+- An `[IIRFilterNode](https://www.w3.org/TR/webaudio/#iirfilternode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` for a general IIR filter.
+- A `[MediaElementAudioSourceNode](https://www.w3.org/TR/webaudio/#mediaelementaudiosourcenode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` which is the audio source from an `[audio](https://html.spec.whatwg.org/multipage/media.html#audio)`, `[video](https://html.spec.whatwg.org/multipage/media.html#video)`, or other media element.
+- A `[MediaStreamAudioSourceNode](https://www.w3.org/TR/webaudio/#mediastreamaudiosourcenode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` which is the audio source from a `[MediaStream](https://www.w3.org/TR/mediacapture-streams/#dom-mediastream)` such as live audio input, or from a remote peer.
+- A `[MediaStreamTrackAudioSourceNode](https://www.w3.org/TR/webaudio/#mediastreamtrackaudiosourcenode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` which is the audio source from a `[MediaStreamTrack](https://www.w3.org/TR/mediacapture-streams/#dom-mediastreamtrack)`.
+- A `[MediaStreamAudioDestinationNode](https://www.w3.org/TR/webaudio/#mediastreamaudiodestinationnode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` which is the audio destination to a `[MediaStream](https://www.w3.org/TR/mediacapture-streams/#dom-mediastream)` sent to a remote peer.
+- A `[PannerNode](https://www.w3.org/TR/webaudio/#pannernode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` for spatializing / positioning audio in 3D space.
+- A `[PeriodicWave](https://www.w3.org/TR/webaudio/#periodicwave)` interface for specifying custom periodic waveforms for use by the `[OscillatorNode](https://www.w3.org/TR/webaudio/#oscillatornode)`.
+- An `[OscillatorNode](https://www.w3.org/TR/webaudio/#oscillatornode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` for generating a periodic waveform.
+- A `[StereoPannerNode](https://www.w3.org/TR/webaudio/#stereopannernode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` for equal-power positioning of audio input in a stereo stream.
+- A `[WaveShaperNode](https://www.w3.org/TR/webaudio/#waveshapernode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` which applies a non-linear waveshaping effect for distortion and other more subtle warming effects.
 
 There are also several features that have been deprecated from the Web Audio API but not yet removed, pending implementation experience of their replacements:
 
--   A `[ScriptProcessorNode](https://www.w3.org/TR/webaudio/#scriptprocessornode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` for generating or processing audio directly using scripts.
-    
--   An `[AudioProcessingEvent](https://www.w3.org/TR/webaudio/#audioprocessingevent)` interface, which is an event type used with `[ScriptProcessorNode](https://www.w3.org/TR/webaudio/#scriptprocessornode)` objects.
-    
+- A `[ScriptProcessorNode](https://www.w3.org/TR/webaudio/#scriptprocessornode)` interface, an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` for generating or processing audio directly using scripts.
+- An `[AudioProcessingEvent](https://www.w3.org/TR/webaudio/#audioprocessingevent)` interface, which is an event type used with `[ScriptProcessorNode](https://www.w3.org/TR/webaudio/#scriptprocessornode)` objects.
 
 ## 1\. The Audio API[](https://www.w3.org/TR/webaudio/#audioapi)
 
@@ -220,15 +151,15 @@ There are also several features that have been deprecated from the Web Audio API
 
 Firefox53+SafariNoneChrome56+
 
-___
+---
 
 Opera43+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android53+iOS SafariNoneChrome for Android56+Android WebView56+Samsung Internet6.0+Opera Mobile43+
 
@@ -241,9 +172,9 @@ This interface represents a set of `[AudioNode](https://www.w3.org/TR/webaudio/#
 Each `[BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext)` has a unique [media element event task source](https://html.spec.whatwg.org/multipage/media.html#media-element-event-task-source). Additionally, a `[BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext)` has two private slots `[[rendering thread state]]` and `[[control thread state]]` that take values from `[AudioContextState](https://www.w3.org/TR/webaudio/#enumdef-audiocontextstate)`, and that are both initialy set to `"suspended"`.
 
 enum `AudioContextState` {
-  ["suspended"](https://www.w3.org/TR/webaudio/#dom-audiocontextstate-suspended),
-  ["running"](https://www.w3.org/TR/webaudio/#dom-audiocontextstate-running),
-  ["closed"](https://www.w3.org/TR/webaudio/#dom-audiocontextstate-closed)
+["suspended"](https://www.w3.org/TR/webaudio/#dom-audiocontextstate-suspended),
+["running"](https://www.w3.org/TR/webaudio/#dom-audiocontextstate-running),
+["closed"](https://www.w3.org/TR/webaudio/#dom-audiocontextstate-closed)
 };
 
 Enumeration description
@@ -266,47 +197,47 @@ callback [DecodeSuccessCallback](https://www.w3.org/TR/webaudio/#callback-decode
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `BaseAudioContext` : [EventTarget](https://dom.spec.whatwg.org/#eventtarget) {
-  readonly attribute [AudioDestinationNode](https://www.w3.org/TR/webaudio/#audiodestinationnode) [destination](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-destination);
-  readonly attribute [float](https://heycam.github.io/webidl/#idl-float) [sampleRate](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-samplerate);
-  readonly attribute [double](https://heycam.github.io/webidl/#idl-double) [currentTime](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-currenttime);
-  readonly attribute [AudioListener](https://www.w3.org/TR/webaudio/#audiolistener) [listener](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-listener);
-  readonly attribute [AudioContextState](https://www.w3.org/TR/webaudio/#enumdef-audiocontextstate) [state](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-state);
-  \[[SameObject](https://heycam.github.io/webidl/#SameObject), [SecureContext](https://heycam.github.io/webidl/#SecureContext)\]
-  readonly attribute [AudioWorklet](https://www.w3.org/TR/webaudio/#audioworklet) [audioWorklet](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-audioworklet);
-  attribute [EventHandler](https://html.spec.whatwg.org/multipage/webappapis.html#eventhandler) [onstatechange](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-onstatechange);
+readonly attribute [AudioDestinationNode](https://www.w3.org/TR/webaudio/#audiodestinationnode) [destination](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-destination);
+readonly attribute [float](https://heycam.github.io/webidl/#idl-float) [sampleRate](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-samplerate);
+readonly attribute [double](https://heycam.github.io/webidl/#idl-double) [currentTime](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-currenttime);
+readonly attribute [AudioListener](https://www.w3.org/TR/webaudio/#audiolistener) [listener](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-listener);
+readonly attribute [AudioContextState](https://www.w3.org/TR/webaudio/#enumdef-audiocontextstate) [state](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-state);
+\[[SameObject](https://heycam.github.io/webidl/#SameObject), [SecureContext](https://heycam.github.io/webidl/#SecureContext)\]
+readonly attribute [AudioWorklet](https://www.w3.org/TR/webaudio/#audioworklet) [audioWorklet](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-audioworklet);
+attribute [EventHandler](https://html.spec.whatwg.org/multipage/webappapis.html#eventhandler) [onstatechange](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-onstatechange);
 
-  [AnalyserNode](https://www.w3.org/TR/webaudio/#analysernode) [createAnalyser](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createanalyser) ();
-  [BiquadFilterNode](https://www.w3.org/TR/webaudio/#biquadfilternode) [createBiquadFilter](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createbiquadfilter) ();
-  [AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer) [createBuffer](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createbuffer) ([unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) `numberOfChannels`[](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createbuffer-numberofchannels-length-samplerate-numberofchannels),
-                            [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) `length`[](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createbuffer-numberofchannels-length-samplerate-length),
-                            [float](https://heycam.github.io/webidl/#idl-float) `sampleRate`[](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createbuffer-numberofchannels-length-samplerate-samplerate));
-  [AudioBufferSourceNode](https://www.w3.org/TR/webaudio/#audiobuffersourcenode) [createBufferSource](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createbuffersource) ();
-  [ChannelMergerNode](https://www.w3.org/TR/webaudio/#channelmergernode) [createChannelMerger](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createchannelmerger) (optional [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfInputs](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createchannelmerger-numberofinputs-numberofinputs) = 6);
-  [ChannelSplitterNode](https://www.w3.org/TR/webaudio/#channelsplitternode) [createChannelSplitter](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createchannelsplitter) (
-    optional [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfOutputs](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createchannelsplitter-numberofoutputs-numberofoutputs) = 6);
-  [ConstantSourceNode](https://www.w3.org/TR/webaudio/#constantsourcenode) [createConstantSource](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createconstantsource) ();
-  [ConvolverNode](https://www.w3.org/TR/webaudio/#convolvernode) [createConvolver](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createconvolver) ();
-  [DelayNode](https://www.w3.org/TR/webaudio/#delaynode) [createDelay](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createdelay) (optional [double](https://heycam.github.io/webidl/#idl-double) [maxDelayTime](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createdelay-maxdelaytime-maxdelaytime) = 1.0);
-  [DynamicsCompressorNode](https://www.w3.org/TR/webaudio/#dynamicscompressornode) [createDynamicsCompressor](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createdynamicscompressor) ();
-  [GainNode](https://www.w3.org/TR/webaudio/#gainnode) [createGain](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-creategain) ();
-  [IIRFilterNode](https://www.w3.org/TR/webaudio/#iirfilternode) [createIIRFilter](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createiirfilter) ([sequence](https://heycam.github.io/webidl/#idl-sequence)<[double](https://heycam.github.io/webidl/#idl-double)\> `feedforward`[](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createiirfilter-feedforward-feedback-feedforward),
-                                 [sequence](https://heycam.github.io/webidl/#idl-sequence)<[double](https://heycam.github.io/webidl/#idl-double)\> `feedback`[](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createiirfilter-feedforward-feedback-feedback));
-  [OscillatorNode](https://www.w3.org/TR/webaudio/#oscillatornode) [createOscillator](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createoscillator) ();
-  [PannerNode](https://www.w3.org/TR/webaudio/#pannernode) [createPanner](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createpanner) ();
-  [PeriodicWave](https://www.w3.org/TR/webaudio/#periodicwave) [createPeriodicWave](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createperiodicwave) ([sequence](https://heycam.github.io/webidl/#idl-sequence)<[float](https://heycam.github.io/webidl/#idl-float)\> `real`[](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createperiodicwave-real-imag-constraints-real),
-                                   [sequence](https://heycam.github.io/webidl/#idl-sequence)<[float](https://heycam.github.io/webidl/#idl-float)\> `imag`[](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createperiodicwave-real-imag-constraints-imag),
-                                   optional [PeriodicWaveConstraints](https://www.w3.org/TR/webaudio/#dictdef-periodicwaveconstraints) `constraints`[](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createperiodicwave-real-imag-constraints-constraints) = {});
-  [ScriptProcessorNode](https://www.w3.org/TR/webaudio/#scriptprocessornode) [createScriptProcessor](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createscriptprocessor)(
-    optional [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [bufferSize](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createscriptprocessor-buffersize-numberofinputchannels-numberofoutputchannels-buffersize) = 0,
-    optional [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfInputChannels](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createscriptprocessor-buffersize-numberofinputchannels-numberofoutputchannels-numberofinputchannels) = 2,
-    optional [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfOutputChannels](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createscriptprocessor-buffersize-numberofinputchannels-numberofoutputchannels-numberofoutputchannels) = 2);
-  [StereoPannerNode](https://www.w3.org/TR/webaudio/#stereopannernode) [createStereoPanner](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createstereopanner) ();
-  [WaveShaperNode](https://www.w3.org/TR/webaudio/#waveshapernode) [createWaveShaper](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createwaveshaper) ();
+[AnalyserNode](https://www.w3.org/TR/webaudio/#analysernode) [createAnalyser](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createanalyser) ();
+[BiquadFilterNode](https://www.w3.org/TR/webaudio/#biquadfilternode) [createBiquadFilter](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createbiquadfilter) ();
+[AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer) [createBuffer](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createbuffer) ([unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) `numberOfChannels`[](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createbuffer-numberofchannels-length-samplerate-numberofchannels),
+[unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) `length`[](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createbuffer-numberofchannels-length-samplerate-length),
+[float](https://heycam.github.io/webidl/#idl-float) `sampleRate`[](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createbuffer-numberofchannels-length-samplerate-samplerate));
+[AudioBufferSourceNode](https://www.w3.org/TR/webaudio/#audiobuffersourcenode) [createBufferSource](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createbuffersource) ();
+[ChannelMergerNode](https://www.w3.org/TR/webaudio/#channelmergernode) [createChannelMerger](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createchannelmerger) (optional [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfInputs](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createchannelmerger-numberofinputs-numberofinputs) = 6);
+[ChannelSplitterNode](https://www.w3.org/TR/webaudio/#channelsplitternode) [createChannelSplitter](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createchannelsplitter) (
+optional [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfOutputs](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createchannelsplitter-numberofoutputs-numberofoutputs) = 6);
+[ConstantSourceNode](https://www.w3.org/TR/webaudio/#constantsourcenode) [createConstantSource](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createconstantsource) ();
+[ConvolverNode](https://www.w3.org/TR/webaudio/#convolvernode) [createConvolver](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createconvolver) ();
+[DelayNode](https://www.w3.org/TR/webaudio/#delaynode) [createDelay](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createdelay) (optional [double](https://heycam.github.io/webidl/#idl-double) [maxDelayTime](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createdelay-maxdelaytime-maxdelaytime) = 1.0);
+[DynamicsCompressorNode](https://www.w3.org/TR/webaudio/#dynamicscompressornode) [createDynamicsCompressor](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createdynamicscompressor) ();
+[GainNode](https://www.w3.org/TR/webaudio/#gainnode) [createGain](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-creategain) ();
+[IIRFilterNode](https://www.w3.org/TR/webaudio/#iirfilternode) [createIIRFilter](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createiirfilter) ([sequence](https://heycam.github.io/webidl/#idl-sequence)<[double](https://heycam.github.io/webidl/#idl-double)\> `feedforward`[](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createiirfilter-feedforward-feedback-feedforward),
+[sequence](https://heycam.github.io/webidl/#idl-sequence)<[double](https://heycam.github.io/webidl/#idl-double)\> `feedback`[](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createiirfilter-feedforward-feedback-feedback));
+[OscillatorNode](https://www.w3.org/TR/webaudio/#oscillatornode) [createOscillator](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createoscillator) ();
+[PannerNode](https://www.w3.org/TR/webaudio/#pannernode) [createPanner](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createpanner) ();
+[PeriodicWave](https://www.w3.org/TR/webaudio/#periodicwave) [createPeriodicWave](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createperiodicwave) ([sequence](https://heycam.github.io/webidl/#idl-sequence)<[float](https://heycam.github.io/webidl/#idl-float)\> `real`[](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createperiodicwave-real-imag-constraints-real),
+[sequence](https://heycam.github.io/webidl/#idl-sequence)<[float](https://heycam.github.io/webidl/#idl-float)\> `imag`[](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createperiodicwave-real-imag-constraints-imag),
+optional [PeriodicWaveConstraints](https://www.w3.org/TR/webaudio/#dictdef-periodicwaveconstraints) `constraints`[](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createperiodicwave-real-imag-constraints-constraints) = {});
+[ScriptProcessorNode](https://www.w3.org/TR/webaudio/#scriptprocessornode) [createScriptProcessor](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createscriptprocessor)(
+optional [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [bufferSize](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createscriptprocessor-buffersize-numberofinputchannels-numberofoutputchannels-buffersize) = 0,
+optional [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfInputChannels](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createscriptprocessor-buffersize-numberofinputchannels-numberofoutputchannels-numberofinputchannels) = 2,
+optional [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfOutputChannels](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createscriptprocessor-buffersize-numberofinputchannels-numberofoutputchannels-numberofoutputchannels) = 2);
+[StereoPannerNode](https://www.w3.org/TR/webaudio/#stereopannernode) [createStereoPanner](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createstereopanner) ();
+[WaveShaperNode](https://www.w3.org/TR/webaudio/#waveshapernode) [createWaveShaper](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createwaveshaper) ();
 
-  [Promise](https://heycam.github.io/webidl/#idl-promise)<[AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer)\> [decodeAudioData](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-decodeaudiodata) (
-    [ArrayBuffer](https://heycam.github.io/webidl/#idl-ArrayBuffer) `audioData`,
-    optional [DecodeSuccessCallback](https://www.w3.org/TR/webaudio/#callback-decodesuccesscallback-parameters)? `successCallback`[](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-decodeaudiodata-audiodata-successcallback-errorcallback-successcallback),
-    optional [DecodeErrorCallback](https://www.w3.org/TR/webaudio/#callback-decodeerrorcallback-parameters)? `errorCallback`[](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-decodeaudiodata-audiodata-successcallback-errorcallback-errorcallback));
+[Promise](https://heycam.github.io/webidl/#idl-promise)<[AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer)\> [decodeAudioData](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-decodeaudiodata) (
+[ArrayBuffer](https://heycam.github.io/webidl/#idl-ArrayBuffer) `audioData`,
+optional [DecodeSuccessCallback](https://www.w3.org/TR/webaudio/#callback-decodesuccesscallback-parameters)? `successCallback`[](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-decodeaudiodata-audiodata-successcallback-errorcallback-successcallback),
+optional [DecodeErrorCallback](https://www.w3.org/TR/webaudio/#callback-decodeerrorcallback-parameters)? `errorCallback`[](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-decodeaudiodata-audiodata-successcallback-errorcallback-errorcallback));
 };
 
 #### 1.1.1. Attributes[](https://www.w3.org/TR/webaudio/#BaseAudioContext-attributes)
@@ -315,15 +246,15 @@ interface `BaseAudioContext` : [EventTarget](https://dom.spec.whatwg.org/#eventt
 
 Firefox76+SafariNoneChrome66+
 
-___
+---
 
 OperaYesEdge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android79+iOS SafariNoneChrome for Android66+Android WebView66+Samsung Internet9.0+Opera MobileYes
 
@@ -337,15 +268,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -367,15 +298,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -389,15 +320,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -411,15 +342,15 @@ In all current engines.
 
 Firefox40+Safari9+Chrome43+
 
-___
+---
 
 OperaYesEdge79+
 
-___
+---
 
 Edge (Legacy)14+IENone
 
-___
+---
 
 Firefox for Android40+iOS Safari9+Chrome for AndroidYesAndroid WebViewYesSamsung InternetYesOpera MobileYes
 
@@ -433,15 +364,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -455,15 +386,15 @@ In all current engines.
 
 Firefox40+Safari9+Chrome43+
 
-___
+---
 
 OperaYesEdge79+
 
-___
+---
 
 Edge (Legacy)14+IENone
 
-___
+---
 
 Firefox for Android40+iOS Safari9+Chrome for AndroidYesAndroid WebViewYesSamsung InternetYesOpera MobileYes
 
@@ -479,15 +410,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -503,15 +434,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -527,15 +458,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -591,15 +522,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -615,15 +546,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -659,15 +590,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -679,15 +610,15 @@ Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung
 
 Firefox52+SafariNoneChrome56+
 
-___
+---
 
 Opera43+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android52+iOS SafariNoneChrome for Android56+Android WebView56+Samsung Internet6.0+Opera Mobile43+
 
@@ -703,15 +634,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -727,15 +658,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -771,15 +702,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -795,15 +726,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -817,15 +748,15 @@ _No parameters._
 
 Firefox50+SafariNoneChrome49+
 
-___
+---
 
 OperaYesEdge79+
 
-___
+---
 
 Edge (Legacy)14+IENone
 
-___
+---
 
 Firefox for Android50+iOS SafariNoneChrome for Android49+Android WebView49+Samsung Internet5.0+Opera MobileYes
 
@@ -869,15 +800,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome20+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android25+Android WebView37+Samsung Internet1.5+Opera Mobile14+
 
@@ -893,15 +824,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -917,15 +848,15 @@ In all current engines.
 
 Firefox25+Safari8+Chrome59+
 
-___
+---
 
 Opera17+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari8+Chrome for Android59+Android WebView59+Samsung Internet7.0+Opera Mobile18+
 
@@ -936,17 +867,11 @@ Firefox for Android25+iOS Safari8+Chrome for Android59+Android WebView59+Samsung
 When calling this method, execute these steps:
 
 1.  If `[real](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createperiodicwave-real)` and `[imag](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createperiodicwave-imag)` are not of the same length, an `[IndexSizeError](https://heycam.github.io/webidl/#indexsizeerror)` MUST be thrown.
-    
 2.  Let o be a new object of type `[PeriodicWaveOptions](https://www.w3.org/TR/webaudio/#dictdef-periodicwaveoptions)`.
-    
 3.  Respectively set the `[real](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createperiodicwave-real)` and `[imag](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createperiodicwave-imag)` parameters passed to this factory method to the attributes of the same name on o.
-    
 4.  Set the `[disableNormalization](https://www.w3.org/TR/webaudio/#dom-periodicwaveconstraints-disablenormalization)` attribute on o to the value of the `[disableNormalization](https://www.w3.org/TR/webaudio/#dom-periodicwaveconstraints-disablenormalization)` attribute of the `constraints` attribute passed to the factory method.
-    
 5.  Construct a new `[PeriodicWave](https://www.w3.org/TR/webaudio/#periodicwave)` p, passing the `[BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext)` this factory method has been called on as a first argument, and o.
-    
 6.  Return p.
-    
 
 Arguments for the [BaseAudioContext.createPeriodicWave()](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-createperiodicwave) method.
 
@@ -1042,15 +967,15 @@ This parameter determines the number of channels for this node’s output. The d
 
 Firefox37+SafariNoneChrome42+
 
-___
+---
 
 OperaNoneEdge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android37+iOS SafariNoneChrome for AndroidYesAndroid WebViewYesSamsung InternetYesOpera MobileNone
 
@@ -1066,15 +991,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -1090,15 +1015,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -1113,31 +1038,24 @@ When queuing a decoding operation to be performed on another thread, the followi
 Note: Multiple `[decoding thread](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-decoding-thread)`s can run in parallel to service multiple calls to `decodeAudioData`.
 
 1.  Let can decode be a boolean flag, initially set to true.
-    
 2.  Attempt to determine the MIME type of `[audioData](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-decodeaudiodata-audiodata-successcallback-errorcallback-audiodata)`, using [MIME Sniffing §6.2 Matching an audio or video type pattern](https://mimesniff.spec.whatwg.org/#matching-an-audio-or-video-type-pattern). If the audio or video type pattern matching algorithm returns `[undefined](https://heycam.github.io/webidl/#idl-undefined)`, set can decode to _false_.
-    
 3.  If can decode is _true_, attempt to decode the encoded `[audioData](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-decodeaudiodata-audiodata-successcallback-errorcallback-audiodata)` into [linear PCM](https://www.w3.org/TR/webaudio/#linear-pcm). In case of failure, set can decode to _false_.
-    
 4.  If can decode is `false`, [queue a media element task](https://html.spec.whatwg.org/multipage/media.html#queue-a-media-element-task) to execute the following steps:
-    
+
     1.  Let error be a `DOMException` whose name is `[EncodingError](https://heycam.github.io/webidl/#encodingerror)`.
-        
+
         2.  Reject promise with error, and remove it from `[[[pending promises]]](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-pending-promises-slot)`.
-            
+
     2.  If `[errorCallback](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-decodeaudiodata-errorcallback)` is not missing, invoke `[errorCallback](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-decodeaudiodata-errorcallback)` with error.
-        
+
 5.  Otherwise:
-    
+
     1.  Take the result, representing the decoded [linear PCM](https://www.w3.org/TR/webaudio/#linear-pcm) audio data, and resample it to the sample-rate of the `[BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext)` if it is different from the sample-rate of `[audioData](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-decodeaudiodata-audiodata-successcallback-errorcallback-audiodata)`.
-        
     2.  [queue a media element task](https://html.spec.whatwg.org/multipage/media.html#queue-a-media-element-task) to execute the following steps:
-        
+
         1.  Let buffer be an `[AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer)` containing the final result (after possibly performing sample-rate conversion).
-            
         2.  Resolve promise with buffer.
-            
         3.  If `[successCallback](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-decodeaudiodata-successcallback)` is not missing, invoke `[successCallback](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-decodeaudiodata-successcallback)` with buffer.
-            
 
 Arguments for the [BaseAudioContext.decodeAudioData()](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-decodeaudiodata) method.
 
@@ -1221,24 +1139,24 @@ Note: For example, this can involve waiting for the audio callbacks to fire regu
 
 Firefox25+SafariNoneChrome35+
 
-___
+---
 
 Opera22+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariNoneChrome for Android35+Android WebView37+Samsung Internet3.0+Opera Mobile22+
 
 This interface represents an audio graph whose `[AudioDestinationNode](https://www.w3.org/TR/webaudio/#audiodestinationnode)` is routed to a real-time output device that produces a signal directed at the user. In most use cases, only a single `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)` is used per document.
 
 enum `AudioContextLatencyCategory` {
-    ["balanced"](https://www.w3.org/TR/webaudio/#dom-audiocontextlatencycategory-balanced),
-    ["interactive"](https://www.w3.org/TR/webaudio/#dom-audiocontextlatencycategory-interactive),
-    ["playback"](https://www.w3.org/TR/webaudio/#dom-audiocontextlatencycategory-playback)
+["balanced"](https://www.w3.org/TR/webaudio/#dom-audiocontextlatencycategory-balanced),
+["interactive"](https://www.w3.org/TR/webaudio/#dom-audiocontextlatencycategory-interactive),
+["playback"](https://www.w3.org/TR/webaudio/#dom-audiocontextlatencycategory-playback)
 };
 
 Enumeration description
@@ -1257,18 +1175,18 @@ Prioritize sustained playback without interruption over audio output latency. Lo
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `AudioContext` : [BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) {
-  [constructor](https://www.w3.org/TR/webaudio/#dom-audiocontext-audiocontext) (optional [AudioContextOptions](https://www.w3.org/TR/webaudio/#dictdef-audiocontextoptions) [contextOptions](https://www.w3.org/TR/webaudio/#dom-audiocontext-constructor-contextoptions-contextoptions) = {});
-  readonly attribute [double](https://heycam.github.io/webidl/#idl-double) [baseLatency](https://www.w3.org/TR/webaudio/#dom-audiocontext-baselatency);
-  readonly attribute [double](https://heycam.github.io/webidl/#idl-double) [outputLatency](https://www.w3.org/TR/webaudio/#dom-audiocontext-outputlatency);
-  [AudioTimestamp](https://www.w3.org/TR/webaudio/#dictdef-audiotimestamp) [getOutputTimestamp](https://www.w3.org/TR/webaudio/#dom-audiocontext-getoutputtimestamp) ();
-  [Promise](https://heycam.github.io/webidl/#idl-promise)<[undefined](https://heycam.github.io/webidl/#idl-undefined)\> [resume](https://www.w3.org/TR/webaudio/#dom-audiocontext-resume) ();
-  [Promise](https://heycam.github.io/webidl/#idl-promise)<[undefined](https://heycam.github.io/webidl/#idl-undefined)\> [suspend](https://www.w3.org/TR/webaudio/#dom-audiocontext-suspend) ();
-  [Promise](https://heycam.github.io/webidl/#idl-promise)<[undefined](https://heycam.github.io/webidl/#idl-undefined)\> [close](https://www.w3.org/TR/webaudio/#dom-audiocontext-close) ();
-  [MediaElementAudioSourceNode](https://www.w3.org/TR/webaudio/#mediaelementaudiosourcenode) [createMediaElementSource](https://www.w3.org/TR/webaudio/#dom-audiocontext-createmediaelementsource) ([HTMLMediaElement](https://html.spec.whatwg.org/multipage/media.html#htmlmediaelement) `mediaElement`[](https://www.w3.org/TR/webaudio/#dom-audiocontext-createmediaelementsource-mediaelement-mediaelement));
-  [MediaStreamAudioSourceNode](https://www.w3.org/TR/webaudio/#mediastreamaudiosourcenode) [createMediaStreamSource](https://www.w3.org/TR/webaudio/#dom-audiocontext-createmediastreamsource) ([MediaStream](https://www.w3.org/TR/mediacapture-streams/#dom-mediastream) `mediaStream`[](https://www.w3.org/TR/webaudio/#dom-audiocontext-createmediastreamsource-mediastream-mediastream));
-  [MediaStreamTrackAudioSourceNode](https://www.w3.org/TR/webaudio/#mediastreamtrackaudiosourcenode) [createMediaStreamTrackSource](https://www.w3.org/TR/webaudio/#dom-audiocontext-createmediastreamtracksource) (
-    [MediaStreamTrack](https://www.w3.org/TR/mediacapture-streams/#dom-mediastreamtrack) `mediaStreamTrack`[](https://www.w3.org/TR/webaudio/#dom-audiocontext-createmediastreamtracksource-mediastreamtrack-mediastreamtrack));
-  [MediaStreamAudioDestinationNode](https://www.w3.org/TR/webaudio/#mediastreamaudiodestinationnode) [createMediaStreamDestination](https://www.w3.org/TR/webaudio/#dom-audiocontext-createmediastreamdestination) ();
+[constructor](https://www.w3.org/TR/webaudio/#dom-audiocontext-audiocontext) (optional [AudioContextOptions](https://www.w3.org/TR/webaudio/#dictdef-audiocontextoptions) [contextOptions](https://www.w3.org/TR/webaudio/#dom-audiocontext-constructor-contextoptions-contextoptions) = {});
+readonly attribute [double](https://heycam.github.io/webidl/#idl-double) [baseLatency](https://www.w3.org/TR/webaudio/#dom-audiocontext-baselatency);
+readonly attribute [double](https://heycam.github.io/webidl/#idl-double) [outputLatency](https://www.w3.org/TR/webaudio/#dom-audiocontext-outputlatency);
+[AudioTimestamp](https://www.w3.org/TR/webaudio/#dictdef-audiotimestamp) [getOutputTimestamp](https://www.w3.org/TR/webaudio/#dom-audiocontext-getoutputtimestamp) ();
+[Promise](https://heycam.github.io/webidl/#idl-promise)<[undefined](https://heycam.github.io/webidl/#idl-undefined)\> [resume](https://www.w3.org/TR/webaudio/#dom-audiocontext-resume) ();
+[Promise](https://heycam.github.io/webidl/#idl-promise)<[undefined](https://heycam.github.io/webidl/#idl-undefined)\> [suspend](https://www.w3.org/TR/webaudio/#dom-audiocontext-suspend) ();
+[Promise](https://heycam.github.io/webidl/#idl-promise)<[undefined](https://heycam.github.io/webidl/#idl-undefined)\> [close](https://www.w3.org/TR/webaudio/#dom-audiocontext-close) ();
+[MediaElementAudioSourceNode](https://www.w3.org/TR/webaudio/#mediaelementaudiosourcenode) [createMediaElementSource](https://www.w3.org/TR/webaudio/#dom-audiocontext-createmediaelementsource) ([HTMLMediaElement](https://html.spec.whatwg.org/multipage/media.html#htmlmediaelement) `mediaElement`[](https://www.w3.org/TR/webaudio/#dom-audiocontext-createmediaelementsource-mediaelement-mediaelement));
+[MediaStreamAudioSourceNode](https://www.w3.org/TR/webaudio/#mediastreamaudiosourcenode) [createMediaStreamSource](https://www.w3.org/TR/webaudio/#dom-audiocontext-createmediastreamsource) ([MediaStream](https://www.w3.org/TR/mediacapture-streams/#dom-mediastream) `mediaStream`[](https://www.w3.org/TR/webaudio/#dom-audiocontext-createmediastreamsource-mediastream-mediastream));
+[MediaStreamTrackAudioSourceNode](https://www.w3.org/TR/webaudio/#mediastreamtrackaudiosourcenode) [createMediaStreamTrackSource](https://www.w3.org/TR/webaudio/#dom-audiocontext-createmediastreamtracksource) (
+[MediaStreamTrack](https://www.w3.org/TR/mediacapture-streams/#dom-mediastreamtrack) `mediaStreamTrack`[](https://www.w3.org/TR/webaudio/#dom-audiocontext-createmediastreamtracksource-mediastreamtrack-mediastreamtrack));
+[MediaStreamAudioDestinationNode](https://www.w3.org/TR/webaudio/#mediastreamaudiodestinationnode) [createMediaStreamDestination](https://www.w3.org/TR/webaudio/#dom-audiocontext-createmediastreamdestination) ();
 };
 
 An `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)` is said to be allowed to start if the user agent allows the context state to transition from "`[suspended](https://www.w3.org/TR/webaudio/#dom-audiocontextstate-suspended)`" to "`[running](https://www.w3.org/TR/webaudio/#dom-audiocontextstate-running)`". A user agent may disallow this initial transition, and to allow it only when the `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)`'s [relevant global object](https://html.spec.whatwg.org/multipage/webappapis.html#concept-relevant-global) has [sticky activation](https://html.spec.whatwg.org/multipage/interaction.html#sticky-activation).
@@ -1285,15 +1203,15 @@ A boolean flag representing whether the context is suspended by user code. The i
 
 Firefox25+SafariNoneChrome35+
 
-___
+---
 
 Opera22+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariNoneChrome for Android35+Android WebView37+Samsung Internet3.0+Opera Mobile22+
 
@@ -1304,23 +1222,17 @@ If the [current settings object](https://html.spec.whatwg.org/#concept-current-e
 When creating an `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)`, execute these steps:
 
 1.  Set a `[[[control thread state]]](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-control-thread-state-slot)` to `suspended` on the `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)`.
-    
 2.  Set a `[[[rendering thread state]]](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-rendering-thread-state-slot)` to `suspended` on the `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)`.
-    
 3.  Let `[[pending resume promises]]` be a slot on this `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)`, that is an initially empty ordered list of promises.
-    
 4.  If `contextOptions` is given, apply the options:
-    
-    1.  Set the internal latency of this `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)` according to ``contextOptions.`[latencyHint](https://www.w3.org/TR/webaudio/#dom-audiocontextoptions-latencyhint)` ``, as described in `[latencyHint](https://www.w3.org/TR/webaudio/#dom-audiocontextoptions-latencyhint)`.
-        
-    2.  If ``contextOptions.`[sampleRate](https://www.w3.org/TR/webaudio/#dom-audiocontextoptions-samplerate)` `` is specified, set the `[sampleRate](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-samplerate)` of this `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)` to this value. Otherwise, use the sample rate of the default output device. If the selected sample rate differs from the sample rate of the output device, this `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)` MUST resample the audio output to match the sample rate of the output device.
-        
+
+    1.  Set the internal latency of this `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)` according to `` contextOptions.`[latencyHint](https://www.w3.org/TR/webaudio/#dom-audiocontextoptions-latencyhint)`  ``, as described in `[latencyHint](https://www.w3.org/TR/webaudio/#dom-audiocontextoptions-latencyhint)`.
+    2.  If `` contextOptions.`[sampleRate](https://www.w3.org/TR/webaudio/#dom-audiocontextoptions-samplerate)`  `` is specified, set the `[sampleRate](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-samplerate)` of this `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)` to this value. Otherwise, use the sample rate of the default output device. If the selected sample rate differs from the sample rate of the output device, this `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)` MUST resample the audio output to match the sample rate of the output device.
+
         Note: If resampling is required, the latency of the AudioContext may be affected, possibly by a large amount.
-        
+
 5.  If the context is [allowed to start](https://www.w3.org/TR/webaudio/#allowed-to-start), send a [control message](https://www.w3.org/TR/webaudio/#control-message) to start processing.
-    
 6.  Return this `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)` object.
-    
 
 Note: It is unfortunately not possible to programatically notify authors that the creation of the `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)` failed. User-Agents are encouraged to log an informative message if they have access to a logging mechanism, such as a developer tools console.
 
@@ -1330,15 +1242,15 @@ Note: It is unfortunately not possible to programatically notify authors that th
 
 Firefox70+SafariNoneChrome58+
 
-___
+---
 
 Opera45+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for AndroidNoneiOS SafariNoneChrome for Android58+Android WebView58+Samsung Internet7.0+Opera Mobile43+
 
@@ -1354,15 +1266,15 @@ In only one current engine.
 
 Firefox70+SafariNoneChromeNone
 
-___
+---
 
 OperaNoneEdgeNone
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for AndroidNoneiOS SafariNoneChrome for AndroidNoneAndroid WebViewNoneSamsung InternetNoneOpera MobileNone
 
@@ -1380,15 +1292,15 @@ In all current engines.
 
 Firefox40+Safari9+Chrome42+
 
-___
+---
 
 OperaYesEdge79+
 
-___
+---
 
 Edge (Legacy)14+IENone
 
-___
+---
 
 Firefox for Android40+iOS Safari9+Chrome for Android43+Android WebView43+Samsung Internet4.0+Opera MobileYes
 
@@ -1408,15 +1320,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -1430,15 +1342,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -1454,15 +1366,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -1476,15 +1388,15 @@ In only one current engine.
 
 Firefox68+SafariNoneChromeNone
 
-___
+---
 
 OperaNoneEdgeNone
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android68+iOS SafariNoneChrome for AndroidNoneAndroid WebViewNoneSamsung InternetNoneOpera MobileNone
 
@@ -1496,15 +1408,15 @@ Creates a `[MediaStreamTrackAudioSourceNode](https://www.w3.org/TR/webaudio/#med
 
 Firefox70+SafariNoneChrome57+
 
-___
+---
 
 Opera44+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for AndroidNoneiOS SafariNoneChrome for Android57+Android WebView57+Samsung Internet7.0+Opera Mobile43+
 
@@ -1519,9 +1431,9 @@ After the context’s rendering graph has started processing of blocks of audio,
 [](https://www.w3.org/TR/webaudio/#example-a967f6fb)The value returned from `[getOutputTimestamp](https://www.w3.org/TR/webaudio/#dom-audiocontext-getoutputtimestamp)` method can be used to get performance time estimation for the slightly later context’s time value:
 
 function outputPerformanceTime(contextTime) {
-  const timestamp \= context.getOutputTimestamp();
-  const elapsedTime \= contextTime \- timestamp.contextTime;
-  return timestamp.performanceTime + elapsedTime \* 1000;
+const timestamp \= context.getOutputTimestamp();
+const elapsedTime \= contextTime \- timestamp.contextTime;
+return timestamp.performanceTime + elapsedTime \* 1000;
 }
 
 In the above example the accuracy of the estimation depends on how close the argument value is to the current output audio stream position: the closer the given `contextTime` is to `timestamp.contextTime`, the better the accuracy of the obtained estimation.
@@ -1536,15 +1448,15 @@ In all current engines.
 
 Firefox40+Safari9+Chrome41+
 
-___
+---
 
 OperaYesEdge79+
 
-___
+---
 
 Edge (Legacy)14+IENone
 
-___
+---
 
 Firefox for AndroidYesiOS Safari9+Chrome for Android41+Android WebView41+Samsung Internet4.0+Opera MobileYes
 
@@ -1555,31 +1467,22 @@ Resumes the progression of the `[AudioContext](https://www.w3.org/TR/webaudio/#a
 Running a [control message](https://www.w3.org/TR/webaudio/#control-message) to resume an `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)` means running these steps on the [rendering thread](https://www.w3.org/TR/webaudio/#rendering-thread):
 
 1.  Attempt to [acquire system resources](https://www.w3.org/TR/webaudio/#acquiring).
-    
 2.  Set the `[[[rendering thread state]]](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-rendering-thread-state-slot)` on the `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)` to `running`.
-    
 3.  Start [rendering the audio graph](https://www.w3.org/TR/webaudio/#rendering-loop).
-    
 4.  In case of failure, [queue a media element task](https://html.spec.whatwg.org/multipage/media.html#queue-a-media-element-task) to execute the following steps:
-    
+
     1.  Reject all promises from `[[[pending resume promises]]](https://www.w3.org/TR/webaudio/#dom-audiocontext-pending-resume-promises-slot)` in order, then clear `[[[pending resume promises]]](https://www.w3.org/TR/webaudio/#dom-audiocontext-pending-resume-promises-slot)`.
-        
     2.  Additionally, remove those promises from `[[[pending promises]]](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-pending-promises-slot)`.
-        
+
 5.  [queue a media element task](https://html.spec.whatwg.org/multipage/media.html#queue-a-media-element-task) to execute the following steps:
-    
+
     1.  Resolve all promises from `[[[pending resume promises]]](https://www.w3.org/TR/webaudio/#dom-audiocontext-pending-resume-promises-slot)` in order.
-        
     2.  Clear `[[[pending resume promises]]](https://www.w3.org/TR/webaudio/#dom-audiocontext-pending-resume-promises-slot)`. Additionally, remove those promises from `[[[pending promises]]](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-pending-promises-slot)`.
-        
     3.  Resolve _promise_.
-        
     4.  If the `[state](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-state)` attribute of the `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)` is not already "`[running](https://www.w3.org/TR/webaudio/#dom-audiocontextstate-running)`":
-        
+
         1.  Set the `[state](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-state)` attribute of the `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)` to "`[running](https://www.w3.org/TR/webaudio/#dom-audiocontextstate-running)`".
-            
         2.  [queue a media element task](https://html.spec.whatwg.org/multipage/media.html#queue-a-media-element-task) to [fire an event](https://dom.spec.whatwg.org/#concept-event-fire) named `statechange` at the `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)`.
-            
 
 _No parameters._
 
@@ -1589,15 +1492,15 @@ In all current engines.
 
 Firefox40+Safari9+Chrome43+
 
-___
+---
 
 OperaYesEdge79+
 
-___
+---
 
 Edge (Legacy)14+IENone
 
-___
+---
 
 Firefox for Android40+iOS Safari9+Chrome for Android43+Android WebView43+Samsung Internet4.0+Opera MobileYes
 
@@ -1615,23 +1518,23 @@ _No parameters._
 
 Firefox61+SafariNoneChrome60+
 
-___
+---
 
 Opera?Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android61+iOS SafariNoneChrome for Android60+Android WebView60+Samsung Internet8.0+Opera Mobile?
 
 The `[AudioContextOptions](https://www.w3.org/TR/webaudio/#dictdef-audiocontextoptions)` dictionary is used to specify user-specified options for an `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)`.
 
 dictionary `AudioContextOptions` {
-  ([AudioContextLatencyCategory](https://www.w3.org/TR/webaudio/#enumdef-audiocontextlatencycategory) or [double](https://heycam.github.io/webidl/#idl-double)) [latencyHint](https://www.w3.org/TR/webaudio/#dom-audiocontextoptions-latencyhint) = "interactive";
-  [float](https://heycam.github.io/webidl/#idl-float) [sampleRate](https://www.w3.org/TR/webaudio/#dom-audiocontextoptions-samplerate);
+([AudioContextLatencyCategory](https://www.w3.org/TR/webaudio/#enumdef-audiocontextlatencycategory) or [double](https://heycam.github.io/webidl/#idl-double)) [latencyHint](https://www.w3.org/TR/webaudio/#dom-audiocontextoptions-latencyhint) = "interactive";
+[float](https://heycam.github.io/webidl/#idl-float) [sampleRate](https://www.w3.org/TR/webaudio/#dom-audiocontextoptions-samplerate);
 };
 
 ##### 1.2.4.1. Dictionary `[AudioContextOptions](https://www.w3.org/TR/webaudio/#dictdef-audiocontextoptions)` Members[](https://www.w3.org/TR/webaudio/#dictionary-audiocontextoptions-members)
@@ -1640,15 +1543,15 @@ dictionary `AudioContextOptions` {
 
 Firefox61+SafariNoneChrome60+
 
-___
+---
 
 Opera?Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android61+iOS SafariNoneChrome for Android60+Android WebView60+Samsung Internet8.0+Opera Mobile?
 
@@ -1662,15 +1565,15 @@ The preferred value of the `latencyHint` is a value from `[AudioContextLatencyCa
 
 Firefox61+SafariNoneChrome74+
 
-___
+---
 
 OperaNoneEdge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android61+iOS SafariNoneChrome for Android74+Android WebView74+Samsung Internet11.0+Opera Mobile?
 
@@ -1683,8 +1586,8 @@ If `[sampleRate](https://www.w3.org/TR/webaudio/#dom-audiocontextoptions-sampler
 #### 1.2.5. `[AudioTimestamp](https://www.w3.org/TR/webaudio/#dictdef-audiotimestamp)`[](https://www.w3.org/TR/webaudio/#AudioTimestamp)
 
 dictionary `AudioTimestamp` {
-  [double](https://heycam.github.io/webidl/#idl-double) [contextTime](https://www.w3.org/TR/webaudio/#dom-audiotimestamp-contexttime);
-  [DOMHighResTimeStamp](https://www.w3.org/TR/hr-time-3/#dom-domhighrestimestamp) [performanceTime](https://www.w3.org/TR/webaudio/#dom-audiotimestamp-performancetime);
+[double](https://heycam.github.io/webidl/#idl-double) [contextTime](https://www.w3.org/TR/webaudio/#dom-audiotimestamp-contexttime);
+[DOMHighResTimeStamp](https://www.w3.org/TR/hr-time-3/#dom-domhighrestimestamp) [performanceTime](https://www.w3.org/TR/webaudio/#dom-audiotimestamp-performancetime);
 };
 
 ##### 1.2.5.1. Dictionary `[AudioTimestamp](https://www.w3.org/TR/webaudio/#dictdef-audiotimestamp)` Members[](https://www.w3.org/TR/webaudio/#dictionary-audiotimestamp-members)
@@ -1703,15 +1606,15 @@ Represents a point in the time coordinate system of a `Performance` interface im
 
 Firefox25+SafariNoneChrome35+
 
-___
+---
 
 Opera22+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariNoneChrome for Android35+Android WebView4.4.3+Samsung Internet3.0+Opera Mobile22+
 
@@ -1719,13 +1622,13 @@ Firefox for Android25+iOS SafariNoneChrome for Android35+Android WebView4.4.3+Sa
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `OfflineAudioContext` : [BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) {
-  [constructor](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontext-offlineaudiocontext)([OfflineAudioContextOptions](https://www.w3.org/TR/webaudio/#dictdef-offlineaudiocontextoptions) [contextOptions](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontext-constructor-contextoptions-contextoptions));
-  [constructor](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontext-offlineaudiocontext-numberofchannels-length-samplerate)([unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfChannels](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontext-constructor-numberofchannels-length-samplerate-numberofchannels), [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [length](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontext-constructor-numberofchannels-length-samplerate-length), [float](https://heycam.github.io/webidl/#idl-float) [sampleRate](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontext-constructor-numberofchannels-length-samplerate-samplerate));
-  [Promise](https://heycam.github.io/webidl/#idl-promise)<[AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer)\> [startRendering](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontext-startrendering)();
-  [Promise](https://heycam.github.io/webidl/#idl-promise)<[undefined](https://heycam.github.io/webidl/#idl-undefined)\> [resume](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontext-resume)();
-  [Promise](https://heycam.github.io/webidl/#idl-promise)<[undefined](https://heycam.github.io/webidl/#idl-undefined)\> [suspend](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontext-suspend)([double](https://heycam.github.io/webidl/#idl-double) `suspendTime`[](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontext-suspend-suspendtime-suspendtime));
-  readonly attribute [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [length](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontext-length);
-  attribute [EventHandler](https://html.spec.whatwg.org/multipage/webappapis.html#eventhandler) [oncomplete](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontext-oncomplete);
+[constructor](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontext-offlineaudiocontext)([OfflineAudioContextOptions](https://www.w3.org/TR/webaudio/#dictdef-offlineaudiocontextoptions) [contextOptions](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontext-constructor-contextoptions-contextoptions));
+[constructor](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontext-offlineaudiocontext-numberofchannels-length-samplerate)([unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfChannels](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontext-constructor-numberofchannels-length-samplerate-numberofchannels), [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [length](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontext-constructor-numberofchannels-length-samplerate-length), [float](https://heycam.github.io/webidl/#idl-float) [sampleRate](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontext-constructor-numberofchannels-length-samplerate-samplerate));
+[Promise](https://heycam.github.io/webidl/#idl-promise)<[AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer)\> [startRendering](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontext-startrendering)();
+[Promise](https://heycam.github.io/webidl/#idl-promise)<[undefined](https://heycam.github.io/webidl/#idl-undefined)\> [resume](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontext-resume)();
+[Promise](https://heycam.github.io/webidl/#idl-promise)<[undefined](https://heycam.github.io/webidl/#idl-undefined)\> [suspend](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontext-suspend)([double](https://heycam.github.io/webidl/#idl-double) `suspendTime`[](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontext-suspend-suspendtime-suspendtime));
+readonly attribute [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [length](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontext-length);
+attribute [EventHandler](https://html.spec.whatwg.org/multipage/webappapis.html#eventhandler) [oncomplete](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontext-oncomplete);
 };
 
 #### 1.3.1. Constructors[](https://www.w3.org/TR/webaudio/#OfflineAudioContext-constructors)
@@ -1734,15 +1637,15 @@ interface `OfflineAudioContext` : [BaseAudioContext](https://www.w3.org/TR/webau
 
 Firefox53+SafariNoneChrome35+
 
-___
+---
 
 Opera22+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android53+iOS SafariNoneChrome for Android35+Android WebView4.4.3+Samsung Internet3.0+Opera Mobile22+
 
@@ -1755,9 +1658,9 @@ The `[OfflineAudioContext](https://www.w3.org/TR/webaudio/#offlineaudiocontext)`
 The OfflineAudioContext is constructed as if
 
 new OfflineAudioContext({
-    numberOfChannels: numberOfChannels,
-    length: length,
-    sampleRate: sampleRate
+numberOfChannels: numberOfChannels,
+length: length,
+sampleRate: sampleRate
 })
 
 were called instead.
@@ -1768,15 +1671,15 @@ were called instead.
 
 FirefoxYesSafariNoneChrome51+
 
-___
+---
 
 Opera38+Edge79+
 
-___
+---
 
 Edge (Legacy)14+IENone
 
-___
+---
 
 Firefox for AndroidYesiOS SafariNoneChrome for Android51+Android WebView51+Samsung Internet5.0+Opera Mobile41+
 
@@ -1790,15 +1693,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome25+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari?Chrome for Android25+Android WebView37+Samsung Internet1.5+Opera Mobile14+
 
@@ -1814,15 +1717,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome25+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari?Chrome for Android25+Android WebView37+Samsung Internet1.5+Opera Mobile14+
 
@@ -1840,15 +1743,15 @@ In only one current engine.
 
 FirefoxNoneSafariNoneChrome49+
 
-___
+---
 
 Opera36+Edge79+
 
-___
+---
 
 Edge (Legacy)18IENone
 
-___
+---
 
 Firefox for AndroidNoneiOS SafariNoneChrome for Android49+Android WebView49+Samsung Internet5.0+Opera Mobile36+
 
@@ -1864,15 +1767,15 @@ In only one current engine.
 
 FirefoxNoneSafariNoneChrome49+
 
-___
+---
 
 Opera36+Edge79+
 
-___
+---
 
 Edge (Legacy)18IENone
 
-___
+---
 
 Firefox for AndroidNoneiOS SafariNoneChrome for Android49+Android WebView49+Samsung Internet5.0+Opera Mobile36+
 
@@ -1916,9 +1819,9 @@ then the promise is rejected with `[InvalidStateError](https://heycam.github.io/
 This specifies the options to use in constructing an `[OfflineAudioContext](https://www.w3.org/TR/webaudio/#offlineaudiocontext)`.
 
 dictionary `OfflineAudioContextOptions` {
-  [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfChannels](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontextoptions-numberofchannels) = 1;
-  required [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [length](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontextoptions-length);
-  required [float](https://heycam.github.io/webidl/#idl-float) [sampleRate](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontextoptions-samplerate);
+[unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfChannels](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontextoptions-numberofchannels) = 1;
+required [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [length](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontextoptions-length);
+required [float](https://heycam.github.io/webidl/#idl-float) [sampleRate](https://www.w3.org/TR/webaudio/#dom-offlineaudiocontextoptions-samplerate);
 };
 
 ##### 1.3.4.1. Dictionary `[OfflineAudioContextOptions](https://www.w3.org/TR/webaudio/#dictdef-offlineaudiocontextoptions)` Members[](https://www.w3.org/TR/webaudio/#dictionary-offlineaudiocontextoptions-members)
@@ -1943,33 +1846,33 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
-[OfflineAudioContext/complete\_event](https://developer.mozilla.org/en-US/docs/Web/API/OfflineAudioContext/complete_event "The complete event of the OfflineAudioContext interface is fired when the rendering of an offline audio context is complete.")
+[OfflineAudioContext/complete_event](https://developer.mozilla.org/en-US/docs/Web/API/OfflineAudioContext/complete_event "The complete event of the OfflineAudioContext interface is fired when the rendering of an offline audio context is complete.")
 
 In all current engines.
 
 Firefox25+Safari6+Chrome25+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari?Chrome for Android25+Android WebView37+Samsung Internet1.5+Opera Mobile14+
 
@@ -1977,8 +1880,8 @@ This is an `[Event](https://dom.spec.whatwg.org/#event)` object which is dispatc
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `OfflineAudioCompletionEvent` : [Event](https://dom.spec.whatwg.org/#event) {
-  `constructor`[](https://www.w3.org/TR/webaudio/#dom-offlineaudiocompletionevent-offlineaudiocompletionevent) ([DOMString](https://heycam.github.io/webidl/#idl-DOMString) `type`[](https://www.w3.org/TR/webaudio/#dom-offlineaudiocompletionevent-offlineaudiocompletionevent-type-eventinitdict-type), [OfflineAudioCompletionEventInit](https://www.w3.org/TR/webaudio/#dictdef-offlineaudiocompletioneventinit) `eventInitDict`[](https://www.w3.org/TR/webaudio/#dom-offlineaudiocompletionevent-offlineaudiocompletionevent-type-eventinitdict-eventinitdict));
-  readonly attribute [AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer) [renderedBuffer](https://www.w3.org/TR/webaudio/#dom-offlineaudiocompletionevent-renderedbuffer);
+`constructor`[](https://www.w3.org/TR/webaudio/#dom-offlineaudiocompletionevent-offlineaudiocompletionevent) ([DOMString](https://heycam.github.io/webidl/#idl-DOMString) `type`[](https://www.w3.org/TR/webaudio/#dom-offlineaudiocompletionevent-offlineaudiocompletionevent-type-eventinitdict-type), [OfflineAudioCompletionEventInit](https://www.w3.org/TR/webaudio/#dictdef-offlineaudiocompletioneventinit) `eventInitDict`[](https://www.w3.org/TR/webaudio/#dom-offlineaudiocompletionevent-offlineaudiocompletionevent-type-eventinitdict-eventinitdict));
+readonly attribute [AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer) [renderedBuffer](https://www.w3.org/TR/webaudio/#dom-offlineaudiocompletionevent-renderedbuffer);
 };
 
 ##### 1.3.5.1. Attributes[](https://www.w3.org/TR/webaudio/#OfflineAudioCompletionEvent-attributes)
@@ -1989,15 +1892,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -2008,7 +1911,7 @@ An `[AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer)` containing the r
 ##### 1.3.5.2. `[OfflineAudioCompletionEventInit](https://www.w3.org/TR/webaudio/#dictdef-offlineaudiocompletioneventinit)`[](https://www.w3.org/TR/webaudio/#OfflineAudioCompletionEventInit)
 
 dictionary `OfflineAudioCompletionEventInit` : [EventInit](https://dom.spec.whatwg.org/#dictdef-eventinit) {
-  required [AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer) [renderedBuffer](https://www.w3.org/TR/webaudio/#dom-offlineaudiocompletioneventinit-renderedbuffer);
+required [AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer) [renderedBuffer](https://www.w3.org/TR/webaudio/#dom-offlineaudiocompletioneventinit-renderedbuffer);
 };
 
 ###### 1.3.5.2.1. Dictionary `[OfflineAudioCompletionEventInit](https://www.w3.org/TR/webaudio/#dictdef-offlineaudiocompletioneventinit)` Members[](https://www.w3.org/TR/webaudio/#dictionary-offlineaudiocompletioneventinit-members)
@@ -2023,15 +1926,15 @@ Value to be assigned to the `[renderedBuffer](https://www.w3.org/TR/webaudio/#do
 
 Firefox53+SafariNoneChrome55+
 
-___
+---
 
 Opera42+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android53+iOS SafariNoneChrome for Android55+Android WebView55+Samsung Internet6.0+Opera Mobile42+
 
@@ -2063,32 +1966,32 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `AudioBuffer` {
-  [constructor](https://www.w3.org/TR/webaudio/#dom-audiobuffer-audiobuffer) ([AudioBufferOptions](https://www.w3.org/TR/webaudio/#dictdef-audiobufferoptions) `options`[](https://www.w3.org/TR/webaudio/#dom-audiobuffer-audiobuffer-options-options));
-  readonly attribute [float](https://heycam.github.io/webidl/#idl-float) [sampleRate](https://www.w3.org/TR/webaudio/#dom-audiobuffer-samplerate);
-  readonly attribute [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [length](https://www.w3.org/TR/webaudio/#dom-audiobuffer-length);
-  readonly attribute [double](https://heycam.github.io/webidl/#idl-double) [duration](https://www.w3.org/TR/webaudio/#dom-audiobuffer-duration);
-  readonly attribute [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfChannels](https://www.w3.org/TR/webaudio/#dom-audiobuffer-numberofchannels);
-  [Float32Array](https://heycam.github.io/webidl/#idl-Float32Array) [getChannelData](https://www.w3.org/TR/webaudio/#dom-audiobuffer-getchanneldata) ([unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) `channel`[](https://www.w3.org/TR/webaudio/#dom-audiobuffer-getchanneldata-channel-channel));
-  [undefined](https://heycam.github.io/webidl/#idl-undefined) [copyFromChannel](https://www.w3.org/TR/webaudio/#dom-audiobuffer-copyfromchannel) ([Float32Array](https://heycam.github.io/webidl/#idl-Float32Array) `destination`[](https://www.w3.org/TR/webaudio/#dom-audiobuffer-copyfromchannel-destination-channelnumber-bufferoffset-destination),
-                             [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) `channelNumber`[](https://www.w3.org/TR/webaudio/#dom-audiobuffer-copyfromchannel-destination-channelnumber-bufferoffset-channelnumber),
-                             optional [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) `bufferOffset`[](https://www.w3.org/TR/webaudio/#dom-audiobuffer-copyfromchannel-destination-channelnumber-bufferoffset-bufferoffset) = 0);
-  [undefined](https://heycam.github.io/webidl/#idl-undefined) [copyToChannel](https://www.w3.org/TR/webaudio/#dom-audiobuffer-copytochannel) ([Float32Array](https://heycam.github.io/webidl/#idl-Float32Array) `source`[](https://www.w3.org/TR/webaudio/#dom-audiobuffer-copytochannel-source-channelnumber-bufferoffset-source),
-                           [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) `channelNumber`[](https://www.w3.org/TR/webaudio/#dom-audiobuffer-copytochannel-source-channelnumber-bufferoffset-channelnumber),
-                           optional [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) `bufferOffset`[](https://www.w3.org/TR/webaudio/#dom-audiobuffer-copytochannel-source-channelnumber-bufferoffset-bufferoffset) = 0);
+[constructor](https://www.w3.org/TR/webaudio/#dom-audiobuffer-audiobuffer) ([AudioBufferOptions](https://www.w3.org/TR/webaudio/#dictdef-audiobufferoptions) `options`[](https://www.w3.org/TR/webaudio/#dom-audiobuffer-audiobuffer-options-options));
+readonly attribute [float](https://heycam.github.io/webidl/#idl-float) [sampleRate](https://www.w3.org/TR/webaudio/#dom-audiobuffer-samplerate);
+readonly attribute [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [length](https://www.w3.org/TR/webaudio/#dom-audiobuffer-length);
+readonly attribute [double](https://heycam.github.io/webidl/#idl-double) [duration](https://www.w3.org/TR/webaudio/#dom-audiobuffer-duration);
+readonly attribute [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfChannels](https://www.w3.org/TR/webaudio/#dom-audiobuffer-numberofchannels);
+[Float32Array](https://heycam.github.io/webidl/#idl-Float32Array) [getChannelData](https://www.w3.org/TR/webaudio/#dom-audiobuffer-getchanneldata) ([unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) `channel`[](https://www.w3.org/TR/webaudio/#dom-audiobuffer-getchanneldata-channel-channel));
+[undefined](https://heycam.github.io/webidl/#idl-undefined) [copyFromChannel](https://www.w3.org/TR/webaudio/#dom-audiobuffer-copyfromchannel) ([Float32Array](https://heycam.github.io/webidl/#idl-Float32Array) `destination`[](https://www.w3.org/TR/webaudio/#dom-audiobuffer-copyfromchannel-destination-channelnumber-bufferoffset-destination),
+[unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) `channelNumber`[](https://www.w3.org/TR/webaudio/#dom-audiobuffer-copyfromchannel-destination-channelnumber-bufferoffset-channelnumber),
+optional [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) `bufferOffset`[](https://www.w3.org/TR/webaudio/#dom-audiobuffer-copyfromchannel-destination-channelnumber-bufferoffset-bufferoffset) = 0);
+[undefined](https://heycam.github.io/webidl/#idl-undefined) [copyToChannel](https://www.w3.org/TR/webaudio/#dom-audiobuffer-copytochannel) ([Float32Array](https://heycam.github.io/webidl/#idl-Float32Array) `source`[](https://www.w3.org/TR/webaudio/#dom-audiobuffer-copytochannel-source-channelnumber-bufferoffset-source),
+[unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) `channelNumber`[](https://www.w3.org/TR/webaudio/#dom-audiobuffer-copytochannel-source-channelnumber-bufferoffset-channelnumber),
+optional [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) `bufferOffset`[](https://www.w3.org/TR/webaudio/#dom-audiobuffer-copytochannel-source-channelnumber-bufferoffset-bufferoffset) = 0);
 };
 
 #### 1.4.1. Constructors[](https://www.w3.org/TR/webaudio/#AudioBuffer-constructors)
@@ -2103,15 +2006,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -2127,15 +2030,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -2149,15 +2052,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -2171,15 +2074,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -2193,15 +2096,15 @@ The sample-rate for the PCM audio data in samples per second. This MUST return t
 
 Firefox25+SafariNoneChrome43+
 
-___
+---
 
 Opera30+Edge79+
 
-___
+---
 
 Edge (Legacy)13+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariNoneChrome for Android43+Android WebView43+Samsung Internet4.0+Opera Mobile30+
 
@@ -2257,15 +2160,15 @@ An optional offset, defaulting to 0. Data from the `[AudioBuffer](https://www.w3
 
 Firefox25+SafariNoneChrome43+
 
-___
+---
 
 Opera30+Edge79+
 
-___
+---
 
 Edge (Legacy)13+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariNoneChrome for Android43+Android WebView43+Samsung Internet4.0+Opera Mobile30+
 
@@ -2325,15 +2228,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -2371,14 +2274,10 @@ An internal operation [acquire the contents of an AudioBuffer](https://www.w3.or
 
 The [acquire the contents of an AudioBuffer](https://www.w3.org/TR/webaudio/#acquire-the-content) operation is invoked in the following cases:
 
--   When `[AudioBufferSourceNode.start](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-start)` is called, it [acquires the contents](https://www.w3.org/TR/webaudio/#acquire-the-content) of the node’s `[buffer](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-buffer)`. If the operation fails, nothing is played.
-    
--   When the `[buffer](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-buffer)` of an `[AudioBufferSourceNode](https://www.w3.org/TR/webaudio/#audiobuffersourcenode)` is set and `[AudioBufferSourceNode.start](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-start)` has been previously called, the setter [acquires the content](https://www.w3.org/TR/webaudio/#acquire-the-content) of the `[AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer)`. If the operation fails, nothing is played.
-    
--   When a `[ConvolverNode](https://www.w3.org/TR/webaudio/#convolvernode)`'s `[buffer](https://www.w3.org/TR/webaudio/#dom-convolvernode-buffer)` is set to an `[AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer)` it [acquires the content](https://www.w3.org/TR/webaudio/#acquire-the-content) of the `[AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer)`.
-    
--   When the dispatch of an `[AudioProcessingEvent](https://www.w3.org/TR/webaudio/#audioprocessingevent)` completes, it [acquires the contents](https://www.w3.org/TR/webaudio/#acquire-the-content) of its `[outputBuffer](https://www.w3.org/TR/webaudio/#dom-audioprocessingevent-outputbuffer)`.
-    
+- When `[AudioBufferSourceNode.start](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-start)` is called, it [acquires the contents](https://www.w3.org/TR/webaudio/#acquire-the-content) of the node’s `[buffer](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-buffer)`. If the operation fails, nothing is played.
+- When the `[buffer](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-buffer)` of an `[AudioBufferSourceNode](https://www.w3.org/TR/webaudio/#audiobuffersourcenode)` is set and `[AudioBufferSourceNode.start](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-start)` has been previously called, the setter [acquires the content](https://www.w3.org/TR/webaudio/#acquire-the-content) of the `[AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer)`. If the operation fails, nothing is played.
+- When a `[ConvolverNode](https://www.w3.org/TR/webaudio/#convolvernode)`'s `[buffer](https://www.w3.org/TR/webaudio/#dom-convolvernode-buffer)` is set to an `[AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer)` it [acquires the content](https://www.w3.org/TR/webaudio/#acquire-the-content) of the `[AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer)`.
+- When the dispatch of an `[AudioProcessingEvent](https://www.w3.org/TR/webaudio/#audioprocessingevent)` completes, it [acquires the contents](https://www.w3.org/TR/webaudio/#acquire-the-content) of its `[outputBuffer](https://www.w3.org/TR/webaudio/#dom-audioprocessingevent-outputbuffer)`.
 
 Note: This means that `[copyToChannel()](https://www.w3.org/TR/webaudio/#dom-audiobuffer-copytochannel)` cannot be used to change the content of an `[AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer)` currently in use by an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` that has [acquired the content of an AudioBuffer](https://www.w3.org/TR/webaudio/#acquire-the-content) since the `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` will continue to use the data previously acquired.
 
@@ -2387,9 +2286,9 @@ Note: This means that `[copyToChannel()](https://www.w3.org/TR/webaudio/#dom-aud
 This specifies the options to use in constructing an `[AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer)`. The `[length](https://www.w3.org/TR/webaudio/#dom-audiobufferoptions-length)` and `[sampleRate](https://www.w3.org/TR/webaudio/#dom-audiobufferoptions-samplerate)` members are required.
 
 dictionary `AudioBufferOptions` {
-  [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfChannels](https://www.w3.org/TR/webaudio/#dom-audiobufferoptions-numberofchannels) = 1;
-  required [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [length](https://www.w3.org/TR/webaudio/#dom-audiobufferoptions-length);
-  required [float](https://heycam.github.io/webidl/#idl-float) [sampleRate](https://www.w3.org/TR/webaudio/#dom-audiobufferoptions-samplerate);
+[unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfChannels](https://www.w3.org/TR/webaudio/#dom-audiobufferoptions-numberofchannels) = 1;
+required [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [length](https://www.w3.org/TR/webaudio/#dom-audiobufferoptions-length);
+required [float](https://heycam.github.io/webidl/#idl-float) [sampleRate](https://www.w3.org/TR/webaudio/#dom-audiobufferoptions-samplerate);
 };
 
 ##### 1.4.4.1. Dictionary `[AudioBufferOptions](https://www.w3.org/TR/webaudio/#dictdef-audiobufferoptions)` Members[](https://www.w3.org/TR/webaudio/#dictionary-audiobufferoptions-members)
@@ -2428,39 +2327,39 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `AudioNode` : [EventTarget](https://dom.spec.whatwg.org/#eventtarget) {
-  [AudioNode](https://www.w3.org/TR/webaudio/#audionode) [connect](https://www.w3.org/TR/webaudio/#dom-audionode-connect) ([AudioNode](https://www.w3.org/TR/webaudio/#audionode) [destinationNode](https://www.w3.org/TR/webaudio/#dom-audionode-connect-destinationnode-output-input-destinationnode),
-                     optional [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [output](https://www.w3.org/TR/webaudio/#dom-audionode-connect-destinationnode-output-input-output) = 0,
-                     optional [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [input](https://www.w3.org/TR/webaudio/#dom-audionode-connect-destinationnode-output-input-input) = 0);
-  [undefined](https://heycam.github.io/webidl/#idl-undefined) [connect](https://www.w3.org/TR/webaudio/#dom-audionode-connect-destinationparam-output) ([AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [destinationParam](https://www.w3.org/TR/webaudio/#dom-audionode-connect-destinationparam-output-destinationparam), optional [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [output](https://www.w3.org/TR/webaudio/#dom-audionode-connect-destinationparam-output-output) = 0);
-  [undefined](https://heycam.github.io/webidl/#idl-undefined) [disconnect](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect) ();
-  [undefined](https://heycam.github.io/webidl/#idl-undefined) [disconnect](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-output) ([unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [output](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-output-output));
-  [undefined](https://heycam.github.io/webidl/#idl-undefined) [disconnect](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationnode) ([AudioNode](https://www.w3.org/TR/webaudio/#audionode) [destinationNode](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationnode-destinationnode));
-  [undefined](https://heycam.github.io/webidl/#idl-undefined) [disconnect](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationnode-output) ([AudioNode](https://www.w3.org/TR/webaudio/#audionode) [destinationNode](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationnode-output-destinationnode), [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [output](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationnode-output-output));
-  [undefined](https://heycam.github.io/webidl/#idl-undefined) [disconnect](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationnode-output-input) ([AudioNode](https://www.w3.org/TR/webaudio/#audionode) [destinationNode](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationnode-output-input-destinationnode),
-                        [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [output](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationnode-output-input-output),
-                        [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [input](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationnode-output-input-input));
-  [undefined](https://heycam.github.io/webidl/#idl-undefined) [disconnect](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationparam) ([AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [destinationParam](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationparam-destinationparam));
-  [undefined](https://heycam.github.io/webidl/#idl-undefined) [disconnect](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationparam-output) ([AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [destinationParam](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationparam-output-destinationparam), [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [output](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationparam-output-output));
-  readonly attribute [BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) [context](https://www.w3.org/TR/webaudio/#dom-audionode-context);
-  readonly attribute [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfInputs](https://www.w3.org/TR/webaudio/#dom-audionode-numberofinputs);
-  readonly attribute [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfOutputs](https://www.w3.org/TR/webaudio/#dom-audionode-numberofoutputs);
-  attribute [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [channelCount](https://www.w3.org/TR/webaudio/#dom-audionode-channelcount);
-  attribute [ChannelCountMode](https://www.w3.org/TR/webaudio/#enumdef-channelcountmode) [channelCountMode](https://www.w3.org/TR/webaudio/#dom-audionode-channelcountmode);
-  attribute [ChannelInterpretation](https://www.w3.org/TR/webaudio/#enumdef-channelinterpretation) [channelInterpretation](https://www.w3.org/TR/webaudio/#dom-audionode-channelinterpretation);
+[AudioNode](https://www.w3.org/TR/webaudio/#audionode) [connect](https://www.w3.org/TR/webaudio/#dom-audionode-connect) ([AudioNode](https://www.w3.org/TR/webaudio/#audionode) [destinationNode](https://www.w3.org/TR/webaudio/#dom-audionode-connect-destinationnode-output-input-destinationnode),
+optional [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [output](https://www.w3.org/TR/webaudio/#dom-audionode-connect-destinationnode-output-input-output) = 0,
+optional [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [input](https://www.w3.org/TR/webaudio/#dom-audionode-connect-destinationnode-output-input-input) = 0);
+[undefined](https://heycam.github.io/webidl/#idl-undefined) [connect](https://www.w3.org/TR/webaudio/#dom-audionode-connect-destinationparam-output) ([AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [destinationParam](https://www.w3.org/TR/webaudio/#dom-audionode-connect-destinationparam-output-destinationparam), optional [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [output](https://www.w3.org/TR/webaudio/#dom-audionode-connect-destinationparam-output-output) = 0);
+[undefined](https://heycam.github.io/webidl/#idl-undefined) [disconnect](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect) ();
+[undefined](https://heycam.github.io/webidl/#idl-undefined) [disconnect](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-output) ([unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [output](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-output-output));
+[undefined](https://heycam.github.io/webidl/#idl-undefined) [disconnect](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationnode) ([AudioNode](https://www.w3.org/TR/webaudio/#audionode) [destinationNode](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationnode-destinationnode));
+[undefined](https://heycam.github.io/webidl/#idl-undefined) [disconnect](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationnode-output) ([AudioNode](https://www.w3.org/TR/webaudio/#audionode) [destinationNode](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationnode-output-destinationnode), [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [output](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationnode-output-output));
+[undefined](https://heycam.github.io/webidl/#idl-undefined) [disconnect](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationnode-output-input) ([AudioNode](https://www.w3.org/TR/webaudio/#audionode) [destinationNode](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationnode-output-input-destinationnode),
+[unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [output](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationnode-output-input-output),
+[unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [input](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationnode-output-input-input));
+[undefined](https://heycam.github.io/webidl/#idl-undefined) [disconnect](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationparam) ([AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [destinationParam](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationparam-destinationparam));
+[undefined](https://heycam.github.io/webidl/#idl-undefined) [disconnect](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationparam-output) ([AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [destinationParam](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationparam-output-destinationparam), [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [output](https://www.w3.org/TR/webaudio/#dom-audionode-disconnect-destinationparam-output-output));
+readonly attribute [BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) [context](https://www.w3.org/TR/webaudio/#dom-audionode-context);
+readonly attribute [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfInputs](https://www.w3.org/TR/webaudio/#dom-audionode-numberofinputs);
+readonly attribute [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfOutputs](https://www.w3.org/TR/webaudio/#dom-audionode-numberofoutputs);
+attribute [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [channelCount](https://www.w3.org/TR/webaudio/#dom-audionode-channelcount);
+attribute [ChannelCountMode](https://www.w3.org/TR/webaudio/#enumdef-channelcountmode) [channelCountMode](https://www.w3.org/TR/webaudio/#dom-audionode-channelcountmode);
+attribute [ChannelInterpretation](https://www.w3.org/TR/webaudio/#enumdef-channelinterpretation) [channelInterpretation](https://www.w3.org/TR/webaudio/#dom-audionode-channelinterpretation);
 };
 
 #### 1.5.1. AudioNode Creation[](https://www.w3.org/TR/webaudio/#AudioNode-creation)
@@ -2472,44 +2371,35 @@ The `[BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext)` passe
 To create a new `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` of a particular type n using its [factory method](https://www.w3.org/TR/webaudio/#factory-method), called on a `[BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext)` c, execute these steps:
 
 1.  Let node be a new object of type n.
-    
 2.  Let option be a dictionary of the type [associated](https://www.w3.org/TR/webaudio/#associated-option-object) to the interface [associated](https://www.w3.org/TR/webaudio/#associated-interface) to this factory method.
-    
 3.  For each parameter passed to the factory method, set the dictionary member of the same name on option to the value of this parameter.
-    
 4.  Call the constructor for n on node with c and option as arguments.
-    
 5.  Return node
-    
 
 Initializing an object o that inherits from `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` means executing the following steps, given the arguments context and dict passed to the constructor of this interface.
 
 1.  Set o’s associated `[BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext)` to context.
-    
 2.  Set its value for `[numberOfInputs](https://www.w3.org/TR/webaudio/#dom-audionode-numberofinputs)`, `[numberOfOutputs](https://www.w3.org/TR/webaudio/#dom-audionode-numberofoutputs)`, `[channelCount](https://www.w3.org/TR/webaudio/#dom-audionode-channelcount)`, `[channelCountMode](https://www.w3.org/TR/webaudio/#dom-audionode-channelcountmode)`, `[channelInterpretation](https://www.w3.org/TR/webaudio/#dom-audionode-channelinterpretation)` to the default value for this specific interface outlined in the section for each `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`.
-    
 3.  For each member of dict passed in, execute these steps, with k the key of the member, and v its value. If any exceptions is thrown when executing these steps, abort the iteration and propagate the exception to the caller of the algorithm (constructor or factory method).
-    
+
     1.  If k is the name of an `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)` on this interface, set the `[value](https://www.w3.org/TR/webaudio/#dom-audioparam-value)` attribute of this `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)` to v.
-        
     2.  Else if k is the name of an attribute on this interface, set the object associated with this attribute to v.
-        
 
 The associated interface for a factory method is the interface of the objects that are returned from this method. The associated option object for an interface is the option object that can be passed to the constructor for this interface.
 
 `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`s are `[EventTarget](https://dom.spec.whatwg.org/#eventtarget)`s, as described in [\[DOM\]](https://www.w3.org/TR/webaudio/#biblio-dom). This means that it is possible to dispatch events to `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`s the same way that other `[EventTarget](https://dom.spec.whatwg.org/#eventtarget)`s accept events.
 
 enum `ChannelCountMode` {
-  ["max"](https://www.w3.org/TR/webaudio/#dom-channelcountmode-max),
-  ["clamped-max"](https://www.w3.org/TR/webaudio/#dom-channelcountmode-clamped-max),
-  ["explicit"](https://www.w3.org/TR/webaudio/#dom-channelcountmode-explicit)
+["max"](https://www.w3.org/TR/webaudio/#dom-channelcountmode-max),
+["clamped-max"](https://www.w3.org/TR/webaudio/#dom-channelcountmode-clamped-max),
+["explicit"](https://www.w3.org/TR/webaudio/#dom-channelcountmode-explicit)
 };
 
 The `[ChannelCountMode](https://www.w3.org/TR/webaudio/#enumdef-channelcountmode)`, in conjuction with the node’s `[channelCount](https://www.w3.org/TR/webaudio/#dom-audionode-channelcount)` and `[channelInterpretation](https://www.w3.org/TR/webaudio/#dom-audionode-channelinterpretation)` values, is used to determine the computedNumberOfChannels that controls how inputs to a node are to be mixed. The [computedNumberOfChannels](https://www.w3.org/TR/webaudio/#computednumberofchannels) is determined as shown below. See [§ 4 Channel Up-Mixing and Down-Mixing](https://www.w3.org/TR/webaudio/#channel-up-mixing-and-down-mixing) for more information on how mixing is to be done.
 
 enum `ChannelInterpretation` {
-  ["speakers"](https://www.w3.org/TR/webaudio/#dom-channelinterpretation-speakers),
-  ["discrete"](https://www.w3.org/TR/webaudio/#dom-channelinterpretation-discrete)
+["speakers"](https://www.w3.org/TR/webaudio/#dom-channelinterpretation-speakers),
+["discrete"](https://www.w3.org/TR/webaudio/#dom-channelinterpretation-discrete)
 };
 
 Enumeration description
@@ -2532,20 +2422,13 @@ An `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` can have a tail-time
 
 `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` can be actively processing during a [render quantum](https://www.w3.org/TR/webaudio/#render-quantum), if any of the following conditions hold.
 
--   An `[AudioScheduledSourceNode](https://www.w3.org/TR/webaudio/#audioscheduledsourcenode)` is [actively processing](https://www.w3.org/TR/webaudio/#actively-processing) if and only if it is [playing](https://www.w3.org/TR/webaudio/#playing) for at least part of the current rendering quantum.
-    
--   A `[MediaElementAudioSourceNode](https://www.w3.org/TR/webaudio/#mediaelementaudiosourcenode)` is [actively processing](https://www.w3.org/TR/webaudio/#actively-processing) if and only if its `[mediaElement](https://www.w3.org/TR/webaudio/#dom-mediaelementaudiosourcenode-mediaelement)` is playing for at least part of the current rendering quantum.
-    
--   A `[MediaStreamAudioSourceNode](https://www.w3.org/TR/webaudio/#mediastreamaudiosourcenode)` or a `[MediaStreamTrackAudioSourceNode](https://www.w3.org/TR/webaudio/#mediastreamtrackaudiosourcenode)` are [actively processing](https://www.w3.org/TR/webaudio/#actively-processing) when the associated `[MediaStreamTrack](https://www.w3.org/TR/mediacapture-streams/#dom-mediastreamtrack)` object has a `readyState` attribute equal to `"live"`, a `muted` attribute equal to `false` and an `enabled` attribute equal to `true`.
-    
--   A `[DelayNode](https://www.w3.org/TR/webaudio/#delaynode)` in a cycle is [actively processing](https://www.w3.org/TR/webaudio/#actively-processing) only when the absolute value of any output sample for the current [render quantum](https://www.w3.org/TR/webaudio/#render-quantum) is greater than or equal to 2−126.
-    
--   A `[ScriptProcessorNode](https://www.w3.org/TR/webaudio/#scriptprocessornode)` is [actively processing](https://www.w3.org/TR/webaudio/#actively-processing) when its input or output is connected.
-    
--   An `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)` is [actively processing](https://www.w3.org/TR/webaudio/#actively-processing) when its `[AudioWorkletProcessor](https://www.w3.org/TR/webaudio/#audioworkletprocessor)`'s `[[[callable process]]](https://www.w3.org/TR/webaudio/#dom-audioworkletprocessor-callable-process-slot)` returns `true` and either its [active source](https://www.w3.org/TR/webaudio/#active-source) flag is `true` or any `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` connected to one of its inputs is [actively processing](https://www.w3.org/TR/webaudio/#actively-processing).
-    
--   All other `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`s start [actively processing](https://www.w3.org/TR/webaudio/#actively-processing) when any `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` connected to one of its inputs is [actively processing](https://www.w3.org/TR/webaudio/#actively-processing), and stops [actively processing](https://www.w3.org/TR/webaudio/#actively-processing) when the input that was received from other [actively processing](https://www.w3.org/TR/webaudio/#actively-processing) `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` no longer affects the output.
-    
+- An `[AudioScheduledSourceNode](https://www.w3.org/TR/webaudio/#audioscheduledsourcenode)` is [actively processing](https://www.w3.org/TR/webaudio/#actively-processing) if and only if it is [playing](https://www.w3.org/TR/webaudio/#playing) for at least part of the current rendering quantum.
+- A `[MediaElementAudioSourceNode](https://www.w3.org/TR/webaudio/#mediaelementaudiosourcenode)` is [actively processing](https://www.w3.org/TR/webaudio/#actively-processing) if and only if its `[mediaElement](https://www.w3.org/TR/webaudio/#dom-mediaelementaudiosourcenode-mediaelement)` is playing for at least part of the current rendering quantum.
+- A `[MediaStreamAudioSourceNode](https://www.w3.org/TR/webaudio/#mediastreamaudiosourcenode)` or a `[MediaStreamTrackAudioSourceNode](https://www.w3.org/TR/webaudio/#mediastreamtrackaudiosourcenode)` are [actively processing](https://www.w3.org/TR/webaudio/#actively-processing) when the associated `[MediaStreamTrack](https://www.w3.org/TR/mediacapture-streams/#dom-mediastreamtrack)` object has a `readyState` attribute equal to `"live"`, a `muted` attribute equal to `false` and an `enabled` attribute equal to `true`.
+- A `[DelayNode](https://www.w3.org/TR/webaudio/#delaynode)` in a cycle is [actively processing](https://www.w3.org/TR/webaudio/#actively-processing) only when the absolute value of any output sample for the current [render quantum](https://www.w3.org/TR/webaudio/#render-quantum) is greater than or equal to 2−126.
+- A `[ScriptProcessorNode](https://www.w3.org/TR/webaudio/#scriptprocessornode)` is [actively processing](https://www.w3.org/TR/webaudio/#actively-processing) when its input or output is connected.
+- An `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)` is [actively processing](https://www.w3.org/TR/webaudio/#actively-processing) when its `[AudioWorkletProcessor](https://www.w3.org/TR/webaudio/#audioworkletprocessor)`'s `[[[callable process]]](https://www.w3.org/TR/webaudio/#dom-audioworkletprocessor-callable-process-slot)` returns `true` and either its [active source](https://www.w3.org/TR/webaudio/#active-source) flag is `true` or any `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` connected to one of its inputs is [actively processing](https://www.w3.org/TR/webaudio/#actively-processing).
+- All other `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`s start [actively processing](https://www.w3.org/TR/webaudio/#actively-processing) when any `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` connected to one of its inputs is [actively processing](https://www.w3.org/TR/webaudio/#actively-processing), and stops [actively processing](https://www.w3.org/TR/webaudio/#actively-processing) when the input that was received from other [actively processing](https://www.w3.org/TR/webaudio/#actively-processing) `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` no longer affects the output.
 
 Note: This takes into account `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`s that have a [tail-time](https://www.w3.org/TR/webaudio/#tail-time).
 
@@ -2559,15 +2442,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -2629,15 +2512,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -2687,15 +2570,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -2717,15 +2600,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -2739,15 +2622,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -2761,15 +2644,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -2785,15 +2668,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -2818,15 +2701,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -2859,15 +2742,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -3035,22 +2918,22 @@ This specifies the options that can be used in constructing all `[AudioNode](htt
 
 Firefox53+Safari?Chrome55+
 
-___
+---
 
 Opera42+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android53+iOS Safari?Chrome for Android55+Android WebView55+Samsung Internet6.0+Opera Mobile42+
 
 dictionary `AudioNodeOptions` {
-  [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [channelCount](https://www.w3.org/TR/webaudio/#dom-audionodeoptions-channelcount);
-  [ChannelCountMode](https://www.w3.org/TR/webaudio/#enumdef-channelcountmode) [channelCountMode](https://www.w3.org/TR/webaudio/#dom-audionodeoptions-channelcountmode);
-  [ChannelInterpretation](https://www.w3.org/TR/webaudio/#enumdef-channelinterpretation) [channelInterpretation](https://www.w3.org/TR/webaudio/#dom-audionodeoptions-channelinterpretation);
+[unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [channelCount](https://www.w3.org/TR/webaudio/#dom-audionodeoptions-channelcount);
+[ChannelCountMode](https://www.w3.org/TR/webaudio/#enumdef-channelcountmode) [channelCountMode](https://www.w3.org/TR/webaudio/#dom-audionodeoptions-channelcountmode);
+[ChannelInterpretation](https://www.w3.org/TR/webaudio/#enumdef-channelinterpretation) [channelInterpretation](https://www.w3.org/TR/webaudio/#dom-audionodeoptions-channelinterpretation);
 };
 
 ##### 1.5.6.1. Dictionary `[AudioNodeOptions](https://www.w3.org/TR/webaudio/#dictdef-audionodeoptions)` Members[](https://www.w3.org/TR/webaudio/#dictionary-audionodeoptions-members)
@@ -3075,15 +2958,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -3103,55 +2986,46 @@ An `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)` maintains a list o
 
 The behavior of a given automation event is a function of the `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)`'s current time, as well as the automation event times of this event and of adjacent events in the list. The following automation methods change the event list by adding a new event to the event list, of a type specific to the method:
 
--   `[setValueAtTime()](https://www.w3.org/TR/webaudio/#dom-audioparam-setvalueattime)` - `SetValue`
-    
--   `[linearRampToValueAtTime()](https://www.w3.org/TR/webaudio/#dom-audioparam-linearramptovalueattime)` - `LinearRampToValue`
-    
--   `[exponentialRampToValueAtTime()](https://www.w3.org/TR/webaudio/#dom-audioparam-exponentialramptovalueattime)` - `ExponentialRampToValue`
-    
--   `[setTargetAtTime()](https://www.w3.org/TR/webaudio/#dom-audioparam-settargetattime)` - `SetTarget`
-    
--   `[setValueCurveAtTime()](https://www.w3.org/TR/webaudio/#dom-audioparam-setvaluecurveattime)` - `SetValueCurve`
-    
+- `[setValueAtTime()](https://www.w3.org/TR/webaudio/#dom-audioparam-setvalueattime)` - `SetValue`
+- `[linearRampToValueAtTime()](https://www.w3.org/TR/webaudio/#dom-audioparam-linearramptovalueattime)` - `LinearRampToValue`
+- `[exponentialRampToValueAtTime()](https://www.w3.org/TR/webaudio/#dom-audioparam-exponentialramptovalueattime)` - `ExponentialRampToValue`
+- `[setTargetAtTime()](https://www.w3.org/TR/webaudio/#dom-audioparam-settargetattime)` - `SetTarget`
+- `[setValueCurveAtTime()](https://www.w3.org/TR/webaudio/#dom-audioparam-setvaluecurveattime)` - `SetValueCurve`
 
 The following rules will apply when calling these methods:
 
--   [Automation event times](https://www.w3.org/TR/webaudio/#automation-event-time) are not quantized with respect to the prevailing sample rate. Formulas for determining curves and ramps are applied to the exact numerical times given when scheduling events.
-    
--   If one of these events is added at a time where there is already one or more events, then it will be placed in the list after them, but before events whose times are after the event.
-    
--   If [setValueCurveAtTime()](https://www.w3.org/TR/webaudio/#dom-audioparam-setvaluecurveattime) is called for time T and duration D and there are any events having a time strictly greater than T, but strictly less than T+D, then a `[NotSupportedError](https://heycam.github.io/webidl/#notsupportederror)` exception MUST be thrown. In other words, it’s not ok to schedule a value curve during a time period containing other events, but it’s ok to schedule a value curve exactly at the time of another event.
-    
--   Similarly a `[NotSupportedError](https://heycam.github.io/webidl/#notsupportederror)` exception MUST be thrown if any [automation method](https://www.w3.org/TR/webaudio/#dfn-automation-method) is called at a time which is contained in \[T,T+D), T being the time of the curve and D its duration.
-    
+- [Automation event times](https://www.w3.org/TR/webaudio/#automation-event-time) are not quantized with respect to the prevailing sample rate. Formulas for determining curves and ramps are applied to the exact numerical times given when scheduling events.
+- If one of these events is added at a time where there is already one or more events, then it will be placed in the list after them, but before events whose times are after the event.
+- If [setValueCurveAtTime()](https://www.w3.org/TR/webaudio/#dom-audioparam-setvaluecurveattime) is called for time T and duration D and there are any events having a time strictly greater than T, but strictly less than T+D, then a `[NotSupportedError](https://heycam.github.io/webidl/#notsupportederror)` exception MUST be thrown. In other words, it’s not ok to schedule a value curve during a time period containing other events, but it’s ok to schedule a value curve exactly at the time of another event.
+- Similarly a `[NotSupportedError](https://heycam.github.io/webidl/#notsupportederror)` exception MUST be thrown if any [automation method](https://www.w3.org/TR/webaudio/#dfn-automation-method) is called at a time which is contained in \[T,T+D), T being the time of the curve and D its duration.
 
 Note: `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)` attributes are read only, with the exception of the `[value](https://www.w3.org/TR/webaudio/#dom-audioparam-value)` attribute.
 
 The automation rate of an `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)` can be selected setting the `[automationRate](https://www.w3.org/TR/webaudio/#dom-audioparam-automationrate)` attribute with one of the following values. However, some `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)`s have constraints on whether the automation rate can be changed.
 
 enum `AutomationRate` {
-  ["a-rate"](https://www.w3.org/TR/webaudio/#dom-automationrate-a-rate),
-  ["k-rate"](https://www.w3.org/TR/webaudio/#dom-automationrate-k-rate)
+["a-rate"](https://www.w3.org/TR/webaudio/#dom-automationrate-a-rate),
+["k-rate"](https://www.w3.org/TR/webaudio/#dom-automationrate-k-rate)
 };
 
 Each `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)` has an internal slot `[[current value]]`, initially set to the `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)`'s `[defaultValue](https://www.w3.org/TR/webaudio/#dom-audioparam-defaultvalue)`.
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `AudioParam` {
-  attribute [float](https://heycam.github.io/webidl/#idl-float) [value](https://www.w3.org/TR/webaudio/#dom-audioparam-value);
-  attribute [AutomationRate](https://www.w3.org/TR/webaudio/#enumdef-automationrate) [automationRate](https://www.w3.org/TR/webaudio/#dom-audioparam-automationrate);
-  readonly attribute [float](https://heycam.github.io/webidl/#idl-float) [defaultValue](https://www.w3.org/TR/webaudio/#dom-audioparam-defaultvalue);
-  readonly attribute [float](https://heycam.github.io/webidl/#idl-float) [minValue](https://www.w3.org/TR/webaudio/#dom-audioparam-minvalue);
-  readonly attribute [float](https://heycam.github.io/webidl/#idl-float) [maxValue](https://www.w3.org/TR/webaudio/#dom-audioparam-maxvalue);
-  [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [setValueAtTime](https://www.w3.org/TR/webaudio/#dom-audioparam-setvalueattime) ([float](https://heycam.github.io/webidl/#idl-float) `value`[](https://www.w3.org/TR/webaudio/#dom-audioparam-setvalueattime-value-starttime-value), [double](https://heycam.github.io/webidl/#idl-double) `startTime`[](https://www.w3.org/TR/webaudio/#dom-audioparam-setvalueattime-value-starttime-starttime));
-  [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [linearRampToValueAtTime](https://www.w3.org/TR/webaudio/#dom-audioparam-linearramptovalueattime) ([float](https://heycam.github.io/webidl/#idl-float) `value`[](https://www.w3.org/TR/webaudio/#dom-audioparam-linearramptovalueattime-value-endtime-value), [double](https://heycam.github.io/webidl/#idl-double) `endTime`[](https://www.w3.org/TR/webaudio/#dom-audioparam-linearramptovalueattime-value-endtime-endtime));
-  [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [exponentialRampToValueAtTime](https://www.w3.org/TR/webaudio/#dom-audioparam-exponentialramptovalueattime) ([float](https://heycam.github.io/webidl/#idl-float) `value`[](https://www.w3.org/TR/webaudio/#dom-audioparam-exponentialramptovalueattime-value-endtime-value), [double](https://heycam.github.io/webidl/#idl-double) `endTime`[](https://www.w3.org/TR/webaudio/#dom-audioparam-exponentialramptovalueattime-value-endtime-endtime));
-  [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [setTargetAtTime](https://www.w3.org/TR/webaudio/#dom-audioparam-settargetattime) ([float](https://heycam.github.io/webidl/#idl-float) `target`[](https://www.w3.org/TR/webaudio/#dom-audioparam-settargetattime-target-starttime-timeconstant-target), [double](https://heycam.github.io/webidl/#idl-double) `startTime`[](https://www.w3.org/TR/webaudio/#dom-audioparam-settargetattime-target-starttime-timeconstant-starttime), [float](https://heycam.github.io/webidl/#idl-float) `timeConstant`[](https://www.w3.org/TR/webaudio/#dom-audioparam-settargetattime-target-starttime-timeconstant-timeconstant));
-  [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [setValueCurveAtTime](https://www.w3.org/TR/webaudio/#dom-audioparam-setvaluecurveattime) ([sequence](https://heycam.github.io/webidl/#idl-sequence)<[float](https://heycam.github.io/webidl/#idl-float)\> `values`[](https://www.w3.org/TR/webaudio/#dom-audioparam-setvaluecurveattime-values-starttime-duration-values),
-                                  [double](https://heycam.github.io/webidl/#idl-double) `startTime`[](https://www.w3.org/TR/webaudio/#dom-audioparam-setvaluecurveattime-values-starttime-duration-starttime),
-                                  [double](https://heycam.github.io/webidl/#idl-double) `duration`[](https://www.w3.org/TR/webaudio/#dom-audioparam-setvaluecurveattime-values-starttime-duration-duration));
-  [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [cancelScheduledValues](https://www.w3.org/TR/webaudio/#dom-audioparam-cancelscheduledvalues) ([double](https://heycam.github.io/webidl/#idl-double) `cancelTime`[](https://www.w3.org/TR/webaudio/#dom-audioparam-cancelscheduledvalues-canceltime-canceltime));
-  [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [cancelAndHoldAtTime](https://www.w3.org/TR/webaudio/#dom-audioparam-cancelandholdattime) ([double](https://heycam.github.io/webidl/#idl-double) `cancelTime`[](https://www.w3.org/TR/webaudio/#dom-audioparam-cancelandholdattime-canceltime-canceltime));
+attribute [float](https://heycam.github.io/webidl/#idl-float) [value](https://www.w3.org/TR/webaudio/#dom-audioparam-value);
+attribute [AutomationRate](https://www.w3.org/TR/webaudio/#enumdef-automationrate) [automationRate](https://www.w3.org/TR/webaudio/#dom-audioparam-automationrate);
+readonly attribute [float](https://heycam.github.io/webidl/#idl-float) [defaultValue](https://www.w3.org/TR/webaudio/#dom-audioparam-defaultvalue);
+readonly attribute [float](https://heycam.github.io/webidl/#idl-float) [minValue](https://www.w3.org/TR/webaudio/#dom-audioparam-minvalue);
+readonly attribute [float](https://heycam.github.io/webidl/#idl-float) [maxValue](https://www.w3.org/TR/webaudio/#dom-audioparam-maxvalue);
+[AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [setValueAtTime](https://www.w3.org/TR/webaudio/#dom-audioparam-setvalueattime) ([float](https://heycam.github.io/webidl/#idl-float) `value`[](https://www.w3.org/TR/webaudio/#dom-audioparam-setvalueattime-value-starttime-value), [double](https://heycam.github.io/webidl/#idl-double) `startTime`[](https://www.w3.org/TR/webaudio/#dom-audioparam-setvalueattime-value-starttime-starttime));
+[AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [linearRampToValueAtTime](https://www.w3.org/TR/webaudio/#dom-audioparam-linearramptovalueattime) ([float](https://heycam.github.io/webidl/#idl-float) `value`[](https://www.w3.org/TR/webaudio/#dom-audioparam-linearramptovalueattime-value-endtime-value), [double](https://heycam.github.io/webidl/#idl-double) `endTime`[](https://www.w3.org/TR/webaudio/#dom-audioparam-linearramptovalueattime-value-endtime-endtime));
+[AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [exponentialRampToValueAtTime](https://www.w3.org/TR/webaudio/#dom-audioparam-exponentialramptovalueattime) ([float](https://heycam.github.io/webidl/#idl-float) `value`[](https://www.w3.org/TR/webaudio/#dom-audioparam-exponentialramptovalueattime-value-endtime-value), [double](https://heycam.github.io/webidl/#idl-double) `endTime`[](https://www.w3.org/TR/webaudio/#dom-audioparam-exponentialramptovalueattime-value-endtime-endtime));
+[AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [setTargetAtTime](https://www.w3.org/TR/webaudio/#dom-audioparam-settargetattime) ([float](https://heycam.github.io/webidl/#idl-float) `target`[](https://www.w3.org/TR/webaudio/#dom-audioparam-settargetattime-target-starttime-timeconstant-target), [double](https://heycam.github.io/webidl/#idl-double) `startTime`[](https://www.w3.org/TR/webaudio/#dom-audioparam-settargetattime-target-starttime-timeconstant-starttime), [float](https://heycam.github.io/webidl/#idl-float) `timeConstant`[](https://www.w3.org/TR/webaudio/#dom-audioparam-settargetattime-target-starttime-timeconstant-timeconstant));
+[AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [setValueCurveAtTime](https://www.w3.org/TR/webaudio/#dom-audioparam-setvaluecurveattime) ([sequence](https://heycam.github.io/webidl/#idl-sequence)<[float](https://heycam.github.io/webidl/#idl-float)\> `values`[](https://www.w3.org/TR/webaudio/#dom-audioparam-setvaluecurveattime-values-starttime-duration-values),
+[double](https://heycam.github.io/webidl/#idl-double) `startTime`[](https://www.w3.org/TR/webaudio/#dom-audioparam-setvaluecurveattime-values-starttime-duration-starttime),
+[double](https://heycam.github.io/webidl/#idl-double) `duration`[](https://www.w3.org/TR/webaudio/#dom-audioparam-setvaluecurveattime-values-starttime-duration-duration));
+[AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [cancelScheduledValues](https://www.w3.org/TR/webaudio/#dom-audioparam-cancelscheduledvalues) ([double](https://heycam.github.io/webidl/#idl-double) `cancelTime`[](https://www.w3.org/TR/webaudio/#dom-audioparam-cancelscheduledvalues-canceltime-canceltime));
+[AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [cancelAndHoldAtTime](https://www.w3.org/TR/webaudio/#dom-audioparam-cancelandholdattime) ([double](https://heycam.github.io/webidl/#idl-double) `cancelTime`[](https://www.w3.org/TR/webaudio/#dom-audioparam-cancelandholdattime-canceltime-canceltime));
 };
 
 #### 1.6.1. Attributes[](https://www.w3.org/TR/webaudio/#AudioParam-attributes)
@@ -3180,15 +3054,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -3202,15 +3076,15 @@ In all current engines.
 
 Firefox53+Safari6+Chrome52+
 
-___
+---
 
 Opera39+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android53+iOS SafariYesChrome for Android52+Android WebView52+Samsung Internet6.0+Opera Mobile41+
 
@@ -3224,15 +3098,15 @@ In all current engines.
 
 Firefox53+Safari6+Chrome52+
 
-___
+---
 
 Opera39+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android53+iOS SafariYesChrome for Android52+Android WebView52+Samsung Internet6.0+Opera Mobile41+
 
@@ -3246,15 +3120,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -3274,15 +3148,15 @@ In only one current engine.
 
 FirefoxNoneSafariNoneChrome57+
 
-___
+---
 
 Opera44+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for AndroidNoneiOS SafariNoneChrome for Android57+Android WebView57+Samsung Internet7.0+Opera Mobile43+
 
@@ -3295,39 +3169,32 @@ The behavior of the timeline in the face of `[cancelAndHoldAtTime()](https://www
 Let tc be the value of `[cancelTime](https://www.w3.org/TR/webaudio/#dom-audioparam-cancelandholdattime-canceltime)`. Then
 
 1.  Let E1 be the event (if any) at time t1 where t1 is the largest number satisfying t1≤tc.
-    
 2.  Let E2 be the event (if any) at time t2 where t2 is the smallest number satisfying tc<t2.
-    
 3.  If E2 exists:
-    
+
     1.  If E2 is a linear or exponential ramp,
-        
+
         1.  Effectively rewrite E2 to be the same kind of ramp ending at time tc with an end value that would be the value of the original ramp at time tc. ![Graphical representation of calling cancelAndHoldAtTime when linearRampToValueAtTime has been called at this time.](https://www.w3.org/TR/webaudio/images/cancel-linear.svg)
-            
         2.  Go to step 5.
-            
+
     2.  Otherwise, go to step 4.
-        
+
 4.  If E1 exists:
-    
+
     1.  If E1 is a `setTarget` event,
-        
+
         1.  Implicitly insert a `setValueAtTime` event at time tc with the value that the `setTarget` would have at time tc. ![Graphical representation of calling cancelAndHoldAtTime when setTargetAtTime has been called at this time](https://www.w3.org/TR/webaudio/images/cancel-setTarget.svg)
-            
         2.  Go to step 5.
-            
+
     2.  If E1 is a `setValueCurve` with a start time of t3 and a duration of d
-        
+
         1.  If tc\>t3+d, go to step 5.
-            
         2.  Otherwise,
-            
+
             1.  Effectively replace this event with a `setValueCurve` event with a start time of t3 and a new duration of tc−t3. However, this is not a true replacement; this automation MUST take care to produce the same output as the original, and not one computed using a different duration. (That would cause sampling of the value curve in a slightly different way, producing different results.) ![Graphical representation of calling cancelAndHoldAtTime when setValueCurve has been called at this time](https://www.w3.org/TR/webaudio/images/cancel-setValueCurve.svg)
-                
             2.  Go to step 5.
-                
+
 5.  Remove all events with time greater than tc.
-    
 
 If no events are added, then the automation value after `[cancelAndHoldAtTime()](https://www.w3.org/TR/webaudio/#dom-audioparam-cancelandholdattime)` is the constant value that the original timeline would have had at time tc.
 
@@ -3337,15 +3204,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -3381,15 +3248,15 @@ The time after which any previously scheduled parameter changes will be cancelle
 
 FirefoxNoneSafari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for AndroidNoneiOS SafariYesChrome for AndroidNoneAndroid WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -3447,15 +3314,15 @@ The time in the same time coordinate system as the `[AudioContext](https://www.w
 
 FirefoxNoneSafari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for AndroidNoneiOS Safari?Chrome for AndroidNoneAndroid WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -3513,15 +3380,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -3585,15 +3452,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -3649,15 +3516,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -3725,23 +3592,16 @@ The computedValue is the final value controlling the audio DSP and is computed b
 
 The computation of the value of an `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)` consists of two parts:
 
--   the paramIntrinsicValue value that is computed from the `[value](https://www.w3.org/TR/webaudio/#dom-audioparam-value)` attribute and any [automation events](https://www.w3.org/TR/webaudio/#dfn-automation-event).
-    
--   the paramComputedValue that is the final value controlling the audio DSP and is computed by the audio rendering thread during each [render quantum](https://www.w3.org/TR/webaudio/#render-quantum).
-    
+- the paramIntrinsicValue value that is computed from the `[value](https://www.w3.org/TR/webaudio/#dom-audioparam-value)` attribute and any [automation events](https://www.w3.org/TR/webaudio/#dfn-automation-event).
+- the paramComputedValue that is the final value controlling the audio DSP and is computed by the audio rendering thread during each [render quantum](https://www.w3.org/TR/webaudio/#render-quantum).
 
 These values MUST be computed as follows:
 
 1.  paramIntrinsicValue will be calculated at each time, which is either the value set directly to the `[value](https://www.w3.org/TR/webaudio/#dom-audioparam-value)` attribute, or, if there are any [automation events](https://www.w3.org/TR/webaudio/#dfn-automation-event) with times before or at this time, the value as calculated from these events. If automation events are removed from a given time range, then the paramIntrinsicValue value will remain unchanged and stay at its previous value until either the `[value](https://www.w3.org/TR/webaudio/#dom-audioparam-value)` attribute is directly set, or automation events are added for the time range.
-    
 2.  Set `[[[current value]]](https://www.w3.org/TR/webaudio/#dom-audioparam-current-value-slot)` to the value of paramIntrinsicValue at the beginning of this [render quantum](https://www.w3.org/TR/webaudio/#render-quantum).
-    
 3.  paramComputedValue is the sum of the paramIntrinsicValue value and the value of the [input AudioParam buffer](https://www.w3.org/TR/webaudio/#input-audioparam-buffer). If the sum is `NaN`, replace the sum with the `[defaultValue](https://www.w3.org/TR/webaudio/#dom-audioparam-defaultvalue)`.
-    
 4.  If this `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)` is a [compound parameter](https://www.w3.org/TR/webaudio/#compound-parameter), compute its final value with other `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)`s.
-    
 5.  Set [computedValue](https://www.w3.org/TR/webaudio/#computedvalue) to paramComputedValue.
-    
 
 The nominal range for a [computedValue](https://www.w3.org/TR/webaudio/#computedvalue) are the lower and higher values this parameter can effectively have. For [simple parameters](https://www.w3.org/TR/webaudio/#simple-parameter), the [computedValue](https://www.w3.org/TR/webaudio/#computedvalue) is clamped to the [simple nominal range](https://www.w3.org/TR/webaudio/#simple-nominal-range) for this parameter. [Compound parameters](https://www.w3.org/TR/webaudio/#compound-parameter) have their final value clamped to their [nominal range](https://www.w3.org/TR/webaudio/#nominal-range) after having been computed from the different `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)` values they are composed of.
 
@@ -3775,15 +3635,15 @@ In all current engines.
 
 Firefox53+Safari14+Chrome57+
 
-___
+---
 
 Opera44+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android53+iOS Safari14+Chrome for Android57+Android WebView57+Samsung Internet7.0+Opera Mobile43+
 
@@ -3799,28 +3659,28 @@ An `[AudioScheduledSourceNode](https://www.w3.org/TR/webaudio/#audioscheduledsou
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `AudioScheduledSourceNode` : [AudioNode](https://www.w3.org/TR/webaudio/#audionode) {
-  attribute [EventHandler](https://html.spec.whatwg.org/multipage/webappapis.html#eventhandler) [onended](https://www.w3.org/TR/webaudio/#dom-audioscheduledsourcenode-onended);
-  [undefined](https://heycam.github.io/webidl/#idl-undefined) [start](https://www.w3.org/TR/webaudio/#dom-audioscheduledsourcenode-start)(optional [double](https://heycam.github.io/webidl/#idl-double) [when](https://www.w3.org/TR/webaudio/#dom-audioscheduledsourcenode-start-when-when) = 0);
-  [undefined](https://heycam.github.io/webidl/#idl-undefined) [stop](https://www.w3.org/TR/webaudio/#dom-audioscheduledsourcenode-stop)(optional [double](https://heycam.github.io/webidl/#idl-double) [when](https://www.w3.org/TR/webaudio/#dom-audioscheduledsourcenode-stop-when-when) = 0);
+attribute [EventHandler](https://html.spec.whatwg.org/multipage/webappapis.html#eventhandler) [onended](https://www.w3.org/TR/webaudio/#dom-audioscheduledsourcenode-onended);
+[undefined](https://heycam.github.io/webidl/#idl-undefined) [start](https://www.w3.org/TR/webaudio/#dom-audioscheduledsourcenode-start)(optional [double](https://heycam.github.io/webidl/#idl-double) [when](https://www.w3.org/TR/webaudio/#dom-audioscheduledsourcenode-start-when-when) = 0);
+[undefined](https://heycam.github.io/webidl/#idl-undefined) [stop](https://www.w3.org/TR/webaudio/#dom-audioscheduledsourcenode-stop)(optional [double](https://heycam.github.io/webidl/#idl-double) [when](https://www.w3.org/TR/webaudio/#dom-audioscheduledsourcenode-stop-when-when) = 0);
 };
 
 #### 1.7.1. Attributes[](https://www.w3.org/TR/webaudio/#AudioScheduledSourceNode-attributes)
 
-[AudioScheduledSourceNode/ended\_event](https://developer.mozilla.org/en-US/docs/Web/API/AudioScheduledSourceNode/ended_event "The ended event of the AudioScheduledSourceNode interface is fired when the source node has stopped playing.")
+[AudioScheduledSourceNode/ended_event](https://developer.mozilla.org/en-US/docs/Web/API/AudioScheduledSourceNode/ended_event "The ended event of the AudioScheduledSourceNode interface is fired when the source node has stopped playing.")
 
 In all current engines.
 
 Firefox25+Safari7+Chrome30+
 
-___
+---
 
 Opera17+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari7+Chrome for Android30+Android WebView37+Samsung Internet2.0+Opera Mobile18+
 
@@ -3830,15 +3690,15 @@ In all current engines.
 
 Firefox25+Safari7+Chrome30+
 
-___
+---
 
 Opera17+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari7+Chrome for Android30+Android WebView37+Samsung Internet2.0+Opera Mobile18+
 
@@ -3856,15 +3716,15 @@ In all current engines.
 
 Firefox25+Safari6.1+Chrome24+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari7+Chrome for Android25+Android WebView37+Samsung Internet1.5+Opera Mobile14+
 
@@ -3900,15 +3760,15 @@ In all current engines.
 
 Firefox25+Safari6.1+Chrome24+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari7+Chrome for Android25+Android WebView37+Samsung Internet1.5+Opera Mobile14+
 
@@ -3948,30 +3808,30 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `AnalyserNode` : [AudioNode](https://www.w3.org/TR/webaudio/#audionode) {
-  [constructor](https://www.w3.org/TR/webaudio/#dom-analysernode-analysernode) ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-analysernode-analysernode-context-options-context), optional [AnalyserOptions](https://www.w3.org/TR/webaudio/#dictdef-analyseroptions) `options`[](https://www.w3.org/TR/webaudio/#dom-analysernode-analysernode-context-options-options) = {});
-  [undefined](https://heycam.github.io/webidl/#idl-undefined) [getFloatFrequencyData](https://www.w3.org/TR/webaudio/#dom-analysernode-getfloatfrequencydata) ([Float32Array](https://heycam.github.io/webidl/#idl-Float32Array) `array`[](https://www.w3.org/TR/webaudio/#dom-analysernode-getfloatfrequencydata-array-array));
-  [undefined](https://heycam.github.io/webidl/#idl-undefined) [getByteFrequencyData](https://www.w3.org/TR/webaudio/#dom-analysernode-getbytefrequencydata) ([Uint8Array](https://heycam.github.io/webidl/#idl-Uint8Array) `array`[](https://www.w3.org/TR/webaudio/#dom-analysernode-getbytefrequencydata-array-array));
-  [undefined](https://heycam.github.io/webidl/#idl-undefined) [getFloatTimeDomainData](https://www.w3.org/TR/webaudio/#dom-analysernode-getfloattimedomaindata) ([Float32Array](https://heycam.github.io/webidl/#idl-Float32Array) `array`[](https://www.w3.org/TR/webaudio/#dom-analysernode-getfloattimedomaindata-array-array));
-  [undefined](https://heycam.github.io/webidl/#idl-undefined) [getByteTimeDomainData](https://www.w3.org/TR/webaudio/#dom-analysernode-getbytetimedomaindata) ([Uint8Array](https://heycam.github.io/webidl/#idl-Uint8Array) `array`[](https://www.w3.org/TR/webaudio/#dom-analysernode-getbytetimedomaindata-array-array));
-  attribute [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [fftSize](https://www.w3.org/TR/webaudio/#dom-analysernode-fftsize);
-  readonly attribute [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [frequencyBinCount](https://www.w3.org/TR/webaudio/#dom-analysernode-frequencybincount);
-  attribute [double](https://heycam.github.io/webidl/#idl-double) [minDecibels](https://www.w3.org/TR/webaudio/#dom-analysernode-mindecibels);
-  attribute [double](https://heycam.github.io/webidl/#idl-double) [maxDecibels](https://www.w3.org/TR/webaudio/#dom-analysernode-maxdecibels);
-  attribute [double](https://heycam.github.io/webidl/#idl-double) [smoothingTimeConstant](https://www.w3.org/TR/webaudio/#dom-analysernode-smoothingtimeconstant);
+[constructor](https://www.w3.org/TR/webaudio/#dom-analysernode-analysernode) ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-analysernode-analysernode-context-options-context), optional [AnalyserOptions](https://www.w3.org/TR/webaudio/#dictdef-analyseroptions) `options`[](https://www.w3.org/TR/webaudio/#dom-analysernode-analysernode-context-options-options) = {});
+[undefined](https://heycam.github.io/webidl/#idl-undefined) [getFloatFrequencyData](https://www.w3.org/TR/webaudio/#dom-analysernode-getfloatfrequencydata) ([Float32Array](https://heycam.github.io/webidl/#idl-Float32Array) `array`[](https://www.w3.org/TR/webaudio/#dom-analysernode-getfloatfrequencydata-array-array));
+[undefined](https://heycam.github.io/webidl/#idl-undefined) [getByteFrequencyData](https://www.w3.org/TR/webaudio/#dom-analysernode-getbytefrequencydata) ([Uint8Array](https://heycam.github.io/webidl/#idl-Uint8Array) `array`[](https://www.w3.org/TR/webaudio/#dom-analysernode-getbytefrequencydata-array-array));
+[undefined](https://heycam.github.io/webidl/#idl-undefined) [getFloatTimeDomainData](https://www.w3.org/TR/webaudio/#dom-analysernode-getfloattimedomaindata) ([Float32Array](https://heycam.github.io/webidl/#idl-Float32Array) `array`[](https://www.w3.org/TR/webaudio/#dom-analysernode-getfloattimedomaindata-array-array));
+[undefined](https://heycam.github.io/webidl/#idl-undefined) [getByteTimeDomainData](https://www.w3.org/TR/webaudio/#dom-analysernode-getbytetimedomaindata) ([Uint8Array](https://heycam.github.io/webidl/#idl-Uint8Array) `array`[](https://www.w3.org/TR/webaudio/#dom-analysernode-getbytetimedomaindata-array-array));
+attribute [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [fftSize](https://www.w3.org/TR/webaudio/#dom-analysernode-fftsize);
+readonly attribute [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [frequencyBinCount](https://www.w3.org/TR/webaudio/#dom-analysernode-frequencybincount);
+attribute [double](https://heycam.github.io/webidl/#idl-double) [minDecibels](https://www.w3.org/TR/webaudio/#dom-analysernode-mindecibels);
+attribute [double](https://heycam.github.io/webidl/#idl-double) [maxDecibels](https://www.w3.org/TR/webaudio/#dom-analysernode-maxdecibels);
+attribute [double](https://heycam.github.io/webidl/#idl-double) [smoothingTimeConstant](https://www.w3.org/TR/webaudio/#dom-analysernode-smoothingtimeconstant);
 };
 
 #### 1.8.1. Constructors[](https://www.w3.org/TR/webaudio/#AnalyserNode-constructors)
@@ -3980,15 +3840,15 @@ interface `AnalyserNode` : [AudioNode](https://www.w3.org/TR/webaudio/#audionode
 
 Firefox53+SafariNoneChrome55+
 
-___
+---
 
 Opera42+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android53+iOS SafariNoneChrome for Android55+Android WebView55+Samsung Internet6.0+Opera Mobile42+
 
@@ -4004,15 +3864,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -4030,15 +3890,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -4052,15 +3912,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -4074,15 +3934,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -4096,15 +3956,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -4120,15 +3980,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -4172,15 +4032,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -4222,15 +4082,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -4268,15 +4128,15 @@ This parameter is where the frequency-domain analysis data will be copied.
 
 Firefox25+SafariNoneChrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariNoneChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -4311,10 +4171,10 @@ This parameter is where the time-domain sample data will be copied.
 This specifies the options to be used when constructing an `[AnalyserNode](https://www.w3.org/TR/webaudio/#analysernode)`. All members are optional; if not specified, the normal default values are used to construct the node.
 
 dictionary `AnalyserOptions` : [AudioNodeOptions](https://www.w3.org/TR/webaudio/#dictdef-audionodeoptions) {
-  [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [fftSize](https://www.w3.org/TR/webaudio/#dom-analyseroptions-fftsize) = 2048;
-  [double](https://heycam.github.io/webidl/#idl-double) [maxDecibels](https://www.w3.org/TR/webaudio/#dom-analyseroptions-maxdecibels) = -30;
-  [double](https://heycam.github.io/webidl/#idl-double) [minDecibels](https://www.w3.org/TR/webaudio/#dom-analyseroptions-mindecibels) = -100;
-  [double](https://heycam.github.io/webidl/#idl-double) [smoothingTimeConstant](https://www.w3.org/TR/webaudio/#dom-analyseroptions-smoothingtimeconstant) = 0.8;
+[unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [fftSize](https://www.w3.org/TR/webaudio/#dom-analyseroptions-fftsize) = 2048;
+[double](https://heycam.github.io/webidl/#idl-double) [maxDecibels](https://www.w3.org/TR/webaudio/#dom-analyseroptions-maxdecibels) = -30;
+[double](https://heycam.github.io/webidl/#idl-double) [minDecibels](https://www.w3.org/TR/webaudio/#dom-analyseroptions-mindecibels) = -100;
+[double](https://heycam.github.io/webidl/#idl-double) [smoothingTimeConstant](https://www.w3.org/TR/webaudio/#dom-analyseroptions-smoothingtimeconstant) = 0.8;
 };
 
 ##### 1.8.4.1. Dictionary `[AnalyserOptions](https://www.w3.org/TR/webaudio/#dictdef-analyseroptions)` Members[](https://www.w3.org/TR/webaudio/#dictionary-analyseroptions-members)
@@ -4361,12 +4221,9 @@ for k\=0,…,N/2−1 where WN\=e2πi/N.
 
 Smoothing over time frequency data consists in the following operation:
 
--   Let X^−1\[k\] be the result of this operation on the [previous block](https://www.w3.org/TR/webaudio/#previous-block). The previous block is defined as being the buffer computed by the previous [smoothing over time](https://www.w3.org/TR/webaudio/#smoothing-over-time) operation, or an array of N zeros if this is the first time we are [smoothing over time](https://www.w3.org/TR/webaudio/#smoothing-over-time).
-    
--   Let τ be the value of the `[smoothingTimeConstant](https://www.w3.org/TR/webaudio/#dom-analysernode-smoothingtimeconstant)` attribute for this `[AnalyserNode](https://www.w3.org/TR/webaudio/#analysernode)`.
-    
--   Let X\[k\] be the result of [applying a Fourier transform](https://www.w3.org/TR/webaudio/#fourier-transform) of the current block.
-    
+- Let X^−1\[k\] be the result of this operation on the [previous block](https://www.w3.org/TR/webaudio/#previous-block). The previous block is defined as being the buffer computed by the previous [smoothing over time](https://www.w3.org/TR/webaudio/#smoothing-over-time) operation, or an array of N zeros if this is the first time we are [smoothing over time](https://www.w3.org/TR/webaudio/#smoothing-over-time).
+- Let τ be the value of the `[smoothingTimeConstant](https://www.w3.org/TR/webaudio/#dom-analysernode-smoothingtimeconstant)` attribute for this `[AnalyserNode](https://www.w3.org/TR/webaudio/#analysernode)`.
+- Let X\[k\] be the result of [applying a Fourier transform](https://www.w3.org/TR/webaudio/#fourier-transform) of the current block.
 
 Then the smoothed value, X^\[k\], is computed by
 
@@ -4380,15 +4237,15 @@ for k\=0,…,N−1.
 
 Firefox53+SafariNoneChrome55+
 
-___
+---
 
 Opera42+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android53+iOS SafariNoneChrome for Android55+Android WebView55+Samsung Internet6.0+Opera Mobile42+
 
@@ -4398,15 +4255,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -4418,12 +4275,9 @@ The number of channels of the output equals the number of channels of the AudioB
 
 In addition, if the buffer has more than one channel, then the `[AudioBufferSourceNode](https://www.w3.org/TR/webaudio/#audiobuffersourcenode)` output must change to a single channel of silence at the beginning of a render quantum after the time at which any one of the following conditions holds:
 
--   the end of the `[buffer](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-buffer)` has been reached;
-    
--   the `[duration](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-start-when-offset-duration-duration)` has been reached;
-    
--   the `[stop](https://www.w3.org/TR/webaudio/#dom-audioscheduledsourcenode-stop-when-when)` time has been reached.
-    
+- the end of the `[buffer](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-buffer)` has been reached;
+- the `[duration](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-start-when-offset-duration-duration)` has been reached;
+- the `[stop](https://www.w3.org/TR/webaudio/#dom-audioscheduledsourcenode-stop-when-when)` time has been reached.
 
 A playhead position for an `[AudioBufferSourceNode](https://www.w3.org/TR/webaudio/#audiobuffersourcenode)` is defined as any quantity representing a time offset in seconds, relative to the time coordinate of the first sample frame in the buffer. Such values are to be considered independently from the node’s `playbackRate` and `[detune](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-detune)` parameters. In general, playhead positions may be subsample-accurate and need not refer to exact sample frame positions. They may assume valid values between 0 and the duration of the buffer.
 
@@ -4437,17 +4291,17 @@ The [nominal range](https://www.w3.org/TR/webaudio/#nominal-range) for this [com
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `AudioBufferSourceNode` : [AudioScheduledSourceNode](https://www.w3.org/TR/webaudio/#audioscheduledsourcenode) {
-  `constructor` ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-audiobuffersourcenode-context-options-context),
-               optional [AudioBufferSourceOptions](https://www.w3.org/TR/webaudio/#dictdef-audiobuffersourceoptions) `options`[](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-audiobuffersourcenode-context-options-options) = {});
-  attribute [AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer)? [buffer](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-buffer);
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [playbackRate](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-playbackrate);
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [detune](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-detune);
-  attribute [boolean](https://heycam.github.io/webidl/#idl-boolean) [loop](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-loop);
-  attribute [double](https://heycam.github.io/webidl/#idl-double) [loopStart](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-loopstart);
-  attribute [double](https://heycam.github.io/webidl/#idl-double) [loopEnd](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-loopend);
-  [undefined](https://heycam.github.io/webidl/#idl-undefined) [start](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-start) (optional [double](https://heycam.github.io/webidl/#idl-double) [when](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-start-when-offset-duration-when) = 0,
-                   optional [double](https://heycam.github.io/webidl/#idl-double) [offset](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-start-when-offset-duration-offset),
-                   optional [double](https://heycam.github.io/webidl/#idl-double) [duration](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-start-when-offset-duration-duration));
+`constructor` ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-audiobuffersourcenode-context-options-context),
+optional [AudioBufferSourceOptions](https://www.w3.org/TR/webaudio/#dictdef-audiobuffersourceoptions) `options`[](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-audiobuffersourcenode-context-options-options) = {});
+attribute [AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer)? [buffer](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-buffer);
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [playbackRate](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-playbackrate);
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [detune](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-detune);
+attribute [boolean](https://heycam.github.io/webidl/#idl-boolean) [loop](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-loop);
+attribute [double](https://heycam.github.io/webidl/#idl-double) [loopStart](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-loopstart);
+attribute [double](https://heycam.github.io/webidl/#idl-double) [loopEnd](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-loopend);
+[undefined](https://heycam.github.io/webidl/#idl-undefined) [start](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-start) (optional [double](https://heycam.github.io/webidl/#idl-double) [when](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-start-when-offset-duration-when) = 0,
+optional [double](https://heycam.github.io/webidl/#idl-double) [offset](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-start-when-offset-duration-offset),
+optional [double](https://heycam.github.io/webidl/#idl-double) [duration](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-start-when-offset-duration-duration));
 };
 
 #### 1.9.1. Constructors[](https://www.w3.org/TR/webaudio/#AudioBufferSourceNode-constructors)
@@ -4464,15 +4318,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -4484,15 +4338,15 @@ Represents the audio asset to be played.
 
 Firefox40+SafariNoneChrome44+
 
-___
+---
 
 Opera31+Edge79+
 
-___
+---
 
 Edge (Legacy)13+IENone
 
-___
+---
 
 Firefox for Android40+iOS SafariNoneChrome for Android44+Android WebView44+Samsung Internet4.0+Opera Mobile32+
 
@@ -4506,15 +4360,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome15+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -4528,15 +4382,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome24+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android25+Android WebView37+Samsung Internet1.5+Opera Mobile14+
 
@@ -4550,15 +4404,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome24+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android25+Android WebView37+Samsung Internet1.5+Opera Mobile14+
 
@@ -4572,15 +4426,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -4596,15 +4450,15 @@ In all current engines.
 
 Firefox25+Safari6.1+Chrome24+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari7+Chrome for Android25+Android WebView37+Samsung Internet1.5+Opera Mobile14+
 
@@ -4659,12 +4513,12 @@ The `[duration](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-start-
 This specifies options for constructing a `[AudioBufferSourceNode](https://www.w3.org/TR/webaudio/#audiobuffersourcenode)`. All members are optional; if not specified, the normal default is used in constructing the node.
 
 dictionary `AudioBufferSourceOptions` {
-  [AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer)? [buffer](https://www.w3.org/TR/webaudio/#dom-audiobuffersourceoptions-buffer);
-  [float](https://heycam.github.io/webidl/#idl-float) [detune](https://www.w3.org/TR/webaudio/#dom-audiobuffersourceoptions-detune) = 0;
-  [boolean](https://heycam.github.io/webidl/#idl-boolean) [loop](https://www.w3.org/TR/webaudio/#dom-audiobuffersourceoptions-loop) = false;
-  [double](https://heycam.github.io/webidl/#idl-double) [loopEnd](https://www.w3.org/TR/webaudio/#dom-audiobuffersourceoptions-loopend) = 0;
-  [double](https://heycam.github.io/webidl/#idl-double) [loopStart](https://www.w3.org/TR/webaudio/#dom-audiobuffersourceoptions-loopstart) = 0;
-  [float](https://heycam.github.io/webidl/#idl-float) [playbackRate](https://www.w3.org/TR/webaudio/#dom-audiobuffersourceoptions-playbackrate) = 1;
+[AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer)? [buffer](https://www.w3.org/TR/webaudio/#dom-audiobuffersourceoptions-buffer);
+[float](https://heycam.github.io/webidl/#idl-float) [detune](https://www.w3.org/TR/webaudio/#dom-audiobuffersourceoptions-detune) = 0;
+[boolean](https://heycam.github.io/webidl/#idl-boolean) [loop](https://www.w3.org/TR/webaudio/#dom-audiobuffersourceoptions-loop) = false;
+[double](https://heycam.github.io/webidl/#idl-double) [loopEnd](https://www.w3.org/TR/webaudio/#dom-audiobuffersourceoptions-loopend) = 0;
+[double](https://heycam.github.io/webidl/#idl-double) [loopStart](https://www.w3.org/TR/webaudio/#dom-audiobuffersourceoptions-loopstart) = 0;
+[float](https://heycam.github.io/webidl/#idl-float) [playbackRate](https://www.w3.org/TR/webaudio/#dom-audiobuffersourceoptions-playbackrate) = 1;
 };
 
 ##### 1.9.4.1. Dictionary `[AudioBufferSourceOptions](https://www.w3.org/TR/webaudio/#dictdef-audiobuffersourceoptions)` Members[](https://www.w3.org/TR/webaudio/#dictionary-audiobuffersourceoptions-members)
@@ -4699,12 +4553,9 @@ _This section is non-normative. Please see [the playback algorithm](https://www.
 
 Setting the `[loop](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-loop)` attribute to true causes playback of the region of the buffer defined by the endpoints `[loopStart](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-loopstart)` and `[loopEnd](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-loopend)` to continue indefinitely, once any part of the looped region has been played. While `[loop](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-loop)` remains true, looped playback will continue until one of the following occurs:
 
--   `[stop()](https://www.w3.org/TR/webaudio/#dom-audioscheduledsourcenode-stop)` is called,
-    
--   the scheduled stop time has been reached,
-    
--   the `duration` has been exceeded, if `[start()](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-start)` was called with a `duration` value.
-    
+- `[stop()](https://www.w3.org/TR/webaudio/#dom-audioscheduledsourcenode-stop)` is called,
+- the scheduled stop time has been reached,
+- the `duration` has been exceeded, if `[start()](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-start)` was called with a `duration` value.
 
 The body of the loop is considered to occupy a region from `[loopStart](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-loopstart)` up to, but not including, `[loopEnd](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-loopend)`. The direction of playback of the looped region respects the sign of the node’s playback rate. For positive playback rates, looping occurs from `[loopStart](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-loopstart)` to `[loopEnd](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-loopend)`; for negative rates, looping occurs from `[loopEnd](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-loopend)` to `[loopStart](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-loopstart)`.
 
@@ -4724,38 +4575,27 @@ Note that the values of the loop endpoints are expressed as time offsets in term
 
 This normative section specifies the playback of the contents of the buffer, accounting for the fact that playback is influenced by the following factors working in combination:
 
--   A starting offset, which can be expressed with sub-sample precision.
-    
--   Loop points, which can be expressed with sub-sample precision and can vary dynamically during playback.
-    
--   Playback rate and detuning parameters, which combine to yield a single [computedPlaybackRate](https://www.w3.org/TR/webaudio/#computedplaybackrate) that can assume finite values which may be positive or negative.
-    
+- A starting offset, which can be expressed with sub-sample precision.
+- Loop points, which can be expressed with sub-sample precision and can vary dynamically during playback.
+- Playback rate and detuning parameters, which combine to yield a single [computedPlaybackRate](https://www.w3.org/TR/webaudio/#computedplaybackrate) that can assume finite values which may be positive or negative.
 
 The algorithm to be followed internally to generate output from an `[AudioBufferSourceNode](https://www.w3.org/TR/webaudio/#audiobuffersourcenode)` conforms to the following principles:
 
--   Resampling of the buffer may be performed arbitrarily by the UA at any desired point to increase the efficiency or quality of the output.
-    
--   Sub-sample start offsets or loop points may require additional interpolation between sample frames.
-    
--   The playback of a looped buffer should behave identically to an unlooped buffer containing consecutive occurrences of the looped audio content, excluding any effects from interpolation.
-    
+- Resampling of the buffer may be performed arbitrarily by the UA at any desired point to increase the efficiency or quality of the output.
+- Sub-sample start offsets or loop points may require additional interpolation between sample frames.
+- The playback of a looped buffer should behave identically to an unlooped buffer containing consecutive occurrences of the looped audio content, excluding any effects from interpolation.
 
 The description of the algorithm is as follows:
 
-let buffer; // AudioBuffer employed by this nodelet context; // AudioContext employed by this node// The following variables capture attribute and AudioParam values for the node.// They are updated on a k-rate basis, prior to each invocation of process().let loop;let detune;let loopStart;let loopEnd;let playbackRate;// Variables for the node’s playback parameterslet start \= 0, offset \= 0, duration \= Infinity; // Set by start()let stop \= Infinity; // Set by stop()// Variables for tracking node’s playback statelet bufferTime \= 0, started \= false, enteredLoop \= false;let bufferTimeElapsed \= 0;let dt \= 1 / context.sampleRate;// Handle invocation of start method callfunction handleStart(when, pos, dur) { if (arguments.length \>= 1) { start \= when; } offset \= pos; if (arguments.length \>= 3) { duration \= dur; }}// Handle invocation of stop method callfunction handleStop(when) { if (arguments.length \>= 1) { stop \= when; } else { stop \= context.currentTime; }}// Interpolate a multi-channel signal value for some sample frame.// Returns an array of signal values.function playbackSignal(position) { /\* This function provides the playback signal function for buffer, which is a function that maps from a playhead position to a set of output signal values, one for each output channel. If |position| corresponds to the location of an exact sample frame in the buffer, this function returns that frame. Otherwise, its return value is determined by a UA-supplied algorithm that interpolates sample frames in the neighborhood of |position|. If |position| is greater than or equal to |loopEnd| and there is no subsequent sample frame in buffer, then interpolation should be based on the sequence of subsequent frames beginning at |loopStart|. \*/ ...}// Generate a single render quantum of audio to be placed// in the channel arrays defined by output. Returns an array// of |numberOfFrames| sample frames to be output.function process(numberOfFrames) { let currentTime \= context.currentTime; // context time of next rendered frame const output \= \[\]; // accumulates rendered sample frames // Combine the two k-rate parameters affecting playback rate const computedPlaybackRate \= playbackRate \* Math.pow(2, detune / 1200); // Determine loop endpoints as applicable let actualLoopStart, actualLoopEnd; if (loop && buffer != null) { if (loopStart \>= 0 && loopEnd \> 0 && loopStart < loopEnd) { actualLoopStart \= loopStart; actualLoopEnd \= Math.min(loopEnd, buffer.duration); } else { actualLoopStart \= 0; actualLoopEnd \= buffer.duration; } } else { // If the loop flag is false, remove any record of the loop having been entered enteredLoop \= false; } // Handle null buffer case if (buffer \== null) { stop \= currentTime; // force zero output for all time } // Render each sample frame in the quantum for (let index \= 0; index < numberOfFrames; index++) { // Check that currentTime and bufferTimeElapsed are // within allowable range for playback if (currentTime < start || currentTime \>= stop || bufferTimeElapsed \>= duration) { output.push(0); // this sample frame is silent currentTime += dt; continue; } if (!started) { // Take note that buffer has started playing and get initial // playhead position. if (loop && computedPlaybackRate \>= 0 && offset \>= actualLoopEnd) { offset \= actualLoopEnd; } if (computedPlaybackRate < 0 && loop && offset < actualLoopStart) { offset \= actualLoopStart; } bufferTime \= offset; started \= true; } // Handle loop-related calculations if (loop) { // Determine if looped portion has been entered for the first time if (!enteredLoop) { if (offset < actualLoopEnd && bufferTime \>= actualLoopStart) { // playback began before or within loop, and playhead is // now past loop start enteredLoop \= true; } if (offset \>= actualLoopEnd && bufferTime < actualLoopEnd) { // playback began after loop, and playhead is now prior // to the loop end enteredLoop \= true; } } // Wrap loop iterations as needed. Note that enteredLoop // may become true inside the preceding conditional. if (enteredLoop) { while (bufferTime \>= actualLoopEnd) { bufferTime \-= actualLoopEnd \- actualLoopStart; } while (bufferTime < actualLoopStart) { bufferTime += actualLoopEnd \- actualLoopStart; } } } if (bufferTime \>= 0 && bufferTime < buffer.duration) { output.push(playbackSignal(bufferTime)); } else { output.push(0); // past end of buffer, so output silent frame } bufferTime += dt \* computedPlaybackRate; bufferTimeElapsed += dt \* computedPlaybackRate; currentTime += dt; } // End of render quantum loop if (currentTime \>= stop) { // End playback state of this node.  No further invocations of process() // will occur.  Schedule a change to set the number of output channels to 1. } return output;}
+let buffer; // AudioBuffer employed by this nodelet context; // AudioContext employed by this node// The following variables capture attribute and AudioParam values for the node.// They are updated on a k-rate basis, prior to each invocation of process().let loop;let detune;let loopStart;let loopEnd;let playbackRate;// Variables for the node’s playback parameterslet start \= 0, offset \= 0, duration \= Infinity; // Set by start()let stop \= Infinity; // Set by stop()// Variables for tracking node’s playback statelet bufferTime \= 0, started \= false, enteredLoop \= false;let bufferTimeElapsed \= 0;let dt \= 1 / context.sampleRate;// Handle invocation of start method callfunction handleStart(when, pos, dur) { if (arguments.length \>= 1) { start \= when; } offset \= pos; if (arguments.length \>= 3) { duration \= dur; }}// Handle invocation of stop method callfunction handleStop(when) { if (arguments.length \>= 1) { stop \= when; } else { stop \= context.currentTime; }}// Interpolate a multi-channel signal value for some sample frame.// Returns an array of signal values.function playbackSignal(position) { /\* This function provides the playback signal function for buffer, which is a function that maps from a playhead position to a set of output signal values, one for each output channel. If |position| corresponds to the location of an exact sample frame in the buffer, this function returns that frame. Otherwise, its return value is determined by a UA-supplied algorithm that interpolates sample frames in the neighborhood of |position|. If |position| is greater than or equal to |loopEnd| and there is no subsequent sample frame in buffer, then interpolation should be based on the sequence of subsequent frames beginning at |loopStart|. \*/ ...}// Generate a single render quantum of audio to be placed// in the channel arrays defined by output. Returns an array// of |numberOfFrames| sample frames to be output.function process(numberOfFrames) { let currentTime \= context.currentTime; // context time of next rendered frame const output \= \[\]; // accumulates rendered sample frames // Combine the two k-rate parameters affecting playback rate const computedPlaybackRate \= playbackRate \* Math.pow(2, detune / 1200); // Determine loop endpoints as applicable let actualLoopStart, actualLoopEnd; if (loop && buffer != null) { if (loopStart \>= 0 && loopEnd \> 0 && loopStart < loopEnd) { actualLoopStart \= loopStart; actualLoopEnd \= Math.min(loopEnd, buffer.duration); } else { actualLoopStart \= 0; actualLoopEnd \= buffer.duration; } } else { // If the loop flag is false, remove any record of the loop having been entered enteredLoop \= false; } // Handle null buffer case if (buffer \== null) { stop \= currentTime; // force zero output for all time } // Render each sample frame in the quantum for (let index \= 0; index < numberOfFrames; index++) { // Check that currentTime and bufferTimeElapsed are // within allowable range for playback if (currentTime < start || currentTime \>= stop || bufferTimeElapsed \>= duration) { output.push(0); // this sample frame is silent currentTime += dt; continue; } if (!started) { // Take note that buffer has started playing and get initial // playhead position. if (loop && computedPlaybackRate \>= 0 && offset \>= actualLoopEnd) { offset \= actualLoopEnd; } if (computedPlaybackRate < 0 && loop && offset < actualLoopStart) { offset \= actualLoopStart; } bufferTime \= offset; started \= true; } // Handle loop-related calculations if (loop) { // Determine if looped portion has been entered for the first time if (!enteredLoop) { if (offset < actualLoopEnd && bufferTime \>= actualLoopStart) { // playback began before or within loop, and playhead is // now past loop start enteredLoop \= true; } if (offset \>= actualLoopEnd && bufferTime < actualLoopEnd) { // playback began after loop, and playhead is now prior // to the loop end enteredLoop \= true; } } // Wrap loop iterations as needed. Note that enteredLoop // may become true inside the preceding conditional. if (enteredLoop) { while (bufferTime \>= actualLoopEnd) { bufferTime \-= actualLoopEnd \- actualLoopStart; } while (bufferTime < actualLoopStart) { bufferTime += actualLoopEnd \- actualLoopStart; } } } if (bufferTime \>= 0 && bufferTime < buffer.duration) { output.push(playbackSignal(bufferTime)); } else { output.push(0); // past end of buffer, so output silent frame } bufferTime += dt \* computedPlaybackRate; bufferTimeElapsed += dt \* computedPlaybackRate; currentTime += dt; } // End of render quantum loop if (currentTime \>= stop) { // End playback state of this node. No further invocations of process() // will occur. Schedule a change to set the number of output channels to 1. } return output;}
 
 The following non-normative figures illustrate the behavior of the algorithm in assorted key scenarios. Dynamic resampling of the buffer is not considered, but as long as the times of loop positions are not changed this does not materially affect the resulting playback. In all figures, the following conventions apply:
 
--   context sample rate is 1000 Hz
-    
--   `[AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer)` content is shown with the first sample frame at the _x_ origin.
-    
--   output signals are shown with the sample frame located at time `start` at the _x_ origin.
-    
--   linear interpolation is depicted throughout, although a UA could employ other interpolation techniques.
-    
--   the `duration` values noted in the figures refer to the `buffer`, not arguments to `[start()](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-start)`
-    
+- context sample rate is 1000 Hz
+- `[AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer)` content is shown with the first sample frame at the _x_ origin.
+- output signals are shown with the sample frame located at time `start` at the _x_ origin.
+- linear interpolation is depicted throughout, although a UA could employ other interpolation techniques.
+- the `duration` values noted in the figures refer to the `buffer`, not arguments to `[start()](https://www.w3.org/TR/webaudio/#dom-audiobuffersourcenode-start)`
 
 This figure illustrates basic playback of a buffer, with a simple loop that ends after the last sample frame in the buffer:
 
@@ -4795,15 +4635,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -4823,7 +4663,7 @@ where `numberOfChannels` is the number of channels specified when constructing t
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `AudioDestinationNode` : [AudioNode](https://www.w3.org/TR/webaudio/#audionode) {
-  readonly attribute [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [maxChannelCount](https://www.w3.org/TR/webaudio/#dom-audiodestinationnode-maxchannelcount);
+readonly attribute [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [maxChannelCount](https://www.w3.org/TR/webaudio/#dom-audiodestinationnode-maxchannelcount);
 };
 
 #### 1.10.1. Attributes[](https://www.w3.org/TR/webaudio/#AudioDestinationNode-attributes)
@@ -4834,15 +4674,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -4864,31 +4704,31 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `AudioListener` {
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [positionX](https://www.w3.org/TR/webaudio/#dom-audiolistener-positionx);
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [positionY](https://www.w3.org/TR/webaudio/#dom-audiolistener-positiony);
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [positionZ](https://www.w3.org/TR/webaudio/#dom-audiolistener-positionz);
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [forwardX](https://www.w3.org/TR/webaudio/#dom-audiolistener-forwardx);
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [forwardY](https://www.w3.org/TR/webaudio/#dom-audiolistener-forwardy);
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [forwardZ](https://www.w3.org/TR/webaudio/#dom-audiolistener-forwardz);
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [upX](https://www.w3.org/TR/webaudio/#dom-audiolistener-upx);
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [upY](https://www.w3.org/TR/webaudio/#dom-audiolistener-upy);
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [upZ](https://www.w3.org/TR/webaudio/#dom-audiolistener-upz);
-  [undefined](https://heycam.github.io/webidl/#idl-undefined) [setPosition](https://www.w3.org/TR/webaudio/#dom-audiolistener-setposition) ([float](https://heycam.github.io/webidl/#idl-float) `x`[](https://www.w3.org/TR/webaudio/#dom-audiolistener-setposition-x-y-z-x), [float](https://heycam.github.io/webidl/#idl-float) `y`[](https://www.w3.org/TR/webaudio/#dom-audiolistener-setposition-x-y-z-y), [float](https://heycam.github.io/webidl/#idl-float) `z`[](https://www.w3.org/TR/webaudio/#dom-audiolistener-setposition-x-y-z-z));
-  [undefined](https://heycam.github.io/webidl/#idl-undefined) [setOrientation](https://www.w3.org/TR/webaudio/#dom-audiolistener-setorientation) ([float](https://heycam.github.io/webidl/#idl-float) `x`[](https://www.w3.org/TR/webaudio/#dom-audiolistener-setorientation-x-y-z-xup-yup-zup-x), [float](https://heycam.github.io/webidl/#idl-float) `y`[](https://www.w3.org/TR/webaudio/#dom-audiolistener-setorientation-x-y-z-xup-yup-zup-y), [float](https://heycam.github.io/webidl/#idl-float) `z`[](https://www.w3.org/TR/webaudio/#dom-audiolistener-setorientation-x-y-z-xup-yup-zup-z), [float](https://heycam.github.io/webidl/#idl-float) `xUp`[](https://www.w3.org/TR/webaudio/#dom-audiolistener-setorientation-x-y-z-xup-yup-zup-xup), [float](https://heycam.github.io/webidl/#idl-float) `yUp`[](https://www.w3.org/TR/webaudio/#dom-audiolistener-setorientation-x-y-z-xup-yup-zup-yup), [float](https://heycam.github.io/webidl/#idl-float) `zUp`[](https://www.w3.org/TR/webaudio/#dom-audiolistener-setorientation-x-y-z-xup-yup-zup-zup));
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [positionX](https://www.w3.org/TR/webaudio/#dom-audiolistener-positionx);
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [positionY](https://www.w3.org/TR/webaudio/#dom-audiolistener-positiony);
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [positionZ](https://www.w3.org/TR/webaudio/#dom-audiolistener-positionz);
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [forwardX](https://www.w3.org/TR/webaudio/#dom-audiolistener-forwardx);
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [forwardY](https://www.w3.org/TR/webaudio/#dom-audiolistener-forwardy);
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [forwardZ](https://www.w3.org/TR/webaudio/#dom-audiolistener-forwardz);
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [upX](https://www.w3.org/TR/webaudio/#dom-audiolistener-upx);
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [upY](https://www.w3.org/TR/webaudio/#dom-audiolistener-upy);
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [upZ](https://www.w3.org/TR/webaudio/#dom-audiolistener-upz);
+[undefined](https://heycam.github.io/webidl/#idl-undefined) [setPosition](https://www.w3.org/TR/webaudio/#dom-audiolistener-setposition) ([float](https://heycam.github.io/webidl/#idl-float) `x`[](https://www.w3.org/TR/webaudio/#dom-audiolistener-setposition-x-y-z-x), [float](https://heycam.github.io/webidl/#idl-float) `y`[](https://www.w3.org/TR/webaudio/#dom-audiolistener-setposition-x-y-z-y), [float](https://heycam.github.io/webidl/#idl-float) `z`[](https://www.w3.org/TR/webaudio/#dom-audiolistener-setposition-x-y-z-z));
+[undefined](https://heycam.github.io/webidl/#idl-undefined) [setOrientation](https://www.w3.org/TR/webaudio/#dom-audiolistener-setorientation) ([float](https://heycam.github.io/webidl/#idl-float) `x`[](https://www.w3.org/TR/webaudio/#dom-audiolistener-setorientation-x-y-z-xup-yup-zup-x), [float](https://heycam.github.io/webidl/#idl-float) `y`[](https://www.w3.org/TR/webaudio/#dom-audiolistener-setorientation-x-y-z-xup-yup-zup-y), [float](https://heycam.github.io/webidl/#idl-float) `z`[](https://www.w3.org/TR/webaudio/#dom-audiolistener-setorientation-x-y-z-xup-yup-zup-z), [float](https://heycam.github.io/webidl/#idl-float) `xUp`[](https://www.w3.org/TR/webaudio/#dom-audiolistener-setorientation-x-y-z-xup-yup-zup-xup), [float](https://heycam.github.io/webidl/#idl-float) `yUp`[](https://www.w3.org/TR/webaudio/#dom-audiolistener-setorientation-x-y-z-xup-yup-zup-yup), [float](https://heycam.github.io/webidl/#idl-float) `zUp`[](https://www.w3.org/TR/webaudio/#dom-audiolistener-setorientation-x-y-z-xup-yup-zup-zup));
 };
 
 #### 1.11.1. Attributes[](https://www.w3.org/TR/webaudio/#AudioListener-attributes)
@@ -4899,15 +4739,15 @@ In only one current engine.
 
 FirefoxNoneSafariNoneChrome52+
 
-___
+---
 
 Opera39+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for AndroidNoneiOS SafariNoneChrome for Android52+Android WebView52+Samsung Internet6.0+Opera Mobile41+
 
@@ -4921,15 +4761,15 @@ In only one current engine.
 
 FirefoxNoneSafariNoneChrome52+
 
-___
+---
 
 Opera39+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for AndroidNoneiOS SafariNoneChrome for Android52+Android WebView52+Samsung Internet6.0+Opera Mobile41+
 
@@ -4943,15 +4783,15 @@ In only one current engine.
 
 FirefoxNoneSafariNoneChrome52+
 
-___
+---
 
 Opera39+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for AndroidNoneiOS SafariNoneChrome for Android52+Android WebView52+Samsung Internet6.0+Opera Mobile41+
 
@@ -4965,15 +4805,15 @@ In only one current engine.
 
 FirefoxNoneSafariNoneChrome52+
 
-___
+---
 
 Opera39+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for AndroidNoneiOS SafariNoneChrome for Android52+Android WebView52+Samsung Internet6.0+Opera Mobile41+
 
@@ -4987,15 +4827,15 @@ In only one current engine.
 
 FirefoxNoneSafariNoneChrome52+
 
-___
+---
 
 Opera39+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for AndroidNoneiOS SafariNoneChrome for Android52+Android WebView52+Samsung Internet6.0+Opera Mobile41+
 
@@ -5009,15 +4849,15 @@ In only one current engine.
 
 FirefoxNoneSafariNoneChrome52+
 
-___
+---
 
 Opera39+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for AndroidNoneiOS SafariNoneChrome for Android52+Android WebView52+Samsung Internet6.0+Opera Mobile41+
 
@@ -5031,15 +4871,15 @@ In only one current engine.
 
 FirefoxNoneSafariNoneChrome52+
 
-___
+---
 
 Opera39+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for AndroidNoneiOS SafariNoneChrome for Android52+Android WebView52+Samsung Internet6.0+Opera Mobile41+
 
@@ -5053,15 +4893,15 @@ In only one current engine.
 
 FirefoxNoneSafariNoneChrome52+
 
-___
+---
 
 Opera39+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for AndroidNoneiOS SafariNoneChrome for Android52+Android WebView52+Samsung Internet6.0+Opera Mobile41+
 
@@ -5075,15 +4915,15 @@ In only one current engine.
 
 FirefoxNoneSafariNoneChrome52+
 
-___
+---
 
 Opera39+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for AndroidNoneiOS SafariNoneChrome for Android52+Android WebView52+Samsung Internet6.0+Opera Mobile41+
 
@@ -5129,10 +4969,10 @@ The event handler processes audio from the input (if any) by accessing the audio
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `AudioProcessingEvent` : [Event](https://dom.spec.whatwg.org/#event) {
-  `constructor`[](https://www.w3.org/TR/webaudio/#dom-audioprocessingevent-audioprocessingevent) ([DOMString](https://heycam.github.io/webidl/#idl-DOMString) `type`[](https://www.w3.org/TR/webaudio/#dom-audioprocessingevent-audioprocessingevent-type-eventinitdict-type), [AudioProcessingEventInit](https://www.w3.org/TR/webaudio/#dictdef-audioprocessingeventinit) `eventInitDict`[](https://www.w3.org/TR/webaudio/#dom-audioprocessingevent-audioprocessingevent-type-eventinitdict-eventinitdict));
-  readonly attribute [double](https://heycam.github.io/webidl/#idl-double) [playbackTime](https://www.w3.org/TR/webaudio/#dom-audioprocessingevent-playbacktime);
-  readonly attribute [AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer) [inputBuffer](https://www.w3.org/TR/webaudio/#dom-audioprocessingevent-inputbuffer);
-  readonly attribute [AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer) [outputBuffer](https://www.w3.org/TR/webaudio/#dom-audioprocessingevent-outputbuffer);
+`constructor`[](https://www.w3.org/TR/webaudio/#dom-audioprocessingevent-audioprocessingevent) ([DOMString](https://heycam.github.io/webidl/#idl-DOMString) `type`[](https://www.w3.org/TR/webaudio/#dom-audioprocessingevent-audioprocessingevent-type-eventinitdict-type), [AudioProcessingEventInit](https://www.w3.org/TR/webaudio/#dictdef-audioprocessingeventinit) `eventInitDict`[](https://www.w3.org/TR/webaudio/#dom-audioprocessingevent-audioprocessingevent-type-eventinitdict-eventinitdict));
+readonly attribute [double](https://heycam.github.io/webidl/#idl-double) [playbackTime](https://www.w3.org/TR/webaudio/#dom-audioprocessingevent-playbacktime);
+readonly attribute [AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer) [inputBuffer](https://www.w3.org/TR/webaudio/#dom-audioprocessingevent-inputbuffer);
+readonly attribute [AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer) [outputBuffer](https://www.w3.org/TR/webaudio/#dom-audioprocessingevent-outputbuffer);
 };
 
 #### 1.12.1. Attributes[](https://www.w3.org/TR/webaudio/#AudioProcessingEvent-attributes)
@@ -5152,9 +4992,9 @@ The time when the audio will be played in the same time coordinate system as the
 #### 1.12.2. `[AudioProcessingEventInit](https://www.w3.org/TR/webaudio/#dictdef-audioprocessingeventinit)`[](https://www.w3.org/TR/webaudio/#AudioProcessingEventInit)
 
 dictionary `AudioProcessingEventInit` : [EventInit](https://dom.spec.whatwg.org/#dictdef-eventinit) {
-  required [double](https://heycam.github.io/webidl/#idl-double) [playbackTime](https://www.w3.org/TR/webaudio/#dom-audioprocessingeventinit-playbacktime);
-  required [AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer) [inputBuffer](https://www.w3.org/TR/webaudio/#dom-audioprocessingeventinit-inputbuffer);
-  required [AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer) [outputBuffer](https://www.w3.org/TR/webaudio/#dom-audioprocessingeventinit-outputbuffer);
+required [double](https://heycam.github.io/webidl/#idl-double) [playbackTime](https://www.w3.org/TR/webaudio/#dom-audioprocessingeventinit-playbacktime);
+required [AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer) [inputBuffer](https://www.w3.org/TR/webaudio/#dom-audioprocessingeventinit-inputbuffer);
+required [AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer) [outputBuffer](https://www.w3.org/TR/webaudio/#dom-audioprocessingeventinit-outputbuffer);
 };
 
 ##### 1.12.2.1. Dictionary `[AudioProcessingEventInit](https://www.w3.org/TR/webaudio/#dictdef-audioprocessingeventinit)` Members[](https://www.w3.org/TR/webaudio/#dictionary-audioprocessingeventinit-members)
@@ -5186,14 +5026,14 @@ The [nominal range](https://www.w3.org/TR/webaudio/#nominal-range) for this [com
 The number of channels of the output always equals the number of channels of the input.
 
 enum `BiquadFilterType` {
-  ["lowpass"](https://www.w3.org/TR/webaudio/#dom-biquadfiltertype-lowpass),
-  ["highpass"](https://www.w3.org/TR/webaudio/#dom-biquadfiltertype-highpass),
-  ["bandpass"](https://www.w3.org/TR/webaudio/#dom-biquadfiltertype-bandpass),
-  ["lowshelf"](https://www.w3.org/TR/webaudio/#dom-biquadfiltertype-lowshelf),
-  ["highshelf"](https://www.w3.org/TR/webaudio/#dom-biquadfiltertype-highshelf),
-  ["peaking"](https://www.w3.org/TR/webaudio/#dom-biquadfiltertype-peaking),
-  ["notch"](https://www.w3.org/TR/webaudio/#dom-biquadfiltertype-notch),
-  ["allpass"](https://www.w3.org/TR/webaudio/#dom-biquadfiltertype-allpass)
+["lowpass"](https://www.w3.org/TR/webaudio/#dom-biquadfiltertype-lowpass),
+["highpass"](https://www.w3.org/TR/webaudio/#dom-biquadfiltertype-highpass),
+["bandpass"](https://www.w3.org/TR/webaudio/#dom-biquadfiltertype-bandpass),
+["lowshelf"](https://www.w3.org/TR/webaudio/#dom-biquadfiltertype-lowshelf),
+["highshelf"](https://www.w3.org/TR/webaudio/#dom-biquadfiltertype-highshelf),
+["peaking"](https://www.w3.org/TR/webaudio/#dom-biquadfiltertype-peaking),
+["notch"](https://www.w3.org/TR/webaudio/#dom-biquadfiltertype-notch),
+["allpass"](https://www.w3.org/TR/webaudio/#dom-biquadfiltertype-allpass)
 };
 
 Enumeration description
@@ -5332,15 +5172,15 @@ All attributes of the `[BiquadFilterNode](https://www.w3.org/TR/webaudio/#biquad
 
 Firefox53+SafariNoneChrome55+
 
-___
+---
 
 Opera42+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android53+iOS SafariNoneChrome for Android55+Android WebView55+Samsung Internet6.0+Opera Mobile42+
 
@@ -5350,29 +5190,29 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `BiquadFilterNode` : [AudioNode](https://www.w3.org/TR/webaudio/#audionode) {
-  `constructor` ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-biquadfilternode-biquadfilternode-context-options-context), optional [BiquadFilterOptions](https://www.w3.org/TR/webaudio/#dictdef-biquadfilteroptions) `options`[](https://www.w3.org/TR/webaudio/#dom-biquadfilternode-biquadfilternode-context-options-options) = {});
-  attribute [BiquadFilterType](https://www.w3.org/TR/webaudio/#enumdef-biquadfiltertype) [type](https://www.w3.org/TR/webaudio/#dom-biquadfilternode-type);
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [frequency](https://www.w3.org/TR/webaudio/#dom-biquadfilternode-frequency);
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [detune](https://www.w3.org/TR/webaudio/#dom-biquadfilternode-detune);
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [Q](https://www.w3.org/TR/webaudio/#dom-biquadfilternode-q);
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [gain](https://www.w3.org/TR/webaudio/#dom-biquadfilternode-gain);
-  [undefined](https://heycam.github.io/webidl/#idl-undefined) [getFrequencyResponse](https://www.w3.org/TR/webaudio/#dom-biquadfilternode-getfrequencyresponse) ([Float32Array](https://heycam.github.io/webidl/#idl-Float32Array) `frequencyHz`[](https://www.w3.org/TR/webaudio/#dom-biquadfilternode-getfrequencyresponse-frequencyhz-magresponse-phaseresponse-frequencyhz),
-                                  [Float32Array](https://heycam.github.io/webidl/#idl-Float32Array) `magResponse`[](https://www.w3.org/TR/webaudio/#dom-biquadfilternode-getfrequencyresponse-frequencyhz-magresponse-phaseresponse-magresponse),
-                                  [Float32Array](https://heycam.github.io/webidl/#idl-Float32Array) `phaseResponse`[](https://www.w3.org/TR/webaudio/#dom-biquadfilternode-getfrequencyresponse-frequencyhz-magresponse-phaseresponse-phaseresponse));
+`constructor` ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-biquadfilternode-biquadfilternode-context-options-context), optional [BiquadFilterOptions](https://www.w3.org/TR/webaudio/#dictdef-biquadfilteroptions) `options`[](https://www.w3.org/TR/webaudio/#dom-biquadfilternode-biquadfilternode-context-options-options) = {});
+attribute [BiquadFilterType](https://www.w3.org/TR/webaudio/#enumdef-biquadfiltertype) [type](https://www.w3.org/TR/webaudio/#dom-biquadfilternode-type);
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [frequency](https://www.w3.org/TR/webaudio/#dom-biquadfilternode-frequency);
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [detune](https://www.w3.org/TR/webaudio/#dom-biquadfilternode-detune);
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [Q](https://www.w3.org/TR/webaudio/#dom-biquadfilternode-q);
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [gain](https://www.w3.org/TR/webaudio/#dom-biquadfilternode-gain);
+[undefined](https://heycam.github.io/webidl/#idl-undefined) [getFrequencyResponse](https://www.w3.org/TR/webaudio/#dom-biquadfilternode-getfrequencyresponse) ([Float32Array](https://heycam.github.io/webidl/#idl-Float32Array) `frequencyHz`[](https://www.w3.org/TR/webaudio/#dom-biquadfilternode-getfrequencyresponse-frequencyhz-magresponse-phaseresponse-frequencyhz),
+[Float32Array](https://heycam.github.io/webidl/#idl-Float32Array) `magResponse`[](https://www.w3.org/TR/webaudio/#dom-biquadfilternode-getfrequencyresponse-frequencyhz-magresponse-phaseresponse-magresponse),
+[Float32Array](https://heycam.github.io/webidl/#idl-Float32Array) `phaseResponse`[](https://www.w3.org/TR/webaudio/#dom-biquadfilternode-getfrequencyresponse-frequencyhz-magresponse-phaseresponse-phaseresponse));
 };
 
 #### 1.13.1. Constructors[](https://www.w3.org/TR/webaudio/#BiquadFilterNode-constructors)
@@ -5389,15 +5229,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -5417,15 +5257,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -5439,15 +5279,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -5461,15 +5301,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -5483,15 +5323,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -5507,15 +5347,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -5572,11 +5412,11 @@ This parameter specifies an output array receiving the phase response values in 
 This specifies the options to be used when constructing a `[BiquadFilterNode](https://www.w3.org/TR/webaudio/#biquadfilternode)`. All members are optional; if not specified, the normal default values are used to construct the node.
 
 dictionary `BiquadFilterOptions` : [AudioNodeOptions](https://www.w3.org/TR/webaudio/#dictdef-audionodeoptions) {
-  [BiquadFilterType](https://www.w3.org/TR/webaudio/#enumdef-biquadfiltertype) [type](https://www.w3.org/TR/webaudio/#dom-biquadfilteroptions-type) = "lowpass";
-  [float](https://heycam.github.io/webidl/#idl-float) [Q](https://www.w3.org/TR/webaudio/#dom-biquadfilteroptions-q) = 1;
-  [float](https://heycam.github.io/webidl/#idl-float) [detune](https://www.w3.org/TR/webaudio/#dom-biquadfilteroptions-detune) = 0;
-  [float](https://heycam.github.io/webidl/#idl-float) [frequency](https://www.w3.org/TR/webaudio/#dom-biquadfilteroptions-frequency) = 350;
-  [float](https://heycam.github.io/webidl/#idl-float) [gain](https://www.w3.org/TR/webaudio/#dom-biquadfilteroptions-gain) = 0;
+[BiquadFilterType](https://www.w3.org/TR/webaudio/#enumdef-biquadfiltertype) [type](https://www.w3.org/TR/webaudio/#dom-biquadfilteroptions-type) = "lowpass";
+[float](https://heycam.github.io/webidl/#idl-float) [Q](https://www.w3.org/TR/webaudio/#dom-biquadfilteroptions-q) = 1;
+[float](https://heycam.github.io/webidl/#idl-float) [detune](https://www.w3.org/TR/webaudio/#dom-biquadfilteroptions-detune) = 0;
+[float](https://heycam.github.io/webidl/#idl-float) [frequency](https://www.w3.org/TR/webaudio/#dom-biquadfilteroptions-frequency) = 350;
+[float](https://heycam.github.io/webidl/#idl-float) [gain](https://www.w3.org/TR/webaudio/#dom-biquadfilteroptions-gain) = 0;
 };
 
 ##### 1.13.4.1. Dictionary `[BiquadFilterOptions](https://www.w3.org/TR/webaudio/#dictdef-biquadfilteroptions)` Members[](https://www.w3.org/TR/webaudio/#dictionary-biquadfilteroptions-members)
@@ -5621,18 +5461,13 @@ Note: The UA may produce a warning to notify the user that NaN values have occur
 
 The coefficients in the transfer function above are different for each node type. The following intermediate variables are necessary for their computation, based on the [computedValue](https://www.w3.org/TR/webaudio/#computedvalue) of the `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)`s of the `[BiquadFilterNode](https://www.w3.org/TR/webaudio/#biquadfilternode)`.
 
--   Let Fs be the value of the `[sampleRate](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-samplerate)` attribute for this `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)`.
-    
--   Let f0 be the value of the [computedFrequency](https://www.w3.org/TR/webaudio/#computedfrequency).
-    
--   Let G be the value of the `[gain](https://www.w3.org/TR/webaudio/#dom-biquadfilternode-gain)` `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)`.
-    
--   Let Q be the value of the `[Q](https://www.w3.org/TR/webaudio/#dom-biquadfilternode-q)` `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)`.
-    
--   Finally let
-    
-    A\=10G40ω0\=2πf0FsαQ\=sin⁡ω02QαQdB\=sin⁡ω02⋅10Q/20S\=1αS\=sin⁡ω02(A+1A)(1S−1)+2
-    
+- Let Fs be the value of the `[sampleRate](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-samplerate)` attribute for this `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)`.
+- Let f0 be the value of the [computedFrequency](https://www.w3.org/TR/webaudio/#computedfrequency).
+- Let G be the value of the `[gain](https://www.w3.org/TR/webaudio/#dom-biquadfilternode-gain)` `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)`.
+- Let Q be the value of the `[Q](https://www.w3.org/TR/webaudio/#dom-biquadfilternode-q)` `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)`.
+- Finally let
+
+  A\=10G40ω0\=2πf0FsαQ\=sin⁡ω02QαQdB\=sin⁡ω02⋅10Q/20S\=1αS\=sin⁡ω02(A+1A)(1S−1)+2
 
 The six coefficients (b0,b1,b2,a0,a1,a2) for each filter type, are:
 
@@ -5688,15 +5523,15 @@ A diagram of ChannelMerger
 
 Firefox53+SafariNoneChrome55+
 
-___
+---
 
 Opera42+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android53+iOS SafariNoneChrome for Android55+Android WebView55+Samsung Internet6.0+Opera Mobile42+
 
@@ -5706,21 +5541,21 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `ChannelMergerNode` : [AudioNode](https://www.w3.org/TR/webaudio/#audionode) {
-  `constructor` ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-channelmergernode-channelmergernode-context-options-context), optional [ChannelMergerOptions](https://www.w3.org/TR/webaudio/#dictdef-channelmergeroptions) `options`[](https://www.w3.org/TR/webaudio/#dom-channelmergernode-channelmergernode-context-options-options) = {});
+`constructor` ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-channelmergernode-channelmergernode-context-options-context), optional [ChannelMergerOptions](https://www.w3.org/TR/webaudio/#dictdef-channelmergeroptions) `options`[](https://www.w3.org/TR/webaudio/#dom-channelmergernode-channelmergernode-context-options-options) = {});
 };
 
 #### 1.14.1. Constructors[](https://www.w3.org/TR/webaudio/#ChannelMergerNode-constructors)
@@ -5732,7 +5567,7 @@ When the constructor is called with a `[BaseAudioContext](https://www.w3.org/TR/
 #### 1.14.2. `[ChannelMergerOptions](https://www.w3.org/TR/webaudio/#dictdef-channelmergeroptions)`[](https://www.w3.org/TR/webaudio/#ChannelMergerOptions)
 
 dictionary `ChannelMergerOptions` : [AudioNodeOptions](https://www.w3.org/TR/webaudio/#dictdef-audionodeoptions) {
-  [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfInputs](https://www.w3.org/TR/webaudio/#dom-channelmergeroptions-numberofinputs) = 6;
+[unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfInputs](https://www.w3.org/TR/webaudio/#dom-channelmergeroptions-numberofinputs) = 6;
 };
 
 ##### 1.14.2.1. Dictionary `[ChannelMergerOptions](https://www.w3.org/TR/webaudio/#dictdef-channelmergeroptions)` Members[](https://www.w3.org/TR/webaudio/#dictionary-channelmergeroptions-members)
@@ -5759,15 +5594,15 @@ One application for `[ChannelSplitterNode](https://www.w3.org/TR/webaudio/#chann
 
 Firefox53+SafariNoneChrome55+
 
-___
+---
 
 Opera42+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android53+iOS SafariNoneChrome for Android55+Android WebView55+Samsung Internet6.0+Opera Mobile42+
 
@@ -5777,21 +5612,21 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `ChannelSplitterNode` : [AudioNode](https://www.w3.org/TR/webaudio/#audionode) {
-  `constructor` ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-channelsplitternode-channelsplitternode-context-options-context), optional [ChannelSplitterOptions](https://www.w3.org/TR/webaudio/#dictdef-channelsplitteroptions) `options`[](https://www.w3.org/TR/webaudio/#dom-channelsplitternode-channelsplitternode-context-options-options) = {});
+`constructor` ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-channelsplitternode-channelsplitternode-context-options-context), optional [ChannelSplitterOptions](https://www.w3.org/TR/webaudio/#dictdef-channelsplitteroptions) `options`[](https://www.w3.org/TR/webaudio/#dom-channelsplitternode-channelsplitternode-context-options-options) = {});
 };
 
 #### 1.15.1. Constructors[](https://www.w3.org/TR/webaudio/#ChannelSplitterNode-constructors)
@@ -5803,7 +5638,7 @@ When the constructor is called with a `[BaseAudioContext](https://www.w3.org/TR/
 #### 1.15.2. `[ChannelSplitterOptions](https://www.w3.org/TR/webaudio/#dictdef-channelsplitteroptions)`[](https://www.w3.org/TR/webaudio/#ChannelSplitterOptions)
 
 dictionary `ChannelSplitterOptions` : [AudioNodeOptions](https://www.w3.org/TR/webaudio/#dictdef-audionodeoptions) {
-  [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfOutputs](https://www.w3.org/TR/webaudio/#dom-channelsplitteroptions-numberofoutputs) = 6;
+[unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfOutputs](https://www.w3.org/TR/webaudio/#dom-channelsplitteroptions-numberofoutputs) = 6;
 };
 
 ##### 1.15.2.1. Dictionary `[ChannelSplitterOptions](https://www.w3.org/TR/webaudio/#dictdef-channelsplitteroptions)` Members[](https://www.w3.org/TR/webaudio/#dictionary-channelsplitteroptions-members)
@@ -5818,15 +5653,15 @@ The number outputs for the `[ChannelSplitterNode](https://www.w3.org/TR/webaudio
 
 Firefox52+SafariNoneChrome56+
 
-___
+---
 
 Opera43+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android52+iOS SafariNoneChrome for Android56+Android WebView56+Samsung Internet6.0+Opera Mobile43+
 
@@ -5838,22 +5673,22 @@ The single output of this node consists of one channel (mono).
 
 Firefox52+SafariNoneChrome56+
 
-___
+---
 
 Opera43+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android52+iOS SafariNoneChrome for Android56+Android WebView56+Samsung Internet6.0+Opera Mobile43+
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `ConstantSourceNode` : [AudioScheduledSourceNode](https://www.w3.org/TR/webaudio/#audioscheduledsourcenode) {
-  `constructor` ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-constantsourcenode-constantsourcenode-context-options-context), optional [ConstantSourceOptions](https://www.w3.org/TR/webaudio/#dictdef-constantsourceoptions) `options`[](https://www.w3.org/TR/webaudio/#dom-constantsourcenode-constantsourcenode-context-options-options) = {});
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [offset](https://www.w3.org/TR/webaudio/#dom-constantsourcenode-offset);
+`constructor` ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-constantsourcenode-constantsourcenode-context-options-context), optional [ConstantSourceOptions](https://www.w3.org/TR/webaudio/#dictdef-constantsourceoptions) `options`[](https://www.w3.org/TR/webaudio/#dom-constantsourcenode-constantsourcenode-context-options-options) = {});
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [offset](https://www.w3.org/TR/webaudio/#dom-constantsourcenode-offset);
 };
 
 #### 1.16.1. Constructors[](https://www.w3.org/TR/webaudio/#ConstantSourceNode-constructors)
@@ -5868,15 +5703,15 @@ When the constructor is called with a `[BaseAudioContext](https://www.w3.org/TR/
 
 Firefox52+SafariNoneChrome56+
 
-___
+---
 
 OperaNoneEdge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android52+iOS SafariNoneChrome for AndroidNoneAndroid WebViewNoneSamsung InternetNoneOpera MobileNone
 
@@ -5889,7 +5724,7 @@ The constant value of the source.
 This specifies options for constructing a `[ConstantSourceNode](https://www.w3.org/TR/webaudio/#constantsourcenode)`. All members are optional; if not specified, the normal defaults are used for constructing the node.
 
 dictionary `ConstantSourceOptions` {
-  [float](https://heycam.github.io/webidl/#idl-float) [offset](https://www.w3.org/TR/webaudio/#dom-constantsourceoptions-offset) = 1;
+[float](https://heycam.github.io/webidl/#idl-float) [offset](https://www.w3.org/TR/webaudio/#dom-constantsourceoptions-offset) = 1;
 };
 
 ##### 1.16.3.1. Dictionary `[ConstantSourceOptions](https://www.w3.org/TR/webaudio/#dictdef-constantsourceoptions)` Members[](https://www.w3.org/TR/webaudio/#dictionary-constantsourceoptions-members)
@@ -5906,15 +5741,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -5928,23 +5763,23 @@ There are [channelCount constraints](https://www.w3.org/TR/webaudio/#audionode-c
 
 Firefox53+SafariNoneChrome55+
 
-___
+---
 
 Opera42+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android53+iOS SafariNoneChrome for Android55+Android WebView55+Samsung Internet6.0+Opera Mobile42+
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `ConvolverNode` : [AudioNode](https://www.w3.org/TR/webaudio/#audionode) {
-  `constructor` ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-convolvernode-convolvernode-context-options-context), optional [ConvolverOptions](https://www.w3.org/TR/webaudio/#dictdef-convolveroptions) `options`[](https://www.w3.org/TR/webaudio/#dom-convolvernode-convolvernode-context-options-options) = {});
-  attribute [AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer)? [buffer](https://www.w3.org/TR/webaudio/#dom-convolvernode-buffer);
-  attribute [boolean](https://heycam.github.io/webidl/#idl-boolean) [normalize](https://www.w3.org/TR/webaudio/#dom-convolvernode-normalize);
+`constructor` ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-convolvernode-convolvernode-context-options-context), optional [ConvolverOptions](https://www.w3.org/TR/webaudio/#dictdef-convolveroptions) `options`[](https://www.w3.org/TR/webaudio/#dom-convolvernode-convolvernode-context-options-options) = {});
+attribute [AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer)? [buffer](https://www.w3.org/TR/webaudio/#dom-convolvernode-buffer);
+attribute [boolean](https://heycam.github.io/webidl/#idl-boolean) [normalize](https://www.w3.org/TR/webaudio/#dom-convolvernode-normalize);
 };
 
 #### 1.17.1. Constructors[](https://www.w3.org/TR/webaudio/#ConvolverNode-constructors)
@@ -5954,21 +5789,15 @@ interface `ConvolverNode` : [AudioNode](https://www.w3.org/TR/webaudio/#audionod
 When the constructor is called with a `[BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext)` context and an option object options, execute these steps:
 
 1.  Set the attributes `[normalize](https://www.w3.org/TR/webaudio/#dom-convolvernode-normalize)` to the inverse of the value of `[disableNormalization](https://www.w3.org/TR/webaudio/#dom-convolveroptions-disablenormalization)`.
-    
 2.  If `[buffer](https://www.w3.org/TR/webaudio/#dom-convolvernode-buffer)` is [present](https://infra.spec.whatwg.org/#map-exists), set the `[buffer](https://www.w3.org/TR/webaudio/#dom-convolvernode-buffer)` attribute to its value.
-    
+
     Note: This means that the buffer will be normalized according to the value of the `[normalize](https://www.w3.org/TR/webaudio/#dom-convolvernode-normalize)` attribute.
-    
+
 3.  Let o be new `[AudioNodeOptions](https://www.w3.org/TR/webaudio/#dictdef-audionodeoptions)` dictionary.
-    
 4.  If `[channelCount](https://www.w3.org/TR/webaudio/#dom-audionodeoptions-channelcount)` is [present](https://infra.spec.whatwg.org/#map-exists) in options, set `[channelCount](https://www.w3.org/TR/webaudio/#dom-audionodeoptions-channelcount)` on o with the same value.
-    
 5.  If `[channelCountMode](https://www.w3.org/TR/webaudio/#dom-audionodeoptions-channelcountmode)` is [present](https://infra.spec.whatwg.org/#map-exists) in options, set `[channelCountMode](https://www.w3.org/TR/webaudio/#dom-audionodeoptions-channelcountmode)` on o with the same value.
-    
 6.  If `[channelInterpretation](https://www.w3.org/TR/webaudio/#dom-audionodeoptions-channelinterpretation)` is [present](https://infra.spec.whatwg.org/#map-exists) in options, set `[channelInterpretation](https://www.w3.org/TR/webaudio/#dom-audionodeoptions-channelinterpretation)` on o with the same value.
-    
 7.  [Initialize the AudioNode](https://www.w3.org/TR/webaudio/#audionode-constructor-init) this, with c and o as argument.
-    
 
 #### 1.17.2. Attributes[](https://www.w3.org/TR/webaudio/#ConvolverNode-attributes)
 
@@ -5978,15 +5807,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -6004,15 +5833,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -6033,8 +5862,8 @@ During processing, the ConvolverNode will then take this calculated normalizatio
 The specifies options for constructing a `[ConvolverNode](https://www.w3.org/TR/webaudio/#convolvernode)`. All members are optional; if not specified, the node is contructing using the normal defaults.
 
 dictionary `ConvolverOptions` : [AudioNodeOptions](https://www.w3.org/TR/webaudio/#dictdef-audionodeoptions) {
-  [AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer)? [buffer](https://www.w3.org/TR/webaudio/#dom-convolveroptions-buffer);
-  [boolean](https://heycam.github.io/webidl/#idl-boolean) [disableNormalization](https://www.w3.org/TR/webaudio/#dom-convolveroptions-disablenormalization) = false;
+[AudioBuffer](https://www.w3.org/TR/webaudio/#audiobuffer)? [buffer](https://www.w3.org/TR/webaudio/#dom-convolveroptions-buffer);
+[boolean](https://heycam.github.io/webidl/#idl-boolean) [disableNormalization](https://www.w3.org/TR/webaudio/#dom-convolveroptions-disablenormalization) = false;
 };
 
 ##### 1.17.3.1. Dictionary `[ConvolverOptions](https://www.w3.org/TR/webaudio/#dictdef-convolveroptions)` Members[](https://www.w3.org/TR/webaudio/#dictionary-convolveroptions-members)
@@ -6069,15 +5898,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -6095,22 +5924,22 @@ Note: By definition, a `[DelayNode](https://www.w3.org/TR/webaudio/#delaynode)` 
 
 Firefox53+SafariNoneChrome55+
 
-___
+---
 
 Opera42+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android53+iOS SafariNoneChrome for Android55+Android WebView55+Samsung Internet6.0+Opera Mobile42+
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `DelayNode` : [AudioNode](https://www.w3.org/TR/webaudio/#audionode) {
-  `constructor` ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-delaynode-delaynode-context-options-context), optional [DelayOptions](https://www.w3.org/TR/webaudio/#dictdef-delayoptions) `options`[](https://www.w3.org/TR/webaudio/#dom-delaynode-delaynode-context-options-options) = {});
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [delayTime](https://www.w3.org/TR/webaudio/#dom-delaynode-delaytime);
+`constructor` ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-delaynode-delaynode-context-options-context), optional [DelayOptions](https://www.w3.org/TR/webaudio/#dictdef-delayoptions) `options`[](https://www.w3.org/TR/webaudio/#dom-delaynode-delaynode-context-options-options) = {});
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [delayTime](https://www.w3.org/TR/webaudio/#dom-delaynode-delaytime);
 };
 
 #### 1.18.1. Constructors[](https://www.w3.org/TR/webaudio/#DelayNode-constructors)
@@ -6127,15 +5956,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -6150,8 +5979,8 @@ If `[DelayNode](https://www.w3.org/TR/webaudio/#delaynode)` is part of a [cycle]
 This specifies options for constructing a `[DelayNode](https://www.w3.org/TR/webaudio/#delaynode)`. All members are optional; if not given, the node is constructed using the normal defaults.
 
 dictionary `DelayOptions` : [AudioNodeOptions](https://www.w3.org/TR/webaudio/#dictdef-audionodeoptions) {
-  [double](https://heycam.github.io/webidl/#idl-double) [maxDelayTime](https://www.w3.org/TR/webaudio/#dom-delayoptions-maxdelaytime) = 1;
-  [double](https://heycam.github.io/webidl/#idl-double) [delayTime](https://www.w3.org/TR/webaudio/#dom-delayoptions-delaytime) = 0;
+[double](https://heycam.github.io/webidl/#idl-double) [maxDelayTime](https://www.w3.org/TR/webaudio/#dom-delayoptions-maxdelaytime) = 1;
+[double](https://heycam.github.io/webidl/#idl-double) [delayTime](https://www.w3.org/TR/webaudio/#dom-delayoptions-delaytime) = 0;
 };
 
 ##### 1.18.3.1. Dictionary `[DelayOptions](https://www.w3.org/TR/webaudio/#dictdef-delayoptions)` Members[](https://www.w3.org/TR/webaudio/#dictionary-delayoptions-members)
@@ -6190,15 +6019,15 @@ Dynamics compression is very commonly used in musical production and game audio.
 
 Firefox53+SafariNoneChrome55+
 
-___
+---
 
 Opera42+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android53+iOS SafariNoneChrome for Android55+Android WebView55+Samsung Internet6.0+Opera Mobile42+
 
@@ -6208,28 +6037,28 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `DynamicsCompressorNode` : [AudioNode](https://www.w3.org/TR/webaudio/#audionode) {
-  `constructor` ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-dynamicscompressornode-context-options-context),
-               optional [DynamicsCompressorOptions](https://www.w3.org/TR/webaudio/#dictdef-dynamicscompressoroptions) `options`[](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-dynamicscompressornode-context-options-options) = {});
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [threshold](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-threshold);
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [knee](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-knee);
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [ratio](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-ratio);
-  readonly attribute [float](https://heycam.github.io/webidl/#idl-float) [reduction](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-reduction);
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [attack](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-attack);
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [release](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-release);
+`constructor` ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-dynamicscompressornode-context-options-context),
+optional [DynamicsCompressorOptions](https://www.w3.org/TR/webaudio/#dictdef-dynamicscompressoroptions) `options`[](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-dynamicscompressornode-context-options-options) = {});
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [threshold](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-threshold);
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [knee](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-knee);
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [ratio](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-ratio);
+readonly attribute [float](https://heycam.github.io/webidl/#idl-float) [reduction](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-reduction);
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [attack](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-attack);
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [release](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-release);
 };
 
 #### 1.19.1. Constructors[](https://www.w3.org/TR/webaudio/#DynamicsCompressorNode-constructors)
@@ -6248,15 +6077,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -6270,15 +6099,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -6292,15 +6121,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -6314,15 +6143,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -6336,15 +6165,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -6358,15 +6187,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -6379,11 +6208,11 @@ The decibel value above which the compression will start taking effect.
 This specifies the options to use in constructing a `[DynamicsCompressorNode](https://www.w3.org/TR/webaudio/#dynamicscompressornode)`. All members are optional; if not specified the normal defaults are used in constructing the node.
 
 dictionary `DynamicsCompressorOptions` : [AudioNodeOptions](https://www.w3.org/TR/webaudio/#dictdef-audionodeoptions) {
-  [float](https://heycam.github.io/webidl/#idl-float) [attack](https://www.w3.org/TR/webaudio/#dom-dynamicscompressoroptions-attack) = 0.003;
-  [float](https://heycam.github.io/webidl/#idl-float) [knee](https://www.w3.org/TR/webaudio/#dom-dynamicscompressoroptions-knee) = 30;
-  [float](https://heycam.github.io/webidl/#idl-float) [ratio](https://www.w3.org/TR/webaudio/#dom-dynamicscompressoroptions-ratio) = 12;
-  [float](https://heycam.github.io/webidl/#idl-float) [release](https://www.w3.org/TR/webaudio/#dom-dynamicscompressoroptions-release) = 0.25;
-  [float](https://heycam.github.io/webidl/#idl-float) [threshold](https://www.w3.org/TR/webaudio/#dom-dynamicscompressoroptions-threshold) = -24;
+[float](https://heycam.github.io/webidl/#idl-float) [attack](https://www.w3.org/TR/webaudio/#dom-dynamicscompressoroptions-attack) = 0.003;
+[float](https://heycam.github.io/webidl/#idl-float) [knee](https://www.w3.org/TR/webaudio/#dom-dynamicscompressoroptions-knee) = 30;
+[float](https://heycam.github.io/webidl/#idl-float) [ratio](https://www.w3.org/TR/webaudio/#dom-dynamicscompressoroptions-ratio) = 12;
+[float](https://heycam.github.io/webidl/#idl-float) [release](https://www.w3.org/TR/webaudio/#dom-dynamicscompressoroptions-release) = 0.25;
+[float](https://heycam.github.io/webidl/#idl-float) [threshold](https://www.w3.org/TR/webaudio/#dom-dynamicscompressoroptions-threshold) = -24;
 };
 
 ##### 1.19.3.1. Dictionary `[DynamicsCompressorOptions](https://www.w3.org/TR/webaudio/#dictdef-dynamicscompressoroptions)` Members[](https://www.w3.org/TR/webaudio/#dictionary-dynamicscompressoroptions-members)
@@ -6412,25 +6241,17 @@ The initial value for the `[threshold](https://www.w3.org/TR/webaudio/#dom-dynam
 
 Dynamics compression can be implemented in a variety of ways. The `[DynamicsCompressorNode](https://www.w3.org/TR/webaudio/#dynamicscompressornode)` implements a dynamics processor that has the following characteristics:
 
--   Fixed look-ahead (this means that an `[DynamicsCompressorNode](https://www.w3.org/TR/webaudio/#dynamicscompressornode)` adds a fixed latency to the signal chain).
-    
--   Configurable attack speed, release speed, threshold, knee hardness and ratio.
-    
--   Side-chaining is not supported.
-    
--   The gain reduction is reported _via_ the `reduction` property on the `[DynamicsCompressorNode](https://www.w3.org/TR/webaudio/#dynamicscompressornode)`.
-    
--   The compression curve has three parts:
-    
-    -   The first part is the identity: f(x)\=x.
-        
-    -   The second part is the soft-knee portion, which MUST be a monotonically increasing function.
-        
-    -   The third part is a linear function: f(x)\=1ratio⋅x.
-        
-    
-    This curve MUST be continuous and piece-wise differentiable, and corresponds to a target output level, based on the input level.
-    
+- Fixed look-ahead (this means that an `[DynamicsCompressorNode](https://www.w3.org/TR/webaudio/#dynamicscompressornode)` adds a fixed latency to the signal chain).
+- Configurable attack speed, release speed, threshold, knee hardness and ratio.
+- Side-chaining is not supported.
+- The gain reduction is reported _via_ the `reduction` property on the `[DynamicsCompressorNode](https://www.w3.org/TR/webaudio/#dynamicscompressornode)`.
+- The compression curve has three parts:
+
+  - The first part is the identity: f(x)\=x.
+  - The second part is the soft-knee portion, which MUST be a monotonically increasing function.
+  - The third part is a linear function: f(x)\=1ratio⋅x.
+
+  This curve MUST be continuous and piece-wise differentiable, and corresponds to a target output level, based on the input level.
 
 Graphically, such a curve would look something like this:
 
@@ -6458,108 +6279,76 @@ Note: This implements the pre-delay and the application of the reduction gain.
 
 The following algorithm describes the processing performed by an [EnvelopeFollower](https://www.w3.org/TR/webaudio/#envelopefollower) object, to be applied to the input signal to produce the gain reduction value. An [EnvelopeFollower](https://www.w3.org/TR/webaudio/#envelopefollower) has two slots holding floating point values. Those values persist accros invocation of this algorithm.
 
--   Let `[[detector average]]` be a floating point number, initialized to 0.0.
-    
--   Let `[[compressor gain]]` be a floating point number, initialized to 1.0.
-    
+- Let `[[detector average]]` be a floating point number, initialized to 0.0.
+- Let `[[compressor gain]]` be a floating point number, initialized to 1.0.
 
 The following algorithm allow determining a value for reduction gain, for each sample of input, for a render quantum of audio.
 
 1.  Let attack and release have the values of `[attack](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-attack)` and `[release](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-release)`, respectively, sampled at the time of processing (those are [k-rate](https://www.w3.org/TR/webaudio/#k-rate) parameters), mutiplied by the sample-rate of the `[BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext)` this `[DynamicsCompressorNode](https://www.w3.org/TR/webaudio/#dynamicscompressornode)` is [associated](https://www.w3.org/TR/webaudio/#associated) with.
-    
 2.  Let detector average be the value of the slot `[[[detector average]]](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-detector-average-slot)`.
-    
 3.  Let compressor gain be the value of the slot `[[[compressor gain]]](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-compressor-gain-slot)`.
-    
 4.  For each sample input of the render quantum to be processed, execute the following steps:
-    
+
     1.  If the absolute value of input is less than 0.0001, let attenuation be 1.0. Else, let shaped input be the value of applying the [compression curve](https://www.w3.org/TR/webaudio/#compression-curve) to the absolute value of input. Let attenuation be shaped input divided by the absolute value of input.
-        
     2.  Let releasing be `true` if attenuation is greater than compressor gain, `false` otherwise.
-        
     3.  Let detector rate be the result of applying the [detector curve](https://www.w3.org/TR/webaudio/#detector-curve) to attenuation.
-        
     4.  Subtract detector average from attenuation, and multiply the result by detector rate. Add this new result to detector average.
-        
     5.  Clamp detector average to a maximum of 1.0.
-        
     6.  Let envelope rate be the result of [computing the envelope rate](https://www.w3.org/TR/webaudio/#computing-the-envelope-rate) based on values of attack and release.
-        
     7.  If releasing is `true`, set compressor gain to be the product of compressor gain and envelope rate, clamped to a maximum of 1.0.
-        
     8.  Else, if releasing is `false`, let gain increment to be detector average minus compressor gain. Multiply gain increment by envelope rate, and add the result to compressor gain.
-        
     9.  Compute reduction gain to be compressor gain multiplied by the return value of [computing the makeup gain](https://www.w3.org/TR/webaudio/#computing-the-makeup-gain).
-        
-    10.  Compute metering gain to be reduction gain, [converted to decibel](https://www.w3.org/TR/webaudio/#linear-to-decibel).
-        
+    10. Compute metering gain to be reduction gain, [converted to decibel](https://www.w3.org/TR/webaudio/#linear-to-decibel).
+
 5.  Set `[[[compressor gain]]](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-compressor-gain-slot)` to compressor gain.
-    
 6.  Set `[[[detector average]]](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-detector-average-slot)` to detector average.
-    
 7.  [Atomically](https://www.w3.org/TR/webaudio/#atomically) set the internal slot `[[[internal reduction]]](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-internal-reduction-slot)` to the value of metering gain.
-    
+
     Note: This step makes the metering gain update once per block, at the end of the block processing.
-    
 
 The makeup gain is a fixed gain stage that only depends on ratio, knee and threshold parameter of the compressor, and not on the input signal. The intent here is to increase the output level of the compressor so it is comparable to the input level.
 
 Computing the makeup gain means executing the following steps:
 
 1.  Let full range gain be the value returned by applying the [compression curve](https://www.w3.org/TR/webaudio/#compression-curve) to the value 1.0.
-    
 2.  Let full range makeup gain be the inverse of full range gain.
-    
 3.  Return the result of taking the 0.6 power of full range makeup gain.
-    
 
 Computing the envelope rate is done by applying a function to the ratio of the compressor gain and the detector average. User-agents are allowed to choose the shape of the envelope function. However, this function MUST respect the following constraints:
 
--   The envelope rate MUST be the calculated from the ratio of the compressor gain and the detector average.
-    
-    Note: When attacking, this number less than or equal to 1, when releasing, this number is strictly greater than 1.
-    
--   The attack curve MUST be a continuous, monotonically increasing function in the range \[0,1\]. The shape of this curve MAY be controlled by `[attack](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-attack)`.
-    
--   The release curve MUST be a continuous, monotonically decreasing function that is always greater than 1. The shape of this curve MAY be controlled by `[release](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-release)`.
-    
+- The envelope rate MUST be the calculated from the ratio of the compressor gain and the detector average.
+
+  Note: When attacking, this number less than or equal to 1, when releasing, this number is strictly greater than 1.
+
+- The attack curve MUST be a continuous, monotonically increasing function in the range \[0,1\]. The shape of this curve MAY be controlled by `[attack](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-attack)`.
+- The release curve MUST be a continuous, monotonically decreasing function that is always greater than 1. The shape of this curve MAY be controlled by `[release](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-release)`.
 
 This operation returns the value computed by applying this function to the ratio of compressor gain and detector average.
 
 Applying the detector curve to the change rate when attacking or releasing allow implementing _adaptive release_. It is a function that MUST respect the following constraints:
 
--   The output of the function MUST be in \[0,1\].
-    
--   The function MUST be monotonically increasing, continuous.
-    
+- The output of the function MUST be in \[0,1\].
+- The function MUST be monotonically increasing, continuous.
 
 Note: It is allowed, for example, to have a compressor that performs an _adaptive release_, that is, releasing faster the harder the compression, or to have curves for attack and release that are not of the same shape.
 
 Applying a compression curve to a value means computing the value of this sample when passed to a function, and returning the computed value. This function MUST respect the following characteristics:
 
 1.  Let threshold and knee have the values of `[threshold](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-threshold)` and `[knee](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-knee)`, respectively, [converted to linear units](https://www.w3.org/TR/webaudio/#decibels-to-linear-gain-unit) and sampled at the time of processing of this block (as [k-rate](https://www.w3.org/TR/webaudio/#k-rate) parameters).
-    
 2.  Calculate the sum of `[threshold](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-threshold)` plus `[knee](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-knee)` also sampled at the time of processing of this block (as [k-rate](https://www.w3.org/TR/webaudio/#k-rate) parameters).
-    
 3.  Let knee end threshold have the value of this sum [converted to linear units](https://www.w3.org/TR/webaudio/#decibels-to-linear-gain-unit).
-    
 4.  Let ratio have the value of the `[ratio](https://www.w3.org/TR/webaudio/#dom-dynamicscompressornode-ratio)`, sampled at the time of processing of this block (as a [k-rate](https://www.w3.org/TR/webaudio/#k-rate) parameter).
-    
 5.  This function is the identity up to the value of the linear threshold (i.e., f(x)\=x).
-    
 6.  From the threshold up to the knee end threshold, User-Agents can choose the curve shape. The whole function MUST be monotonically increasing and continuous.
-    
+
     Note: If the knee is 0, the `[DynamicsCompressorNode](https://www.w3.org/TR/webaudio/#dynamicscompressornode)` is called a hard-knee compressor.
-    
+
 7.  This function is linear, based on the ratio, after the threshold and the soft knee (i.e., f(x)\=1ratio⋅x).
-    
 
 Converting a value v in linear gain unit to decibel means executing the following steps:
 
 1.  If v is equal to zero, return -1000.
-    
 2.  Else, return 20log10⁡v.
-    
 
 Converting a value v in decibels to linear gain unit means returning 10v/20.
 
@@ -6573,15 +6362,15 @@ Each sample of each channel of the input data of the `[GainNode](https://www.w3.
 
 Firefox53+SafariNoneChrome55+
 
-___
+---
 
 Opera42+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android53+iOS SafariNoneChrome for Android55+Android WebView55+Samsung Internet6.0+Opera Mobile42+
 
@@ -6591,22 +6380,22 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `GainNode` : [AudioNode](https://www.w3.org/TR/webaudio/#audionode) {
-  `constructor` ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-gainnode-gainnode-context-options-context), optional [GainOptions](https://www.w3.org/TR/webaudio/#dictdef-gainoptions) `options`[](https://www.w3.org/TR/webaudio/#dom-gainnode-gainnode-context-options-options) = {});
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [gain](https://www.w3.org/TR/webaudio/#dom-gainnode-gain);
+`constructor` ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-gainnode-gainnode-context-options-context), optional [GainOptions](https://www.w3.org/TR/webaudio/#dictdef-gainoptions) `options`[](https://www.w3.org/TR/webaudio/#dom-gainnode-gainnode-context-options-options) = {});
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [gain](https://www.w3.org/TR/webaudio/#dom-gainnode-gain);
 };
 
 #### 1.20.1. Constructors[](https://www.w3.org/TR/webaudio/#GainNode-constructors)
@@ -6623,15 +6412,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -6644,7 +6433,7 @@ Represents the amount of gain to apply.
 This specifies options to use in constructing a `[GainNode](https://www.w3.org/TR/webaudio/#gainnode)`. All members are optional; if not specified, the normal defaults are used in constructing the node.
 
 dictionary `GainOptions` : [AudioNodeOptions](https://www.w3.org/TR/webaudio/#dictdef-audionodeoptions) {
-  [float](https://heycam.github.io/webidl/#idl-float) [gain](https://www.w3.org/TR/webaudio/#dom-gainoptions-gain) = 1.0;
+[float](https://heycam.github.io/webidl/#idl-float) [gain](https://www.w3.org/TR/webaudio/#dom-gainoptions-gain) = 1.0;
 };
 
 ##### 1.20.3.1. Dictionary `[GainOptions](https://www.w3.org/TR/webaudio/#dictdef-gainoptions)` Members[](https://www.w3.org/TR/webaudio/#dictionary-gainoptions-members)
@@ -6657,12 +6446,9 @@ The initial gain value for the `[gain](https://www.w3.org/TR/webaudio/#dom-gainn
 
 `[IIRFilterNode](https://www.w3.org/TR/webaudio/#iirfilternode)` is an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` processor implementing a general [IIR Filter](https://en.wikipedia.org/wiki/Infinite_impulse_response). In general, it is best to use `[BiquadFilterNode](https://www.w3.org/TR/webaudio/#biquadfilternode)`'s to implement higher-order filters for the following reasons:
 
--   Generally less sensitive to numeric issues
-    
--   Filter parameters can be automated
-    
--   Can be used to create all even-ordered IIR filters
-    
+- Generally less sensitive to numeric issues
+- Filter parameters can be automated
+- Can be used to create all even-ordered IIR filters
 
 However, odd-ordered filters cannot be created, so if such filters are needed or automation is not needed, then IIR filters may be appropriate.
 
@@ -6674,15 +6460,15 @@ The number of channels of the output always equals the number of channels of the
 
 Firefox53+SafariNoneChrome55+
 
-___
+---
 
 Opera42+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android53+iOS SafariNoneChrome for Android55+Android WebView55+Samsung Internet6.0+Opera Mobile42+
 
@@ -6690,24 +6476,24 @@ Firefox for Android53+iOS SafariNoneChrome for Android55+Android WebView55+Samsu
 
 Firefox50+SafariNoneChrome49+
 
-___
+---
 
 Opera36+Edge79+
 
-___
+---
 
 Edge (Legacy)18IENone
 
-___
+---
 
 Firefox for Android50+iOS SafariNoneChrome for Android49+Android WebView49+Samsung Internet5.0+Opera Mobile36+
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `IIRFilterNode` : [AudioNode](https://www.w3.org/TR/webaudio/#audionode) {
-  `constructor` ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-iirfilternode-iirfilternode-context-options-context), [IIRFilterOptions](https://www.w3.org/TR/webaudio/#dictdef-iirfilteroptions) `options`[](https://www.w3.org/TR/webaudio/#dom-iirfilternode-iirfilternode-context-options-options));
-  [undefined](https://heycam.github.io/webidl/#idl-undefined) [getFrequencyResponse](https://www.w3.org/TR/webaudio/#dom-iirfilternode-getfrequencyresponse) ([Float32Array](https://heycam.github.io/webidl/#idl-Float32Array) `frequencyHz`[](https://www.w3.org/TR/webaudio/#dom-iirfilternode-getfrequencyresponse-frequencyhz-magresponse-phaseresponse-frequencyhz),
-                                  [Float32Array](https://heycam.github.io/webidl/#idl-Float32Array) `magResponse`[](https://www.w3.org/TR/webaudio/#dom-iirfilternode-getfrequencyresponse-frequencyhz-magresponse-phaseresponse-magresponse),
-                                  [Float32Array](https://heycam.github.io/webidl/#idl-Float32Array) `phaseResponse`[](https://www.w3.org/TR/webaudio/#dom-iirfilternode-getfrequencyresponse-frequencyhz-magresponse-phaseresponse-phaseresponse));
+`constructor` ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-iirfilternode-iirfilternode-context-options-context), [IIRFilterOptions](https://www.w3.org/TR/webaudio/#dictdef-iirfilteroptions) `options`[](https://www.w3.org/TR/webaudio/#dom-iirfilternode-iirfilternode-context-options-options));
+[undefined](https://heycam.github.io/webidl/#idl-undefined) [getFrequencyResponse](https://www.w3.org/TR/webaudio/#dom-iirfilternode-getfrequencyresponse) ([Float32Array](https://heycam.github.io/webidl/#idl-Float32Array) `frequencyHz`[](https://www.w3.org/TR/webaudio/#dom-iirfilternode-getfrequencyresponse-frequencyhz-magresponse-phaseresponse-frequencyhz),
+[Float32Array](https://heycam.github.io/webidl/#idl-Float32Array) `magResponse`[](https://www.w3.org/TR/webaudio/#dom-iirfilternode-getfrequencyresponse-frequencyhz-magresponse-phaseresponse-magresponse),
+[Float32Array](https://heycam.github.io/webidl/#idl-Float32Array) `phaseResponse`[](https://www.w3.org/TR/webaudio/#dom-iirfilternode-getfrequencyresponse-frequencyhz-magresponse-phaseresponse-phaseresponse));
 };
 
 #### 1.21.1. Constructors[](https://www.w3.org/TR/webaudio/#IIRFilterNode-constructors)
@@ -6722,15 +6508,15 @@ When the constructor is called with a `[BaseAudioContext](https://www.w3.org/TR/
 
 Firefox50+SafariNoneChrome49+
 
-___
+---
 
 Opera36+Edge79+
 
-___
+---
 
 Edge (Legacy)14+IENone
 
-___
+---
 
 Firefox for Android50+iOS SafariNoneChrome for Android49+Android WebView49+Samsung Internet5.0+Opera Mobile36+
 
@@ -6785,8 +6571,8 @@ This parameter specifies an output array receiving the phase response values in 
 The `IIRFilterOptions` dictionary is used to specify the filter coefficients of the `[IIRFilterNode](https://www.w3.org/TR/webaudio/#iirfilternode)`.
 
 dictionary `IIRFilterOptions` : [AudioNodeOptions](https://www.w3.org/TR/webaudio/#dictdef-audionodeoptions) {
-  required [sequence](https://heycam.github.io/webidl/#idl-sequence)<[double](https://heycam.github.io/webidl/#idl-double)\> [feedforward](https://www.w3.org/TR/webaudio/#dom-iirfilteroptions-feedforward);
-  required [sequence](https://heycam.github.io/webidl/#idl-sequence)<[double](https://heycam.github.io/webidl/#idl-double)\> [feedback](https://www.w3.org/TR/webaudio/#dom-iirfilteroptions-feedback);
+required [sequence](https://heycam.github.io/webidl/#idl-sequence)<[double](https://heycam.github.io/webidl/#idl-double)\> [feedforward](https://www.w3.org/TR/webaudio/#dom-iirfilteroptions-feedforward);
+required [sequence](https://heycam.github.io/webidl/#idl-sequence)<[double](https://heycam.github.io/webidl/#idl-double)\> [feedback](https://www.w3.org/TR/webaudio/#dom-iirfilteroptions-feedback);
 };
 
 ##### 1.21.3.1. Dictionary `[IIRFilterOptions](https://www.w3.org/TR/webaudio/#dictdef-iirfilteroptions)` Members[](https://www.w3.org/TR/webaudio/#dictionary-iirfilteroptions-members)
@@ -6839,22 +6625,22 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `MediaElementAudioSourceNode` : [AudioNode](https://www.w3.org/TR/webaudio/#audionode) {
-  [constructor](https://www.w3.org/TR/webaudio/#dom-mediaelementaudiosourcenode-mediaelementaudiosourcenode) ([AudioContext](https://www.w3.org/TR/webaudio/#audiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-mediaelementaudiosourcenode-mediaelementaudiosourcenode-context-options-context), [MediaElementAudioSourceOptions](https://www.w3.org/TR/webaudio/#dictdef-mediaelementaudiosourceoptions) `options`[](https://www.w3.org/TR/webaudio/#dom-mediaelementaudiosourcenode-mediaelementaudiosourcenode-context-options-options));
-  \[[SameObject](https://heycam.github.io/webidl/#SameObject)\] readonly attribute [HTMLMediaElement](https://html.spec.whatwg.org/multipage/media.html#htmlmediaelement) [mediaElement](https://www.w3.org/TR/webaudio/#dom-mediaelementaudiosourcenode-mediaelement);
+[constructor](https://www.w3.org/TR/webaudio/#dom-mediaelementaudiosourcenode-mediaelementaudiosourcenode) ([AudioContext](https://www.w3.org/TR/webaudio/#audiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-mediaelementaudiosourcenode-mediaelementaudiosourcenode-context-options-context), [MediaElementAudioSourceOptions](https://www.w3.org/TR/webaudio/#dictdef-mediaelementaudiosourceoptions) `options`[](https://www.w3.org/TR/webaudio/#dom-mediaelementaudiosourcenode-mediaelementaudiosourcenode-context-options-options));
+\[[SameObject](https://heycam.github.io/webidl/#SameObject)\] readonly attribute [HTMLMediaElement](https://html.spec.whatwg.org/multipage/media.html#htmlmediaelement) [mediaElement](https://www.w3.org/TR/webaudio/#dom-mediaelementaudiosourcenode-mediaelement);
 };
 
 #### 1.22.1. Constructors[](https://www.w3.org/TR/webaudio/#MediaElementAudioSourceNode-constructors)
@@ -6862,7 +6648,6 @@ interface `MediaElementAudioSourceNode` : [AudioNode](https://www.w3.org/TR/weba
 `MediaElementAudioSourceNode(context, options)`
 
 1.  [initialize the AudioNode](https://www.w3.org/TR/webaudio/#audionode-constructor-init) this, with context and options as arguments.
-    
 
 #### 1.22.2. Attributes[](https://www.w3.org/TR/webaudio/#MediaElementAudioSourceNode-attributes)
 
@@ -6872,15 +6657,15 @@ In all current engines.
 
 Firefox70+Safari6+ChromeYes
 
-___
+---
 
 OperaYesEdgeYes
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for AndroidNoneiOS Safari6+Chrome for AndroidYesAndroid WebViewYesSamsung InternetYesOpera MobileYes
 
@@ -6893,7 +6678,7 @@ The `[HTMLMediaElement](https://html.spec.whatwg.org/multipage/media.html#htmlme
 This specifies the options to use in constructing a `[MediaElementAudioSourceNode](https://www.w3.org/TR/webaudio/#mediaelementaudiosourcenode)`.
 
 dictionary `MediaElementAudioSourceOptions` {
-  required [HTMLMediaElement](https://html.spec.whatwg.org/multipage/media.html#htmlmediaelement) [mediaElement](https://www.w3.org/TR/webaudio/#dom-mediaelementaudiosourceoptions-mediaelement);
+required [HTMLMediaElement](https://html.spec.whatwg.org/multipage/media.html#htmlmediaelement) [mediaElement](https://www.w3.org/TR/webaudio/#dom-mediaelementaudiosourceoptions-mediaelement);
 };
 
 ##### 1.22.3.1. Dictionary `[MediaElementAudioSourceOptions](https://www.w3.org/TR/webaudio/#dictdef-mediaelementaudiosourceoptions)` Members[](https://www.w3.org/TR/webaudio/#dictionary-mediaelementaudiosourceoptions-members)
@@ -6920,22 +6705,22 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)18IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `MediaStreamAudioDestinationNode` : [AudioNode](https://www.w3.org/TR/webaudio/#audionode) {
-  [constructor](https://www.w3.org/TR/webaudio/#dom-mediastreamaudiodestinationnode-mediastreamaudiodestinationnode) ([AudioContext](https://www.w3.org/TR/webaudio/#audiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-mediastreamaudiodestinationnode-mediastreamaudiodestinationnode-context-options-context), optional [AudioNodeOptions](https://www.w3.org/TR/webaudio/#dictdef-audionodeoptions) `options`[](https://www.w3.org/TR/webaudio/#dom-mediastreamaudiodestinationnode-mediastreamaudiodestinationnode-context-options-options) = {});
-  readonly attribute [MediaStream](https://www.w3.org/TR/mediacapture-streams/#dom-mediastream) [stream](https://www.w3.org/TR/webaudio/#dom-mediastreamaudiodestinationnode-stream);
+[constructor](https://www.w3.org/TR/webaudio/#dom-mediastreamaudiodestinationnode-mediastreamaudiodestinationnode) ([AudioContext](https://www.w3.org/TR/webaudio/#audiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-mediastreamaudiodestinationnode-mediastreamaudiodestinationnode-context-options-context), optional [AudioNodeOptions](https://www.w3.org/TR/webaudio/#dictdef-audionodeoptions) `options`[](https://www.w3.org/TR/webaudio/#dom-mediastreamaudiodestinationnode-mediastreamaudiodestinationnode-context-options-options) = {});
+readonly attribute [MediaStream](https://www.w3.org/TR/mediacapture-streams/#dom-mediastream) [stream](https://www.w3.org/TR/webaudio/#dom-mediastreamaudiodestinationnode-stream);
 };
 
 #### 1.23.1. Constructors[](https://www.w3.org/TR/webaudio/#MediaStreamAudioDestinationNode-constructors)
@@ -6943,7 +6728,6 @@ interface `MediaStreamAudioDestinationNode` : [AudioNode](https://www.w3.org/TR/
 `MediaStreamAudioDestinationNode(context, options)`
 
 1.  [Initialize the AudioNode](https://www.w3.org/TR/webaudio/#audionode-constructor-init) this, with context and options as arguments.
-    
 
 #### 1.23.2. Attributes[](https://www.w3.org/TR/webaudio/#MediaStreamAudioDestinationNode-attributes)
 
@@ -6953,15 +6737,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)18IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -6983,22 +6767,22 @@ In all current engines.
 
 Firefox25+Safari11+Chrome23+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari11+Chrome for AndroidYesAndroid WebView37+Samsung InternetYesOpera Mobile14+
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `MediaStreamAudioSourceNode` : [AudioNode](https://www.w3.org/TR/webaudio/#audionode) {
-  [constructor](https://www.w3.org/TR/webaudio/#dom-mediastreamaudiosourcenode-mediastreamaudiosourcenode) ([AudioContext](https://www.w3.org/TR/webaudio/#audiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-mediastreamaudiosourcenode-mediastreamaudiosourcenode-context-options-context), [MediaStreamAudioSourceOptions](https://www.w3.org/TR/webaudio/#dictdef-mediastreamaudiosourceoptions) `options`);
-  \[[SameObject](https://heycam.github.io/webidl/#SameObject)\] readonly attribute [MediaStream](https://www.w3.org/TR/mediacapture-streams/#dom-mediastream) [mediaStream](https://www.w3.org/TR/webaudio/#dom-mediastreamaudiosourcenode-mediastream);
+[constructor](https://www.w3.org/TR/webaudio/#dom-mediastreamaudiosourcenode-mediastreamaudiosourcenode) ([AudioContext](https://www.w3.org/TR/webaudio/#audiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-mediastreamaudiosourcenode-mediastreamaudiosourcenode-context-options-context), [MediaStreamAudioSourceOptions](https://www.w3.org/TR/webaudio/#dictdef-mediastreamaudiosourceoptions) `options`);
+\[[SameObject](https://heycam.github.io/webidl/#SameObject)\] readonly attribute [MediaStream](https://www.w3.org/TR/mediacapture-streams/#dom-mediastream) [mediaStream](https://www.w3.org/TR/webaudio/#dom-mediastreamaudiosourcenode-mediastream);
 };
 
 #### 1.24.1. Constructors[](https://www.w3.org/TR/webaudio/#MediaStreamAudioSourceNode-constructors)
@@ -7006,15 +6790,10 @@ interface `MediaStreamAudioSourceNode` : [AudioNode](https://www.w3.org/TR/webau
 `MediaStreamAudioSourceNode(context, options)`
 
 1.  If the `[mediaStream](https://www.w3.org/TR/webaudio/#dom-mediastreamaudiosourceoptions-mediastream)` member of `[options](https://www.w3.org/TR/webaudio/#dom-mediastreamaudiosourcenode-mediastreamaudiosourcenode-context-options-options)` does not reference a `[MediaStream](https://www.w3.org/TR/mediacapture-streams/#dom-mediastream)` that has at least one `[MediaStreamTrack](https://www.w3.org/TR/mediacapture-streams/#dom-mediastreamtrack)` whose `kind` attribute has the value `"audio"`, throw an `[InvalidStateError](https://heycam.github.io/webidl/#invalidstateerror)` and abort these steps. Else, let this stream be inputStream.
-    
 2.  Let tracks be the list of all `[MediaStreamTrack](https://www.w3.org/TR/mediacapture-streams/#dom-mediastreamtrack)`s of inputStream that have a `kind` of `"audio"`.
-    
 3.  Sort the elements in tracks based on their `id` attribute using an ordering on sequences of [code unit](https://infra.spec.whatwg.org/#code-unit) values.
-    
 4.  [Initialize the AudioNode](https://www.w3.org/TR/webaudio/#audionode-constructor-init) this, with context and options as arguments.
-    
 5.  Set an internal slot `[[input track]]` on this `[MediaStreamAudioSourceNode](https://www.w3.org/TR/webaudio/#mediastreamaudiosourcenode)` to be the first element of tracks. This is the track used as the input audio for this `[MediaStreamAudioSourceNode](https://www.w3.org/TR/webaudio/#mediastreamaudiosourcenode)`.
-    
 
 After construction, any change to the `[MediaStream](https://www.w3.org/TR/mediacapture-streams/#dom-mediastream)` that was passed to the constructor do not affect the underlying output of this `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`.
 
@@ -7032,15 +6811,15 @@ In all current engines.
 
 Firefox70+Safari11+Chrome23+
 
-___
+---
 
 OperaYesEdge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for AndroidNoneiOS Safari11+Chrome for AndroidYesAndroid WebView37+Samsung InternetYesOpera MobileYes
 
@@ -7058,20 +6837,20 @@ In all current engines.
 
 Firefox53+Safari6+Chrome55+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)18IENone
 
-___
+---
 
 Firefox for Android53+iOS Safari?Chrome for Android55+Android WebView55+Samsung Internet6.0+Opera Mobile14+
 
 dictionary `MediaStreamAudioSourceOptions` {
-  required [MediaStream](https://www.w3.org/TR/mediacapture-streams/#dom-mediastream) [mediaStream](https://www.w3.org/TR/webaudio/#dom-mediastreamaudiosourceoptions-mediastream);
+required [MediaStream](https://www.w3.org/TR/mediacapture-streams/#dom-mediastream) [mediaStream](https://www.w3.org/TR/webaudio/#dom-mediastreamaudiosourceoptions-mediastream);
 };
 
 ##### 1.24.3.1. Dictionary `[MediaStreamAudioSourceOptions](https://www.w3.org/TR/webaudio/#dictdef-mediastreamaudiosourceoptions)` Members[](https://www.w3.org/TR/webaudio/#dictionary-mediastreamaudiosourceoptions-members)
@@ -7080,15 +6859,15 @@ dictionary `MediaStreamAudioSourceOptions` {
 
 Firefox53+Safari?Chrome55+
 
-___
+---
 
 Opera?Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android53+iOS Safari?Chrome for Android55+Android WebView55+Samsung Internet6.0+Opera Mobile?
 
@@ -7110,21 +6889,21 @@ In only one current engine.
 
 Firefox68+SafariNoneChromeNone
 
-___
+---
 
 OperaNoneEdgeNone
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android68+iOS SafariNoneChrome for AndroidNoneAndroid WebViewNoneSamsung InternetNoneOpera MobileNone
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `MediaStreamTrackAudioSourceNode` : [AudioNode](https://www.w3.org/TR/webaudio/#audionode) {
-  [constructor](https://www.w3.org/TR/webaudio/#dom-mediastreamtrackaudiosourcenode-mediastreamtrackaudiosourcenode) ([AudioContext](https://www.w3.org/TR/webaudio/#audiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-mediastreamtrackaudiosourcenode-mediastreamtrackaudiosourcenode-context-options-context), [MediaStreamTrackAudioSourceOptions](https://www.w3.org/TR/webaudio/#dictdef-mediastreamtrackaudiosourceoptions) `options`[](https://www.w3.org/TR/webaudio/#dom-mediastreamtrackaudiosourcenode-mediastreamtrackaudiosourcenode-context-options-options));
+[constructor](https://www.w3.org/TR/webaudio/#dom-mediastreamtrackaudiosourcenode-mediastreamtrackaudiosourcenode) ([AudioContext](https://www.w3.org/TR/webaudio/#audiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-mediastreamtrackaudiosourcenode-mediastreamtrackaudiosourcenode-context-options-context), [MediaStreamTrackAudioSourceOptions](https://www.w3.org/TR/webaudio/#dictdef-mediastreamtrackaudiosourceoptions) `options`[](https://www.w3.org/TR/webaudio/#dom-mediastreamtrackaudiosourcenode-mediastreamtrackaudiosourcenode-context-options-options));
 };
 
 #### 1.25.1. Constructors[](https://www.w3.org/TR/webaudio/#MediaStreamTrackAudioSourceNode-constructors)
@@ -7132,9 +6911,7 @@ interface `MediaStreamTrackAudioSourceNode` : [AudioNode](https://www.w3.org/TR/
 `MediaStreamTrackAudioSourceNode(context, options)`
 
 1.  If the `[mediaStreamTrack](https://www.w3.org/TR/webaudio/#dom-mediastreamtrackaudiosourceoptions-mediastreamtrack)`'s `kind` attribute is not `"audio"`, throw an `[InvalidStateError](https://heycam.github.io/webidl/#invalidstateerror)` and abort these steps.
-    
 2.  [Initialize the AudioNode](https://www.w3.org/TR/webaudio/#audionode-constructor-init) this, with context and options as arguments.
-    
 
 #### 1.25.2. `[MediaStreamTrackAudioSourceOptions](https://www.w3.org/TR/webaudio/#dictdef-mediastreamtrackaudiosourceoptions)`[](https://www.w3.org/TR/webaudio/#MediaStreamTrackAudioSourceOptions)
 
@@ -7146,20 +6923,20 @@ In only one current engine.
 
 Firefox68+SafariNoneChromeNone
 
-___
+---
 
 OperaNoneEdgeNone
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android68+iOS SafariNoneChrome for AndroidNoneAndroid WebViewNoneSamsung InternetNoneOpera MobileNone
 
 dictionary `MediaStreamTrackAudioSourceOptions` {
-  required [MediaStreamTrack](https://www.w3.org/TR/mediacapture-streams/#dom-mediastreamtrack) [mediaStreamTrack](https://www.w3.org/TR/webaudio/#dom-mediastreamtrackaudiosourceoptions-mediastreamtrack);
+required [MediaStreamTrack](https://www.w3.org/TR/mediacapture-streams/#dom-mediastreamtrack) [mediaStreamTrack](https://www.w3.org/TR/webaudio/#dom-mediastreamtrackaudiosourceoptions-mediastreamtrack);
 };
 
 ##### 1.25.2.1. Dictionary `[MediaStreamTrackAudioSourceOptions](https://www.w3.org/TR/webaudio/#dictdef-mediastreamtrackaudiosourceoptions)` Members[](https://www.w3.org/TR/webaudio/#dictionary-mediastreamtrackaudiosourceoptions-members)
@@ -7170,15 +6947,15 @@ In only one current engine.
 
 Firefox68+SafariNoneChromeNone
 
-___
+---
 
 OperaNoneEdgeNone
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android68+iOS SafariNoneChrome for AndroidNoneAndroid WebViewNoneSamsung InternetNoneOpera MobileNone
 
@@ -7207,11 +6984,11 @@ The OscillatorNode’s instantaneous phase at each time is the definite time int
 The single output of this node consists of one channel (mono).
 
 enum `OscillatorType` {
-  ["sine"](https://www.w3.org/TR/webaudio/#dom-oscillatortype-sine),
-  ["square"](https://www.w3.org/TR/webaudio/#dom-oscillatortype-square),
-  ["sawtooth"](https://www.w3.org/TR/webaudio/#dom-oscillatortype-sawtooth),
-  ["triangle"](https://www.w3.org/TR/webaudio/#dom-oscillatortype-triangle),
-  ["custom"](https://www.w3.org/TR/webaudio/#dom-oscillatortype-custom)
+["sine"](https://www.w3.org/TR/webaudio/#dom-oscillatortype-sine),
+["square"](https://www.w3.org/TR/webaudio/#dom-oscillatortype-square),
+["sawtooth"](https://www.w3.org/TR/webaudio/#dom-oscillatortype-sawtooth),
+["triangle"](https://www.w3.org/TR/webaudio/#dom-oscillatortype-triangle),
+["custom"](https://www.w3.org/TR/webaudio/#dom-oscillatortype-custom)
 };
 
 Enumeration description
@@ -7242,25 +7019,25 @@ In all current engines.
 
 Firefox25+Safari6+Chrome20+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android25+Android WebView37+Samsung Internet1.5+Opera Mobile14+
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `OscillatorNode` : [AudioScheduledSourceNode](https://www.w3.org/TR/webaudio/#audioscheduledsourcenode) {
-  [constructor](https://www.w3.org/TR/webaudio/#dom-oscillatornode-oscillatornode) ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-oscillatornode-oscillatornode-context-options-context), optional [OscillatorOptions](https://www.w3.org/TR/webaudio/#dictdef-oscillatoroptions) `options`[](https://www.w3.org/TR/webaudio/#dom-oscillatornode-oscillatornode-context-options-options) = {});
-  attribute [OscillatorType](https://www.w3.org/TR/webaudio/#enumdef-oscillatortype) [type](https://www.w3.org/TR/webaudio/#dom-oscillatornode-type);
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [frequency](https://www.w3.org/TR/webaudio/#dom-oscillatornode-frequency);
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [detune](https://www.w3.org/TR/webaudio/#dom-oscillatornode-detune);
-  [undefined](https://heycam.github.io/webidl/#idl-undefined) [setPeriodicWave](https://www.w3.org/TR/webaudio/#dom-oscillatornode-setperiodicwave) ([PeriodicWave](https://www.w3.org/TR/webaudio/#periodicwave) `periodicWave`[](https://www.w3.org/TR/webaudio/#dom-oscillatornode-setperiodicwave-periodicwave-periodicwave));
+[constructor](https://www.w3.org/TR/webaudio/#dom-oscillatornode-oscillatornode) ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-oscillatornode-oscillatornode-context-options-context), optional [OscillatorOptions](https://www.w3.org/TR/webaudio/#dictdef-oscillatoroptions) `options`[](https://www.w3.org/TR/webaudio/#dom-oscillatornode-oscillatornode-context-options-options) = {});
+attribute [OscillatorType](https://www.w3.org/TR/webaudio/#enumdef-oscillatortype) [type](https://www.w3.org/TR/webaudio/#dom-oscillatornode-type);
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [frequency](https://www.w3.org/TR/webaudio/#dom-oscillatornode-frequency);
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [detune](https://www.w3.org/TR/webaudio/#dom-oscillatornode-detune);
+[undefined](https://heycam.github.io/webidl/#idl-undefined) [setPeriodicWave](https://www.w3.org/TR/webaudio/#dom-oscillatornode-setperiodicwave) ([PeriodicWave](https://www.w3.org/TR/webaudio/#periodicwave) `periodicWave`[](https://www.w3.org/TR/webaudio/#dom-oscillatornode-setperiodicwave-periodicwave-periodicwave));
 };
 
 #### 1.26.1. Constructors[](https://www.w3.org/TR/webaudio/#OscillatorNode-constructors)
@@ -7269,15 +7046,15 @@ interface `OscillatorNode` : [AudioScheduledSourceNode](https://www.w3.org/TR/we
 
 Firefox53+SafariNoneChrome55+
 
-___
+---
 
 Opera42+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android53+iOS SafariNoneChrome for Android55+Android WebView55+Samsung Internet6.0+Opera Mobile42+
 
@@ -7293,21 +7070,21 @@ In all current engines.
 
 Firefox25+Safari6+Chrome20+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android25+Android WebView37+Samsung Internet1.5+Opera Mobile14+
 
 `detune`, of type [AudioParam](https://www.w3.org/TR/webaudio/#audioparam), readonly
 
-A detuning value (in [cents](https://en.wikipedia.org/wiki/Cent_(music))) which will offset the `[frequency](https://www.w3.org/TR/webaudio/#dom-oscillatornode-frequency)` by the given amount. Its default `value` is 0. This parameter is [a-rate](https://www.w3.org/TR/webaudio/#a-rate). It forms a [compound parameter](https://www.w3.org/TR/webaudio/#compound-parameter) with `[frequency](https://www.w3.org/TR/webaudio/#dom-oscillatornode-frequency)` to form the [computedOscFrequency](https://www.w3.org/TR/webaudio/#computedoscfrequency). The nominal range listed below allows this parameter to detune the `[frequency](https://www.w3.org/TR/webaudio/#dom-oscillatornode-frequency)` over the entire possible range of frequencies.
+A detuning value (in [cents](<https://en.wikipedia.org/wiki/Cent_(music)>)) which will offset the `[frequency](https://www.w3.org/TR/webaudio/#dom-oscillatornode-frequency)` by the given amount. Its default `value` is 0. This parameter is [a-rate](https://www.w3.org/TR/webaudio/#a-rate). It forms a [compound parameter](https://www.w3.org/TR/webaudio/#compound-parameter) with `[frequency](https://www.w3.org/TR/webaudio/#dom-oscillatornode-frequency)` to form the [computedOscFrequency](https://www.w3.org/TR/webaudio/#computedoscfrequency). The nominal range listed below allows this parameter to detune the `[frequency](https://www.w3.org/TR/webaudio/#dom-oscillatornode-frequency)` over the entire possible range of frequencies.
 
 [OscillatorNode/frequency](https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode/frequency "The frequency property of the OscillatorNode interface is an a-rate AudioParam representing the frequency of oscillation in hertz.")
 
@@ -7315,15 +7092,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome20+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android25+Android WebView37+Samsung Internet1.5+Opera Mobile14+
 
@@ -7337,15 +7114,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome20+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android25+Android WebView37+Samsung Internet1.5+Opera Mobile14+
 
@@ -7361,15 +7138,15 @@ In all current engines.
 
 Firefox25+Safari8+Chrome30+
 
-___
+---
 
 Opera17+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari8+Chrome for Android30+Android WebView37+Samsung Internet2.0+Opera Mobile18+
 
@@ -7404,10 +7181,10 @@ custom waveform to be used by the oscillator
 This specifies the options to be used when constructing an `[OscillatorNode](https://www.w3.org/TR/webaudio/#oscillatornode)`. All of the members are optional; if not specified, the normal default values are used for constructing the oscillator.
 
 dictionary `OscillatorOptions` : [AudioNodeOptions](https://www.w3.org/TR/webaudio/#dictdef-audionodeoptions) {
-  [OscillatorType](https://www.w3.org/TR/webaudio/#enumdef-oscillatortype) [type](https://www.w3.org/TR/webaudio/#dom-oscillatoroptions-type) = "sine";
-  [float](https://heycam.github.io/webidl/#idl-float) [frequency](https://www.w3.org/TR/webaudio/#dom-oscillatoroptions-frequency) = 440;
-  [float](https://heycam.github.io/webidl/#idl-float) [detune](https://www.w3.org/TR/webaudio/#dom-oscillatoroptions-detune) = 0;
-  [PeriodicWave](https://www.w3.org/TR/webaudio/#periodicwave) [periodicWave](https://www.w3.org/TR/webaudio/#dom-oscillatoroptions-periodicwave);
+[OscillatorType](https://www.w3.org/TR/webaudio/#enumdef-oscillatortype) [type](https://www.w3.org/TR/webaudio/#dom-oscillatoroptions-type) = "sine";
+[float](https://heycam.github.io/webidl/#idl-float) [frequency](https://www.w3.org/TR/webaudio/#dom-oscillatoroptions-frequency) = 440;
+[float](https://heycam.github.io/webidl/#idl-float) [detune](https://www.w3.org/TR/webaudio/#dom-oscillatoroptions-detune) = 0;
+[PeriodicWave](https://www.w3.org/TR/webaudio/#periodicwave) [periodicWave](https://www.w3.org/TR/webaudio/#dom-oscillatoroptions-periodicwave);
 };
 
 ##### 1.26.4.1. Dictionary `[OscillatorOptions](https://www.w3.org/TR/webaudio/#dictdef-oscillatoroptions)` Members[](https://www.w3.org/TR/webaudio/#dictionary-oscillatoroptions-members)
@@ -7475,8 +7252,8 @@ If the node is [actively processing](https://www.w3.org/TR/webaudio/#actively-pr
 The `[PanningModelType](https://www.w3.org/TR/webaudio/#enumdef-panningmodeltype)` enum determines which spatialization algorithm will be used to position the audio in 3D space. The default is "`[equalpower](https://www.w3.org/TR/webaudio/#dom-panningmodeltype-equalpower)`".
 
 enum `PanningModelType` {
-    ["equalpower"](https://www.w3.org/TR/webaudio/#dom-panningmodeltype-equalpower),
-    ["HRTF"](https://www.w3.org/TR/webaudio/#dom-panningmodeltype-hrtf)
+["equalpower"](https://www.w3.org/TR/webaudio/#dom-panningmodeltype-equalpower),
+["HRTF"](https://www.w3.org/TR/webaudio/#dom-panningmodeltype-hrtf)
 };
 
 Enumeration description
@@ -7500,9 +7277,9 @@ The `[DistanceModelType](https://www.w3.org/TR/webaudio/#enumdef-distancemodelty
 In the description of each distance model below, let d be the distance between the listener and the panner; dref be the value of the `[refDistance](https://www.w3.org/TR/webaudio/#dom-pannernode-refdistance)` attribute; dmax be the value of the `[maxDistance](https://www.w3.org/TR/webaudio/#dom-pannernode-maxdistance)` attribute; and f be the value of the `[rolloffFactor](https://www.w3.org/TR/webaudio/#dom-pannernode-rollofffactor)` attribute.
 
 enum `DistanceModelType` {
-  ["linear"](https://www.w3.org/TR/webaudio/#dom-distancemodeltype-linear),
-  ["inverse"](https://www.w3.org/TR/webaudio/#dom-distancemodeltype-inverse),
-  ["exponential"](https://www.w3.org/TR/webaudio/#dom-distancemodeltype-exponential)
+["linear"](https://www.w3.org/TR/webaudio/#dom-distancemodeltype-linear),
+["inverse"](https://www.w3.org/TR/webaudio/#dom-distancemodeltype-inverse),
+["exponential"](https://www.w3.org/TR/webaudio/#dom-distancemodeltype-exponential)
 };
 
 Enumeration description
@@ -7539,37 +7316,37 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `PannerNode` : [AudioNode](https://www.w3.org/TR/webaudio/#audionode) {
-  [constructor](https://www.w3.org/TR/webaudio/#dom-pannernode-pannernode) ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-pannernode-pannernode-context-options-context), optional [PannerOptions](https://www.w3.org/TR/webaudio/#dictdef-panneroptions) `options`[](https://www.w3.org/TR/webaudio/#dom-pannernode-pannernode-context-options-options) = {});
-  attribute [PanningModelType](https://www.w3.org/TR/webaudio/#enumdef-panningmodeltype) [panningModel](https://www.w3.org/TR/webaudio/#dom-pannernode-panningmodel);
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [positionX](https://www.w3.org/TR/webaudio/#dom-pannernode-positionx);
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [positionY](https://www.w3.org/TR/webaudio/#dom-pannernode-positiony);
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [positionZ](https://www.w3.org/TR/webaudio/#dom-pannernode-positionz);
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [orientationX](https://www.w3.org/TR/webaudio/#dom-pannernode-orientationx);
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [orientationY](https://www.w3.org/TR/webaudio/#dom-pannernode-orientationy);
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [orientationZ](https://www.w3.org/TR/webaudio/#dom-pannernode-orientationz);
-  attribute [DistanceModelType](https://www.w3.org/TR/webaudio/#enumdef-distancemodeltype) [distanceModel](https://www.w3.org/TR/webaudio/#dom-pannernode-distancemodel);
-  attribute [double](https://heycam.github.io/webidl/#idl-double) [refDistance](https://www.w3.org/TR/webaudio/#dom-pannernode-refdistance);
-  attribute [double](https://heycam.github.io/webidl/#idl-double) [maxDistance](https://www.w3.org/TR/webaudio/#dom-pannernode-maxdistance);
-  attribute [double](https://heycam.github.io/webidl/#idl-double) [rolloffFactor](https://www.w3.org/TR/webaudio/#dom-pannernode-rollofffactor);
-  attribute [double](https://heycam.github.io/webidl/#idl-double) [coneInnerAngle](https://www.w3.org/TR/webaudio/#dom-pannernode-coneinnerangle);
-  attribute [double](https://heycam.github.io/webidl/#idl-double) [coneOuterAngle](https://www.w3.org/TR/webaudio/#dom-pannernode-coneouterangle);
-  attribute [double](https://heycam.github.io/webidl/#idl-double) [coneOuterGain](https://www.w3.org/TR/webaudio/#dom-pannernode-coneoutergain);
-  [undefined](https://heycam.github.io/webidl/#idl-undefined) [setPosition](https://www.w3.org/TR/webaudio/#dom-pannernode-setposition) ([float](https://heycam.github.io/webidl/#idl-float) `x`[](https://www.w3.org/TR/webaudio/#dom-pannernode-setposition-x-y-z-x), [float](https://heycam.github.io/webidl/#idl-float) `y`[](https://www.w3.org/TR/webaudio/#dom-pannernode-setposition-x-y-z-y), [float](https://heycam.github.io/webidl/#idl-float) `z`[](https://www.w3.org/TR/webaudio/#dom-pannernode-setposition-x-y-z-z));
-  [undefined](https://heycam.github.io/webidl/#idl-undefined) [setOrientation](https://www.w3.org/TR/webaudio/#dom-pannernode-setorientation) ([float](https://heycam.github.io/webidl/#idl-float) `x`[](https://www.w3.org/TR/webaudio/#dom-pannernode-setorientation-x-y-z-x), [float](https://heycam.github.io/webidl/#idl-float) `y`[](https://www.w3.org/TR/webaudio/#dom-pannernode-setorientation-x-y-z-y), [float](https://heycam.github.io/webidl/#idl-float) `z`[](https://www.w3.org/TR/webaudio/#dom-pannernode-setorientation-x-y-z-z));
+[constructor](https://www.w3.org/TR/webaudio/#dom-pannernode-pannernode) ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-pannernode-pannernode-context-options-context), optional [PannerOptions](https://www.w3.org/TR/webaudio/#dictdef-panneroptions) `options`[](https://www.w3.org/TR/webaudio/#dom-pannernode-pannernode-context-options-options) = {});
+attribute [PanningModelType](https://www.w3.org/TR/webaudio/#enumdef-panningmodeltype) [panningModel](https://www.w3.org/TR/webaudio/#dom-pannernode-panningmodel);
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [positionX](https://www.w3.org/TR/webaudio/#dom-pannernode-positionx);
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [positionY](https://www.w3.org/TR/webaudio/#dom-pannernode-positiony);
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [positionZ](https://www.w3.org/TR/webaudio/#dom-pannernode-positionz);
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [orientationX](https://www.w3.org/TR/webaudio/#dom-pannernode-orientationx);
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [orientationY](https://www.w3.org/TR/webaudio/#dom-pannernode-orientationy);
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [orientationZ](https://www.w3.org/TR/webaudio/#dom-pannernode-orientationz);
+attribute [DistanceModelType](https://www.w3.org/TR/webaudio/#enumdef-distancemodeltype) [distanceModel](https://www.w3.org/TR/webaudio/#dom-pannernode-distancemodel);
+attribute [double](https://heycam.github.io/webidl/#idl-double) [refDistance](https://www.w3.org/TR/webaudio/#dom-pannernode-refdistance);
+attribute [double](https://heycam.github.io/webidl/#idl-double) [maxDistance](https://www.w3.org/TR/webaudio/#dom-pannernode-maxdistance);
+attribute [double](https://heycam.github.io/webidl/#idl-double) [rolloffFactor](https://www.w3.org/TR/webaudio/#dom-pannernode-rollofffactor);
+attribute [double](https://heycam.github.io/webidl/#idl-double) [coneInnerAngle](https://www.w3.org/TR/webaudio/#dom-pannernode-coneinnerangle);
+attribute [double](https://heycam.github.io/webidl/#idl-double) [coneOuterAngle](https://www.w3.org/TR/webaudio/#dom-pannernode-coneouterangle);
+attribute [double](https://heycam.github.io/webidl/#idl-double) [coneOuterGain](https://www.w3.org/TR/webaudio/#dom-pannernode-coneoutergain);
+[undefined](https://heycam.github.io/webidl/#idl-undefined) [setPosition](https://www.w3.org/TR/webaudio/#dom-pannernode-setposition) ([float](https://heycam.github.io/webidl/#idl-float) `x`[](https://www.w3.org/TR/webaudio/#dom-pannernode-setposition-x-y-z-x), [float](https://heycam.github.io/webidl/#idl-float) `y`[](https://www.w3.org/TR/webaudio/#dom-pannernode-setposition-x-y-z-y), [float](https://heycam.github.io/webidl/#idl-float) `z`[](https://www.w3.org/TR/webaudio/#dom-pannernode-setposition-x-y-z-z));
+[undefined](https://heycam.github.io/webidl/#idl-undefined) [setOrientation](https://www.w3.org/TR/webaudio/#dom-pannernode-setorientation) ([float](https://heycam.github.io/webidl/#idl-float) `x`[](https://www.w3.org/TR/webaudio/#dom-pannernode-setorientation-x-y-z-x), [float](https://heycam.github.io/webidl/#idl-float) `y`[](https://www.w3.org/TR/webaudio/#dom-pannernode-setorientation-x-y-z-y), [float](https://heycam.github.io/webidl/#idl-float) `z`[](https://www.w3.org/TR/webaudio/#dom-pannernode-setorientation-x-y-z-z));
 };
 
 #### 1.27.1. Constructors[](https://www.w3.org/TR/webaudio/#PannerNode-constructors)
@@ -7578,15 +7355,15 @@ interface `PannerNode` : [AudioNode](https://www.w3.org/TR/webaudio/#audionode) 
 
 Firefox53+SafariNoneChrome55+
 
-___
+---
 
 Opera42+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android53+iOS SafariNoneChrome for Android55+Android WebView55+Samsung Internet6.0+Opera Mobile42+
 
@@ -7602,15 +7379,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -7624,15 +7401,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -7646,15 +7423,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -7668,15 +7445,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -7690,15 +7467,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -7710,15 +7487,15 @@ The maximum distance between source and listener, after which the volume will no
 
 Firefox50+SafariNoneChrome52+
 
-___
+---
 
 Opera39+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android50+iOS SafariNoneChrome for Android52+Android WebView52+Samsung Internet6.0+Opera Mobile41+
 
@@ -7730,15 +7507,15 @@ Describes the x\-component of the vector of the direction the audio source is po
 
 Firefox50+SafariNoneChrome52+
 
-___
+---
 
 Opera39+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android50+iOS SafariNoneChrome for Android52+Android WebView52+Samsung Internet6.0+Opera Mobile41+
 
@@ -7750,15 +7527,15 @@ Describes the y\-component of the vector of the direction the audio source is po
 
 Firefox50+SafariNoneChrome52+
 
-___
+---
 
 Opera39+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android50+iOS SafariNoneChrome for Android52+Android WebView52+Samsung Internet6.0+Opera Mobile41+
 
@@ -7772,15 +7549,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -7792,15 +7569,15 @@ Specifies the panning model used by this `[PannerNode](https://www.w3.org/TR/web
 
 Firefox50+SafariNoneChrome52+
 
-___
+---
 
 Opera39+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android50+iOS SafariNoneChrome for Android52+Android WebView52+Samsung Internet6.0+Opera Mobile41+
 
@@ -7812,15 +7589,15 @@ Sets the x\-coordinate position of the audio source in a 3D Cartesian system.
 
 Firefox50+SafariNoneChrome52+
 
-___
+---
 
 Opera39+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android50+iOS SafariNoneChrome for Android52+Android WebView52+Samsung Internet6.0+Opera Mobile41+
 
@@ -7832,15 +7609,15 @@ Sets the y\-coordinate position of the audio source in a 3D Cartesian system.
 
 Firefox50+SafariNoneChrome52+
 
-___
+---
 
 Opera39+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android50+iOS SafariNoneChrome for Android52+Android WebView52+Samsung Internet6.0+Opera Mobile41+
 
@@ -7854,15 +7631,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -7876,15 +7653,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS Safari6+Chrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -7975,20 +7752,20 @@ float
 This specifies options for constructing a `[PannerNode](https://www.w3.org/TR/webaudio/#pannernode)`. All members are optional; if not specified, the normal default is used in constructing the node.
 
 dictionary `PannerOptions` : [AudioNodeOptions](https://www.w3.org/TR/webaudio/#dictdef-audionodeoptions) {
-  [PanningModelType](https://www.w3.org/TR/webaudio/#enumdef-panningmodeltype) [panningModel](https://www.w3.org/TR/webaudio/#dom-panneroptions-panningmodel) = "equalpower";
-  [DistanceModelType](https://www.w3.org/TR/webaudio/#enumdef-distancemodeltype) [distanceModel](https://www.w3.org/TR/webaudio/#dom-panneroptions-distancemodel) = "inverse";
-  [float](https://heycam.github.io/webidl/#idl-float) [positionX](https://www.w3.org/TR/webaudio/#dom-panneroptions-positionx) = 0;
-  [float](https://heycam.github.io/webidl/#idl-float) [positionY](https://www.w3.org/TR/webaudio/#dom-panneroptions-positiony) = 0;
-  [float](https://heycam.github.io/webidl/#idl-float) [positionZ](https://www.w3.org/TR/webaudio/#dom-panneroptions-positionz) = 0;
-  [float](https://heycam.github.io/webidl/#idl-float) [orientationX](https://www.w3.org/TR/webaudio/#dom-panneroptions-orientationx) = 1;
-  [float](https://heycam.github.io/webidl/#idl-float) [orientationY](https://www.w3.org/TR/webaudio/#dom-panneroptions-orientationy) = 0;
-  [float](https://heycam.github.io/webidl/#idl-float) [orientationZ](https://www.w3.org/TR/webaudio/#dom-panneroptions-orientationz) = 0;
-  [double](https://heycam.github.io/webidl/#idl-double) [refDistance](https://www.w3.org/TR/webaudio/#dom-panneroptions-refdistance) = 1;
-  [double](https://heycam.github.io/webidl/#idl-double) [maxDistance](https://www.w3.org/TR/webaudio/#dom-panneroptions-maxdistance) = 10000;
-  [double](https://heycam.github.io/webidl/#idl-double) [rolloffFactor](https://www.w3.org/TR/webaudio/#dom-panneroptions-rollofffactor) = 1;
-  [double](https://heycam.github.io/webidl/#idl-double) [coneInnerAngle](https://www.w3.org/TR/webaudio/#dom-panneroptions-coneinnerangle) = 360;
-  [double](https://heycam.github.io/webidl/#idl-double) [coneOuterAngle](https://www.w3.org/TR/webaudio/#dom-panneroptions-coneouterangle) = 360;
-  [double](https://heycam.github.io/webidl/#idl-double) [coneOuterGain](https://www.w3.org/TR/webaudio/#dom-panneroptions-coneoutergain) = 0;
+[PanningModelType](https://www.w3.org/TR/webaudio/#enumdef-panningmodeltype) [panningModel](https://www.w3.org/TR/webaudio/#dom-panneroptions-panningmodel) = "equalpower";
+[DistanceModelType](https://www.w3.org/TR/webaudio/#enumdef-distancemodeltype) [distanceModel](https://www.w3.org/TR/webaudio/#dom-panneroptions-distancemodel) = "inverse";
+[float](https://heycam.github.io/webidl/#idl-float) [positionX](https://www.w3.org/TR/webaudio/#dom-panneroptions-positionx) = 0;
+[float](https://heycam.github.io/webidl/#idl-float) [positionY](https://www.w3.org/TR/webaudio/#dom-panneroptions-positiony) = 0;
+[float](https://heycam.github.io/webidl/#idl-float) [positionZ](https://www.w3.org/TR/webaudio/#dom-panneroptions-positionz) = 0;
+[float](https://heycam.github.io/webidl/#idl-float) [orientationX](https://www.w3.org/TR/webaudio/#dom-panneroptions-orientationx) = 1;
+[float](https://heycam.github.io/webidl/#idl-float) [orientationY](https://www.w3.org/TR/webaudio/#dom-panneroptions-orientationy) = 0;
+[float](https://heycam.github.io/webidl/#idl-float) [orientationZ](https://www.w3.org/TR/webaudio/#dom-panneroptions-orientationz) = 0;
+[double](https://heycam.github.io/webidl/#idl-double) [refDistance](https://www.w3.org/TR/webaudio/#dom-panneroptions-refdistance) = 1;
+[double](https://heycam.github.io/webidl/#idl-double) [maxDistance](https://www.w3.org/TR/webaudio/#dom-panneroptions-maxdistance) = 10000;
+[double](https://heycam.github.io/webidl/#idl-double) [rolloffFactor](https://www.w3.org/TR/webaudio/#dom-panneroptions-rollofffactor) = 1;
+[double](https://heycam.github.io/webidl/#idl-double) [coneInnerAngle](https://www.w3.org/TR/webaudio/#dom-panneroptions-coneinnerangle) = 360;
+[double](https://heycam.github.io/webidl/#idl-double) [coneOuterAngle](https://www.w3.org/TR/webaudio/#dom-panneroptions-coneouterangle) = 360;
+[double](https://heycam.github.io/webidl/#idl-double) [coneOuterGain](https://www.w3.org/TR/webaudio/#dom-panneroptions-coneoutergain) = 0;
 };
 
 ##### 1.27.4.1. Dictionary `[PannerOptions](https://www.w3.org/TR/webaudio/#dictdef-panneroptions)` Members[](https://www.w3.org/TR/webaudio/#dictionary-pannernode-members)
@@ -8063,15 +7840,15 @@ A [conforming implementation](https://heycam.github.io/webidl/#dfn-conforming-im
 
 Firefox53+Safari?Chrome55+
 
-___
+---
 
 Opera42+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android53+iOS Safari?Chrome for Android55+Android WebView55+Samsung Internet6.0+Opera Mobile42+
 
@@ -8081,21 +7858,21 @@ In all current engines.
 
 Firefox25+Safari8+Chrome30+
 
-___
+---
 
 Opera17+Edge79+
 
-___
+---
 
 Edge (Legacy)18IENone
 
-___
+---
 
 Firefox for Android26+iOS Safari8+Chrome for Android30+Android WebView37+Samsung Internet2.0+Opera Mobile18+
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `PeriodicWave` {
-  [constructor](https://www.w3.org/TR/webaudio/#dom-periodicwave-periodicwave) ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-periodicwave-periodicwave-context-options-context), optional [PeriodicWaveOptions](https://www.w3.org/TR/webaudio/#dictdef-periodicwaveoptions) `options` = {});
+[constructor](https://www.w3.org/TR/webaudio/#dom-periodicwave-periodicwave) ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-periodicwave-periodicwave-context-options-context), optional [PeriodicWaveOptions](https://www.w3.org/TR/webaudio/#dictdef-periodicwaveoptions) `options` = {});
 };
 
 #### 1.28.1. Constructors[](https://www.w3.org/TR/webaudio/#PeriodicWave-constructors)
@@ -8107,7 +7884,7 @@ interface `PeriodicWave` {
 The `[PeriodicWaveConstraints](https://www.w3.org/TR/webaudio/#dictdef-periodicwaveconstraints)` dictionary is used to specify how the waveform is [normalized](https://www.w3.org/TR/webaudio/#waveform-normalization).
 
 dictionary `PeriodicWaveConstraints` {
-  [boolean](https://heycam.github.io/webidl/#idl-boolean) [disableNormalization](https://www.w3.org/TR/webaudio/#dom-periodicwaveconstraints-disablenormalization) = false;
+[boolean](https://heycam.github.io/webidl/#idl-boolean) [disableNormalization](https://www.w3.org/TR/webaudio/#dom-periodicwaveconstraints-disablenormalization) = false;
 };
 
 ##### 1.28.2.1. Dictionary `[PeriodicWaveConstraints](https://www.w3.org/TR/webaudio/#dictdef-periodicwaveconstraints)` Members[](https://www.w3.org/TR/webaudio/#dictionary-periodicwaveconstraints-members)
@@ -8121,8 +7898,8 @@ Controls whether the periodic wave is normalized or not. If `true`, the waveform
 The `[PeriodicWaveOptions](https://www.w3.org/TR/webaudio/#dictdef-periodicwaveoptions)` dictionary is used to specify how the waveform is constructed. If only one of `[real](https://www.w3.org/TR/webaudio/#dom-periodicwaveoptions-real)` or `[imag](https://www.w3.org/TR/webaudio/#dom-periodicwaveoptions-imag)` is specified. The other is treated as if it were an array of all zeroes of the same length, as specified below in [description of the dictionary members](https://www.w3.org/TR/webaudio/#dictionary-periodicwaveoptions-members). If neither is given, a `[PeriodicWave](https://www.w3.org/TR/webaudio/#periodicwave)` is created that MUST be equivalent to an `[OscillatorNode](https://www.w3.org/TR/webaudio/#oscillatornode)` with `[type](https://www.w3.org/TR/webaudio/#dom-oscillatornode-type)` "`[sine](https://www.w3.org/TR/webaudio/#dom-oscillatortype-sine)`". If both are given, the sequences must have the same length; otherwise an error of type `[NotSupportedError](https://heycam.github.io/webidl/#notsupportederror)` MUST be thrown.
 
 dictionary `PeriodicWaveOptions` : [PeriodicWaveConstraints](https://www.w3.org/TR/webaudio/#dictdef-periodicwaveconstraints) {
-  [sequence](https://heycam.github.io/webidl/#idl-sequence)<[float](https://heycam.github.io/webidl/#idl-float)\> [real](https://www.w3.org/TR/webaudio/#dom-periodicwaveoptions-real);
-  [sequence](https://heycam.github.io/webidl/#idl-sequence)<[float](https://heycam.github.io/webidl/#idl-float)\> [imag](https://www.w3.org/TR/webaudio/#dom-periodicwaveoptions-imag);
+[sequence](https://heycam.github.io/webidl/#idl-sequence)<[float](https://heycam.github.io/webidl/#idl-float)\> [real](https://www.w3.org/TR/webaudio/#dom-periodicwaveoptions-real);
+[sequence](https://heycam.github.io/webidl/#idl-sequence)<[float](https://heycam.github.io/webidl/#idl-float)\> [imag](https://www.w3.org/TR/webaudio/#dom-periodicwaveoptions-imag);
 };
 
 ##### 1.28.3.1. Dictionary `[PeriodicWaveOptions](https://www.w3.org/TR/webaudio/#dictdef-periodicwaveoptions)` Members[](https://www.w3.org/TR/webaudio/#dictionary-periodicwaveoptions-members)
@@ -8193,8 +7970,8 @@ The `[ScriptProcessorNode](https://www.w3.org/TR/webaudio/#scriptprocessornode)`
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `ScriptProcessorNode` : [AudioNode](https://www.w3.org/TR/webaudio/#audionode) {
-  attribute [EventHandler](https://html.spec.whatwg.org/multipage/webappapis.html#eventhandler) [onaudioprocess](https://www.w3.org/TR/webaudio/#dom-scriptprocessornode-onaudioprocess);
-  readonly attribute [long](https://heycam.github.io/webidl/#idl-long) [bufferSize](https://www.w3.org/TR/webaudio/#dom-scriptprocessornode-buffersize);
+attribute [EventHandler](https://html.spec.whatwg.org/multipage/webappapis.html#eventhandler) [onaudioprocess](https://www.w3.org/TR/webaudio/#dom-scriptprocessornode-onaudioprocess);
+readonly attribute [long](https://heycam.github.io/webidl/#idl-long) [bufferSize](https://www.w3.org/TR/webaudio/#dom-scriptprocessornode-buffersize);
 };
 
 #### 1.29.1. Attributes[](https://www.w3.org/TR/webaudio/#ScriptProcessorNode-attributes)
@@ -8219,22 +7996,22 @@ The output of this node is hard-coded to stereo (2 channels) and cannot be confi
 
 Firefox37+SafariNoneChrome41+
 
-___
+---
 
 Opera28+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android37+iOS SafariNoneChrome for Android41+Android WebView41+Samsung Internet4.0+Opera Mobile28+
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `StereoPannerNode` : [AudioNode](https://www.w3.org/TR/webaudio/#audionode) {
-  [constructor](https://www.w3.org/TR/webaudio/#dom-stereopannernode-stereopannernode) ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-stereopannernode-stereopannernode-context-options-context), optional [StereoPannerOptions](https://www.w3.org/TR/webaudio/#dictdef-stereopanneroptions) `options`[](https://www.w3.org/TR/webaudio/#dom-stereopannernode-stereopannernode-context-options-options) = {});
-  readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [pan](https://www.w3.org/TR/webaudio/#dom-stereopannernode-pan);
+[constructor](https://www.w3.org/TR/webaudio/#dom-stereopannernode-stereopannernode) ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-stereopannernode-stereopannernode-context-options-context), optional [StereoPannerOptions](https://www.w3.org/TR/webaudio/#dictdef-stereopanneroptions) `options`[](https://www.w3.org/TR/webaudio/#dom-stereopannernode-stereopannernode-context-options-options) = {});
+readonly attribute [AudioParam](https://www.w3.org/TR/webaudio/#audioparam) [pan](https://www.w3.org/TR/webaudio/#dom-stereopannernode-pan);
 };
 
 #### 1.30.1. Constructors[](https://www.w3.org/TR/webaudio/#StereoPannerNode-constructors)
@@ -8243,15 +8020,15 @@ interface `StereoPannerNode` : [AudioNode](https://www.w3.org/TR/webaudio/#audio
 
 Firefox53+SafariNoneChrome55+
 
-___
+---
 
 Opera42+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android53+iOS SafariNoneChrome for Android55+Android WebView55+Samsung Internet6.0+Opera Mobile42+
 
@@ -8265,15 +8042,15 @@ When the constructor is called with a `[BaseAudioContext](https://www.w3.org/TR/
 
 Firefox37+SafariNoneChrome41+
 
-___
+---
 
 Opera28+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android37+iOS SafariNoneChrome for Android41+Android WebView41+Samsung Internet4.0+Opera Mobile28+
 
@@ -8286,7 +8063,7 @@ The position of the input in the output’s stereo image. -1 represents full lef
 This specifies the options to use in constructing a `[StereoPannerNode](https://www.w3.org/TR/webaudio/#stereopannernode)`. All members are optional; if not specified, the normal default is used in constructing the node.
 
 dictionary `StereoPannerOptions` : [AudioNodeOptions](https://www.w3.org/TR/webaudio/#dictdef-audionodeoptions) {
-  [float](https://heycam.github.io/webidl/#idl-float) [pan](https://www.w3.org/TR/webaudio/#dom-stereopanneroptions-pan) = 0;
+[float](https://heycam.github.io/webidl/#idl-float) [pan](https://www.w3.org/TR/webaudio/#dom-stereopanneroptions-pan) = 0;
 };
 
 ##### 1.30.3.1. Dictionary `[StereoPannerOptions](https://www.w3.org/TR/webaudio/#dictdef-stereopanneroptions)` Members[](https://www.w3.org/TR/webaudio/#dictionary-stereopanneroptions-members)
@@ -8308,9 +8085,9 @@ Non-linear waveshaping distortion is commonly used for both subtle non-linear wa
 The number of channels of the output always equals the number of channels of the input.
 
 enum `OverSampleType` {
-  ["none"](https://www.w3.org/TR/webaudio/#dom-oversampletype-none),
-  ["2x"](https://www.w3.org/TR/webaudio/#dom-oversampletype-2x),
-  ["4x"](https://www.w3.org/TR/webaudio/#dom-oversampletype-4x)
+["none"](https://www.w3.org/TR/webaudio/#dom-oversampletype-none),
+["2x"](https://www.w3.org/TR/webaudio/#dom-oversampletype-2x),
+["4x"](https://www.w3.org/TR/webaudio/#dom-oversampletype-4x)
 };
 
 Enumeration description
@@ -8333,23 +8110,23 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `WaveShaperNode` : [AudioNode](https://www.w3.org/TR/webaudio/#audionode) {
-  [constructor](https://www.w3.org/TR/webaudio/#dom-waveshapernode-waveshapernode) ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-waveshapernode-waveshapernode-context-options-context), optional [WaveShaperOptions](https://www.w3.org/TR/webaudio/#dictdef-waveshaperoptions) `options` = {});
-  attribute [Float32Array](https://heycam.github.io/webidl/#idl-Float32Array)? [curve](https://www.w3.org/TR/webaudio/#dom-waveshapernode-curve);
-  attribute [OverSampleType](https://www.w3.org/TR/webaudio/#enumdef-oversampletype) [oversample](https://www.w3.org/TR/webaudio/#dom-waveshapernode-oversample);
+[constructor](https://www.w3.org/TR/webaudio/#dom-waveshapernode-waveshapernode) ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-waveshapernode-waveshapernode-context-options-context), optional [WaveShaperOptions](https://www.w3.org/TR/webaudio/#dictdef-waveshaperoptions) `options` = {});
+attribute [Float32Array](https://heycam.github.io/webidl/#idl-Float32Array)? [curve](https://www.w3.org/TR/webaudio/#dom-waveshapernode-curve);
+attribute [OverSampleType](https://www.w3.org/TR/webaudio/#enumdef-oversampletype) [oversample](https://www.w3.org/TR/webaudio/#dom-waveshapernode-oversample);
 };
 
 #### 1.31.1. Constructors[](https://www.w3.org/TR/webaudio/#WaveShaperNode-constructors)
@@ -8358,15 +8135,15 @@ interface `WaveShaperNode` : [AudioNode](https://www.w3.org/TR/webaudio/#audiono
 
 Firefox53+SafariNoneChrome55+
 
-___
+---
 
 Opera42+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android53+iOS SafariNoneChrome for Android55+Android WebView55+Samsung Internet6.0+Opera Mobile42+
 
@@ -8384,15 +8161,15 @@ In all current engines.
 
 Firefox25+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android25+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -8405,15 +8182,13 @@ The implementation MUST perform linear interpolation between adjacent points in 
 Values of the curve are spread with equal spacing in the \[-1; 1\] range. This means that a `[curve](https://www.w3.org/TR/webaudio/#dom-waveshapernode-curve)` with a even number of value will not have a value for a signal at zero, and a `[curve](https://www.w3.org/TR/webaudio/#dom-waveshapernode-curve)` with an odd number of value will have a value for a signal at zero. The output is determined by the following algorithm.
 
 1.  Let x be the input sample, y be the corresponding output of the node, ck be the k'th element of the `[curve](https://www.w3.org/TR/webaudio/#dom-waveshapernode-curve)`, and N be the length of the `[curve](https://www.w3.org/TR/webaudio/#dom-waveshapernode-curve)`.
-    
 2.  Let
-    
+
     v\=N−12(x+1)k\=⌊v⌋f\=v−k
-    
+
 3.  Then
-    
+
     y\={c0v<0cN−1v≥N−1(1−f)ck+fck+1otherwise
-    
 
 A `[InvalidStateError](https://heycam.github.io/webidl/#invalidstateerror)` MUST be thrown if this attribute is set with a `[Float32Array](https://heycam.github.io/webidl/#idl-Float32Array)` that has a `length` less than 2.
 
@@ -8427,15 +8202,15 @@ In all current engines.
 
 Firefox26+Safari6+Chrome14+
 
-___
+---
 
 Opera15+Edge79+
 
-___
+---
 
 Edge (Legacy)12+IENone
 
-___
+---
 
 Firefox for Android26+iOS SafariYesChrome for Android18+Android WebView37+Samsung Internet1.0+Opera Mobile14+
 
@@ -8446,11 +8221,8 @@ Specifies what type of oversampling (if any) should be used when applying the sh
 A value of "`[2x](https://www.w3.org/TR/webaudio/#dom-oversampletype-2x)`" or "`[4x](https://www.w3.org/TR/webaudio/#dom-oversampletype-4x)`" means that the following steps MUST be performed:
 
 1.  Up-sample the input samples to 2x or 4x the sample-rate of the `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)`. Thus for each [render quantum](https://www.w3.org/TR/webaudio/#render-quantum), generate 256 (for 2x) or 512 (for 4x) samples.
-    
 2.  Apply the shaping curve.
-    
 3.  Down-sample the result back to the sample-rate of the `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)`. Thus taking the 256 (or 512) processed samples, generating 128 as the final result.
-    
 
 The exact up-sampling and down-sampling filters are not specified, and can be tuned for sound quality (low aliasing, etc.), low latency, or performance.
 
@@ -8461,8 +8233,8 @@ Note: Use of oversampling introduces some degree of audio processing latency due
 This specifies the options for constructing a `[WaveShaperNode](https://www.w3.org/TR/webaudio/#waveshapernode)`. All members are optional; if not specified, the normal default is used in constructing the node.
 
 dictionary `WaveShaperOptions` : [AudioNodeOptions](https://www.w3.org/TR/webaudio/#dictdef-audionodeoptions) {
-  [sequence](https://heycam.github.io/webidl/#idl-sequence)<[float](https://heycam.github.io/webidl/#idl-float)\> [curve](https://www.w3.org/TR/webaudio/#dom-waveshaperoptions-curve);
-  [OverSampleType](https://www.w3.org/TR/webaudio/#enumdef-oversampletype) [oversample](https://www.w3.org/TR/webaudio/#dom-waveshaperoptions-oversample) = "none";
+[sequence](https://heycam.github.io/webidl/#idl-sequence)<[float](https://heycam.github.io/webidl/#idl-float)\> [curve](https://www.w3.org/TR/webaudio/#dom-waveshaperoptions-curve);
+[OverSampleType](https://www.w3.org/TR/webaudio/#enumdef-oversampletype) [oversample](https://www.w3.org/TR/webaudio/#dom-waveshaperoptions-oversample) = "none";
 };
 
 ##### 1.31.3.1. Dictionary `[WaveShaperOptions](https://www.w3.org/TR/webaudio/#dictdef-waveshaperoptions)` Members[](https://www.w3.org/TR/webaudio/#dictionary-waveshaperoptions-members)
@@ -8481,15 +8253,15 @@ The type of oversampling to use for the shaping curve.
 
 Firefox76+SafariNoneChrome66+
 
-___
+---
 
 OperaYesEdge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android79+iOS SafariNoneChrome for Android66+Android WebView66+Samsung Internet9.0+Opera MobileYes
 
@@ -8517,20 +8289,20 @@ Importing a script via the `[addModule(moduleUrl)](https://html.spec.whatwg.org/
 
 `[AudioWorklet](https://www.w3.org/TR/webaudio/#audioworklet)` has one internal slot:
 
--   node name to parameter descriptor map which is a map containing an identical set of string keys from [node name to processor constructor map](https://www.w3.org/TR/webaudio/#node-name-to-processor-constructor-map) that are associated with the matching [parameterDescriptors](https://www.w3.org/TR/webaudio/#parameterdescriptors) values. This internal storage is populated as a consequence of calling the `[registerProcessor()](https://www.w3.org/TR/webaudio/#dom-audioworkletglobalscope-registerprocessor)` method in the [rendering thread](https://www.w3.org/TR/webaudio/#rendering-thread). The population is guaranteed to complete prior to the resolution of the promise returned by `[addModule()](https://html.spec.whatwg.org/multipage/worklets.html#dom-worklet-addmodule)` on a context’s `[audioWorklet](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-audioworklet)`.
-    
+- node name to parameter descriptor map which is a map containing an identical set of string keys from [node name to processor constructor map](https://www.w3.org/TR/webaudio/#node-name-to-processor-constructor-map) that are associated with the matching [parameterDescriptors](https://www.w3.org/TR/webaudio/#parameterdescriptors) values. This internal storage is populated as a consequence of calling the `[registerProcessor()](https://www.w3.org/TR/webaudio/#dom-audioworkletglobalscope-registerprocessor)` method in the [rendering thread](https://www.w3.org/TR/webaudio/#rendering-thread). The population is guaranteed to complete prior to the resolution of the promise returned by `[addModule()](https://html.spec.whatwg.org/multipage/worklets.html#dom-worklet-addmodule)` on a context’s `[audioWorklet](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-audioworklet)`.
 
 [](https://www.w3.org/TR/webaudio/#example-d0db141d)// bypass-processor.js script file, runs on AudioWorkletGlobalScope
 class BypassProcessor extends AudioWorkletProcessor {
-  process (inputs, outputs) {
-    // Single input, single channel.
-    const input \= inputs\[0\];
-    const output \= outputs\[0\];
-    output\[0\].set(input\[0\]);
+process (inputs, outputs) {
+// Single input, single channel.
+const input \= inputs\[0\];
+const output \= outputs\[0\];
+output\[0\].set(input\[0\]);
 
     // Process only while there are active inputs.
     return false;
-  }
+
+}
 };
 
 registerProcessor('bypass-processor', BypassProcessor);
@@ -8538,7 +8310,7 @@ registerProcessor('bypass-processor', BypassProcessor);
 [](https://www.w3.org/TR/webaudio/#example-885ab32a)// The main global scope
 const context \= new AudioContext();
 context.audioWorklet.addModule('bypass-processor.js').then(() \=> {
-  const bypassNode \= new AudioWorkletNode(context, 'bypass-processor');
+const bypassNode \= new AudioWorkletNode(context, 'bypass-processor');
 });
 
 At the instantiation of `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)` in the main global scope, the counterpart `[AudioWorkletProcessor](https://www.w3.org/TR/webaudio/#audioworkletprocessor)` will also be created in `[AudioWorkletGlobalScope](https://www.w3.org/TR/webaudio/#audioworkletglobalscope)`. These two objects communicate via the asynchronous message passing described in [§ 2 Processing model](https://www.w3.org/TR/webaudio/#processing-model).
@@ -8551,14 +8323,11 @@ Exactly one `[AudioWorkletGlobalScope](https://www.w3.org/TR/webaudio/#audiowork
 
 An `[AudioWorkletGlobalScope](https://www.w3.org/TR/webaudio/#audioworkletglobalscope)` has the following internal slots:
 
--   node name to processor constructor map which is a map that stores key-value pairs of _processor name_ → _`[AudioWorkletProcessorConstructor](https://www.w3.org/TR/webaudio/#callbackdef-audioworkletprocessorconstructor)`_ instance. Initially this map is empty and populated when the `[registerProcessor()](https://www.w3.org/TR/webaudio/#dom-audioworkletglobalscope-registerprocessor)` method is called.
-    
--   pending processor construction data stores temporary data generated by the `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)` constructor for the instantiation of the corresponding `[AudioWorkletProcessor](https://www.w3.org/TR/webaudio/#audioworkletprocessor)`. The [pending processor construction data](https://www.w3.org/TR/webaudio/#pending-processor-construction-data) contains the following items:
-    
-    -   node reference which is initially empty. This storage is for an `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)` reference that is transferred from the `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)` constructor.
-        
-    -   transferred port which is initially empty. This storage is for a deserialized `[MessagePort](https://html.spec.whatwg.org/multipage/web-messaging.html#messageport)` that is transferred from the `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)` constructor.
-        
+- node name to processor constructor map which is a map that stores key-value pairs of _processor name_ → _`[AudioWorkletProcessorConstructor](https://www.w3.org/TR/webaudio/#callbackdef-audioworkletprocessorconstructor)`_ instance. Initially this map is empty and populated when the `[registerProcessor()](https://www.w3.org/TR/webaudio/#dom-audioworkletglobalscope-registerprocessor)` method is called.
+- pending processor construction data stores temporary data generated by the `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)` constructor for the instantiation of the corresponding `[AudioWorkletProcessor](https://www.w3.org/TR/webaudio/#audioworkletprocessor)`. The [pending processor construction data](https://www.w3.org/TR/webaudio/#pending-processor-construction-data) contains the following items:
+
+  - node reference which is initially empty. This storage is for an `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)` reference that is transferred from the `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)` constructor.
+  - transferred port which is initially empty. This storage is for a deserialized `[MessagePort](https://html.spec.whatwg.org/multipage/web-messaging.html#messageport)` that is transferred from the `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)` constructor.
 
 Note: The `[AudioWorkletGlobalScope](https://www.w3.org/TR/webaudio/#audioworkletglobalscope)` may also contain any other data and code to be shared by these instances. As an example, multiple processors might share an ArrayBuffer defining a wavetable or an impulse response.
 
@@ -8568,15 +8337,15 @@ Note: An `[AudioWorkletGlobalScope](https://www.w3.org/TR/webaudio/#audioworklet
 
 Firefox76+SafariNoneChrome66+
 
-___
+---
 
 Opera53+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for AndroidNoneiOS SafariNoneChrome for Android66+Android WebView66+Samsung Internet9.0+Opera Mobile47+
 
@@ -8584,11 +8353,11 @@ callback `AudioWorkletProcessorConstructor` = [AudioWorkletProcessor](https://ww
 
 \[[Global](https://heycam.github.io/webidl/#Global)\=([Worklet](https://html.spec.whatwg.org/multipage/worklets.html#worklet), [AudioWorklet](https://www.w3.org/TR/webaudio/#audioworklet)), [Exposed](https://heycam.github.io/webidl/#Exposed)\=AudioWorklet\]
 interface `AudioWorkletGlobalScope` : [WorkletGlobalScope](https://html.spec.whatwg.org/multipage/worklets.html#workletglobalscope) {
-  [undefined](https://heycam.github.io/webidl/#idl-undefined) [registerProcessor](https://www.w3.org/TR/webaudio/#dom-audioworkletglobalscope-registerprocessor) ([DOMString](https://heycam.github.io/webidl/#idl-DOMString) [name](https://www.w3.org/TR/webaudio/#dom-audioworkletglobalscope-registerprocessor-name-processorctor-name),
-                               [AudioWorkletProcessorConstructor](https://www.w3.org/TR/webaudio/#callbackdef-audioworkletprocessorconstructor) [processorCtor](https://www.w3.org/TR/webaudio/#dom-audioworkletglobalscope-registerprocessor-name-processorctor-processorctor));
-  readonly attribute [unsigned long long](https://heycam.github.io/webidl/#idl-unsigned-long-long) [currentFrame](https://www.w3.org/TR/webaudio/#dom-audioworkletglobalscope-currentframe);
-  readonly attribute [double](https://heycam.github.io/webidl/#idl-double) [currentTime](https://www.w3.org/TR/webaudio/#dom-audioworkletglobalscope-currenttime);
-  readonly attribute [float](https://heycam.github.io/webidl/#idl-float) [sampleRate](https://www.w3.org/TR/webaudio/#dom-audioworkletglobalscope-samplerate);
+[undefined](https://heycam.github.io/webidl/#idl-undefined) [registerProcessor](https://www.w3.org/TR/webaudio/#dom-audioworkletglobalscope-registerprocessor) ([DOMString](https://heycam.github.io/webidl/#idl-DOMString) [name](https://www.w3.org/TR/webaudio/#dom-audioworkletglobalscope-registerprocessor-name-processorctor-name),
+[AudioWorkletProcessorConstructor](https://www.w3.org/TR/webaudio/#callbackdef-audioworkletprocessorconstructor) [processorCtor](https://www.w3.org/TR/webaudio/#dom-audioworkletglobalscope-registerprocessor-name-processorctor-processorctor));
+readonly attribute [unsigned long long](https://heycam.github.io/webidl/#idl-unsigned-long-long) [currentFrame](https://www.w3.org/TR/webaudio/#dom-audioworkletglobalscope-currentframe);
+readonly attribute [double](https://heycam.github.io/webidl/#idl-double) [currentTime](https://www.w3.org/TR/webaudio/#dom-audioworkletglobalscope-currenttime);
+readonly attribute [float](https://heycam.github.io/webidl/#idl-float) [sampleRate](https://www.w3.org/TR/webaudio/#dom-audioworkletglobalscope-samplerate);
 };
 
 ##### 1.32.2.1. Attributes[](https://www.w3.org/TR/webaudio/#AudioWorkletGlobalScope-attributes)
@@ -8611,15 +8380,15 @@ The sample rate of the associated `[BaseAudioContext](https://www.w3.org/TR/weba
 
 Firefox76+SafariNoneChrome66+
 
-___
+---
 
 Opera53+Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for AndroidNoneiOS SafariNoneChrome for Android66+Android WebView66+Samsung Internet9.0+Opera Mobile47+
 
@@ -8630,40 +8399,25 @@ Registers a class constructor derived from `[AudioWorkletProcessor](https://www.
 When the `[registerProcessor(name, processorCtor)](https://www.w3.org/TR/webaudio/#dom-audioworkletglobalscope-registerprocessor)` method is called, perform the following steps. If an exception is thrown in any step, abort the remaining steps.
 
 1.  If name is an empty string, throw a `[NotSupportedError](https://heycam.github.io/webidl/#notsupportederror)`.
-    
 2.  If name alredy exists as a key in the [node name to processor constructor map](https://www.w3.org/TR/webaudio/#node-name-to-processor-constructor-map), throw a `[NotSupportedError](https://heycam.github.io/webidl/#notsupportederror)`.
-    
 3.  If the result of `[IsConstructor](https://tc39.es/ecma262/#sec-isconstructor)(argument=processorCtor)` is `false`, throw a `[TypeError](https://heycam.github.io/webidl/#exceptiondef-typeerror)` .
-    
 4.  Let `_prototype_` be the result of `[Get](https://tc39.es/ecma262/#sec-get-o-p)(O=_processorCtor_, P="prototype")`.
-    
 5.  If the result of `[Type](https://tc39.es/ecma262/#sec-ecmascript-data-types-and-values)(argument=_prototype_)` is not `Object`, throw a `[TypeError](https://heycam.github.io/webidl/#exceptiondef-typeerror)` .
-    
 6.  Let parameterDescriptorsValue be the result of `[Get](https://tc39.es/ecma262/#sec-get-o-p)(O=_processorCtor_, P="parameterDescriptors")`.
-    
 7.  If parameterDescriptorsValue is not `[undefined](https://heycam.github.io/webidl/#idl-undefined)`, execute the following steps:
-    
+
     1.  Let parameterDescriptorSequence be the result of [the conversion](https://heycam.github.io/webidl/#es-to-sequence) from parameterDescriptorsValue to an IDL value of type `sequence<AudioParamDescriptor>`.
-        
     2.  Let paramNames be an empty Array.
-        
     3.  For each descriptor of parameterDescriptorSequence:
         1.  Let paramName be the value of the member `[name](https://www.w3.org/TR/webaudio/#dom-audioparamdescriptor-name)` in descriptor. Throw a `[NotSupportedError](https://heycam.github.io/webidl/#notsupportederror)` if paramNames already contains paramName value.
-            
         2.  Append paramName to the paramNames array.
-            
         3.  Let defaultValue be the value of the member `[defaultValue](https://www.w3.org/TR/webaudio/#dom-audioparamdescriptor-defaultvalue)` in descriptor.
-            
         4.  Let minValue be the value of the member `[minValue](https://www.w3.org/TR/webaudio/#dom-audioparamdescriptor-minvalue)` in descriptor.
-            
         5.  Let maxValue be the value of the member `[maxValue](https://www.w3.org/TR/webaudio/#dom-audioparamdescriptor-maxvalue)` in descriptor.
-            
         6.  If the expresstion minValue <= defaultValue <= maxValue is false, throw an `[InvalidStateError](https://heycam.github.io/webidl/#invalidstateerror)`.
-            
+
 8.  Append the key-value pair name → processorCtor to [node name to processor constructor map](https://www.w3.org/TR/webaudio/#node-name-to-processor-constructor-map) of the associated `[AudioWorkletGlobalScope](https://www.w3.org/TR/webaudio/#audioworkletglobalscope)`.
-    
 9.  [queue a media element task](https://html.spec.whatwg.org/multipage/media.html#queue-a-media-element-task) to append the key-value pair name → parameterDescriptorSequence to the [node name to parameter descriptor map](https://www.w3.org/TR/webaudio/#node-name-to-parameter-descriptor-map) of the associated `[BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext)`.
-    
 
 Note: The class constructor should only be looked up once, thus it does not have the opportunity to dynamically change after registration.
 
@@ -8671,14 +8425,10 @@ Note: The class constructor should only be looked up once, thus it does not have
 
 At the end of the `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)` construction, A [struct](https://infra.spec.whatwg.org/#struct) named processor construction data will be prepared for cross-thread transfer. This [struct](https://infra.spec.whatwg.org/#struct) contains the following [items](https://infra.spec.whatwg.org/#struct-item):
 
--   name which is a `[DOMString](https://heycam.github.io/webidl/#idl-DOMString)` that is to be looked up in the [node name to processor constructor map](https://www.w3.org/TR/webaudio/#node-name-to-processor-constructor-map).
-    
--   node which is a reference to the `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)` created.
-    
--   options which is a serialized `[AudioWorkletNodeOptions](https://www.w3.org/TR/webaudio/#dictdef-audioworkletnodeoptions)` given to the `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)`'s `[constructor](https://www.w3.org/TR/webaudio/#dom-audioworkletnode-audioworkletnode)`.
-    
--   port which is a serialized `[MessagePort](https://html.spec.whatwg.org/multipage/web-messaging.html#messageport)` paired with the `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)`'s `[port](https://www.w3.org/TR/webaudio/#dom-audioworkletnode-port)`.
-    
+- name which is a `[DOMString](https://heycam.github.io/webidl/#idl-DOMString)` that is to be looked up in the [node name to processor constructor map](https://www.w3.org/TR/webaudio/#node-name-to-processor-constructor-map).
+- node which is a reference to the `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)` created.
+- options which is a serialized `[AudioWorkletNodeOptions](https://www.w3.org/TR/webaudio/#dictdef-audioworkletnodeoptions)` given to the `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)`'s `[constructor](https://www.w3.org/TR/webaudio/#dom-audioworkletnode-audioworkletnode)`.
+- port which is a serialized `[MessagePort](https://html.spec.whatwg.org/multipage/web-messaging.html#messageport)` paired with the `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)`'s `[port](https://www.w3.org/TR/webaudio/#dom-audioworkletnode-port)`.
 
 Upon the arrival of the transferred data on the `[AudioWorkletGlobalScope](https://www.w3.org/TR/webaudio/#audioworkletglobalscope)`, the [rendering thread](https://www.w3.org/TR/webaudio/#rendering-thread) will invoke the algorithm below:
 
@@ -8692,7 +8442,7 @@ All tasks posted from an `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#aud
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window\]
 interface `AudioParamMap` {
-  readonly maplike<[DOMString](https://heycam.github.io/webidl/#idl-DOMString), [AudioParam](https://www.w3.org/TR/webaudio/#audioparam)\>;
+readonly maplike<[DOMString](https://heycam.github.io/webidl/#idl-DOMString), [AudioParam](https://www.w3.org/TR/webaudio/#audioparam)\>;
 };
 
 This interface has "entries", "forEach", "get", "has", "keys", "values", @@iterator methods and a "size" getter brought by `readonly maplike`.
@@ -8701,25 +8451,25 @@ This interface has "entries", "forEach", "get", "has", "keys", "values", @@itera
 
 Firefox76+SafariNoneChrome66+
 
-___
+---
 
 OperaYesEdge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android79+iOS SafariNoneChrome for Android66+Android WebView66+Samsung Internet9.0+Opera MobileYes
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=Window, [SecureContext](https://heycam.github.io/webidl/#SecureContext)\]
 interface `AudioWorkletNode` : [AudioNode](https://www.w3.org/TR/webaudio/#audionode) {
-  [constructor](https://www.w3.org/TR/webaudio/#dom-audioworkletnode-audioworkletnode) ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-audioworkletnode-audioworkletnode-context-name-options-context), [DOMString](https://heycam.github.io/webidl/#idl-DOMString) `name`[](https://www.w3.org/TR/webaudio/#dom-audioworkletnode-audioworkletnode-context-name-options-name),
-               optional [AudioWorkletNodeOptions](https://www.w3.org/TR/webaudio/#dictdef-audioworkletnodeoptions) `options`[](https://www.w3.org/TR/webaudio/#dom-audioworkletnode-audioworkletnode-context-name-options-options) = {});
-  readonly attribute [AudioParamMap](https://www.w3.org/TR/webaudio/#audioparammap) [parameters](https://www.w3.org/TR/webaudio/#dom-audioworkletnode-parameters);
-  readonly attribute [MessagePort](https://html.spec.whatwg.org/multipage/web-messaging.html#messageport) [port](https://www.w3.org/TR/webaudio/#dom-audioworkletnode-port);
-  attribute [EventHandler](https://html.spec.whatwg.org/multipage/webappapis.html#eventhandler) [onprocessorerror](https://www.w3.org/TR/webaudio/#dom-audioworkletnode-onprocessorerror);
+[constructor](https://www.w3.org/TR/webaudio/#dom-audioworkletnode-audioworkletnode) ([BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext) `context`[](https://www.w3.org/TR/webaudio/#dom-audioworkletnode-audioworkletnode-context-name-options-context), [DOMString](https://heycam.github.io/webidl/#idl-DOMString) `name`[](https://www.w3.org/TR/webaudio/#dom-audioworkletnode-audioworkletnode-context-name-options-name),
+optional [AudioWorkletNodeOptions](https://www.w3.org/TR/webaudio/#dictdef-audioworkletnodeoptions) `options`[](https://www.w3.org/TR/webaudio/#dom-audioworkletnode-audioworkletnode-context-name-options-options) = {});
+readonly attribute [AudioParamMap](https://www.w3.org/TR/webaudio/#audioparammap) [parameters](https://www.w3.org/TR/webaudio/#dom-audioworkletnode-parameters);
+readonly attribute [MessagePort](https://html.spec.whatwg.org/multipage/web-messaging.html#messageport) [port](https://www.w3.org/TR/webaudio/#dom-audioworkletnode-port);
+attribute [EventHandler](https://html.spec.whatwg.org/multipage/webappapis.html#eventhandler) [onprocessorerror](https://www.w3.org/TR/webaudio/#dom-audioworkletnode-onprocessorerror);
 };
 
 ##### 1.32.3.1. Constructors[](https://www.w3.org/TR/webaudio/#AudioWorkletNode-constructors)
@@ -8728,15 +8478,15 @@ interface `AudioWorkletNode` : [AudioNode](https://www.w3.org/TR/webaudio/#audio
 
 Firefox76+SafariNoneChrome66+
 
-___
+---
 
 Opera?Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android79+iOS SafariNoneChrome for Android66+Android WebView66+Samsung Internet9.0+Opera Mobile?
 
@@ -8747,53 +8497,37 @@ When the constructor is called, the user agent MUST perform the following steps 
 When the `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#dom-audioworkletnode-audioworkletnode)` constructor is invoked with context, nodeName, options:
 
 1.  If nodeName does not exist as a key in the `[BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext)`’s [node name to parameter descriptor map](https://www.w3.org/TR/webaudio/#node-name-to-parameter-descriptor-map), throw a `[InvalidStateError](https://heycam.github.io/webidl/#invalidstateerror)` exception and abort these steps.
-    
 2.  Let node be [this](https://heycam.github.io/webidl/#this) value.
-    
 3.  [Initialize the AudioNode](https://www.w3.org/TR/webaudio/#audionode-constructor-init) node with context and options as arguments.
-    
 4.  [Configure input, output and output channels](https://www.w3.org/TR/webaudio/#configure-with-audioworkletnodeoptions) of node with options. Abort the remaining steps if any exception is thrown.
-    
 5.  Let messageChannel be a new `[MessageChannel](https://html.spec.whatwg.org/multipage/web-messaging.html#messagechannel)`.
-    
 6.  Let nodePort be the value of messageChannel’s `[port1](https://html.spec.whatwg.org/multipage/web-messaging.html#dom-messagechannel-port1)` attribute.
-    
 7.  Let processorPortOnThisSide be the value of messageChannel’s `[port2](https://html.spec.whatwg.org/multipage/web-messaging.html#dom-messagechannel-port2)` attribute.
-    
 8.  Let serializedProcessorPort be the result of [StructuredSerializeWithTransfer](https://html.spec.whatwg.org/multipage/structured-data.html#structuredserializewithtransfer)(processorPortOnThisSide, « processorPortOnThisSide »).
-    
 9.  [Convert](https://heycam.github.io/webidl/#dictionary-to-es) options dictionary to optionsObject.
-    
-10.  Let serializedOptions be the result of [StructuredSerialize](https://html.spec.whatwg.org/multipage/structured-data.html#structuredserialize)(optionsObject).
-    
-11.  Set node’s `[port](https://www.w3.org/TR/webaudio/#dom-audioworkletnode-port)` to nodePort.
-    
-12.  Let parameterDescriptors be the result of retrieval of nodeName from [node name to parameter descriptor map](https://www.w3.org/TR/webaudio/#node-name-to-parameter-descriptor-map):
-    
-    1.  Let audioParamMap be a new `[AudioParamMap](https://www.w3.org/TR/webaudio/#audioparammap)` object.
-        
-    2.  For each descriptor of parameterDescriptors:
-        
-        1.  Let paramName be the value of `[name](https://www.w3.org/TR/webaudio/#dom-audioparamdescriptor-name)` member in descriptor.
-            
-        2.  Let audioParam be a new `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)` instance with `[automationRate](https://www.w3.org/TR/webaudio/#dom-audioparamdescriptor-automationrate)`, `[defaultValue](https://www.w3.org/TR/webaudio/#dom-audioparamdescriptor-defaultvalue)`, `[minValue](https://www.w3.org/TR/webaudio/#dom-audioparamdescriptor-minvalue)`, and `[maxValue](https://www.w3.org/TR/webaudio/#dom-audioparamdescriptor-maxvalue)` having values equal to the values of corresponding members on descriptor.
-            
-        3.  Append a key-value pair paramName → audioParam to audioParamMap’s entries.
-            
-    3.  If `[parameterData](https://www.w3.org/TR/webaudio/#dom-audioworkletnodeoptions-parameterdata)` is present on options, perform the following steps:
-        
-        1.  Let parameterData be the value of `[parameterData](https://www.w3.org/TR/webaudio/#dom-audioworkletnodeoptions-parameterdata)`.
-            
-        2.  For each paramName → paramValue of parameterData:
-            
-            1.  If there exists a map entry on audioParamMap with key paramName, let audioParamInMap be such entry.
-                
-            2.  Set `[value](https://www.w3.org/TR/webaudio/#dom-audioparam-value)` property of audioParamInMap to paramValue.
-                
-    4.  Set node’s `[parameters](https://www.w3.org/TR/webaudio/#dom-audioworkletnode-parameters)` to audioParamMap.
-        
-13.  [Queue a control message](https://www.w3.org/TR/webaudio/#queuing) to [invoke](https://www.w3.org/TR/webaudio/#invoking-processor-constructor) the `[constructor](https://www.w3.org/TR/webaudio/#dom-audioworkletprocessor-audioworkletprocessor)` of the corresponding `[AudioWorkletProcessor](https://www.w3.org/TR/webaudio/#audioworkletprocessor)` with the [processor construction data](https://www.w3.org/TR/webaudio/#processor-construction-data) that consists of: nodeName, node, serializedOptions, and serializedProcessorPort.
-    
+10. Let serializedOptions be the result of [StructuredSerialize](https://html.spec.whatwg.org/multipage/structured-data.html#structuredserialize)(optionsObject).
+
+11. Set node’s `[port](https://www.w3.org/TR/webaudio/#dom-audioworkletnode-port)` to nodePort.
+
+12. Let parameterDescriptors be the result of retrieval of nodeName from [node name to parameter descriptor map](https://www.w3.org/TR/webaudio/#node-name-to-parameter-descriptor-map):
+
+13. Let audioParamMap be a new `[AudioParamMap](https://www.w3.org/TR/webaudio/#audioparammap)` object.
+14. For each descriptor of parameterDescriptors:
+
+    1.  Let paramName be the value of `[name](https://www.w3.org/TR/webaudio/#dom-audioparamdescriptor-name)` member in descriptor.
+    2.  Let audioParam be a new `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)` instance with `[automationRate](https://www.w3.org/TR/webaudio/#dom-audioparamdescriptor-automationrate)`, `[defaultValue](https://www.w3.org/TR/webaudio/#dom-audioparamdescriptor-defaultvalue)`, `[minValue](https://www.w3.org/TR/webaudio/#dom-audioparamdescriptor-minvalue)`, and `[maxValue](https://www.w3.org/TR/webaudio/#dom-audioparamdescriptor-maxvalue)` having values equal to the values of corresponding members on descriptor.
+    3.  Append a key-value pair paramName → audioParam to audioParamMap’s entries.
+
+15. If `[parameterData](https://www.w3.org/TR/webaudio/#dom-audioworkletnodeoptions-parameterdata)` is present on options, perform the following steps:
+
+    1.  Let parameterData be the value of `[parameterData](https://www.w3.org/TR/webaudio/#dom-audioworkletnodeoptions-parameterdata)`.
+    2.  For each paramName → paramValue of parameterData:
+
+        1.  If there exists a map entry on audioParamMap with key paramName, let audioParamInMap be such entry.
+        2.  Set `[value](https://www.w3.org/TR/webaudio/#dom-audioparam-value)` property of audioParamInMap to paramValue.
+
+16. Set node’s `[parameters](https://www.w3.org/TR/webaudio/#dom-audioworkletnode-parameters)` to audioParamMap.
+17. [Queue a control message](https://www.w3.org/TR/webaudio/#queuing) to [invoke](https://www.w3.org/TR/webaudio/#invoking-processor-constructor) the `[constructor](https://www.w3.org/TR/webaudio/#dom-audioworkletprocessor-audioworkletprocessor)` of the corresponding `[AudioWorkletProcessor](https://www.w3.org/TR/webaudio/#audioworkletprocessor)` with the [processor construction data](https://www.w3.org/TR/webaudio/#processor-construction-data) that consists of: nodeName, node, serializedOptions, and serializedProcessorPort.
 
 ##### 1.32.3.2. Attributes[](https://www.w3.org/TR/webaudio/#AudioWorkletNode-attributes)
 
@@ -8801,15 +8535,15 @@ When the `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#dom-audioworkletnod
 
 Firefox76+SafariNoneChrome67+
 
-___
+---
 
 Opera?Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android79+iOS SafariNoneChrome for Android67+Android WebView67+Samsung Internet9.0+Opera Mobile?
 
@@ -8825,15 +8559,15 @@ Note that once a unhandled exception is thrown, the processor will output silenc
 
 Firefox76+SafariNoneChrome67+
 
-___
+---
 
 OperaYesEdge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android79+iOS SafariNoneChrome for Android67+Android WebView67+Samsung Internet9.0+Opera MobileYes
 
@@ -8845,15 +8579,15 @@ The `parameters` attribute is a collection of `[AudioParam](https://www.w3.org/T
 
 Firefox76+SafariNoneChrome67+
 
-___
+---
 
 OperaYesEdge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android79+iOS SafariNoneChrome for Android67+Android WebView67+Samsung Internet9.0+Opera MobileYes
 
@@ -8868,11 +8602,11 @@ Note: Authors that register a event listener on the `"message"` event of this `[
 The `[AudioWorkletNodeOptions](https://www.w3.org/TR/webaudio/#dictdef-audioworkletnodeoptions)` dictionary can be used to initialize attibutes in the instance of an `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)`.
 
 dictionary `AudioWorkletNodeOptions` : [AudioNodeOptions](https://www.w3.org/TR/webaudio/#dictdef-audionodeoptions) {
-  [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfInputs](https://www.w3.org/TR/webaudio/#dom-audioworkletnodeoptions-numberofinputs) = 1;
-  [unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfOutputs](https://www.w3.org/TR/webaudio/#dom-audioworkletnodeoptions-numberofoutputs) = 1;
-  [sequence](https://heycam.github.io/webidl/#idl-sequence)<[unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long)\> [outputChannelCount](https://www.w3.org/TR/webaudio/#dom-audioworkletnodeoptions-outputchannelcount);
-  [record](https://heycam.github.io/webidl/#idl-record)<[DOMString](https://heycam.github.io/webidl/#idl-DOMString), [double](https://heycam.github.io/webidl/#idl-double)\> [parameterData](https://www.w3.org/TR/webaudio/#dom-audioworkletnodeoptions-parameterdata);
-  [object](https://heycam.github.io/webidl/#idl-object) [processorOptions](https://www.w3.org/TR/webaudio/#dom-audioworkletnodeoptions-processoroptions);
+[unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfInputs](https://www.w3.org/TR/webaudio/#dom-audioworkletnodeoptions-numberofinputs) = 1;
+[unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long) [numberOfOutputs](https://www.w3.org/TR/webaudio/#dom-audioworkletnodeoptions-numberofoutputs) = 1;
+[sequence](https://heycam.github.io/webidl/#idl-sequence)<[unsigned long](https://heycam.github.io/webidl/#idl-unsigned-long)\> [outputChannelCount](https://www.w3.org/TR/webaudio/#dom-audioworkletnodeoptions-outputchannelcount);
+[record](https://heycam.github.io/webidl/#idl-record)<[DOMString](https://heycam.github.io/webidl/#idl-DOMString), [double](https://heycam.github.io/webidl/#idl-double)\> [parameterData](https://www.w3.org/TR/webaudio/#dom-audioworkletnodeoptions-parameterdata);
+[object](https://heycam.github.io/webidl/#idl-object) [processorOptions](https://www.w3.org/TR/webaudio/#dom-audioworkletnodeoptions-processoroptions);
 };
 
 ###### 1.32.3.3.1. Dictionary `[AudioWorkletNodeOptions](https://www.w3.org/TR/webaudio/#dictdef-audioworkletnodeoptions)` Members[](https://www.w3.org/TR/webaudio/#dictionary-audioworkletnodeoptions-members)
@@ -8909,28 +8643,28 @@ This interface represents an audio processing code that runs on the audio [rende
 
 Firefox76+SafariNoneChrome64+
 
-___
+---
 
 Opera?Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android79+iOS SafariNoneChrome for Android64+Android WebView64+Samsung Internet9.0+Opera Mobile?
 
 \[[Exposed](https://heycam.github.io/webidl/#Exposed)\=AudioWorklet\]
 interface `AudioWorkletProcessor` {
-  [constructor](https://www.w3.org/TR/webaudio/#dom-audioworkletprocessor-audioworkletprocessor) ();
-  readonly attribute [MessagePort](https://html.spec.whatwg.org/multipage/web-messaging.html#messageport) [port](https://www.w3.org/TR/webaudio/#dom-audioworkletprocessor-port);
+[constructor](https://www.w3.org/TR/webaudio/#dom-audioworkletprocessor-audioworkletprocessor) ();
+readonly attribute [MessagePort](https://html.spec.whatwg.org/multipage/web-messaging.html#messageport) [port](https://www.w3.org/TR/webaudio/#dom-audioworkletprocessor-port);
 };
 
 callback [AudioWorkletProcessCallback](https://www.w3.org/TR/webaudio/#audioworkletprocess-callback-parameters) =
-  [boolean](https://heycam.github.io/webidl/#idl-boolean) ([FrozenArray](https://heycam.github.io/webidl/#idl-frozen-array)<[FrozenArray](https://heycam.github.io/webidl/#idl-frozen-array)<[Float32Array](https://heycam.github.io/webidl/#idl-Float32Array)\>> `inputs`,
-           [FrozenArray](https://heycam.github.io/webidl/#idl-frozen-array)<[FrozenArray](https://heycam.github.io/webidl/#idl-frozen-array)<[Float32Array](https://heycam.github.io/webidl/#idl-Float32Array)\>> `outputs`,
-           [object](https://heycam.github.io/webidl/#idl-object) `parameters`);
+[boolean](https://heycam.github.io/webidl/#idl-boolean) ([FrozenArray](https://heycam.github.io/webidl/#idl-frozen-array)<[FrozenArray](https://heycam.github.io/webidl/#idl-frozen-array)<[Float32Array](https://heycam.github.io/webidl/#idl-Float32Array)\>> `inputs`,
+[FrozenArray](https://heycam.github.io/webidl/#idl-frozen-array)<[FrozenArray](https://heycam.github.io/webidl/#idl-frozen-array)<[Float32Array](https://heycam.github.io/webidl/#idl-Float32Array)\>> `outputs`,
+[object](https://heycam.github.io/webidl/#idl-object) `parameters`);
 
 `[AudioWorkletProcessor](https://www.w3.org/TR/webaudio/#audioworkletprocessor)` has two internal slots:
 
@@ -8948,15 +8682,15 @@ A boolean flag representing whether [process()](https://www.w3.org/TR/webaudio/#
 
 Firefox76+SafariNoneChrome64+
 
-___
+---
 
 Opera?Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android79+iOS SafariNoneChrome for Android64+Android WebView64+Samsung Internet9.0+Opera Mobile?
 
@@ -8970,15 +8704,15 @@ When the constructor for `[AudioWorkletProcessor](https://www.w3.org/TR/webaudio
 
 Firefox76+SafariNoneChrome64+
 
-___
+---
 
 Opera?Edge79+
 
-___
+---
 
 Edge (Legacy)NoneIENone
 
-___
+---
 
 Firefox for Android79+iOS SafariNoneChrome for Android64+Android WebView64+Samsung Internet9.0+Opera Mobile?
 
@@ -8998,33 +8732,30 @@ The return value of this callback controls the lifetime of the `[AudioWorkletPro
 
 This lifetime policy can support a variety of approaches found in built-in nodes, including the following:
 
--   Nodes that transform their inputs, and are active only while connected inputs and/or script references exist. Such nodes SHOULD return `false` from [process()](https://www.w3.org/TR/webaudio/#process) which allows the presence or absence of connected inputs to determine whether the `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)` is [actively processing](https://www.w3.org/TR/webaudio/#actively-processing).
-    
--   Nodes that transform their inputs, but which remain active for a [tail-time](https://www.w3.org/TR/webaudio/#tail-time) after their inputs are disconnected. In this case, [process()](https://www.w3.org/TR/webaudio/#process) SHOULD return `true` for some period of time after `inputs` is found to contain zero channels. The current time may be obtained from the global scope’s `[currentTime](https://www.w3.org/TR/webaudio/#dom-audioworkletglobalscope-currenttime)` to measure the start and end of this tail-time interval, or the interval could be calculated dynamically depending on the processor’s internal state.
-    
--   Nodes that act as sources of output, typically with a lifetime. Such nodes SHOULD return `true` from [process()](https://www.w3.org/TR/webaudio/#process) until the point at which they are no longer producing an output.
-    
+- Nodes that transform their inputs, and are active only while connected inputs and/or script references exist. Such nodes SHOULD return `false` from [process()](https://www.w3.org/TR/webaudio/#process) which allows the presence or absence of connected inputs to determine whether the `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)` is [actively processing](https://www.w3.org/TR/webaudio/#actively-processing).
+- Nodes that transform their inputs, but which remain active for a [tail-time](https://www.w3.org/TR/webaudio/#tail-time) after their inputs are disconnected. In this case, [process()](https://www.w3.org/TR/webaudio/#process) SHOULD return `true` for some period of time after `inputs` is found to contain zero channels. The current time may be obtained from the global scope’s `[currentTime](https://www.w3.org/TR/webaudio/#dom-audioworkletglobalscope-currenttime)` to measure the start and end of this tail-time interval, or the interval could be calculated dynamically depending on the processor’s internal state.
+- Nodes that act as sources of output, typically with a lifetime. Such nodes SHOULD return `true` from [process()](https://www.w3.org/TR/webaudio/#process) until the point at which they are no longer producing an output.
 
 Note that the preceding definition implies that when no return value is provided from an implementation of [process()](https://www.w3.org/TR/webaudio/#process), the effect is identical to returning `false` (since the effective return value is the falsy value `[undefined](https://heycam.github.io/webidl/#idl-undefined)`). This is a reasonable behavior for any `[AudioWorkletProcessor](https://www.w3.org/TR/webaudio/#audioworkletprocessor)` that is active only when it has active inputs.
 
 The example below shows how `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)` can be defined and used in an `[AudioWorkletProcessor](https://www.w3.org/TR/webaudio/#audioworkletprocessor)`.
 
 [](https://www.w3.org/TR/webaudio/#example-1d246ea2)class MyProcessor extends AudioWorkletProcessor {
-  static get parameterDescriptors() {
-    return \[{
-      name: 'myParam',
-      defaultValue: 0.5,
-      minValue: 0,
-      maxValue: 1,
-      automationRate: "k-rate"
-    }\];
-  }
+static get parameterDescriptors() {
+return \[{
+name: 'myParam',
+defaultValue: 0.5,
+minValue: 0,
+maxValue: 1,
+automationRate: "k-rate"
+}\];
+}
 
-  process(inputs, outputs, parameters) {
-    // Get the first input and output.
-    const input \= inputs\[0\];
-    const output \= outputs\[0\];
-    const myParam \= parameters.myParam;
+process(inputs, outputs, parameters) {
+// Get the first input and output.
+const input \= inputs\[0\];
+const output \= outputs\[0\];
+const myParam \= parameters.myParam;
 
     // A simple amplifier for single input and output. Note that the
     // automationRate is "k-rate", so it will have a single value at index \[0\]
@@ -9034,7 +8765,8 @@ The example below shows how `[AudioParam](https://www.w3.org/TR/webaudio/#audiop
         output\[channel\]\[i\] \= input\[channel\]\[i\] \* myParam\[0\];
       }
     }
-  }
+
+}
 }
 
 ###### 1.32.4.3.1. Callback `[AudioWorkletProcessCallback](https://www.w3.org/TR/webaudio/#audioworkletprocess-callback-parameters)` Parameters[](https://www.w3.org/TR/webaudio/#audioworkletprocess-callback-parameters)
@@ -9070,11 +8802,11 @@ Note: This means the object cannot be modified and hence the same object can be 
 The `[AudioParamDescriptor](https://www.w3.org/TR/webaudio/#dictdef-audioparamdescriptor)` dictionary is used to specify properties for an `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)` object that is used in an `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)`.
 
 dictionary `AudioParamDescriptor` {
-  required [DOMString](https://heycam.github.io/webidl/#idl-DOMString) [name](https://www.w3.org/TR/webaudio/#dom-audioparamdescriptor-name);
-  [float](https://heycam.github.io/webidl/#idl-float) [defaultValue](https://www.w3.org/TR/webaudio/#dom-audioparamdescriptor-defaultvalue) = 0;
-  [float](https://heycam.github.io/webidl/#idl-float) [minValue](https://www.w3.org/TR/webaudio/#dom-audioparamdescriptor-minvalue) = -3.4028235e38;
-  [float](https://heycam.github.io/webidl/#idl-float) [maxValue](https://www.w3.org/TR/webaudio/#dom-audioparamdescriptor-maxvalue) = 3.4028235e38;
-  [AutomationRate](https://www.w3.org/TR/webaudio/#enumdef-automationrate) [automationRate](https://www.w3.org/TR/webaudio/#dom-audioparamdescriptor-automationrate) = "a-rate";
+required [DOMString](https://heycam.github.io/webidl/#idl-DOMString) [name](https://www.w3.org/TR/webaudio/#dom-audioparamdescriptor-name);
+[float](https://heycam.github.io/webidl/#idl-float) [defaultValue](https://www.w3.org/TR/webaudio/#dom-audioparamdescriptor-defaultvalue) = 0;
+[float](https://heycam.github.io/webidl/#idl-float) [minValue](https://www.w3.org/TR/webaudio/#dom-audioparamdescriptor-minvalue) = -3.4028235e38;
+[float](https://heycam.github.io/webidl/#idl-float) [maxValue](https://www.w3.org/TR/webaudio/#dom-audioparamdescriptor-maxvalue) = 3.4028235e38;
+[AutomationRate](https://www.w3.org/TR/webaudio/#enumdef-automationrate) [automationRate](https://www.w3.org/TR/webaudio/#dom-audioparamdescriptor-automationrate) = "a-rate";
 };
 
 ###### 1.32.4.4.1. Dictionary `[AudioParamDescriptor](https://www.w3.org/TR/webaudio/#dictdef-audioparamdescriptor)` Members[](https://www.w3.org/TR/webaudio/#dictionary-audioparamdescriptor-members)
@@ -9112,23 +8844,14 @@ The following figure illustrates an idealized sequence of events occurring relat
 The steps depicted in the diagram are one possible sequence of events involving the creation of an `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)` and an associated `[AudioWorkletGlobalScope](https://www.w3.org/TR/webaudio/#audioworkletglobalscope)`, followed by the creation of an `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)` and its associated `[AudioWorkletProcessor](https://www.w3.org/TR/webaudio/#audioworkletprocessor)`.
 
 1.  An `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)` is created.
-    
 2.  In the main scope, `context.audioWorklet` is requested to add a script module.
-    
 3.  Since none exists yet, a new `[AudioWorkletGlobalScope](https://www.w3.org/TR/webaudio/#audioworkletglobalscope)` is created in association with the context. This is the global scope in which `[AudioWorkletProcessor](https://www.w3.org/TR/webaudio/#audioworkletprocessor)` class definitions will be evaluated. (On subsequent calls, this previously created scope will be used.)
-    
 4.  The imported script is run in the newly created global scope.
-    
 5.  As part of running the imported script, an `[AudioWorkletProcessor](https://www.w3.org/TR/webaudio/#audioworkletprocessor)` is registered under a key (`"custom"` in the above diagram) within the `[AudioWorkletGlobalScope](https://www.w3.org/TR/webaudio/#audioworkletglobalscope)`. This populates maps both in the global scope and in the `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)`.
-    
 6.  The promise for the `[addModule()](https://html.spec.whatwg.org/multipage/worklets.html#dom-worklet-addmodule)` call is resolved.
-    
 7.  In the main scope, an `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)` is created using the user-specified key along with a dictionary of options.
-    
 8.  As part of the node’s creation, this key is used to look up the correct `[AudioWorkletProcessor](https://www.w3.org/TR/webaudio/#audioworkletprocessor)` subclass for instantiation.
-    
 9.  An instance of the `[AudioWorkletProcessor](https://www.w3.org/TR/webaudio/#audioworkletprocessor)` subclass is instantiated with a structured clone of the same options dictionary. This instance is paired with the previously created `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)`.
-    
 
 #### 1.32.6. AudioWorklet Examples[](https://www.w3.org/TR/webaudio/#AudioWorklet-Examples)
 
@@ -9148,7 +8871,7 @@ This example of a simple sound level meter further illustrates how to create an 
 
 [](https://www.w3.org/TR/webaudio/#example-b29112dd)/\* vumeter-node.js: Main global scope \*/export default class VUMeterNode extends AudioWorkletNode { constructor (context, updateIntervalInMS) { super(context, 'vumeter', { numberOfInputs: 1, numberOfOutputs: 0, channelCount: 1, processorOptions: { updateIntervalInMS: updateIntervalInMS || 16.67; } }); // States in AudioWorkletNode this.\_updateIntervalInMS \= updateIntervalInMS; this.\_volume \= 0; // Handles updated values from AudioWorkletProcessor this.port.onmessage \= event \=> { if (event.data.volume) this.\_volume \= event.data.volume; } this.port.start(); } get updateInterval() { return this.\_updateIntervalInMS; } set updateInterval(updateIntervalInMS) { this.\_updateIntervalInMS \= updateIntervalInMS; this.port.postMessage({updateIntervalInMS: updateIntervalInMS}); } draw () { // Draws the VU meter based on the volume value // every |this.\_updateIntervalInMS| milliseconds. }};
 
-[](https://www.w3.org/TR/webaudio/#example-55c4a817)/\* vumeter-processor.js: AudioWorkletGlobalScope \*/const SMOOTHING\_FACTOR \= 0.9;const MINIMUM\_VALUE \= 0.00001;registerProcessor('vumeter', class extends AudioWorkletProcessor { constructor (options) { super(); this.\_volume \= 0; this.\_updateIntervalInMS \= options.processorOptions.updateIntervalInMS; this.\_nextUpdateFrame \= this.\_updateIntervalInMS; this.port.onmessage \= event \=> { if (event.data.updateIntervalInMS) this.\_updateIntervalInMS \= event.data.updateIntervalInMS; } } get intervalInFrames () { return this.\_updateIntervalInMS / 1000 \* sampleRate; } process (inputs, outputs, parameters) { const input \= inputs\[0\]; // Note that the input will be down-mixed to mono; however, if no inputs are // connected then zero channels will be passed in. if (input.length \> 0) { const samples \= input\[0\]; let sum \= 0; let rms \= 0; // Calculated the squared-sum. for (let i \= 0; i < samples.length; ++i) sum += samples\[i\] \* samples\[i\]; // Calculate the RMS level and update the volume. rms \= Math.sqrt(sum / samples.length); this.\_volume \= Math.max(rms, this.\_volume \* SMOOTHING\_FACTOR); // Update and sync the volume property with the main thread. this.\_nextUpdateFrame \-= samples.length; if (this.\_nextUpdateFrame < 0) { this.\_nextUpdateFrame += this.intervalInFrames; this.port.postMessage({volume: this.\_volume}); } } // Keep on processing if the volume is above a threshold, so that // disconnecting inputs does not immediately cause the meter to stop // computing its smoothed value. return this.\_volume \>= MINIMUM\_VALUE; }});
+[](https://www.w3.org/TR/webaudio/#example-55c4a817)/\* vumeter-processor.js: AudioWorkletGlobalScope \*/const SMOOTHING_FACTOR \= 0.9;const MINIMUM_VALUE \= 0.00001;registerProcessor('vumeter', class extends AudioWorkletProcessor { constructor (options) { super(); this.\_volume \= 0; this.\_updateIntervalInMS \= options.processorOptions.updateIntervalInMS; this.\_nextUpdateFrame \= this.\_updateIntervalInMS; this.port.onmessage \= event \=> { if (event.data.updateIntervalInMS) this.\_updateIntervalInMS \= event.data.updateIntervalInMS; } } get intervalInFrames () { return this.\_updateIntervalInMS / 1000 \* sampleRate; } process (inputs, outputs, parameters) { const input \= inputs\[0\]; // Note that the input will be down-mixed to mono; however, if no inputs are // connected then zero channels will be passed in. if (input.length \> 0) { const samples \= input\[0\]; let sum \= 0; let rms \= 0; // Calculated the squared-sum. for (let i \= 0; i < samples.length; ++i) sum += samples\[i\] \* samples\[i\]; // Calculate the RMS level and update the volume. rms \= Math.sqrt(sum / samples.length); this.\_volume \= Math.max(rms, this.\_volume \* SMOOTHING_FACTOR); // Update and sync the volume property with the main thread. this.\_nextUpdateFrame \-= samples.length; if (this.\_nextUpdateFrame < 0) { this.\_nextUpdateFrame += this.intervalInFrames; this.port.postMessage({volume: this.\_volume}); } } // Keep on processing if the volume is above a threshold, so that // disconnecting inputs does not immediately cause the meter to stop // computing its smoothed value. return this.\_volume \>= MINIMUM_VALUE; }});
 
 [](https://www.w3.org/TR/webaudio/#example-2d1abf00)/\* index.js: Main global scope, entry point \*/import VUMeterNode from './vumeter-node.js';const context \= new AudioContext();context.audioWorklet.addModule('vumeter-processor.js').then(() \=> { const oscillator \= new OscillatorNode(context); const vuMeterNode \= new VUMeterNode(context, 25); oscillator.connect(vuMeterNode); oscillator.start(); function drawMeter () { vuMeterNode.draw(); requestAnimationFrame(drawMeter); } drawMeter();});
 
@@ -9215,182 +8938,129 @@ All tasks posted from an `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#aud
 The following step MUST be performed once before the rendering loop starts.
 
 1.  Set the internal slot `[[current frame]]` of the `[BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext)` to 0. Also set `[currentTime](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-currenttime)` to 0.
-    
 
 The following steps MUST be performed when rendering a render quantum.
 
 1.  Let render result be `false`.
-    
 2.  Process the [control message queue](https://www.w3.org/TR/webaudio/#control-message-queue).
-    
+
     1.  Let Qrendering be an empty [control message queue](https://www.w3.org/TR/webaudio/#control-message-queue). [Atomically](https://www.w3.org/TR/webaudio/#atomically) [swap](https://www.w3.org/TR/webaudio/#swap) Qrendering with the current [control message queue](https://www.w3.org/TR/webaudio/#control-message-queue).
-        
     2.  While there are messages in Qrendering, execute the following steps:
-        
+
         1.  Execute the asynchronous section of the [oldest message](https://www.w3.org/TR/webaudio/#oldest-message) of Qrendering.
-            
         2.  Remove the [oldest message](https://www.w3.org/TR/webaudio/#oldest-message) of Qrendering.
-            
+
 3.  Process the `[BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext)`'s [associated task queue](https://www.w3.org/TR/webaudio/#baseaudiocontext-associated-task-queue).
-    
+
     1.  Let task queue be the `[BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext)`'s [associated task queue](https://www.w3.org/TR/webaudio/#baseaudiocontext-associated-task-queue).
-        
     2.  Let task count be the number of tasks in the in task queue
-        
     3.  While task count is not equal to 0, execute the following steps:
-        
+
         1.  Let oldest task be the first runnable task in task queue, and remove it from task queue.
-            
         2.  Set the rendering loop’s currently running task to oldest task.
-            
         3.  Perform oldest task’s steps.
-            
         4.  Set the rendering loop currently running task back to `null`.
-            
         5.  Decrement task count
-            
         6.  Perform a microtask checkpoint.
-            
+
 4.  Process a render quantum.
-    
+
     1.  If the `[[[rendering thread state]]](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-rendering-thread-state-slot)` of the `[BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext)` is not `running`, return false.
-        
     2.  Order the `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`s of the `[BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext)` to be processed.
-        
+
         1.  Let ordered node list be an empty list of `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`s and `[AudioListener](https://www.w3.org/TR/webaudio/#audiolistener)`. It will contain an ordered list of `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`s and the `[AudioListener](https://www.w3.org/TR/webaudio/#audiolistener)` when this ordering algorithm terminates.
-            
         2.  Let nodes be the set of all nodes created by this `[BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext)`, and still alive.
-            
         3.  Add the `[AudioListener](https://www.w3.org/TR/webaudio/#audiolistener)` to nodes.
-            
         4.  Let cycle breakers be an empty set of `[DelayNode](https://www.w3.org/TR/webaudio/#delaynode)`s. It will contain all the `[DelayNode](https://www.w3.org/TR/webaudio/#delaynode)`s that are part of a cycle.
-            
         5.  For each `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` node in nodes:
-            
+
             1.  If node is a `[DelayNode](https://www.w3.org/TR/webaudio/#delaynode)` that is part of a cycle, add it to cycle breakers and remove it from nodes.
-                
+
         6.  For each `[DelayNode](https://www.w3.org/TR/webaudio/#delaynode)` delay in cycle breakers:
-            
+
             1.  Let delayWriter and delayReader respectively be a [DelayWriter](https://www.w3.org/TR/webaudio/#delaywriter) and a [DelayReader](https://www.w3.org/TR/webaudio/#delayreader), for delay. Add delayWriter and delayReader to nodes. Disconnect delay from all its input and outputs.
-                
+
                 Note: This breaks the cycle: if a `DelayNode` is in a cycle, its two ends can be considered separately, because delay lines cannot be smaller than one render quantum when in a cycle.
-                
+
         7.  If nodes contains cycles, [mute](https://www.w3.org/TR/webaudio/#mute) all the `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`s that are part of this cycle, and remove them from nodes.
-            
         8.  Consider all elements in nodes to be unmarked. While there are unmarked elements in nodes:
-            
+
             1.  Choose an element node in nodes.
-                
             2.  [Visit](https://www.w3.org/TR/webaudio/#visit) node.
-                
-            
+
             Visiting a node means performing the following steps:
-            
+
             1.  If node is marked, abort these steps.
-                
             2.  Mark node.
-                
             3.  If node is an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`, [Visit](https://www.w3.org/TR/webaudio/#visit) each `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` connected to the input of node.
-                
             4.  For each `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)` param of node:
-                
+
                 1.  For each `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` param input node connected to param:
-                    
+
                     1.  [Visit](https://www.w3.org/TR/webaudio/#visit) param input node
-                        
+
             5.  Add node to the beginning of ordered node list.
-                
-            
+
         9.  Reverse the order of ordered node list.
-            
+
     3.  [Compute the value(s)](https://www.w3.org/TR/webaudio/#computation-of-value) of the `[AudioListener](https://www.w3.org/TR/webaudio/#audiolistener)`'s `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)`s for this block.
-        
     4.  For each `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`, in ordered node list:
-        
+
         1.  For each `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)` of this `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`, execute these steps:
-            
+
             1.  If this `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)` has any `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` connected to it, [sum](https://www.w3.org/TR/webaudio/#channel-up-mixing-and-down-mixing) the buffers [made available for reading](https://www.w3.org/TR/webaudio/#available-for-reading) by all `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` connected to this `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)`, [down mix](https://www.w3.org/TR/webaudio/#down-mix) the resulting buffer down to a mono channel, and call this buffer the input AudioParam buffer.
-                
             2.  [Compute the value(s)](https://www.w3.org/TR/webaudio/#computation-of-value) of this `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)` for this block.
-                
             3.  [Queue a control message](https://www.w3.org/TR/webaudio/#queuing) to set the `[[[current value]]](https://www.w3.org/TR/webaudio/#dom-audioparam-current-value-slot)` slot of this `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)` according to [§ 1.6.3 Computation of Value](https://www.w3.org/TR/webaudio/#computation-of-value).
-                
+
         2.  If this `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` has any `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`s connected to its input, [sum](https://www.w3.org/TR/webaudio/#channel-up-mixing-and-down-mixing) the buffers [made available for reading](https://www.w3.org/TR/webaudio/#available-for-reading) by all `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`s connected to this `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`. The resulting buffer is called the input buffer. [Up or down-mix](https://www.w3.org/TR/webaudio/#channel-up-mixing-and-down-mixing) it to match if number of input channels of this `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`.
-            
         3.  If this `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` is a [source node](https://www.w3.org/TR/webaudio/#source-node), [compute a block of audio](https://www.w3.org/TR/webaudio/#computing-a-block-of-audio), and [make it available for reading](https://www.w3.org/TR/webaudio/#available-for-reading).
-            
         4.  If this `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` is an `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)`, execute these substeps:
-            
+
             1.  Let processor be the associated `[AudioWorkletProcessor](https://www.w3.org/TR/webaudio/#audioworkletprocessor)` instance of `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)`.
-                
             2.  Let O be the ECMAScript object corresponding to processor.
-                
             3.  Let processCallback be an uninitialized variable.
-                
             4.  Let completion be an uninitialized variable.
-                
             5.  [Prepare to run script](https://html.spec.whatwg.org/multipage/webappapis.html#prepare-to-run-script) with the [current settings object](https://html.spec.whatwg.org/multipage/webappapis.html#current-settings-object).
-                
             6.  [Prepare to run a callback](https://html.spec.whatwg.org/multipage/webappapis.html#prepare-to-run-a-callback) with the [current settings object](https://html.spec.whatwg.org/multipage/webappapis.html#current-settings-object).
-                
             7.  Let getResult be [Get](https://tc39.github.io/ecma262/#sec-get-o-p)(O, "process").
-                
             8.  If getResult is an [abrupt completion](https://tc39.github.io/ecma262/#sec-completion-record-specification-type), set completion to getResult and jump to the step labeled [return](https://www.w3.org/TR/webaudio/#audio-worklet-render-return).
-                
             9.  Set processCallback to getResult.\[\[Value\]\].
-                
-            10.  If [!](https://tc39.es/ecma262/#sec-returnifabrupt-shorthands) [IsCallable](https://tc39.es/ecma262/#sec-iscallable)(processCallback) is `false`, then:
-                
-                1.  Set completion to new [Completion](https://tc39.es/ecma262/#sec-throwcompletion) {\[\[Type\]\]: throw, \[\[Value\]\]: a newly created [TypeError](https://tc39.es/ecma262/#sec-native-error-types-used-in-this-standard-typeerror) object, \[\[Target\]\]: empty}.
-                    
-                2.  Jump to the step labeled [return](https://www.w3.org/TR/webaudio/#audio-worklet-render-return).
-                    
-            11.  Set `[[[callable process]]](https://www.w3.org/TR/webaudio/#dom-audioworkletprocessor-callable-process-slot)` to `true`.
-                
-            12.  Perform the following substeps:
-                
-                1.  Let args be a [Web IDL arguments list](https://heycam.github.io/webidl/#web-idl-arguments-list) consisting of `[inputs](https://www.w3.org/TR/webaudio/#dom-audioworkletprocesscallback-inputs)`, `[outputs](https://www.w3.org/TR/webaudio/#dom-audioworkletprocesscallback-outputs)`, and `[parameters](https://www.w3.org/TR/webaudio/#dom-audioworkletprocesscallback-parameters)`.
-                    
-                2.  Let esArgs be the result of [converting](https://heycam.github.io/webidl/#web-idl-arguments-list-converting) args to an ECMAScript arguments list.
-                    
-                3.  Let callResult be the [Call](https://tc39.github.io/ecma262/#sec-call)(processCallback, O, esArgs). This operation [computes a block of audio](https://www.w3.org/TR/webaudio/#computing-a-block-of-audio) with esArgs. Upon a successful function call, a buffer containing copies of the elements of the `[Float32Array](https://heycam.github.io/webidl/#idl-Float32Array)`s passed via the `[outputs](https://www.w3.org/TR/webaudio/#dom-audioworkletprocesscallback-outputs)` is [made available for reading](https://www.w3.org/TR/webaudio/#available-for-reading). Any `[Promise](https://heycam.github.io/webidl/#idl-promise)` resolved within this call will be queued into the microtask queue in the `[AudioWorkletGlobalScope](https://www.w3.org/TR/webaudio/#audioworkletglobalscope)`.
-                    
-                4.  If callResult is an [abrupt completion](https://tc39.github.io/ecma262/#sec-completion-record-specification-type), set completion to callResult and jump to the step labeled [return](https://www.w3.org/TR/webaudio/#audio-worklet-render-return).
-                    
-                5.  Set processor’s [active source](https://www.w3.org/TR/webaudio/#active-source) flag to [ToBoolean](https://tc39.github.io/ecma262/#sec-toboolean)(callResult.\[\[Value\]\]).
-                    
-            13.  **Return:** at this point completion will be set to an ECMAScript [completion](https://tc39.es/ecma262/#sec-completion-record-specification-type) value.
-                
-                1.  [Clean up after running a callback](https://html.spec.whatwg.org/multipage/webappapis.html#clean-up-after-running-a-callback) with the [current settings object](https://html.spec.whatwg.org/multipage/webappapis.html#current-settings-object).
-                    
-                2.  [Clean up after running script](https://html.spec.whatwg.org/multipage/webappapis.html#clean-up-after-running-script) with the [current settings object](https://html.spec.whatwg.org/multipage/webappapis.html#current-settings-object).
-                    
-                3.  If completion is an [abrupt completion](https://tc39.github.io/ecma262/#sec-completion-record-specification-type):
-                    
-                    1.  Set `[[[callable process]]](https://www.w3.org/TR/webaudio/#dom-audioworkletprocessor-callable-process-slot)` to `false`.
-                        
-                    2.  Set processor’s [active source](https://www.w3.org/TR/webaudio/#active-source) flag to `false`.
-                        
-                    3.  [Make a silent output buffer available for reading](https://www.w3.org/TR/webaudio/#available-for-reading).
-                        
-                    4.  [Queue a task](https://html.spec.whatwg.org/multipage/webappapis.html#queue-a-task) to the [control thread](https://www.w3.org/TR/webaudio/#control-thread) [fire](https://dom.spec.whatwg.org/#concept-event-fire) an `[ErrorEvent](https://html.spec.whatwg.org/multipage/webappapis.html#errorevent)` named `processorerror` at the associated `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)`.
-                        
+            10. If [!](https://tc39.es/ecma262/#sec-returnifabrupt-shorthands) [IsCallable](https://tc39.es/ecma262/#sec-iscallable)(processCallback) is `false`, then:
+
+            11. Set completion to new [Completion](https://tc39.es/ecma262/#sec-throwcompletion) {\[\[Type\]\]: throw, \[\[Value\]\]: a newly created [TypeError](https://tc39.es/ecma262/#sec-native-error-types-used-in-this-standard-typeerror) object, \[\[Target\]\]: empty}.
+            12. Jump to the step labeled [return](https://www.w3.org/TR/webaudio/#audio-worklet-render-return).
+            13. Set `[[[callable process]]](https://www.w3.org/TR/webaudio/#dom-audioworkletprocessor-callable-process-slot)` to `true`.
+
+            14. Perform the following substeps:
+
+            15. Let args be a [Web IDL arguments list](https://heycam.github.io/webidl/#web-idl-arguments-list) consisting of `[inputs](https://www.w3.org/TR/webaudio/#dom-audioworkletprocesscallback-inputs)`, `[outputs](https://www.w3.org/TR/webaudio/#dom-audioworkletprocesscallback-outputs)`, and `[parameters](https://www.w3.org/TR/webaudio/#dom-audioworkletprocesscallback-parameters)`.
+            16. Let esArgs be the result of [converting](https://heycam.github.io/webidl/#web-idl-arguments-list-converting) args to an ECMAScript arguments list.
+            17. Let callResult be the [Call](https://tc39.github.io/ecma262/#sec-call)(processCallback, O, esArgs). This operation [computes a block of audio](https://www.w3.org/TR/webaudio/#computing-a-block-of-audio) with esArgs. Upon a successful function call, a buffer containing copies of the elements of the `[Float32Array](https://heycam.github.io/webidl/#idl-Float32Array)`s passed via the `[outputs](https://www.w3.org/TR/webaudio/#dom-audioworkletprocesscallback-outputs)` is [made available for reading](https://www.w3.org/TR/webaudio/#available-for-reading). Any `[Promise](https://heycam.github.io/webidl/#idl-promise)` resolved within this call will be queued into the microtask queue in the `[AudioWorkletGlobalScope](https://www.w3.org/TR/webaudio/#audioworkletglobalscope)`.
+            18. If callResult is an [abrupt completion](https://tc39.github.io/ecma262/#sec-completion-record-specification-type), set completion to callResult and jump to the step labeled [return](https://www.w3.org/TR/webaudio/#audio-worklet-render-return).
+            19. Set processor’s [active source](https://www.w3.org/TR/webaudio/#active-source) flag to [ToBoolean](https://tc39.github.io/ecma262/#sec-toboolean)(callResult.\[\[Value\]\]).
+            20. **Return:** at this point completion will be set to an ECMAScript [completion](https://tc39.es/ecma262/#sec-completion-record-specification-type) value.
+
+            21. [Clean up after running a callback](https://html.spec.whatwg.org/multipage/webappapis.html#clean-up-after-running-a-callback) with the [current settings object](https://html.spec.whatwg.org/multipage/webappapis.html#current-settings-object).
+            22. [Clean up after running script](https://html.spec.whatwg.org/multipage/webappapis.html#clean-up-after-running-script) with the [current settings object](https://html.spec.whatwg.org/multipage/webappapis.html#current-settings-object).
+            23. If completion is an [abrupt completion](https://tc39.github.io/ecma262/#sec-completion-record-specification-type):
+
+                1.  Set `[[[callable process]]](https://www.w3.org/TR/webaudio/#dom-audioworkletprocessor-callable-process-slot)` to `false`.
+                2.  Set processor’s [active source](https://www.w3.org/TR/webaudio/#active-source) flag to `false`.
+                3.  [Make a silent output buffer available for reading](https://www.w3.org/TR/webaudio/#available-for-reading).
+                4.  [Queue a task](https://html.spec.whatwg.org/multipage/webappapis.html#queue-a-task) to the [control thread](https://www.w3.org/TR/webaudio/#control-thread) [fire](https://dom.spec.whatwg.org/#concept-event-fire) an `[ErrorEvent](https://html.spec.whatwg.org/multipage/webappapis.html#errorevent)` named `processorerror` at the associated `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)`.
+
         5.  If this `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` is a [destination node](https://www.w3.org/TR/webaudio/#destination-node), [record the input](https://www.w3.org/TR/webaudio/#recording-the-input) of this `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`.
-            
         6.  Else, [process](https://www.w3.org/TR/webaudio/#processing-input-buffer) the [input buffer](https://www.w3.org/TR/webaudio/#input-buffer), and [make available for reading](https://www.w3.org/TR/webaudio/#available-for-reading) the resulting buffer.
-            
+
     5.  [Atomically](https://www.w3.org/TR/webaudio/#atomically) perform the following steps:
-        
+
         1.  Increment `[[[current frame]]](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-current-frame-slot)` by the [render quantum size](https://www.w3.org/TR/webaudio/#render-quantum-size).
-            
         2.  Set `[currentTime](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-currenttime)` to `[[[current frame]]](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-current-frame-slot)` divided by `[sampleRate](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-samplerate)`.
-            
+
     6.  Set render result to `true`.
-        
+
 5.  [Perform a microtask checkpoint](https://html.spec.whatwg.org/multipage/webappapis.html#perform-a-microtask-checkpoint).
-    
 6.  Return render result.
-    
 
 Muting an `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` means that its output MUST be silence for the rendering of this audio block.
 
@@ -9409,11 +9079,8 @@ Processing an input buffer means running the algorithm for an `[AudioNode](https
 Additional [unloading document cleanup steps](https://html.spec.whatwg.org/#unloading-document-cleanup-steps) are defined for documents that use `[BaseAudioContext](https://www.w3.org/TR/webaudio/#baseaudiocontext)`:
 
 1.  Reject all the promises of `[[[pending promises]]](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-pending-promises-slot)` with `InvalidStateError`, for each `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)` and `[OfflineAudioContext](https://www.w3.org/TR/webaudio/#offlineaudiocontext)` whose relevant global object is the same as the document’s associated Window.
-    
 2.  Stop all `[decoding thread](https://www.w3.org/TR/webaudio/#dom-baseaudiocontext-decoding-thread)`s.
-    
 3.  [Queue a control message](https://www.w3.org/TR/webaudio/#queuing) to `[close()](https://www.w3.org/TR/webaudio/#dom-audiocontext-close)` the `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)` or `[OfflineAudioContext](https://www.w3.org/TR/webaudio/#offlineaudiocontext)`.
-    
 
 ## 3\. Dynamic Lifetime[](https://www.w3.org/TR/webaudio/#DynamicLifetime)
 
@@ -9473,7 +9140,7 @@ Quad
 
 0
 
-SPEAKER\_FRONT\_LEFT
+SPEAKER_FRONT_LEFT
 
 0
 
@@ -9485,7 +9152,7 @@ SPEAKER\_FRONT\_LEFT
 
 1
 
-SPEAKER\_FRONT\_RIGHT
+SPEAKER_FRONT_RIGHT
 
 1
 
@@ -9495,19 +9162,19 @@ SPEAKER\_FRONT\_RIGHT
 
 2
 
-SPEAKER\_FRONT\_CENTER
+SPEAKER_FRONT_CENTER
 
 2
 
 3
 
-SPEAKER\_LOW\_FREQUENCY
+SPEAKER_LOW_FREQUENCY
 
 3
 
 4
 
-SPEAKER\_BACK\_LEFT
+SPEAKER_BACK_LEFT
 
 2
 
@@ -9515,7 +9182,7 @@ SPEAKER\_BACK\_LEFT
 
 5
 
-SPEAKER\_BACK\_RIGHT
+SPEAKER_BACK_RIGHT
 
 3
 
@@ -9523,51 +9190,51 @@ SPEAKER\_BACK\_RIGHT
 
 6
 
-SPEAKER\_FRONT\_LEFT\_OF\_CENTER
+SPEAKER_FRONT_LEFT_OF_CENTER
 
 7
 
-SPEAKER\_FRONT\_RIGHT\_OF\_CENTER
+SPEAKER_FRONT_RIGHT_OF_CENTER
 
 8
 
-SPEAKER\_BACK\_CENTER
+SPEAKER_BACK_CENTER
 
 9
 
-SPEAKER\_SIDE\_LEFT
+SPEAKER_SIDE_LEFT
 
 10
 
-SPEAKER\_SIDE\_RIGHT
+SPEAKER_SIDE_RIGHT
 
 11
 
-SPEAKER\_TOP\_CENTER
+SPEAKER_TOP_CENTER
 
 12
 
-SPEAKER\_TOP\_FRONT\_LEFT
+SPEAKER_TOP_FRONT_LEFT
 
 13
 
-SPEAKER\_TOP\_FRONT\_CENTER
+SPEAKER_TOP_FRONT_CENTER
 
 14
 
-SPEAKER\_TOP\_FRONT\_RIGHT
+SPEAKER_TOP_FRONT_RIGHT
 
 15
 
-SPEAKER\_TOP\_BACK\_LEFT
+SPEAKER_TOP_BACK_LEFT
 
 16
 
-SPEAKER\_TOP\_BACK\_CENTER
+SPEAKER_TOP_BACK_CENTER
 
 17
 
-SPEAKER\_TOP\_BACK\_RIGHT
+SPEAKER_TOP_BACK_RIGHT
 
 ### 4.3. Implication of tail-time on input and output channel count[](https://www.w3.org/TR/webaudio/#channels-tail-time)
 
@@ -9577,12 +9244,10 @@ When there is a decrease in input channel count, the change in output channel co
 
 When there is an increase in input channel count, the behavior depends on the `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` type:
 
--   For a `[DelayNode](https://www.w3.org/TR/webaudio/#delaynode)` or a `[DynamicsCompressorNode](https://www.w3.org/TR/webaudio/#dynamicscompressornode)`, the number of output channels MUST increase when the input that was received with greater channel count begins to affect the output.
-    
--   For other `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`s that have a [tail-time](https://www.w3.org/TR/webaudio/#tail-time), the number of output channels MUST increase immediately.
-    
-    Note: For a `[ConvolverNode](https://www.w3.org/TR/webaudio/#convolvernode)`, this only applies to the case where the impulse response is mono. Otherwise, the `[ConvolverNode](https://www.w3.org/TR/webaudio/#convolvernode)` always outputs a stereo signal regardless of its input channel count.
-    
+- For a `[DelayNode](https://www.w3.org/TR/webaudio/#delaynode)` or a `[DynamicsCompressorNode](https://www.w3.org/TR/webaudio/#dynamicscompressornode)`, the number of output channels MUST increase when the input that was received with greater channel count begins to affect the output.
+- For other `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`s that have a [tail-time](https://www.w3.org/TR/webaudio/#tail-time), the number of output channels MUST increase immediately.
+
+  Note: For a `[ConvolverNode](https://www.w3.org/TR/webaudio/#convolvernode)`, this only applies to the case where the impulse response is mono. Otherwise, the `[ConvolverNode](https://www.w3.org/TR/webaudio/#convolvernode)` always outputs a stereo signal regardless of its input channel count.
 
 Note: Intuitively, this allows not losing stereo information as part of processing: when multiple input render quanta of different channel count contribute to an output render quantum then the output render quantum’s channel count is a superset of the input channel count of the input render quantums.
 
@@ -9590,49 +9255,49 @@ Note: Intuitively, this allows not losing stereo information as part of processi
 
 Mono up-mix:
 
-  1 -> 2 : up-mix from mono to stereo
-    output.L = input;
-    output.R = input;
+1 -> 2 : up-mix from mono to stereo
+output.L = input;
+output.R = input;
 
-  1 -> 4 : up-mix from mono to quad
-    output.L = input;
-    output.R = input;
-    output.SL = 0;
-    output.SR = 0;
+1 -> 4 : up-mix from mono to quad
+output.L = input;
+output.R = input;
+output.SL = 0;
+output.SR = 0;
 
-  1 -> 5.1 : up-mix from mono to 5.1
-    output.L = 0;
-    output.R = 0;
-    output.C = input; // put in center channel
-    output.LFE = 0;
-    output.SL = 0;
-    output.SR = 0;
+1 -> 5.1 : up-mix from mono to 5.1
+output.L = 0;
+output.R = 0;
+output.C = input; // put in center channel
+output.LFE = 0;
+output.SL = 0;
+output.SR = 0;
 
 Stereo up-mix:
 
-  2 -> 4 : up-mix from stereo to quad
-    output.L = input.L;
-    output.R = input.R;
-    output.SL = 0;
-    output.SR = 0;
+2 -> 4 : up-mix from stereo to quad
+output.L = input.L;
+output.R = input.R;
+output.SL = 0;
+output.SR = 0;
 
-  2 -> 5.1 : up-mix from stereo to 5.1
-    output.L = input.L;
-    output.R = input.R;
-    output.C = 0;
-    output.LFE = 0;
-    output.SL = 0;
-    output.SR = 0;
+2 -> 5.1 : up-mix from stereo to 5.1
+output.L = input.L;
+output.R = input.R;
+output.C = 0;
+output.LFE = 0;
+output.SL = 0;
+output.SR = 0;
 
 Quad up-mix:
 
-  4 -> 5.1 : up-mix from quad to 5.1
-    output.L = input.L;
-    output.R = input.R;
-    output.C = 0;
-    output.LFE = 0;
-    output.SL = input.SL;
-    output.SR = input.SR;
+4 -> 5.1 : up-mix from quad to 5.1
+output.L = input.L;
+output.R = input.R;
+output.C = 0;
+output.LFE = 0;
+output.SL = input.SL;
+output.SR = input.SR;
 
 ### 4.5. Down Mixing Speaker Layouts[](https://www.w3.org/TR/webaudio/#down-mix)
 
@@ -9640,32 +9305,32 @@ A down-mix will be necessary, for example, if processing 5.1 source material, bu
 
 Mono down-mix:
 
-  2 -> 1 : stereo to mono
-    output = 0.5 \* (input.L + input.R);
+2 -> 1 : stereo to mono
+output = 0.5 \* (input.L + input.R);
 
-  4 -> 1 : quad to mono
-    output = 0.25 \* (input.L + input.R + input.SL + input.SR);
+4 -> 1 : quad to mono
+output = 0.25 \* (input.L + input.R + input.SL + input.SR);
 
-  5.1 -> 1 : 5.1 to mono
-    output = sqrt(0.5) \* (input.L + input.R) + input.C + 0.5 \* (input.SL + input.SR)
+5.1 -> 1 : 5.1 to mono
+output = sqrt(0.5) \* (input.L + input.R) + input.C + 0.5 \* (input.SL + input.SR)
 
 Stereo down-mix:
 
-  4 -> 2 : quad to stereo
-    output.L = 0.5 \* (input.L + input.SL);
-    output.R = 0.5 \* (input.R + input.SR);
+4 -> 2 : quad to stereo
+output.L = 0.5 \* (input.L + input.SL);
+output.R = 0.5 \* (input.R + input.SR);
 
-  5.1 -> 2 : 5.1 to stereo
-    output.L = L + sqrt(0.5) \* (input.C + input.SL)
-    output.R = R + sqrt(0.5) \* (input.C + input.SR)
+5.1 -> 2 : 5.1 to stereo
+output.L = L + sqrt(0.5) \* (input.C + input.SL)
+output.R = R + sqrt(0.5) \* (input.C + input.SR)
 
 Quad down-mix:
 
-  5.1 -> 4 : 5.1 to quad
-    output.L = L + sqrt(0.5) \* input.C
-    output.R = R + sqrt(0.5) \* input.C
-    output.SL = input.SL
-    output.SR = input.SR
+5.1 -> 4 : 5.1 to quad
+output.L = L + sqrt(0.5) \* input.C
+output.R = R + sqrt(0.5) \* input.C
+output.SL = input.SL
+output.SR = input.SR
 
 ### 4.6. Channel Rules Examples[](https://www.w3.org/TR/webaudio/#ChannelRules-section)
 
@@ -9714,63 +9379,61 @@ _Mono-to-stereo_ and _stereo-to-stereo_ panning MUST be supported. _Mono-to-ster
 This is a simple and relatively inexpensive algorithm which provides basic, but reasonable results. It is used for the for the `[PannerNode](https://www.w3.org/TR/webaudio/#pannernode)` when the `[panningModel](https://www.w3.org/TR/webaudio/#dom-pannernode-panningmodel)` attribute is set to "`[equalpower](https://www.w3.org/TR/webaudio/#dom-panningmodeltype-equalpower)`", in which case the _elevation_ value is ignored. This algorithm MUST be implemented using the appropriate rate as specified by the `[automationRate](https://www.w3.org/TR/webaudio/#dom-audioparam-automationrate)`. If any of the `[PannerNode](https://www.w3.org/TR/webaudio/#pannernode)`'s `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)`s or the `[AudioListener](https://www.w3.org/TR/webaudio/#audiolistener)`'s `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)`s are "`[a-rate](https://www.w3.org/TR/webaudio/#dom-automationrate-a-rate)`", [a-rate](https://www.w3.org/TR/webaudio/#a-rate) processing must be used.
 
 1.  For each sample to be computed by this `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`:
-    
+
     1.  Let azimuth be the value computed in the [azimuth and elevation](https://www.w3.org/TR/webaudio/#azimuth-elevation) section.
-        
     2.  The azimuth value is first contained to be within the range \[-90, 90\] according to:
-        
+
         // First, clamp azimuth to allowed range of \[-180, 180\].
         azimuth \= max(\-180, azimuth);
         azimuth \= min(180, azimuth);
-        
+
         // Then wrap to range \[-90, 90\].
         if (azimuth < \-90)
-          azimuth \= \-180 \- azimuth;
+        azimuth \= \-180 \- azimuth;
         else if (azimuth \> 90)
-          azimuth \= 180 \- azimuth;
-        
+        azimuth \= 180 \- azimuth;
+
     3.  A normalized value _x_ is calculated from azimuth for a mono input as:
-        
+
         x \= (azimuth + 90) / 180;
-        
+
         Or for a stereo input as:
-        
+
         if (azimuth <= 0) { // -90 -> 0
-          // Transform the azimuth value from \[-90, 0\] degrees into the range \[-90, 90\].
-          x \= (azimuth + 90) / 90;
+        // Transform the azimuth value from \[-90, 0\] degrees into the range \[-90, 90\].
+        x \= (azimuth + 90) / 90;
         } else { // 0 -> 90
-          // Transform the azimuth value from \[0, 90\] degrees into the range \[-90, 90\].
-          x \= azimuth / 90;
+        // Transform the azimuth value from \[0, 90\] degrees into the range \[-90, 90\].
+        x \= azimuth / 90;
         }
-        
+
     4.  Left and right gain values are calculated as:
-        
+
         gainL \= cos(x \* Math.PI / 2);
         gainR \= sin(x \* Math.PI / 2);
-        
+
     5.  For mono input, the stereo output is calculated as:
-        
+
         outputL \= input \* gainL;
         outputR \= input \* gainR;
-        
+
         Else for stereo input, the output is calculated as:
-        
+
         if (azimuth <= 0) {
-          outputL \= inputL + inputR \* gainL;
-          outputR \= inputR \* gainR;
+        outputL \= inputL + inputR \* gainL;
+        outputR \= inputR \* gainR;
         } else {
-          outputL \= inputL \* gainL;
-          outputR \= inputR + inputL \* gainR;
+        outputL \= inputL \* gainL;
+        outputR \= inputR + inputL \* gainR;
         }
-        
+
     6.  Apply the distance gain and cone gain where the computation of the distance is described in [Distance Effects](https://www.w3.org/TR/webaudio/#Spatialization-distance-effects) and the cone gain is described in [Sound Cones](https://www.w3.org/TR/webaudio/#Spatialization-sound-cones):
-        
+
         let distance \= distance();
         let distanceGain \= distanceModel(distance);
         let totalGain \= coneGain() \* distanceGain();
         outputL \= totalGain \* outputL;
         outputR \= totalGain \* outputR;
-        
 
 #### 6.3.2. PannerNode "HRTF" Panning (Stereo Only)[](https://www.w3.org/TR/webaudio/#Spatialization-hrtf-panning)
 
@@ -9785,45 +9448,43 @@ A diagram showing the process of panning a source using HRTF.
 For a `[StereoPannerNode](https://www.w3.org/TR/webaudio/#stereopannernode)`, the following algorithm MUST be implemented.
 
 1.  For each sample to be computed by this `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`
-    
+
     1.  Let pan be the [computedValue](https://www.w3.org/TR/webaudio/#computedvalue) of the `pan` `[AudioParam](https://www.w3.org/TR/webaudio/#audioparam)` of this `[StereoPannerNode](https://www.w3.org/TR/webaudio/#stereopannernode)`.
-        
     2.  Clamp pan to \[-1, 1\].
-        
+
         pan \= max(\-1, pan);
         pan \= min(1, pan);
-        
+
     3.  Calculate _x_ by normalizing pan value to \[0, 1\]. For mono input:
-        
+
         x \= (pan + 1) / 2;
-        
+
         For stereo input:
-        
+
         if (pan <= 0)
-          x \= pan + 1;
+        x \= pan + 1;
         else
-          x \= pan;
-        
+        x \= pan;
+
     4.  Left and right gain values are calculated as:
-        
+
         gainL \= cos(x \* Math.PI / 2);
         gainR \= sin(x \* Math.PI / 2);
-        
+
     5.  For mono input, the stereo output is calculated as:
-        
+
         outputL \= input \* gainL;
         outputR \= input \* gainR;
-        
+
         Else for stereo input, the output is calculated as:
-        
+
         if (pan <= 0) {
-          outputL \= inputL + inputR \* gainL;
-          outputR \= inputR \* gainR;
+        outputL \= inputL + inputR \* gainL;
+        outputR \= inputR \* gainR;
         } else {
-          outputL \= inputL \* gainL;
-          outputR \= inputR + inputL \* gainR;
+        outputL \= inputL \* gainL;
+        outputR \= inputR + inputL \* gainR;
         }
-        
 
 ### 6.4. Distance Effects[](https://www.w3.org/TR/webaudio/#Spatialization-distance-effects)
 
@@ -9869,22 +9530,14 @@ Along with minimizing overall latency, implementations will generally seek to mi
 
 Additionally, some `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`s can add latency to some paths of the audio graph, notably:
 
--   The `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)` can run a script that buffers internally, adding delay to the signal path.
-    
--   The `[DelayNode](https://www.w3.org/TR/webaudio/#delaynode)`, whose role is to add controlled latency time.
-    
--   The `[BiquadFilterNode](https://www.w3.org/TR/webaudio/#biquadfilternode)` and `[IIRFilterNode](https://www.w3.org/TR/webaudio/#iirfilternode)` filter design can delay incoming samples, as a natural consequence of the causal filtering process.
-    
--   The `[ConvolverNode](https://www.w3.org/TR/webaudio/#convolvernode)` depending on the impulse, can delay incoming samples, as a natural result of the convolution operation.
-    
--   The `[DynamicsCompressorNode](https://www.w3.org/TR/webaudio/#dynamicscompressornode)` has a look ahead algorithm that causes delay in the signal path.
-    
--   The `[MediaStreamAudioSourceNode](https://www.w3.org/TR/webaudio/#mediastreamaudiosourcenode)`, `[MediaStreamTrackAudioSourceNode](https://www.w3.org/TR/webaudio/#mediastreamtrackaudiosourcenode)` and `[MediaStreamAudioDestinationNode](https://www.w3.org/TR/webaudio/#mediastreamaudiodestinationnode)`, depending on the implementation, can add buffers internally that add delays.
-    
--   The `[ScriptProcessorNode](https://www.w3.org/TR/webaudio/#scriptprocessornode)` can have buffers between the control thread and the rendering thread.
-    
--   The `[WaveShaperNode](https://www.w3.org/TR/webaudio/#waveshapernode)`, when oversampling, and depending on the oversampling technique, add delays to the signal path.
-    
+- The `[AudioWorkletNode](https://www.w3.org/TR/webaudio/#audioworkletnode)` can run a script that buffers internally, adding delay to the signal path.
+- The `[DelayNode](https://www.w3.org/TR/webaudio/#delaynode)`, whose role is to add controlled latency time.
+- The `[BiquadFilterNode](https://www.w3.org/TR/webaudio/#biquadfilternode)` and `[IIRFilterNode](https://www.w3.org/TR/webaudio/#iirfilternode)` filter design can delay incoming samples, as a natural consequence of the causal filtering process.
+- The `[ConvolverNode](https://www.w3.org/TR/webaudio/#convolvernode)` depending on the impulse, can delay incoming samples, as a natural result of the convolution operation.
+- The `[DynamicsCompressorNode](https://www.w3.org/TR/webaudio/#dynamicscompressornode)` has a look ahead algorithm that causes delay in the signal path.
+- The `[MediaStreamAudioSourceNode](https://www.w3.org/TR/webaudio/#mediastreamaudiosourcenode)`, `[MediaStreamTrackAudioSourceNode](https://www.w3.org/TR/webaudio/#mediastreamtrackaudiosourcenode)` and `[MediaStreamAudioDestinationNode](https://www.w3.org/TR/webaudio/#mediastreamaudiodestinationnode)`, depending on the implementation, can add buffers internally that add delays.
+- The `[ScriptProcessorNode](https://www.w3.org/TR/webaudio/#scriptprocessornode)` can have buffers between the control thread and the rendering thread.
+- The `[WaveShaperNode](https://www.w3.org/TR/webaudio/#waveshapernode)`, when oversampling, and depending on the oversampling technique, add delays to the signal path.
 
 ### 7.2. Audio Buffer Copying[](https://www.w3.org/TR/webaudio/#audio-buffer-copying)
 
@@ -9907,104 +9560,107 @@ Audio glitches are caused by an interruption of the normal continuous audio stre
 Per the [Self-Review Questionnaire: Security and Privacy §questions](https://www.w3.org/TR/security-privacy-questionnaire/#questions):
 
 1.  Does this specification deal with personally-identifiable information?
-    
+
     It would be possible to perform a hearing test using Web Audio API, thus revealing the range of frequencies audible to a person (this decreases with age). It is difficult to see how this could be done without the realization and consent of the user, as it requires active particpation.
-    
+
 2.  Does this specification deal with high-value data?
-    
+
     No. Credit card information and the like is not used in Web Audio. It is possible to use Web Audio to process or analyze voice data, which might be a privacy concern, but access to the user’s microphone is permission-based via `[getUserMedia()](https://www.w3.org/TR/mediacapture-streams/#dom-mediadevices-getusermedia)`.
-    
+
 3.  Does this specification introduce new state for an origin that persists across browsing sessions?
-    
+
     No. AudioWorklet does not persist across browsing sessions.
-    
+
 4.  Does this specification expose persistent, cross-origin state to the web?
-    
+
     Yes, the supported audio sample rate(s) and the output device channel count are exposed. See `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)`.
-    
+
 5.  Does this specification expose any other data to an origin that it doesn’t currently have access to?
-    
+
     Yes. When giving various information on available `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)`s, the Web Audio API potentially exposes information on characteristic features of the client (such as audio hardware sample-rate) to any page that makes use of the `[AudioNode](https://www.w3.org/TR/webaudio/#audionode)` interface. Additionally, timing information can be collected through the `[AnalyserNode](https://www.w3.org/TR/webaudio/#analysernode)` or `[ScriptProcessorNode](https://www.w3.org/TR/webaudio/#scriptprocessornode)` interface. The information could subsequently be used to create a fingerprint of the client.
-    
+
     Research by Princeton CITP’s [](https://audiofingerprint.openwpm.com/)Web Transparency and Accountability Project has shown that `[DynamicsCompressorNode](https://www.w3.org/TR/webaudio/#dynamicscompressornode)` and `[OscillatorNode](https://www.w3.org/TR/webaudio/#oscillatornode)` can be used to gather entropy from a client to fingerprint a device. This is due to small, and normally inaudible, differences in DSP architecture, resampling strategies and rounding trade-offs between differing implementations. The precise compiler flags used and also the CPU architecture (ARM vs. x86) contribute to this entropy.
-    
+
     In practice however, this merely allows deduction of information already readily available by easier means (User Agent string), such as "this is browser X running on platform Y". However, to reduce the possibility of additional fingerprinting, we mandate browsers take action to mitigate fingerprinting issues that might be possible from the output of any node.
-    
+
     Fingerprinting via clock skew [has been described by Steven J Murdoch and Sebastian Zander](https://murdoch.is/talks/eurobsdcon07hotornot.pdf). It might be possible to determine this from `[getOutputTimestamp](https://www.w3.org/TR/webaudio/#dom-audiocontext-getoutputtimestamp)`. Skew-based fingerprinting has also been demonstrated [by Nakibly et. al. for HTML](https://pdfs.semanticscholar.org/cfd2/6a17234696593919df3f880a235d6ac5871d.pdf). The [High-Resolution Time §7 Privacy and Security](https://w3c.github.io/hr-time/#sec-privacy-security) section should be consulted for further information on clock resolution and drift.
-    
+
     Fingerprinting via latency is also possible; it might be possible to deduce this from `[baseLatency](https://www.w3.org/TR/webaudio/#dom-audiocontext-baselatency)` and `[outputLatency](https://www.w3.org/TR/webaudio/#dom-audiocontext-outputlatency)`. Mitigation strategies include adding jitter (dithering) and quantization so that the exact skew is incorrectly reported. Note however that most audio systems aim for [low latency](https://padenot.github.io/web-audio-perf/#latency), to synchronise the audio generated by WebAudio to other audio or video sources or to visual cues (for example in a game, or an audio recording or music making environment). Excessive latency decreases usability and may be an accessibility issue.
-    
+
     Fingerprining via the sample rate of the `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)` is also possible. We recommend the following steps to be taken to minimize this:
-    
+
     1.  44.1 kHz and 48 kHz are allowed as default rates; the system will choose between them for best applicability. (Obviously, if the audio device is natively 44.1, 44.1 will be chosen, etc., but also the system may choose the most "compatible" rate—e.g. if the system is natively 96kHz, 48kHz would likely be chosen, not 44.1kHz.
-        
     2.  The system should resample to one of those two rates for devices that are natively at different rates, despite the fact that this may cause extra battery drain due to resampled audio. (Again, the system will choose the most compatible rate—e.g. if the native system is 16kHz, it’s expected that 48kHz would be chosen.)
-        
     3.  It is expected (though not mandated) that browsers would offer a user affordance to force use of the native rate—e.g. by setting a flag in the browser on the device. This setting would not be exposed in the API.
-        
     4.  It is also expected behavior that a different rate could be explicitly requested in the constructor for `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)` (this is already in the specification; it normally causes the audio rendering to be done at the requested sampleRate, and then up- or down-sampled to the device output), and if that rate is natively supported, the rendering could be passed straight through. This would enable apps to render to higher rates without user intervention (although it’s not observable from Web Audio that the audio output is not downsampled on output)—for example, if `[MediaDevices](https://www.w3.org/TR/mediacapture-streams/#dom-mediadevices)` capabilities were read (with user intervention) and indicated a higher rate was supported.
-        
-    
+
     Fingerprinting via the number of output channels for the `[AudioContext](https://www.w3.org/TR/webaudio/#audiocontext)` is possible as well. We recommend that `[maxChannelCount](https://www.w3.org/TR/webaudio/#dom-audiodestinationnode-maxchannelcount)` be set to two (stereo). Stereo is by far the most common number of channels.
-    
+
 6.  Does this specification enable new script execution/loading mechanisms?
-    
+
     No. It does use the [\[HTML\]](https://www.w3.org/TR/webaudio/#biblio-html) script execution method, defined in that specification.
-    
+
 7.  Does this specification allow an origin access to a user’s location?
-    
+
     No.
-    
+
 8.  Does this specification allow an origin access to sensors on a user’s device?
-    
+
     Not directly. Currently, audio input is not specified in this document, but it will involve gaining access to the client machine’s audio input or microphone. This will require asking the user for permission in an appropriate way, probably via the `[getUserMedia()](https://www.w3.org/TR/mediacapture-streams/#dom-mediadevices-getusermedia)` API.
-    
+
     Additionally, the security and privacy considerations from the [Media Capture and Streams](https://www.w3.org/TR/mediacapture-streams/) specification should be noted. In particular, analysis of ambient audio or playing unique audio may enable identification of user location down to the level of a room or even simultaneous occupation of a room by disparate users or devices. Access to both audio output and audio input might also enable communication between otherwise partitioned contexts in one browser.
-    
+
 9.  Does this specification allow an origin access to aspects of a user’s local computing environment?
-    
+
     Not directly; all requested sample rates are supported, with upsampling if needed. It is possible to use Media Capture and Streams to probe for supported audio sample rates with [MediaTrackSupportedConstraints](https://www.w3.org/TR/mediacapture-streams/#media-track-supported-constraints). This requires explicit user consent. This does provide a small measure of fingerprinting. However, in practice most consumer and prosumer devices use one of two standardized sample rates: 44.1kHz (originally used by CD) and 48kHz (originally used by DAT). Highly resource constrained devices may support the speech-quality 11kHz sample rate, and higher-end devices often support 88.2, 96, or even the audiophile 192kHz rate.
-    
+
     Requiring all implementations to upsample to a single, commonly-supported rate such as 48kHz would increase CPU cost for no particular benefit, and requiring higher-end devices to use a lower rate would merely result in Web Audio being labelled as unsuitable for professional use.
-    
-10.  Does this specification allow an origin access to other devices?
-    
+
+10. Does this specification allow an origin access to other devices?
+
+
     It typically does not allow access to other networked devices (an exception in a high-end recording studio might be Dante networked devices, although these typically use a separate, dedicated network). It does of necessity allow access to the user’s audio output device or devices, which are sometimes separate units to the computer.
-    
+
     For voice or sound-actuated devices, Web Audio API _might_ be used to control other devices. In addition, if the sound-operated device is sensitive to near ultrasonic frequencies, such control might not be audible. This possibility also exists with HTML, through either the <audio> or <video> element. At common audio sampling rates, there is (by design) insufficient headroom for much ultrasonic information:
-    
+
     The limit of human hearing is usually stated as 20kHz. For a 44.1kHz sampling rate, the Nyquist limit is 22.05kHz. Given that a true brickwall filter cannot be physically realized, the space between 20kHz and 22.05kHz is used for a rapid rolloff filter to strongly attenuate all frequencies above Nyquist.
-    
+
     At 48kHz sampling rate, there is still rapid attenuation in the 20kHz to 24kHz band (but it is easier to avoid phase ripple errors in the passband).
-    
-11.  Does this specification allow an origin some measure of control over a user agent’s native UI?
-    
+
+11. Does this specification allow an origin some measure of control over a user agent’s native UI?
+
+
     If the UI has audio components, such as a voice assistant or screenreader, Web Audio API might be used to emulate aspects of the native UI to make an attack seem more like a local system event. This possibility also exists with HTML, through the <audio> element.
-    
-12.  Does this specification expose temporary identifiers to the web?
-    
+
+12. Does this specification expose temporary identifiers to the web?
+
+
     No.
-    
-13.  Does this specification distinguish between behavior in first-party and third-party contexts?
-    
+
+13. Does this specification distinguish between behavior in first-party and third-party contexts?
+
+
     No.
-    
-14.  How should this specification work in the context of a user agent’s "incognito" mode?
-    
+
+14. How should this specification work in the context of a user agent’s "incognito" mode?
+
+
     Not differently.
-    
-15.  Does this specification persist data to a user’s local device?
-    
+
+15. Does this specification persist data to a user’s local device?
+
+
     No.
-    
-16.  Does this specification have a "Security Considerations" and "Privacy Considerations" section?
-    
+
+16. Does this specification have a "Security Considerations" and "Privacy Considerations" section?
+
+
     Yes (you are reading it).
-    
-17.  Does this specification allow downgrading default security characteristics?
-    
+
+17. Does this specification allow downgrading default security characteristics?
+
+
     No.
-    
 
 ## 9\. Requirements and Use Cases[](https://www.w3.org/TR/webaudio/#requirements)
 
@@ -10015,6 +9671,3 @@ Please see [\[webaudio-usecases\]](https://www.w3.org/TR/webaudio/#biblio-webaud
 This section describes common functions and classes employed by JavaScript code used within this specification.
 
 // Three dimensional vector class.class Vec3 { // Construct from 3 coordinates. constructor(x, y, z) { this.x \= x; this.y \= y; this.z \= z; } // Dot product with another vector. dot(v) { return (this.x \* v.x) + (this.y \* v.y) + (this.z \* v.z); } // Cross product with another vector. cross(v) { return new Vec3((this.y \* v.z) \- (this.z \* v.y), (this.z \* v.x) \- (this.x \* v.z), (this.x \* v.y) \- (this.y \* v.x)); } // Difference with another vector. diff(v) { return new Vec3(this.x \- v.x, this.y \- v.y, this.z \- v.z); } // Get the magnitude of this vector. get magnitude() { return Math.sqrt(dot(this)); } // Get a copy of this vector multiplied by a scalar. scale(s) { return new Vec3(this.x \* s, this.y \* s, this.z \* s); } // Get a normalized copy of this vector. normalize() { const m \= magnitude; if (m \== 0) { return new Vec3(0, 0, 0); } return scale(1 / m); }}
-
-
-

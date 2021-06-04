@@ -1,12 +1,12 @@
-import React from 'react';
-import RConnectableNode from './../base/connectable-node.js';
+import React from "react";
+import RConnectableNode from "./../base/connectable-node.js";
 
 export default class RDelay extends RConnectableNode {
   constructor(props) {
     super(props);
 
     this.params = {
-      delayTime: props.delayTime
+      delayTime: props.delayTime,
     };
   }
 

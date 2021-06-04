@@ -1,5 +1,5 @@
-import React from 'react';
-import RConnectableNode from './../base/connectable-node.js';
+import React from "react";
+import RConnectableNode from "./../base/connectable-node.js";
 
 export default class RPanner extends RConnectableNode {
   constructor(props) {
@@ -19,7 +19,7 @@ export default class RPanner extends RConnectableNode {
       positionZ: this.props.positionZ,
       orientationX: this.props.orientationX,
       orientationY: this.props.orientationY,
-      orientationZ: this.props.orientationZ
+      orientationZ: this.props.orientationZ,
     };
   }
 

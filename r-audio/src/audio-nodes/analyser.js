@@ -1,6 +1,6 @@
-import React from 'react';
-import RConnectableNode from './../base/connectable-node.js';
-import PropTypes from 'prop-types';
+import React from "react";
+import RConnectableNode from "./../base/connectable-node.js";
+import PropTypes from "prop-types";
 
 export default class RAnalyser extends RConnectableNode {
   constructor(props) {
@@ -10,7 +10,7 @@ export default class RAnalyser extends RConnectableNode {
       fftSize: this.props.fftSize,
       minDecibels: this.props.minDecibels,
       maxDecibels: this.props.maxDecibels,
-      smoothingTimeConstant: this.props.smoothingTimeConstant
+      smoothingTimeConstant: this.props.smoothingTimeConstant,
     };
   }
 
@@ -28,19 +28,19 @@ export default class RAnalyser extends RConnectableNode {
 
   render() {
     const analyserProxy = Object.freeze({
-      getFloatFrequencyData: array => {
+      getFloatFrequencyData: (array) => {
         return this.node.getFloatFrequencyData(array);
       },
-      getByteFrequencyData: array => {
+      getByteFrequencyData: (array) => {
         return this.node.getByteFrequencyData(array);
       },
-      getFloatTimeDomainData: array => {
+      getFloatTimeDomainData: (array) => {
         return this.node.getFloatTimeDomainData(array);
       },
-      getByteTimeDomainData: array => {
+      getByteTimeDomainData: (array) => {
         return this.node.getByteTimeDomainData(array);
       },
-      frequencyBinCount: this.node.frequencyBinCount
+      frequencyBinCount: this.node.frequencyBinCount,
     });
 
     this.props.children(analyserProxy);
@@ -50,5 +50,5 @@ export default class RAnalyser extends RConnectableNode {
 }
 
 RAnalyser.propTypes = {
-  children: PropTypes.func.isRequired
+  children: PropTypes.func.isRequired,
 };

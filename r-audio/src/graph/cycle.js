@@ -1,8 +1,8 @@
-import React from 'react';
-import RAudioNode from './../base/audio-node.js';
-import RComponent from './../base/component.js';
+import React from "react";
+import RAudioNode from "./../base/audio-node.js";
+import RComponent from "./../base/component.js";
 
-import { isConnectable } from './utils.js';
+import { isConnectable } from "./utils.js";
 
 /**
  * A RComponent which connects each child to itself as well as the destination
@@ -31,13 +31,18 @@ export default class RCycle extends RComponent {
   render() {
     while (this.inputs.length > 0) this.inputs.pop();
 
-    const children = React.Children
-      .toArray(this.props.children)
-      .filter(c => c !== null && c !== [])
-      .map(c => ({ component: c, identifier: Symbol(c.type.name + Date.now()) }))
+    const children = React.Children.toArray(this.props.children)
+      .filter((c) => c !== null && c !== [])
+      .map((c) => ({
+        component: c,
+        identifier: Symbol(c.type.name + Date.now()),
+      }))
       .map((childTuple, childIndex, childrenArray) => {
         const type = childTuple.component.type;
-        if (RComponent.isPrototypeOf(childTuple.component.type) && isConnectable(childTuple.component)) {
+        if (
+          RComponent.isPrototypeOf(childTuple.component.type) &&
+          isConnectable(childTuple.component)
+        ) {
           this.inputs.push(childTuple.identifier);
         }
 
@@ -46,11 +51,11 @@ export default class RCycle extends RComponent {
             let destination = this.props.destination();
 
             const ownNode = this.context.nodes.get(childTuple.identifier);
-            if (!(destination instanceof Array)) destination = [ destination ];
+            if (!(destination instanceof Array)) destination = [destination];
 
-            return destination.concat([ ownNode ]);
+            return destination.concat([ownNode]);
           },
-          identifier: childTuple.identifier
+          identifier: childTuple.identifier,
         };
 
         return React.cloneElement(childTuple.component, pipelineProps);
@@ -66,9 +71,7 @@ export default class RCycle extends RComponent {
       return (
         <li>
           <strong>RCycle</strong>
-          <ul>
-            {children}
-          </ul>
+          <ul>{children}</ul>
         </li>
       );
     }

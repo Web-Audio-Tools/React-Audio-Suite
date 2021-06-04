@@ -1,5 +1,5 @@
-import React from 'react';
-import RPipeline from './pipeline.js';
+import React from "react";
+import RPipeline from "./pipeline.js";
 
 /**
  * A subclass of RPipeline which can be extended to create custom r-audio nodes
@@ -7,7 +7,7 @@ import RPipeline from './pipeline.js';
  * returning the r-audio graph of your custom node
  *
  * @class      RExtensible (name)
-**/
+ **/
 export default class RExtensible extends RPipeline {
   renderGraph() {
     return null;
@@ -18,7 +18,7 @@ export default class RExtensible extends RPipeline {
   }
 
   render() {
-    this.customChildren = [ this.renderGraph() ].map(this.addKeys);
+    this.customChildren = [this.renderGraph()].map(this.addKeys);
     return super.render();
   }
 }

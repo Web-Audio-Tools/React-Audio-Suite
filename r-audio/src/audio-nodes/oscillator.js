@@ -1,5 +1,5 @@
-import React from 'react';
-import RScheduledSource from './../base/scheduled-source.js';
+import React from "react";
+import RScheduledSource from "./../base/scheduled-source.js";
 
 export default class ROscillator extends RScheduledSource {
   constructor(props) {
@@ -9,7 +9,7 @@ export default class ROscillator extends RScheduledSource {
       frequency: props.frequency,
       detune: props.detune,
       type: props.type,
-      periodicWave: props.periodicWave
+      periodicWave: props.periodicWave,
     };
 
     this.instantiateNode = this.instantiateNode.bind(this);
@@ -25,7 +25,7 @@ export default class ROscillator extends RScheduledSource {
   instantiateNode() {
     if (!this.node || this.playbackScheduled === false) {
       this.node = this.context.audio.createOscillator();
-      this.node.addEventListener('ended', this.onEnded);
+      this.node.addEventListener("ended", this.onEnded);
 
       if (this.props.periodicWave) {
         this.node.setPeriodicWave(this.props.periodicWave);

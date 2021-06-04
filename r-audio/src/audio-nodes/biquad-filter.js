@@ -1,6 +1,6 @@
-import React from 'react';
-import RConnectableNode from './../base/connectable-node.js';
-import PropTypes from 'prop-types';
+import React from "react";
+import RConnectableNode from "./../base/connectable-node.js";
+import PropTypes from "prop-types";
 
 export default class RBiquadFilter extends RConnectableNode {
   constructor(props) {
@@ -11,7 +11,7 @@ export default class RBiquadFilter extends RConnectableNode {
       detune: props.detune,
       Q: props.Q,
       gain: props.gain,
-      type: props.type
+      type: props.type,
     };
   }
 
@@ -28,11 +28,15 @@ export default class RBiquadFilter extends RConnectableNode {
   }
 
   render() {
-    if (typeof this.props.children === 'function') {
+    if (typeof this.props.children === "function") {
       const filterProxy = Object.freeze({
         getFrequencyResponse: (frequencyHz, magResponse, phaseResponse) => {
-          return this.node.getFrequencyResponse(frequencyHz, magResponse, phaseResponse);
-        }
+          return this.node.getFrequencyResponse(
+            frequencyHz,
+            magResponse,
+            phaseResponse
+          );
+        },
       });
 
       this.props.children(filterProxy);
@@ -43,5 +47,5 @@ export default class RBiquadFilter extends RConnectableNode {
 }
 
 RBiquadFilter.propTypes = {
-  children: PropTypes.func
+  children: PropTypes.func,
 };

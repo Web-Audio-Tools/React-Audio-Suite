@@ -1,7 +1,5 @@
-export default navigator.mediaDevices ?
-  navigator.mediaDevices.getUserMedia :
-  (
-    navigator.getUserMedia ||
+export default navigator.mediaDevices
+  ? navigator.mediaDevices.getUserMedia
+  : navigator.getUserMedia ||
     navigator.webkitGetUserMedia ||
-    navigator.mozGetUserMedia
-  );
+    navigator.mozGetUserMedia;
